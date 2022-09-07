@@ -2,10 +2,10 @@
 
 namespace Modules\Languages\Real\Actions;
 
-use App\Repositories\Lanugages\RealLanguageRepository;
-use App\Structures\Languages\RealLanguageStructure;
+use App\Contracts\Structures\Languages\RealLanguageStructure;
 use Illuminate\Support\Collection;
 use Modules\Languages\Real\Filters\RealLanguageFilter;
+use Modules\Languages\Real\Repositories\RealLanguageRepository;
 
 class GetRealLanguages
 {

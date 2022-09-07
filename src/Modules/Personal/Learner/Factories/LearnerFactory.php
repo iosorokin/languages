@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\Learner\Factories;
 
-use App\Structures\Personal\LearnerStructure;
+use App\Contracts\Structures\Personal\LearnerStructure;
 use Modules\Personal\Learner\Contexts\Learner;
 use Modules\Personal\Learner\Dto\CreateLearnerDto;
 

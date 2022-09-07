@@ -1,10 +1,10 @@
 <?php
 
-use App\Controllers\Api\Languages\ReaL\CreateRealLanguageController;
-use App\Controllers\Api\Languages\ReaL\IndexRealLanguagesController;
-use App\Controllers\Api\Personal\Auth\LearnerBaseLoginController;
-use App\Controllers\Api\Personal\Learner\LernerRegistrationController;
 use Illuminate\Support\Facades\Route;
+use Modules\Languages\Real\View\Api\CreateRealLanguageController;
+use Modules\Languages\Real\View\Api\IndexRealLanguagesController;
+use Modules\Personal\Auth\View\Api\LearnerBaseLoginController;
+use Modules\Personal\Learner\View\Api\LernerRegistrationController;
 
 /*
 |--------------------------------------------------------------------------

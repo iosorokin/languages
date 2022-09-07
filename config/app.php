@@ -187,17 +187,26 @@ return [
          */
 
         /*
-         * Application Service Providers...
+         * Core Service Providers...
          */
-        App\AppServiceProvider::class,
-        Core\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         Core\Providers\EventServiceProvider::class,
         Core\Providers\RouteServiceProvider::class,
 
         /*
+         * Application Service Providers
+         */
+        App\Providers\AppServiceProvider::class,
+
+        /*
          * Module Service Providers
          */
+        App\Providers\Modules\Personal\AuthServiceProvider::class,
+        App\Providers\Modules\Personal\UserServiceProvider::class,
+        App\Providers\Modules\Personal\LearnerServiceProvider::class,
+        App\Providers\Modules\Languages\LearningLanguageServiceProvider::class,
+        App\Providers\Modules\Languages\RealLanguageServiceProvider::class,
+        App\Providers\Modules\Notification\MailerServiceProvider::class,
     ],
 
     /*

@@ -3,8 +3,8 @@
 namespace Modules\Personal\Learner\Dto;
 
 use App\Base\Dto;
+use App\Contracts\Structures\Personal\UserStructure;
 use App\Extensions\Assert;
-use App\Structures\Personal\UserStructure;
 
 class CreateLearnerDto implements Dto
 {

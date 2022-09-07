@@ -2,7 +2,7 @@
 
 namespace Modules\Position\Context;
 
-use App\Structures\PositionStructure;
+use App\Contracts\Structures\PositionStructure;
 use Modules\Position\Values\Positions;
 
 class PositionContext

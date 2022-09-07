@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\User\Factories;
 
-use App\Structures\Personal\UserStructure;
+use App\Contracts\Structures\Personal\UserStructure;
 use Modules\Personal\User\Contexts\User;
 use Modules\Personal\User\Dto\CreateUserDto;
 

@@ -1,6 +1,6 @@
 <?php
 
-use App\Presenters\Personal\Learner\RegisterLearner;
+use Modules\Personal\Learner\Presenters\RegisterLearner;
 
 return [
     RegisterLearner::class => []

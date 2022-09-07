@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\Employers\Dto;
 
-use App\Structures\Personal\UserStructure;
+use App\Contracts\Structures\Personal\UserStructure;
 use Modules\Personal\Employers\Enums\Position;
 
 class CreateEmployerDto

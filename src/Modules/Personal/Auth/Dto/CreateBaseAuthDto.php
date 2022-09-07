@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\Auth\Dto;
 
-use App\Contracts\AuthableStructure;
+use App\Contracts\Structures\AuthableStructure;
 use Illuminate\Support\Arr;
 
 class CreateBaseAuthDto

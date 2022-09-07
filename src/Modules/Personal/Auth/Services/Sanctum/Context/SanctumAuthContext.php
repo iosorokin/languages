@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\Auth\Services\Sanctum\Context;
 
-use App\Contracts\AuthableStructure;
+use App\Contracts\Structures\AuthableStructure;
 use DateTimeInterface;
 use Illuminate\Support\Str;
 use Laravel\Sanctum\NewAccessToken;

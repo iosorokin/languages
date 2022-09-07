@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\User\Contexts;
 
-use App\Structures\Personal\UserStructure;
+use App\Contracts\Structures\Personal\UserStructure;
 
 final class User
 {

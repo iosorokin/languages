@@ -2,10 +2,10 @@
 
 namespace Modules\Personal\Learner\Structures;
 
-use App\Contracts\AuthableStructure;
-use App\Structures\Personal\BaseAuthStructure;
-use App\Structures\Personal\LearnerStructure;
-use App\Structures\Personal\UserStructure;
+use App\Contracts\Structures\AuthableStructure;
+use App\Contracts\Structures\Personal\BaseAuthStructure;
+use App\Contracts\Structures\Personal\LearnerStructure;
+use App\Contracts\Structures\Personal\UserStructure;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphOne;

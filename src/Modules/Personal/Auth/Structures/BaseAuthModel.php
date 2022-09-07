@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\Auth\Structures;
 
-use App\Structures\Personal\BaseAuthStructure;
+use App\Contracts\Structures\Personal\BaseAuthStructure;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 

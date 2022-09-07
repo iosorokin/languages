@@ -2,8 +2,8 @@
 
 namespace Modules\Personal\Auth\Contexts;
 
-use App\Contracts\AuthableStructure;
-use App\Structures\Personal\BaseAuthStructure;
+use App\Contracts\Structures\AuthableStructure;
+use App\Contracts\Structures\Personal\BaseAuthStructure;
 use Illuminate\Support\Facades\Hash;
 
 class BaseAuthContext

@@ -2,9 +2,8 @@
 
 namespace Modules\Personal\Auth\Services\Sanctum\Dto;
 
-use App\Contracts\AuthableStructure;
+use App\Contracts\Structures\AuthableStructure;
 use DateTimeInterface;
-use Illuminate\Support\Arr;
 
 class CreateSanctumTokenDto
 {
