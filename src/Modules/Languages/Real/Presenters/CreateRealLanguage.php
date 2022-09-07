@@ -19,8 +19,8 @@ class CreateRealLanguage implements CreateRealLanguagePresenter
     {
         $dto = CreateRealLanguageDto::new($attributes);
         $language = $this->languageFactory->new($dto);
-        $this->repository->add($language);
+        $this->repository->add($language->structure);
 
-        return $language;
+        return $language->structure;
     }
 }

@@ -5,21 +5,36 @@ namespace Modules\Languages\Real\Factories;
 use App\Contracts\Structures\Languages\RealLanguageStructure;
 use Modules\Languages\Real\Contexts\RealLanguageContext;
 use Modules\Languages\Real\Dto\CreateRealLanguageDto;
+use stdClass;
 
 class RealLanguageFactory
 {
-    public function new(CreateRealLanguageDto $dto): RealLanguageStructure
+    public function new(CreateRealLanguageDto $dto): RealLanguageContext
     {
-        $language = new RealLanguageContext($this->createLanguageStructure());
-        $language->setName($dto->name);
-        $language->setNativeName($dto->nativeName);
-        $language->setCode($dto->code);
+        $language = $this->createLanguageContext();
+        $this->fill($language, $dto);
 
-        return $language->structure;
+        return $language;
     }
 
-    private function createLanguageStructure(): RealLanguageStructure
+    public function restore(stdClass $item): RealLanguageContext
     {
-        return app()->make(RealLanguageStructure::class);
+        $language = $this->createLanguageContext();
+        $this->fill($language, $item);
+        $language->setId($item->id);
+
+        return $language;
+    }
+
+    private function fill(RealLanguageContext $language, CreateRealLanguageDto|stdClass $dto): void
+    {
+        $language->setName($dto->name);
+        $language->setNativeName($dto->native_name);
+        $language->setCode($dto->code);
+    }
+
+    private function createLanguageContext(): RealLanguageContext
+    {
+        return new RealLanguageContext(app()->make(RealLanguageStructure::class));
     }
 }

@@ -8,7 +8,7 @@ class CreateRealLanguageDto
 {
     public function __construct(
         public readonly ?string $name,
-        public readonly ?string $nativeName,
+        public readonly ?string $native_name,
         public readonly ?string $code,
     ) {}
 
@@ -16,7 +16,7 @@ class CreateRealLanguageDto
     {
         return new self(
             name: Arr::get($attributes, 'name'),
-            nativeName: Arr::get($attributes, 'native_name'),
+            native_name: Arr::get($attributes, 'native_name'),
             code: Arr::get($attributes, 'code'),
         );
     }

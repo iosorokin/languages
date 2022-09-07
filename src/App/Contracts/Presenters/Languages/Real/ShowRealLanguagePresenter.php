@@ -2,7 +2,7 @@
 
 namespace App\Contracts\Presenters\Languages\Real;
 
-interface GetRealLanguagePresenter
+interface ShowRealLanguagePresenter
 {
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Languages\Real\Tests\Endpoint;
+namespace Modules\Languages\Real\Controllers\Api;
 
 
 use Core\Test\Actions\Languages\RealLanguageAction;
@@ -15,9 +15,7 @@ class IndexRealLanguagesTest extends EndpointCase
      */
     public function __invoke()
     {
-        $response = $this->indexRealLanguages([
-            'limit' => 10,
-        ]);
+        $response = $this->indexRealLanguages();
         $response->assertOk();
     }
 }

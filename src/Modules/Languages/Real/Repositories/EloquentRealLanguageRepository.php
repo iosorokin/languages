@@ -4,10 +4,13 @@ namespace Modules\Languages\Real\Repositories;
 
 use App\Contracts\Structures\Languages\RealLanguageStructure;
 use App\Extensions\Assert;
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Pagination\CursorPaginator;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use Modules\Languages\Real\Filters\RealLanguageFilter;
 use Modules\Languages\Real\Structures\RealLanguageModel;
+use stdClass;
 
 class EloquentRealLanguageRepository implements RealLanguageRepository
 {
@@ -18,9 +21,10 @@ class EloquentRealLanguageRepository implements RealLanguageRepository
         $language->save();
     }
 
-    public function get(RealLanguageFilter $filter): Collection
+    public function all(RealLanguageFilter $filter): CursorPaginator
     {
-        $collection = RealLanguageModel::query()
+        return DB::table('real_languages')
+            ->select()
             ->when($filter->name, function (Builder $query) use ($filter) {
                 $query->where('name', '%' . $filter->name . '%');
             })
@@ -30,11 +34,14 @@ class EloquentRealLanguageRepository implements RealLanguageRepository
             ->when($filter->code, function (Builder $query) use ($filter) {
                 $query->where('code', '%' . $filter->code . '%');
             })
-            ->when($filter->paginator->limit, function (Builder $query) use ($filter) {
-                $query->limit($filter->paginator->limit);
-            })
-            ->get();
+            ->orderBy('id')
+            ->cursorPaginate();
+    }
 
-        return $collection;
+    public function get(int $id): stdClass
+    {
+        return DB::table('real_languages')
+            ->select()
+            ->first();
     }
 }

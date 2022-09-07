@@ -20,6 +20,11 @@ trait RealLanguageAction
         return $this->get(route('real_languages.index', $attributes));
     }
 
+    public function showRealLanguage(array $attributes = []): TestResponse
+    {
+        return $this->get(route('real_languages.show', $attributes));
+    }
+
     public function getRealLanguagesAttributes(): array
     {
         $faker = Factory::create();

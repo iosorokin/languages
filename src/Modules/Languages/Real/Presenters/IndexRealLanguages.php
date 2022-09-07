@@ -3,22 +3,31 @@
 namespace Modules\Languages\Real\Presenters;
 
 use App\Contracts\Presenters\Languages\Real\IndexRealLanguagesPresenter;
-use App\Helpers\Pagination\CursorPaginator;
-use Illuminate\Support\Arr;
-use Modules\Languages\Real\Actions\GetRealLanguages;
+use Illuminate\Support\Collection;
+use Modules\Languages\Real\Factories\RealLanguageFactory;
 use Modules\Languages\Real\Filters\RealLanguageFilter;
+use Modules\Languages\Real\Repositories\RealLanguageRepository;
+use Modules\Languages\Real\Resources\IndexRealLanguageResource;
+use stdClass;
 
 class IndexRealLanguages implements IndexRealLanguagesPresenter
 {
     public function __construct(
-        private GetRealLanguages $getRealLanguages
+        private RealLanguageRepository $repository,
+        private RealLanguageFactory $factory,
     ) {}
 
     public function __invoke(array $attributes)
     {
         $filter = RealLanguageFilter::new($attributes);
-        $collection = ($this->getRealLanguages)($filter);
+        $paginator = $this->repository->all($filter);
 
-        return $collection;
+        $paginator->through(function (stdClass $data) {
+            $context = $this->factory->restore($data);
+
+            return IndexRealLanguageResource::make($context)->jsonSerialize();
+        });
+
+        return $paginator;
     }
 }

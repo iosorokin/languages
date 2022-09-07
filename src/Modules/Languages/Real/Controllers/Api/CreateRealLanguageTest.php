@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Languages\Real\Tests\Endpoint;
+namespace Modules\Languages\Real\Controllers\Api;
 
 
 use Core\Test\Actions\Languages\RealLanguageAction;

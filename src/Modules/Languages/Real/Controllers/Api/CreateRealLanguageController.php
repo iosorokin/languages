@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Languages\Real\View\Api;
+namespace Modules\Languages\Real\Controllers\Api;
 
 use Core\Http\Responses\NoContentResponse;
 use Illuminate\Http\Request;
