@@ -10,7 +10,7 @@ use Modules\Languages\Real\Repositories\RealLanguageRepository;
 use Modules\Languages\Real\Resources\IndexRealLanguageResource;
 use stdClass;
 
-class IndexRealLanguages implements IndexRealLanguagesPresenter
+class GetRealLanguages implements IndexRealLanguagesPresenter
 {
     public function __construct(
         private RealLanguageRepository $repository,

@@ -2,27 +2,23 @@
 
 namespace Modules\Languages\Learning\Presenters;
 
-use App\Contracts\Learnable;
-use App\Contracts\Presenters\Languages\Learning\LearnLanguagePresenter;
-use Exception;
-use Illuminate\Support\Arr;
-use Modules\Languages\Learning\Actions\CreateLearning;
+use Modules\Languages\Learning\Contexts\LearningLanguageContext;
+use Modules\Languages\Learning\Factories\LearningFactory;
+use Modules\Languages\Learning\Dto\CreateLearningDto;
+use Modules\Languages\Learning\Repositories\LearningLanguageRepository;
 
-class LearnLanguage implements LearnLanguagePresenter
+class LearnLanguage
 {
     public function __construct(
-        private CreateLearning $createLearning,
-    )
-    {
-    }
+        private LearningFactory $factory,
+        private LearningLanguageRepository $repository,
+    ) {}
 
-    public function __invoke(array $attributes)
+    public function __invoke(CreateLearningDto $dto): LearningLanguageContext
     {
+        $learning = $this->factory->new($dto);
+        $this->repository->add($learning->structure);
 
-    }
-
-    private function getLanguage(array $attributes): Learnable
-    {
-        $id = Arr::get($attributes, 'id', fn() => throw new Exception('Ff'));
+        return $learning;
     }
 }

@@ -4,12 +4,12 @@ namespace Modules\Languages\Real\Controllers\Api;
 
 
 use Illuminate\Http\Request;
-use Modules\Languages\Real\Presenters\IndexRealLanguages;
+use Modules\Languages\Real\Presenters\GetRealLanguages;
 
 class IndexRealLanguagesController
 {
     public function __construct(
-        private IndexRealLanguages $indexRealLanguages
+        private GetRealLanguages $indexRealLanguages
     ) {}
 
     public function __invoke(Request $request)

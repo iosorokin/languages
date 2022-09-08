@@ -3,10 +3,12 @@
 namespace App\Providers\Modules\Personal;
 
 use App\Contracts\Presenters\Personal\Auth\CreateBaseAuthPresenter;
+use App\Contracts\Presenters\Personal\Auth\GetAuthPresenter;
 use App\Contracts\Presenters\Personal\Auth\LearnerBaseLoginPresenter;
 use App\Contracts\Structures\Personal\BaseAuthStructure;
 use Illuminate\Support\ServiceProvider;
 use Modules\Personal\Auth\Presenters\Base\CreateBaseAuth;
+use Modules\Personal\Auth\Presenters\GetAuth;
 use Modules\Personal\Auth\Presenters\Login\LearnerBaseLogin;
 use Modules\Personal\Auth\Repositories\BaseAuthRepository;
 use Modules\Personal\Auth\Repositories\EloquentBaseAuthRepository;
@@ -31,5 +33,6 @@ class AuthServiceProvider extends ServiceProvider
 
         $this->app->bind(CreateBaseAuthPresenter::class, CreateBaseAuth::class);
         $this->app->bind(LearnerBaseLoginPresenter::class, LearnerBaseLogin::class);
+        $this->app->bind(GetAuthPresenter::class, GetAuth::class);
     }
 }

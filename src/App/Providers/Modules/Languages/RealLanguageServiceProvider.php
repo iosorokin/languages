@@ -11,8 +11,8 @@ use App\Contracts\Structures\Languages\RealLanguageStructure;
 use Illuminate\Support\ServiceProvider;
 use Modules\Languages\Real\Presenters\CreateRealLanguage;
 use Modules\Languages\Real\Presenters\DeleteRealLanguage;
-use Modules\Languages\Real\Presenters\ShowRealLanguage;
-use Modules\Languages\Real\Presenters\IndexRealLanguages;
+use Modules\Languages\Real\Presenters\GetRealLanguage;
+use Modules\Languages\Real\Presenters\GetRealLanguages;
 use Modules\Languages\Real\Presenters\UpdateRealLanguage;
 use Modules\Languages\Real\Repositories\EloquentRealLanguageRepository;
 use Modules\Languages\Real\Repositories\RealLanguageRepository;
@@ -33,8 +33,8 @@ class RealLanguageServiceProvider extends ServiceProvider
 
         $this->app->bind(CreateRealLanguagePresenter::class, CreateRealLanguage::class);
         $this->app->bind(DeleteRealLanguagePresenter::class, DeleteRealLanguage::class);
-        $this->app->bind(ShowRealLanguagePresenter::class, ShowRealLanguage::class);
-        $this->app->bind(IndexRealLanguagesPresenter::class, IndexRealLanguages::class);
+        $this->app->bind(ShowRealLanguagePresenter::class, GetRealLanguage::class);
+        $this->app->bind(IndexRealLanguagesPresenter::class, GetRealLanguages::class);
         $this->app->bind(UpdateRealLanguagesPresenter::class, UpdateRealLanguage::class);
     }
 }
