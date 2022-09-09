@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Languages\Learning\Controllers\Web\LearnRealLanguageController;
+use Modules\Languages\Learning\Controllers\Api\LearnRealLanguageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +14,3 @@ use Modules\Languages\Learning\Controllers\Web\LearnRealLanguageController;
 |
 */
 
-Route::post('real_languages/{id}/learn', LearnRealLanguageController::class)
-    ->name('real_languages.learn');

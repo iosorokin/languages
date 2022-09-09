@@ -1,23 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Personal\User\Factories;
 
 use App\Contracts\Structures\Personal\UserStructure;
-use Modules\Personal\User\Contexts\User;
-use Modules\Personal\User\Dto\CreateUserDto;
+use Illuminate\Support\Arr;
+use Modules\Personal\User\Contexts\Filing\NewUserFiller;
+use Modules\Personal\User\Structures\UserModel;
 
-class UserFactory
+final class UserFactory
 {
-    public function new(CreateUserDto $dto): User
+    public function new(array $attributes): UserStructure
     {
-        $user = new User($this->createStructure());
-        $user->setName($dto->getName());
+        $filler = new NewUserFiller(new UserModel());
+        $filler->setName(Arr::get($attributes, 'name'));
 
-        return $user;
-    }
-
-    private function createStructure(): UserStructure
-    {
-        return app()->make(UserStructure::class);
+        return $filler->getStructure();
     }
 }

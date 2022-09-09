@@ -2,7 +2,6 @@
 
 namespace App\Contracts\Structures\Languages;
 
-use App\Contracts\Learnable;
 use App\Contracts\Structures\Personal\LearnerStructure;
 
 /**
@@ -11,9 +10,9 @@ use App\Contracts\Structures\Personal\LearnerStructure;
  * @property string $language_type
  * @property string $title
  */
-interface LearningLanguageStructure
+interface LearningLanguageStructure extends LanguageStructure
 {
     public function setLearner(LearnerStructure $learner): static;
 
-    public function setLanguage(Learnable $learningLanguage): static;
+    public function setLanguage(LearnableStructure $learningLanguage): static;
 }

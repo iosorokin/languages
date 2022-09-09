@@ -9,7 +9,7 @@ trait BaseAuthAction
 {
     public function learnerLoginWithApi(array $attributes): TestResponse
     {
-        return $this->post(route('learners.login'), $attributes);
+        return $this->post(route('api.learners.login'), $attributes);
     }
 
     public function generateBaseAuthAttributes(array $attributes = []): array

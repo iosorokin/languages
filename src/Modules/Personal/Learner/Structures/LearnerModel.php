@@ -45,14 +45,6 @@ class LearnerModel extends Model implements
         return $this;
     }
 
-    public function setBaseAuth(BaseAuthStructure $structure): static
-    {
-        // fixme плохо устанавливать в обход связям
-        $this->baseAuth = $structure;
-
-        return $this;
-    }
-
     public function getBaseAuth(): BaseAuthStructure
     {
         return $this->baseAuth;

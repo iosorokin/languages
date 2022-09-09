@@ -2,15 +2,14 @@
 
 namespace Modules\Personal\Auth\Tests\Endpoint;
 
+use App\Contracts\Presenters\Notification\Mailer\SendLearnerRegistrationEmailPresenter;
+use App\Contracts\Presenters\Personal\Auth\CreateBaseAuthPresenter;
+use App\Contracts\Presenters\Personal\Learner\CreateLearnerPresenter;
+use App\Contracts\Presenters\Personal\User\CreateUserPresenter;
 use Core\Test\Actions\Personal\LearnerAction;
 use Core\Test\EndpointCase;
-use Modules\Notification\Mailer\Presenters\SendLearnerRegistrationEmail;
-use Modules\Personal\Auth\Presenters\Base\CreateBaseAuth;
-use Modules\Personal\Guest;
-use Modules\Personal\Learner\Actions\CreateLearner;
+use Modules\Personal\Learner\Actions\SaveRegisteredLearner;
 use Modules\Personal\Learner\Presenters\RegisterLearner;
-use Modules\Personal\Learner\Repositories\LearnerRepository;
-use Modules\Personal\User\Presenters\CreateUser;
 
 class LoginTest extends EndpointCase
 {
@@ -22,14 +21,12 @@ class LoginTest extends EndpointCase
     {
         parent::setUp();
 
-        $this->mockSendLearnRegistrationEmail();
-
         $this->registerLearner = new RegisterLearner(
-            newUser: app(CreateUser::class),
-            newBaseAuth: app(CreateBaseAuth::class),
-            createLearner: app(CreateLearner::class),
-            learnerRepository: app(LearnerRepository::class),
-            sendLearnerRegistrationEmail: app(SendLearnerRegistrationEmail::class),
+            createUser: app(CreateUserPresenter::class),
+            createBaseAuth: app(CreateBaseAuthPresenter::class),
+            createLearner: app(CreateLearnerPresenter::class),
+            saveRegisteredLearner: app(SaveRegisteredLearner::class),
+            sendLearnerRegistrationEmail: app(SendLearnerRegistrationEmailPresenter::class),
         );
     }
 
@@ -39,7 +36,7 @@ class LoginTest extends EndpointCase
     public function __invoke()
     {
         $attributes = $this->generateLearnerAttributes();
-        $learner = ($this->registerLearner)(new Guest(), $attributes);
+        $learner = ($this->registerLearner)($attributes);
         $response = $this->learnerLoginWithApi([
             'email' => $learner->baseAuth->email,
             'password' => $attributes['password']

@@ -10,6 +10,4 @@ use App\Contracts\Structures\Personal\BaseAuthStructure;
 interface AuthableStructure
 {
     public function getBaseAuth(): BaseAuthStructure;
-
-    public function setBaseAuth(BaseAuthStructure $structure): static;
 }

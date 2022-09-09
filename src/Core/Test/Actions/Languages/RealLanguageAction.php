@@ -12,17 +12,17 @@ trait RealLanguageAction
     {
         $attributes = $this->getRealLanguagesAttributes() + $attributes;
 
-        return $this->post(route('real_languages.create'), $attributes);
+        return $this->post(route('api.real_languages.create'), $attributes);
     }
 
     public function indexRealLanguages(array $attributes = []): TestResponse
     {
-        return $this->get(route('real_languages.index', $attributes));
+        return $this->get(route('api.real_languages.index', $attributes));
     }
 
     public function showRealLanguage(array $attributes = []): TestResponse
     {
-        return $this->get(route('real_languages.show', $attributes));
+        return $this->get(route('api.real_languages.show', $attributes));
     }
 
     public function getRealLanguagesAttributes(): array

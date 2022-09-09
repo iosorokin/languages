@@ -2,18 +2,18 @@
 
 namespace Modules\Education\Source\Dto;
 
-use App\Contracts\Language;
+use App\Contracts\Structures\Languages\LanguageStructure;
 use Illuminate\Support\Arr;
 
 class CreateSourceDto
 {
     public function __construct(
-        public readonly ?Language $language,
-        public readonly ?string $title,
-        public readonly ?string $description,
+        public readonly ?LanguageStructure $language,
+        public readonly ?string            $title,
+        public readonly ?string            $description,
     ) {}
 
-    public static function new(Language $language, array $attributes): self
+    public static function new(LanguageStructure $language, array $attributes): self
     {
         return new self(
             language: $language,

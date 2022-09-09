@@ -1,26 +1,29 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Personal\User\Presenters;
 
 use App\Contracts\Presenters\Personal\User\CreateUserPresenter;
 use App\Contracts\Structures\Personal\UserStructure;
-use Modules\Personal\User\Dto\CreateUserDto;
 use Modules\Personal\User\Factories\UserFactory;
-use Modules\Personal\User\Repositories\UserRepository;
+use Modules\Personal\User\Validators\CreateUserValidator;
 
-class CreateUser implements CreateUserPresenter
+final class CreateUser implements CreateUserPresenter
 {
     public function __construct(
+        private CreateUserValidator $validator,
         private UserFactory $factory,
-        private UserRepository $userRepository,
     ) {}
 
+    /**
+     * @param array<mixed> $attributes
+     */
     public function __invoke(array $attributes): UserStructure
     {
-        $dto = CreateUserDto::new($attributes);
-        $user = $this->factory->new($dto);
-        $this->userRepository->add($user->structure);
+        $attributes = $this->validator->validate($attributes);
+        $user = $this->factory->new($attributes);
 
-        return $user->structure;
+        return $user;
     }
 }

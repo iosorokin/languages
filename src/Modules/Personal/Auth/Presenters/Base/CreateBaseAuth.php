@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Personal\Auth\Presenters\Base;
 
 use App\Contracts\Presenters\Personal\Auth\CreateBaseAuthPresenter;
@@ -9,11 +11,10 @@ use Modules\Personal\Auth\Dto\CreateBaseAuthDto;
 use Modules\Personal\Auth\Factories\BaseAuthFactory;
 use Modules\Personal\Auth\Repositories\BaseAuthRepository;
 
-class CreateBaseAuth implements CreateBaseAuthPresenter
+final class CreateBaseAuth implements CreateBaseAuthPresenter
 {
     public function __construct(
         private BaseAuthFactory $factory,
-        private BaseAuthRepository $baseAuthRepository,
     ) {}
 
     public function __invoke(AuthableStructure $authable, array $attributes): BaseAuthStructure
@@ -21,9 +22,6 @@ class CreateBaseAuth implements CreateBaseAuthPresenter
         $dto = new CreateBaseAuthDto($authable, $attributes);
         $baseAuth = $this->factory->new($dto);
         $structure = $baseAuth->structure;
-        // todo проверить на существование в базе
-        $this->baseAuthRepository->add($structure);
-        $authable->setBaseAuth($structure);
 
         return $structure;
     }

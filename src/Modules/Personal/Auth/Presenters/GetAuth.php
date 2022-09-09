@@ -2,8 +2,7 @@
 
 namespace Modules\Personal\Auth\Presenters;
 
-use App\Contracts\Client;
-use App\Contracts\Structures\Personal\LearnerStructure;
+use App\Contracts\Structures\AuthableStructure;
 use Illuminate\Http\Request;
 use Modules\Personal\Auth\Services\AuthService;
 
@@ -13,12 +12,10 @@ class GetAuth
         private AuthService $authService,
     ) {}
 
-    public function __invoke(Request $request): Client
+    public function __invoke(Request $request): ?AuthableStructure
     {
         $auth = $this->authService->getAuth();
 
         return $auth;
     }
-
-
 }

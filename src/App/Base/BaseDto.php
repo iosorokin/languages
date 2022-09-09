@@ -1,8 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Base;
 
-abstract class BaseDto implements Dto
+use Illuminate\Contracts\Support\Arrayable;
+
+abstract class BaseDto implements Dto, Arrayable
 {
-    // fixme а нужен ли вообще базовый класс дто?
+    /**
+     * @return array<mixed>
+     */
+    public function toArray(): array
+    {
+        foreach ($this as $property => $value) {
+            $attributes[$property] = $value;
+        }
+
+        return $attributes ?? [];
+    }
 }

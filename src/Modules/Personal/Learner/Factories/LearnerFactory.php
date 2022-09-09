@@ -3,34 +3,16 @@
 namespace Modules\Personal\Learner\Factories;
 
 use App\Contracts\Structures\Personal\LearnerStructure;
-use Modules\Personal\Learner\Contexts\Learner;
-use Modules\Personal\Learner\Dto\CreateLearnerDto;
+use App\Contracts\Structures\Personal\UserStructure;
+use Modules\Personal\Learner\Contexts\Filling\FillNewLearner;
+use Modules\Personal\Learner\Structures\LearnerModel;
 
 class LearnerFactory
 {
-    public function new(CreateLearnerDto $dto): Learner
+    public function new(UserStructure $user, array $attributes): LearnerStructure
     {
-        $structure = $this->createLearnerStructure();
-        $this->setRelations($structure, $dto);
-        $learner = $this->createContext($structure);
+        $filler = new FillNewLearner(new LearnerModel());
 
-        return $learner;
-    }
-
-    private function createLearnerStructure(): LearnerStructure
-    {
-        return app()->make(LearnerStructure::class);
-    }
-
-    private function setRelations(LearnerStructure $structure, CreateLearnerDto $dto): void
-    {
-        $structure->setUser($dto->getUser());
-    }
-
-    private function createContext(LearnerStructure $structure): Learner
-    {
-        $learner = new Learner($structure);
-
-        return $learner;
+        return $filler->getStructure();
     }
 }

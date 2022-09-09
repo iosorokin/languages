@@ -1,12 +1,11 @@
 <?php
 
-namespace Modules\Languages\Learning\Controllers\Web;
+namespace Modules\Languages\Learning\Controllers\Api;
 
 use App\Base\Controller;
 use App\Contracts\Presenters\Languages\Learning\LearnRealLanguagePresenter;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Modules\Languages\Learning\Presenters\LearnLanguage;
 
 class LearnRealLanguageController extends Controller
 {

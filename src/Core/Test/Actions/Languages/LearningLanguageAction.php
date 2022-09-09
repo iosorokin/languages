@@ -7,9 +7,9 @@ use Illuminate\Testing\TestResponse;
 
 trait LearningLanguageAction
 {
-    public function learnRealLanguage(int $languageId, array $attributes = []): TestResponse
+    public function learnRealLanguage(int $id, array $attributes = []): TestResponse
     {
-        return $this->post(route('web.real_languages.learn'), $attributes);
+        return $this->post(route('api.real_languages.learn', compact('id')), $attributes);
     }
 
     private function getLearningAttributes(): array

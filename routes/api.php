@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\Languages\Learning\Controllers\Api\LearnRealLanguageController;
 use Modules\Languages\Real\Controllers\Api\CreateRealLanguageController;
 use Modules\Languages\Real\Controllers\Api\IndexRealLanguagesController;
 use Modules\Languages\Real\Controllers\Api\ShowRealLanguageController;
@@ -32,3 +33,6 @@ Route::post('real_languages', CreateRealLanguageController::class)
     ->name('real_languages.create');
 Route::get('real_languages/{id}', ShowRealLanguageController::class)
     ->name('real_languages.show');
+Route::post('real_languages/{id}/learn', LearnRealLanguageController::class)
+    ->name('real_languages.learn');
+

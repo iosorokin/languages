@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Languages\Learning\Controllers\Web;
+namespace Modules\Languages\Learning\Controllers\Api;
 
 use Core\Test\Actions\Languages\LearningLanguageAction;
 use Core\Test\Actions\Languages\RealLanguageAction;
@@ -18,6 +18,8 @@ class LearnRealLanguageTest extends EndpointCase
      */
     public function __invoke()
     {
+
+
         $response = $this->learnRealLanguage(1);
         $response->assertOk();
     }

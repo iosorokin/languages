@@ -8,7 +8,7 @@ namespace App\Contracts\Structures\Languages;
  * @property string $native_name
  * @property string $code
  */
-interface RealLanguageStructure
+interface RealLanguageStructure extends LanguageStructure
 {
 
 }

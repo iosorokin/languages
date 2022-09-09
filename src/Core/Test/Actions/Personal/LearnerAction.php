@@ -3,19 +3,20 @@
 namespace Core\Test\Actions\Personal;
 
 use Illuminate\Testing\TestResponse;
-use Mockery\MockInterface;
-use Modules\Notification\Mailer\Presenters\SendLearnerRegistrationEmail;
 
 trait LearnerAction
 {
     use UserAction;
     use BaseAuthAction;
 
+    public string $testEmail = 'test@email.ru';
+    public string $testPassword = 'testpassword';
+
     public function createStudentByApi(array $attributes = []): TestResponse
     {
         $attributes = $this->generateLearnerAttributes() + $attributes;
 
-        return $this->post(route('learners.create'), $attributes);
+        return $this->post(route('api.learners.create'), $attributes);
     }
 
     public function generateLearnerAttributes(): array
@@ -27,12 +28,5 @@ trait LearnerAction
         ];
 
         return $user + $baseAuth + $student;
-    }
-
-    public function mockSendLearnRegistrationEmail(): void
-    {
-        $this->mock(SendLearnerRegistrationEmail::class, function (MockInterface $mock) {
-            $mock->shouldReceive('__invoke')->andReturnNull();
-        });
     }
 }
