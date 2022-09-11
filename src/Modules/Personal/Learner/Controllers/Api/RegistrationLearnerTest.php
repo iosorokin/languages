@@ -1,11 +1,10 @@
 <?php
 
-namespace Modules\Personal\Learner\Tests\Endpoint;
+namespace Modules\Personal\Learner\Controllers\Api;
 
 
 use Core\Test\Actions\Personal\LearnerAction;
 use Core\Test\EndpointCase;
-use Modules\Personal\Learner\Structures\LearnerModel;
 
 class RegistrationLearnerTest extends EndpointCase
 {

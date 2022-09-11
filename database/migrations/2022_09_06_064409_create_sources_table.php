@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('sources', function (Blueprint $table) {
             $table->id();
             $table->morphs('language');
+            $table->string('type', 16);
             $table->string('title');
             $table->string('description');
             $table->timestamps();

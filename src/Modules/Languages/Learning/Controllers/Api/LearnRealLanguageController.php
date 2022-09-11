@@ -4,7 +4,8 @@ namespace Modules\Languages\Learning\Controllers\Api;
 
 use App\Base\Controller;
 use App\Contracts\Presenters\Languages\Learning\LearnRealLanguagePresenter;
-use Illuminate\Http\Request;
+use Core\Extensions\Request;
+use Core\Http\Responses\NoContentResponse;
 use Illuminate\Http\Response;
 
 class LearnRealLanguageController extends Controller
@@ -15,8 +16,9 @@ class LearnRealLanguageController extends Controller
 
     public function __invoke(Request $request): Response
     {
-        ($this->realLanguage)($request->all());
+        $client = $this->client();
+        ($this->realLanguage)($client, $request->all());
 
-        return response();
+        return new NoContentResponse();
     }
 }

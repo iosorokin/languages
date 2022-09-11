@@ -2,6 +2,7 @@
 
 namespace Core\Test\Actions\Personal;
 
+use App\Extensions\Assert;
 use Illuminate\Testing\TestResponse;
 
 trait LearnerAction
@@ -17,6 +18,19 @@ trait LearnerAction
         $attributes = $this->generateLearnerAttributes() + $attributes;
 
         return $this->post(route('api.learners.create'), $attributes);
+    }
+
+    public function loginAsTestLearnerByApi(): void
+    {
+        $response = $this->loginLearnerWithApi([
+            'email' => $this->testEmail,
+            'password' => $this->testPassword,
+        ]);
+
+        $token = $response->json('data.token');
+        Assert::notNull($token);
+
+        $this->withHeader('Authorization', 'Bearer '. $token);
     }
 
     public function generateLearnerAttributes(): array

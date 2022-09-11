@@ -1,12 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\Education\Source\Controllers\CreateSourceController;
 use Modules\Languages\Learning\Controllers\Api\LearnRealLanguageController;
 use Modules\Languages\Real\Controllers\Api\CreateRealLanguageController;
 use Modules\Languages\Real\Controllers\Api\IndexRealLanguagesController;
 use Modules\Languages\Real\Controllers\Api\ShowRealLanguageController;
 use Modules\Personal\Auth\View\Api\LearnerBaseLoginController;
-use Modules\Personal\Learner\View\Api\LernerRegistrationController;
+use Modules\Personal\Learner\View\Controllers\RegistrationLernerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,7 @@ use Modules\Personal\Learner\View\Api\LernerRegistrationController;
 |
 */
 
-Route::post('learners', LernerRegistrationController::class)
+Route::post('learners', RegistrationLernerController::class)
     ->name('learners.create');
 
 Route::post('login', LearnerBaseLoginController::class)
@@ -36,3 +37,5 @@ Route::get('real_languages/{id}', ShowRealLanguageController::class)
 Route::post('real_languages/{id}/learn', LearnRealLanguageController::class)
     ->name('real_languages.learn');
 
+Route::post('sources', CreateSourceController::class)
+    ->name('sources.create');

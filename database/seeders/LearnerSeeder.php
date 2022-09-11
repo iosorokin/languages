@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Contracts\Presenters\Personal\Learner\RegisterLearnerPresenter;
 use Core\Test\Actions\Personal\LearnerAction;
 use Illuminate\Database\Seeder;
-use Modules\Personal\Guest;
 
 class LearnerSeeder extends Seeder
 {
@@ -22,11 +21,11 @@ class LearnerSeeder extends Seeder
             'email' => $this->testEmail,
             'password' => $this->testPassword
         ];
-        $presenter(new Guest(), $attributes);
+        $presenter($attributes);
 
         for ($i = 0; $i < self::COUNT_LEARNERS; $i++) {
             $attributes = $this->generateLearnerAttributes();
-            $presenter(new Guest(), $attributes);
+            $presenter($attributes);
         }
     }
 }

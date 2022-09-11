@@ -18,8 +18,7 @@ class LearnRealLanguageTest extends EndpointCase
      */
     public function __invoke()
     {
-
-
+        $this->loginAsTestLearnerByApi();
         $response = $this->learnRealLanguage(1);
         $response->assertOk();
     }

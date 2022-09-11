@@ -9,10 +9,12 @@ trait LearningLanguageAction
 {
     public function learnRealLanguage(int $id, array $attributes = []): TestResponse
     {
+        $attributes = $this->generateLearningAttributes() + $attributes;
+
         return $this->post(route('api.real_languages.learn', compact('id')), $attributes);
     }
 
-    private function getLearningAttributes(): array
+    private function generateLearningAttributes(): array
     {
         $faker = Factory::create();
 

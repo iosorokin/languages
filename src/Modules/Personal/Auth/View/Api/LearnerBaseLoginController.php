@@ -4,6 +4,7 @@ namespace Modules\Personal\Auth\View\Api;
 
 use Illuminate\Http\Request;
 use Modules\Personal\Auth\Presenters\Login\LearnerBaseLogin;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class LearnerBaseLoginController
 {
@@ -15,6 +16,8 @@ class LearnerBaseLoginController
     {
         $token = ($this->login)($request->all());
 
-        return $token;
+        return (new JsonResponse([
+            'data' => compact('token')
+        ]));
     }
 }

@@ -2,13 +2,13 @@
 
 namespace Modules\Languages\Real\Controllers\Api;
 
-use App\Contracts\Presenters\Languages\Real\ShowRealLanguagePresenter;
+use App\Contracts\Presenters\Languages\Real\GetRealLanguagePresenter;
 use Illuminate\Http\Request;
 
 class ShowRealLanguageController
 {
     public function __construct(
-        private ShowRealLanguagePresenter $showRealLanguage,
+        private GetRealLanguagePresenter $showRealLanguage,
     ) {}
 
     public function __invoke(Request $request)

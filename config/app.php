@@ -207,6 +207,7 @@ return [
         App\Providers\Modules\Languages\LearningLanguageServiceProvider::class,
         App\Providers\Modules\Languages\RealLanguageServiceProvider::class,
         App\Providers\Modules\Notification\MailerServiceProvider::class,
+        App\Providers\Modules\Education\SourceProvider::class,
     ],
 
     /*

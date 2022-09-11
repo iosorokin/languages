@@ -37,7 +37,7 @@ class LoginTest extends EndpointCase
     {
         $attributes = $this->generateLearnerAttributes();
         $learner = ($this->registerLearner)($attributes);
-        $response = $this->learnerLoginWithApi([
+        $response = $this->loginLearnerWithApi([
             'email' => $learner->baseAuth->email,
             'password' => $attributes['password']
         ]);

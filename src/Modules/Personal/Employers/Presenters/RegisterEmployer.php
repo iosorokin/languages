@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\Employers\Presenters;
 
-use App\Contracts\Client;
+use App\Contracts\Contexts\Client;
 use App\Contracts\Presenters\Personal\Auth\CreateBaseAuthPresenter;
 use App\Contracts\Presenters\Personal\Employers\RegisterEmployerPresenter;
 use App\Contracts\Presenters\Personal\User\CreateUserPresenter;
@@ -10,12 +10,10 @@ use App\Contracts\Structures\AuthableStructure;
 use App\Contracts\Structures\Personal\EmployerStructure;
 use App\Contracts\Structures\Personal\UserStructure;
 use Illuminate\Support\Arr;
-use Modules\Personal\Auth\Presenters\Base\CreateBaseAuth;
 use Modules\Personal\Employers\Actions\CreateEmployer;
 use Modules\Personal\Employers\Dto\CreateEmployerDto;
 use Modules\Personal\Employers\Enums\Position;
 use Modules\Personal\Employers\Repositories\EmployerRepository;
-use Modules\Personal\User\Presenters\CreateUser;
 
 class RegisterEmployer implements RegisterEmployerPresenter
 {

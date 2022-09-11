@@ -2,13 +2,14 @@
 
 namespace App\Base;
 
-
-use App\Contracts\Structures\AuthableStructure;
+use App\Contracts\Presenters\Personal\Auth\GetClientPresenter;
 
 abstract class Controller
 {
     public function client()
     {
-        $getClient = app()->make();
+        $getClient = app()->make(GetClientPresenter::class);
+
+        return $getClient();
     }
 }
