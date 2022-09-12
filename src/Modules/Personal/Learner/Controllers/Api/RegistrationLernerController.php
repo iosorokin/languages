@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Personal\Learner\View\Controllers;
+namespace Modules\Personal\Learner\Controllers\Api;
 
 use App\Base\Controller;
 use Core\Http\Responses\NoContentResponse;
@@ -16,7 +16,8 @@ final class RegistrationLernerController extends Controller
 
     public function __invoke(Request $request): Response
     {
-        $learner = ($this->learnerRegistration)($request->all());
+        $client = $this->client();
+        $learner = ($this->learnerRegistration)($client, $request->all());
 
         return new NoContentResponse();
     }

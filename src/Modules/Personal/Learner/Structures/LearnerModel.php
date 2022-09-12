@@ -22,12 +22,12 @@ class LearnerModel extends Model implements
 
     protected $table = 'learners';
 
-    public function user(): BelongsTo
+    private function user(): BelongsTo
     {
         return $this->belongsTo(UserModel::class);
     }
 
-    public function baseAuth(): MorphOne
+    private function baseAuth(): MorphOne
     {
         return $this->morphOne(BaseAuthModel::class, 'authable');
     }
