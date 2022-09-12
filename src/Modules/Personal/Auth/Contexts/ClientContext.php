@@ -10,4 +10,9 @@ class ClientContext implements Client
     public function __construct(
         public readonly ?AuthableStructure $structure = null
     ) {}
+
+    public function getStructure(): ?AuthableStructure
+    {
+        return $this->structure;
+    }
 }

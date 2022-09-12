@@ -2,6 +2,7 @@
 
 namespace Modules\Languages\Learning\Presenters;
 
+use App\Contracts\Contexts\Client;
 use App\Contracts\Presenters\Languages\Learning\LearnRealLanguagePresenter;
 use App\Contracts\Structures\Languages\LearningLanguageStructure;
 use App\Contracts\Structures\Personal\LearnerStructure;
@@ -16,10 +17,10 @@ class CreateRealLanguageLearning implements LearnRealLanguagePresenter
         private LearnLanguage $learnLanguage,
     ) {}
 
-    public function __invoke(LearnerStructure $learner, array $attributes): LearningLanguageStructure
+    public function __invoke(Client $client, array $attributes): LearningLanguageStructure
     {
         $language = ($this->getRealLanguage)(Arr::get($attributes, 'id'));
-        $learning = ($this->learnLanguage)($learner, $language, $attributes);
+        $learning = ($this->learnLanguage)($client->getStructure(), $language, $attributes);
 
         return $learning;
     }
