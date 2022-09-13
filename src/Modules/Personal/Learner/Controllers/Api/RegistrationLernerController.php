@@ -17,7 +17,7 @@ final class RegistrationLernerController extends Controller
     public function __invoke(Request $request): Response
     {
         $client = $this->client();
-        $learner = ($this->learnerRegistration)($client, $request->all());
+        $learner = ($this->learnerRegistration)($request->all());
 
         return new NoContentResponse();
     }

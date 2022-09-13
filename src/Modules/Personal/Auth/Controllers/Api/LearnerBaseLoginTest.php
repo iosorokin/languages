@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Personal\Auth\Tests\Endpoint;
+namespace Modules\Personal\Auth\Controllers\Api;
 
 use App\Contracts\Presenters\Notification\Mailer\SendLearnerRegistrationEmailPresenter;
 use App\Contracts\Presenters\Personal\Auth\CreateBaseAuthPresenter;
@@ -11,7 +11,7 @@ use Core\Test\EndpointCase;
 use Modules\Personal\Learner\Actions\SaveRegisteredLearner;
 use Modules\Personal\Learner\Presenters\RegisterLearner;
 
-class LoginTest extends EndpointCase
+class LearnerBaseLoginTest extends EndpointCase
 {
     use LearnerAction;
 
@@ -36,9 +36,9 @@ class LoginTest extends EndpointCase
     public function __invoke()
     {
         $attributes = $this->generateLearnerAttributes();
-        $learner = ($this->registerLearner)($attributes);
+        ($this->registerLearner)($attributes);
         $response = $this->loginLearnerWithApi([
-            'email' => $learner->baseAuth->email,
+            'email' => $attributes['email'],
             'password' => $attributes['password']
         ]);
         $response->assertOk();

@@ -6,7 +6,7 @@ use Modules\Languages\Learning\Controllers\Api\LearnRealLanguageController;
 use Modules\Languages\Real\Controllers\Api\CreateRealLanguageController;
 use Modules\Languages\Real\Controllers\Api\IndexRealLanguagesController;
 use Modules\Languages\Real\Controllers\Api\ShowRealLanguageController;
-use Modules\Personal\Auth\View\Api\LearnerBaseLoginController;
+use Modules\Personal\Auth\Controllers\Api\LearnerBaseLoginController;
 use Modules\Personal\Learner\Controllers\Api\RegistrationLernerController;
 
 /*

@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Personal\Auth\Actions;
 
 use App\Contracts\Structures\Personal\BaseAuthStructure;
 use Exception;
+use Illuminate\Support\Arr;
 use Modules\Personal\Auth\Dto\GetBaseAuthDto;
 use Modules\Personal\Auth\Repositories\BaseAuthRepository;
 
@@ -30,6 +33,7 @@ class GetBaseAuth
 
     private function throwValidationException(): void
     {
+        // fixme временное решение для имитации валидации
         throw new Exception('Пароль и мэил не совпали');
     }
 }

@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\Personal\Auth\Contexts;
+namespace Modules\Personal\Auth\Contexts\Fillers;
 
 use App\Contracts\Structures\AuthableStructure;
 use App\Contracts\Structures\Personal\BaseAuthStructure;
 use Illuminate\Support\Facades\Hash;
 
-class BaseAuthContext
+class BaseAuthFiller
 {
     public function __construct(
         public readonly BaseAuthStructure $structure,

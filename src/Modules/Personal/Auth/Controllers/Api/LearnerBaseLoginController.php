@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Personal\Auth\View\Api;
+namespace Modules\Personal\Auth\Controllers\Api;
 
 use Illuminate\Http\Request;
 use Modules\Personal\Auth\Presenters\Login\LearnerBaseLogin;

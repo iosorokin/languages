@@ -4,7 +4,7 @@ namespace Modules\Personal\Auth\Repositories;
 
 use App\Contracts\Structures\Personal\BaseAuthStructure;
 use App\Extensions\Assert;
-use Modules\Personal\Auth\Contexts\BaseAuthContext;
+use Modules\Personal\Auth\Contexts\Fillers\BaseAuthFiller;
 use Modules\Personal\Auth\Structures\BaseAuthModel;
 
 class EloquentBaseAuthRepository implements BaseAuthRepository
@@ -18,14 +18,14 @@ class EloquentBaseAuthRepository implements BaseAuthRepository
         $structure->save();
     }
 
-    public function getByEmail(string $email): ?BaseAuthContext
+    public function getByEmail(string $email): ?BaseAuthFiller
     {
         /** @var BaseAuthModel $structure */
         $structure = BaseAuthModel::query()
             ->where('email', $email)
             ->first();
 
-        return $structure ? new BaseAuthContext($structure) : null;
+        return $structure ? new BaseAuthFiller($structure) : null;
     }
 
     private function assertIsBaseAuthModel(BaseAuthStructure $structure): void

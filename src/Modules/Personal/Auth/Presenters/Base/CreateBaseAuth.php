@@ -9,7 +9,6 @@ use App\Contracts\Structures\AuthableStructure;
 use App\Contracts\Structures\Personal\BaseAuthStructure;
 use Modules\Personal\Auth\Dto\CreateBaseAuthDto;
 use Modules\Personal\Auth\Factories\BaseAuthFactory;
-use Modules\Personal\Auth\Repositories\BaseAuthRepository;
 
 final class CreateBaseAuth implements CreateBaseAuthPresenter
 {

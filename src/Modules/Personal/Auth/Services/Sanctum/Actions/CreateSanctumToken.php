@@ -4,19 +4,22 @@ namespace Modules\Personal\Auth\Services\Sanctum\Actions;
 
 use App\Extensions\Assert;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Sanctum\PersonalAccessToken;
-use Modules\Personal\Auth\Services\Sanctum\Context\SanctumAuthContext;
+use Laravel\Sanctum\HasApiTokens;
+use Laravel\Sanctum\NewAccessToken;
 use Modules\Personal\Auth\Services\Sanctum\Dto\CreateSanctumTokenDto;
 
 class CreateSanctumToken
 {
-    public function __invoke(CreateSanctumTokenDto $dto): SanctumAuthContext
+    public function __invoke(CreateSanctumTokenDto $dto): NewAccessToken
     {
-        $token = new SanctumAuthContext(new PersonalAccessToken());
-        $token->setTokenable($dto->authable);
-        $token->setName($dto->name);
-        $token->setExpiresAt($dto->expiresAt);
+        /** @var HasApiTokens $authable */
+        $authable = $dto->authable;
+        Assert::isInstanceOf($authable, Model::class);
 
-        return $token;
+        return $authable->createToken(
+            name: $dto->name ?? 'default',
+            abilities: $dto->abilities ?? ['*'],
+            expiresAt: $dto->expires_at,
+        );
     }
 }

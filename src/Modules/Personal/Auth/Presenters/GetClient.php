@@ -9,7 +9,7 @@ use App\Contracts\Presenters\Personal\Auth\GetClientPresenter;
 use Modules\Personal\Auth\Contexts\ClientContext;
 use Modules\Personal\Auth\Services\AuthService;
 
-class GetClient implements GetClientPresenter
+final class GetClient implements GetClientPresenter
 {
     public function __construct(
         private AuthService $authService,

@@ -22,7 +22,7 @@ final class RegisterLearner implements RegisterLearnerPresenter
         private SendLearnerRegistrationEmailPresenter $sendLearnerRegistrationEmail,
     ) {}
 
-    public function __invoke(Client $client, array $attributes): LearnerStructure
+    public function __invoke(array $attributes): LearnerStructure
     {
         $user = ($this->createUser)($attributes);
         $learner = ($this->createLearner)($user, $attributes);
