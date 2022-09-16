@@ -2,24 +2,19 @@
 
 namespace Modules\Languages\Learning\Controllers\Api;
 
-use Core\Test\Actions\Languages\LearningLanguageAction;
-use Core\Test\Actions\Languages\RealLanguageAction;
-use Core\Test\Actions\Personal\LearnerAction;
+use App\Tests\Helpers\languages\LearningLanguageApiHelper;
+use App\Tests\Helpers\Personal\BaseAuthApiHelper;
 use Core\Test\EndpointCase;
 
 class LearnRealLanguageTest extends EndpointCase
 {
-    use LearnerAction;
-    use RealLanguageAction;
-    use LearningLanguageAction;
-
     /**
      * @test
      */
     public function __invoke()
     {
-        $this->loginAsTestLearnerByApi();
-        $response = $this->learnRealLanguage(1);
+        BaseAuthApiHelper::new()->loginAsTestLearner($this);
+        $response = LearningLanguageApiHelper::new()->learn($this, 1);
         $response->assertOk();
     }
 }

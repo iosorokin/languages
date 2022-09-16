@@ -44,6 +44,6 @@ final class LearnerBaseLogin implements LearnerBaseLoginPresenter
 
     private function creatApiToken(LearnerStructure $learner): string
     {
-        return $this->authService->auth($learner);
+        return $this->authService->login($learner);
     }
 }

@@ -5,7 +5,7 @@ namespace Modules\Languages\Learning\Controllers\Api;
 use App\Base\Controller;
 use App\Contracts\Presenters\Languages\Learning\LearnRealLanguagePresenter;
 use Core\Extensions\Request;
-use Core\Http\Responses\NoContentResponse;
+use Core\Http\Responses\Json\CreatedResponse;
 use Illuminate\Http\Response;
 
 class LearnRealLanguageController extends Controller
@@ -19,6 +19,6 @@ class LearnRealLanguageController extends Controller
         $client = $this->client();
         ($this->realLanguage)($client, $request->all());
 
-        return new NoContentResponse();
+        return new CreatedResponse();
     }
 }

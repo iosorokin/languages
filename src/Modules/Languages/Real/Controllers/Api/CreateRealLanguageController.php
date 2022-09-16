@@ -2,7 +2,7 @@
 
 namespace Modules\Languages\Real\Controllers\Api;
 
-use Core\Http\Responses\NoContentResponse;
+use Core\Http\Responses\Json\CreatedResponse;
 use Illuminate\Http\Request;
 use Modules\Languages\Real\Presenters\CreateRealLanguage;
 
@@ -16,6 +16,6 @@ class CreateRealLanguageController
     {
         $language = ($this->newRealLanguage)($request->all());
 
-        return new NoContentResponse();
+        return new CreatedResponse();
     }
 }

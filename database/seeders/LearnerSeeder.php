@@ -2,30 +2,24 @@
 
 namespace Database\Seeders;
 
-use App\Contracts\Presenters\Personal\Learner\RegisterLearnerPresenter;
-use Core\Test\Actions\Personal\LearnerAction;
+use App\Tests\Helpers\Personal\BaseAuthApiHelper;
+use App\Tests\Helpers\Personal\LearnerHelper;
 use Illuminate\Database\Seeder;
 
 class LearnerSeeder extends Seeder
 {
-    use LearnerAction;
-
     private const COUNT_LEARNERS = 99;
 
     public function run()
     {
-        $presenter = app()->get(RegisterLearnerPresenter::class);
+        $helper = LearnerHelper::new();
 
         $attributes = [
             'name' => 'Для теста',
-            'email' => $this->testEmail,
-            'password' => $this->testPassword
+            'email' => BaseAuthApiHelper::SEEDED_TEST_LEARNER['email'],
+            'password' => BaseAuthApiHelper::SEEDED_TEST_LEARNER['password'],
         ];
-        $presenter($attributes);
-
-        for ($i = 0; $i < self::COUNT_LEARNERS; $i++) {
-            $attributes = $this->generateLearnerAttributes();
-            $presenter($attributes);
-        }
+        $helper->register(attributes: $attributes)->current();
+        $helper->register(self::COUNT_LEARNERS)->current();
     }
 }

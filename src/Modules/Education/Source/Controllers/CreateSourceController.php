@@ -4,7 +4,7 @@ namespace Modules\Education\Source\Controllers;
 
 use App\Base\Controller;
 use Core\Extensions\Request;
-use Core\Http\Responses\NoContentResponse;
+use Core\Http\Responses\Json\CreatedResponse;
 use Illuminate\Support\Arr;
 use Modules\Education\Source\Enums\LanguageTypes;
 
@@ -18,6 +18,6 @@ class CreateSourceController extends Controller
         $client = $this->client();
         $presenter($client, $attributes);
 
-        return new NoContentResponse();
+        return new CreatedResponse();
     }
 }

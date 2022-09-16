@@ -3,9 +3,9 @@
 namespace Modules\Personal\Learner\Controllers\Api;
 
 use App\Base\Controller;
-use Core\Http\Responses\NoContentResponse;
+use Core\Http\Responses\Json\CreatedResponse;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Modules\Personal\Learner\Presenters\RegisterLearner;
 
 final class RegistrationLernerController extends Controller
@@ -14,11 +14,11 @@ final class RegistrationLernerController extends Controller
         private RegisterLearner $learnerRegistration,
     ) {}
 
-    public function __invoke(Request $request): Response
+    public function __invoke(Request $request): JsonResponse
     {
-        $client = $this->client();
         $learner = ($this->learnerRegistration)($request->all());
+        $location = route('api.learners.show', ['id' => $learner->id]);
 
-        return new NoContentResponse();
+        return new CreatedResponse($location);
     }
 }

@@ -7,7 +7,9 @@ use Modules\Languages\Real\Controllers\Api\CreateRealLanguageController;
 use Modules\Languages\Real\Controllers\Api\IndexRealLanguagesController;
 use Modules\Languages\Real\Controllers\Api\ShowRealLanguageController;
 use Modules\Personal\Auth\Controllers\Api\LearnerBaseLoginController;
+use Modules\Personal\Auth\Controllers\Api\LogoutController;
 use Modules\Personal\Learner\Controllers\Api\RegistrationLernerController;
+use Modules\Personal\Learner\Controllers\Api\ShowLearnerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,10 +23,14 @@ use Modules\Personal\Learner\Controllers\Api\RegistrationLernerController;
 */
 
 Route::post('learners', RegistrationLernerController::class)
-    ->name('learners.create');
+    ->name('learners.store');
+Route::get('learners', ShowLearnerController::class)
+    ->name('learners.show');
 
 Route::post('login', LearnerBaseLoginController::class)
     ->name('learners.login');
+Route::post('logout', LogoutController::class)
+    ->name('learners.logout');
 
 Route::post('real_languages', CreateRealLanguageController::class)
     ->name('real_languages.create');

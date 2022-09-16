@@ -2,20 +2,17 @@
 
 namespace Modules\Languages\Real\Controllers\Api;
 
-
-use Core\Test\Actions\Languages\RealLanguageAction;
+use App\Tests\Helpers\languages\RealLanguageApiHelper;
 use Core\Test\EndpointCase;
 
 class IndexRealLanguagesTest extends EndpointCase
 {
-    use RealLanguageAction;
-
     /**
      * @test
      */
     public function __invoke()
     {
-        $response = $this->indexRealLanguages();
+        $response = RealLanguageApiHelper::new()->index($this);
         $response->assertOk();
     }
 }

@@ -2,20 +2,17 @@
 
 namespace Modules\Personal\Learner\Controllers\Api;
 
-
-use Core\Test\Actions\Personal\LearnerAction;
+use App\Tests\Helpers\Personal\LearnerApiHelper;
 use Core\Test\EndpointCase;
 
 class RegistrationLearnerTest extends EndpointCase
 {
-    use LearnerAction;
-
     /**
      * @test
      */
     public function __invoke()
     {
-        $response = $this->createStudentByApi();
-        $response->assertOk();
+        $response = LearnerApiHelper::new()->create($this);
+        $response->assertCreated();
     }
 }

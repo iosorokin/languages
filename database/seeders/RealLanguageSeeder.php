@@ -2,22 +2,15 @@
 
 namespace Database\Seeders;
 
-use Core\Test\Actions\Languages\RealLanguageAction;
+use App\Tests\Helpers\languages\RealLanguageHelper;
 use Illuminate\Database\Seeder;
-use Modules\Languages\Real\Presenters\CreateRealLanguage;
 
 class RealLanguageSeeder extends Seeder
 {
-    use RealLanguageAction;
-
     private const COUNT_LANGUAGES = 100;
 
     public function run()
     {
-        for ($i = 0; $i < self::COUNT_LANGUAGES; $i++) {
-            $attributes = $this->getRealLanguagesAttributes();
-            $presenter = app()->get(CreateRealLanguage::class);
-            $presenter($attributes);
-        }
+        RealLanguageHelper::new()->create(self::COUNT_LANGUAGES)->current();
     }
 }

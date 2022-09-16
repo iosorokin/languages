@@ -6,7 +6,9 @@ use App\Contracts\Structures\AuthableStructure;
 
 interface AuthService
 {
-    public function auth(AuthableStructure $authable): ?string;
+    public function login(AuthableStructure $authable): ?string;
+
+    public function logout(AuthableStructure $authable): void;
 
     public function getAuth(): ?AuthableStructure;
 }
