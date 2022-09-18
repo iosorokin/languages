@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Personal\Auth\Controllers\Api;
+namespace Modules\Personal\Auth\Controllers\Api\Learner;
 
 use App\Base\Controller;
 use Core\Http\Responses\Json\NoContentResponse;
@@ -8,7 +8,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Modules\Personal\Auth\Presenters\Logout;
 
-class LogoutController extends Controller
+class LearnerLogoutController extends Controller
 {
     public function __construct(
         private Logout $logout,

@@ -5,6 +5,7 @@ namespace Modules\Personal\Auth\Services\Sanctum;
 use App\Contracts\Structures\AuthableStructure;
 use Illuminate\Auth\AuthManager;
 use Laravel\Sanctum\HasApiTokens;
+use Laravel\Sanctum\TransientToken;
 use Modules\Personal\Auth\Services\AuthService;
 use Modules\Personal\Auth\Services\Sanctum\Actions\CreateSanctumToken;
 use Modules\Personal\Auth\Services\Sanctum\Dto\CreateSanctumTokenDto;

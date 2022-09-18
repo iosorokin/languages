@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Personal\Auth\Presenters;
 
 use App\Contracts\Contexts\Client;
 use App\Contracts\Presenters\Personal\Auth\LogoutPresenter;
 use Modules\Personal\Auth\Services\AuthService;
 
-class Logout implements LogoutPresenter
+final class Logout implements LogoutPresenter
 {
     public function __construct(
         private AuthService $authService,

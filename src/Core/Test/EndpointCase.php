@@ -8,7 +8,7 @@ use Kirschbaum\OpenApiValidator\ValidatesOpenApiSpec;
 class EndpointCase extends TestCase
 {
     use DatabaseMigrations;
-    use ValidatesOpenApiSpec;
+//    use ValidatesOpenApiSpec;
 
     protected $seed = true;
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Personal\Auth\Controllers\Api;
+namespace Modules\Personal\Auth\Controllers\Api\Learner;
 
 use App\Tests\Helpers\Personal\BaseAuthApiHelper;
 use Core\Test\EndpointCase;

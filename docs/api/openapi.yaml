@@ -7,7 +7,7 @@ servers:
   - url: 'https://localhost:8014/api'
 paths:
   /learners:
-    $ref: '/resources/public/resources/createLearner.yaml'
+    $ref: 'resources/public/resources/createLearner.yaml'
 
   /login:
     post:

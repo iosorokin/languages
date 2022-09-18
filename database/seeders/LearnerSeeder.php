@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Tests\Helpers\Personal\BaseAuthApiHelper;
 use App\Tests\Helpers\Personal\LearnerHelper;
 use Illuminate\Database\Seeder;
+use Modules\Personal\Auth\Structures\BaseAuthModel;
 
 class LearnerSeeder extends Seeder
 {
@@ -19,7 +20,8 @@ class LearnerSeeder extends Seeder
             'email' => BaseAuthApiHelper::SEEDED_TEST_LEARNER['email'],
             'password' => BaseAuthApiHelper::SEEDED_TEST_LEARNER['password'],
         ];
-        $helper->register(attributes: $attributes)->current();
-        $helper->register(self::COUNT_LEARNERS)->current();
+
+        $helper->create(overwrite: $attributes)->current();
+        foreach ($helper->create(self::COUNT_LEARNERS) as $_) {};
     }
 }

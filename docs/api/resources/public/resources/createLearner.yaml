@@ -1,0 +1,28 @@
+post:
+  description: 'Создание нового ученика'
+  requestBody:
+    content:
+      'application/json':
+        schema:
+          properties:
+            email:
+              type: string
+              example: 'test@email.ru'
+            password:
+              type: string
+              example: 'password'
+            name:
+              type: string
+              example: 'Имя'
+          required:
+            - email
+            - password
+            - name
+  responses:
+    201:
+      headers:
+        location:
+          schema:
+            type: string
+            example: 'https://domain.ru/something/1'
+      description: 'Ответ'

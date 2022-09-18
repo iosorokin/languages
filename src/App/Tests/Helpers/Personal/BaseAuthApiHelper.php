@@ -7,7 +7,6 @@ namespace App\Tests\Helpers\Personal;
 use App\Extensions\Assert;
 use Core\Test\EndpointCase;
 use Core\Test\Helper;
-
 use Illuminate\Testing\TestResponse;
 
 final class BaseAuthApiHelper extends Helper
@@ -21,14 +20,19 @@ final class BaseAuthApiHelper extends Helper
         private BaseAuthHelper $baseAuthModuleHelper,
     ) {}
 
-    public function login(EndpointCase $testCase, array $attributes): TestResponse
+    public function loginLearner(EndpointCase $testCase, array $attributes): TestResponse
     {
         return $testCase->postJson(route('api.learners.login'), $attributes);
     }
 
+    public function logoutLearner(EndpointCase $testCase): TestResponse
+    {
+        return $testCase->postJson(route('api.learners.logout'));
+    }
+
     public function loginAsTestLearner(EndpointCase $testCase): TestResponse
     {
-        $response = $this->login($testCase, [
+        $response = $this->loginLearner($testCase, [
             'email' => self::SEEDED_TEST_LEARNER['email'],
             'password' => self::SEEDED_TEST_LEARNER['password'],
         ]);

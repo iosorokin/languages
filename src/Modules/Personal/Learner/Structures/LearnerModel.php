@@ -6,6 +6,7 @@ use App\Contracts\Structures\AuthableStructure;
 use App\Contracts\Structures\Personal\BaseAuthStructure;
 use App\Contracts\Structures\Personal\LearnerStructure;
 use App\Contracts\Structures\Personal\UserStructure;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
@@ -16,9 +17,11 @@ use Webmozart\Assert\Assert;
 
 class LearnerModel extends Model implements
     LearnerStructure,
-    AuthableStructure
+    AuthableStructure,
+    Authenticatable
 {
     use HasApiTokens;
+    use \Illuminate\Auth\Authenticatable;
 
     protected $table = 'learners';
 

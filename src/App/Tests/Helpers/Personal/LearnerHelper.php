@@ -7,6 +7,7 @@ namespace App\Tests\Helpers\Personal;
 use App\Contracts\Presenters\Personal\Learner\RegisterLearnerPresenter;
 use Core\Test\Helper;
 use Generator;
+use Illuminate\Support\Arr;
 
 final class LearnerHelper extends Helper
 {
@@ -26,11 +27,11 @@ final class LearnerHelper extends Helper
         return $user + $baseAuth + $learner;
     }
 
-    public function register(int $count = 1, array $attributes = []): Generator
+    public function create(int $count = 1, array $overwrite = []): Generator
     {
         for ($i = 0; $i < $count; $i++) {
             $presenter = app(RegisterLearnerPresenter::class);
-            $attributes = $this->generateAttributes() + $attributes;
+            $attributes = $overwrite + $this->generateAttributes();
 
             yield $presenter($attributes);
         }
