@@ -14,9 +14,7 @@ class BaseAuthFiller
 
     public function setAuthable(AuthableStructure $authable): self
     {
-        //fixme сделать морфное имя в константу и проверку на её существоание
-        $this->structure->authable_type = get_class($authable);
-        $this->structure->authable_id = $authable->id;
+        $this->structure->setAuthable($authable);
 
         return $this;
     }

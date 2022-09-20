@@ -11,7 +11,7 @@ use Modules\Personal\User\Structures\UserModel;
 
 final class UserFactory
 {
-    public function new(array $attributes): UserStructure
+    public function new(array $attributes): UserModel
     {
         $filler = new NewUserFiller(new UserModel());
         $filler->setName(Arr::get($attributes, 'name'));

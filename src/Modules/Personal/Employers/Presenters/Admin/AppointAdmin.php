@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Personal\Employers\Presenters;
+namespace Modules\Personal\Employers\Presenters\Admin;
 
 use App\Contracts\Presenters\Personal\Employers\AppointAdminPresenter;
 

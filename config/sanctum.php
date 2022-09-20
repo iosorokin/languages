@@ -61,6 +61,7 @@ return [
 
     'middleware' => [
         'verify_csrf_token' => Core\Http\Middleware\VerifyCsrfToken::class,
+        'throttle:api',
         'encrypt_cookies' => Core\Http\Middleware\EncryptCookies::class,
     ],
 

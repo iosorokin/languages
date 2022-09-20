@@ -27,7 +27,10 @@ final class BaseAuthApiHelper extends Helper
 
     public function logoutLearner(EndpointCase $testCase): TestResponse
     {
-        return $testCase->postJson(route('api.learners.logout'));
+        $response = $testCase->postJson(route('api.learners.logout'));
+        $testCase->withHeader('Authorization', '');
+
+        return $response;
     }
 
     public function loginAsTestLearner(EndpointCase $testCase): TestResponse

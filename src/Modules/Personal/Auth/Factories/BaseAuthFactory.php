@@ -2,24 +2,20 @@
 
 namespace Modules\Personal\Auth\Factories;
 
-use App\Contracts\Structures\Personal\BaseAuthStructure;
+use App\Contracts\Structures\AuthableStructure;
+use Illuminate\Support\Arr;
 use Modules\Personal\Auth\Contexts\Fillers\BaseAuthFiller;
-use Modules\Personal\Auth\Dto\CreateBaseAuthDto;
+use Modules\Personal\Auth\Structures\BaseAuthModel;
 
 class BaseAuthFactory
 {
-    public function new(CreateBaseAuthDto $dto): BaseAuthFiller
+    public function new(AuthableStructure $authable, array $attributes): BaseAuthModel
     {
-        $baseAuth = new BaseAuthFiller($this->createStructure());
-        $baseAuth->setAuthable($dto->authable);
-        $baseAuth->setEmail($dto->email);
-        $baseAuth->setPassword($dto->password);
+        $baseAuth = new BaseAuthFiller(new BaseAuthModel());
+        $baseAuth->setAuthable($authable);
+        $baseAuth->setEmail(Arr::get($attributes, 'email'));
+        $baseAuth->setPassword(Arr::get($attributes, 'password'));
 
-        return $baseAuth;
-    }
-
-    private function createStructure(): BaseAuthStructure
-    {
-        return app()->make(BaseAuthStructure::class);
+        return $baseAuth->structure;
     }
 }

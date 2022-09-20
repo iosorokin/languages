@@ -8,7 +8,7 @@ use Core\Test\EndpointCase;
 class LearnerLogoutTest extends EndpointCase
 {
     /**
-     * @test 
+     * @test
      */
     public function __invoke()
     {

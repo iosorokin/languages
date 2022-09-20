@@ -9,7 +9,7 @@ use Modules\Personal\Learner\Structures\LearnerModel;
 
 class LearnerFactory
 {
-    public function new(UserStructure $user, array $attributes): LearnerStructure
+    public function new(UserStructure $user, array $attributes): LearnerModel
     {
         $filler = new FillNewLearner(new LearnerModel());
 

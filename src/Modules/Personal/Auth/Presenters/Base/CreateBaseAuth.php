@@ -9,6 +9,7 @@ use App\Contracts\Structures\AuthableStructure;
 use App\Contracts\Structures\Personal\BaseAuthStructure;
 use Modules\Personal\Auth\Dto\CreateBaseAuthDto;
 use Modules\Personal\Auth\Factories\BaseAuthFactory;
+use Modules\Personal\Auth\Structures\BaseAuthModel;
 
 final class CreateBaseAuth implements CreateBaseAuthPresenter
 {
@@ -16,12 +17,10 @@ final class CreateBaseAuth implements CreateBaseAuthPresenter
         private BaseAuthFactory $factory,
     ) {}
 
-    public function __invoke(AuthableStructure $authable, array $attributes): BaseAuthStructure
+    public function __invoke(AuthableStructure $authable, array $attributes): BaseAuthModel
     {
-        $dto = new CreateBaseAuthDto($authable, $attributes);
-        $baseAuth = $this->factory->new($dto);
-        $structure = $baseAuth->structure;
+        $baseAuth = $this->factory->new($authable, $attributes);
 
-        return $structure;
+        return $baseAuth;
     }
 }

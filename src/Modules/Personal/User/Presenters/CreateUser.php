@@ -7,6 +7,7 @@ namespace Modules\Personal\User\Presenters;
 use App\Contracts\Presenters\Personal\User\CreateUserPresenter;
 use App\Contracts\Structures\Personal\UserStructure;
 use Modules\Personal\User\Factories\UserFactory;
+use Modules\Personal\User\Structures\UserModel;
 use Modules\Personal\User\Validators\CreateUserValidator;
 
 final class CreateUser implements CreateUserPresenter
@@ -19,7 +20,7 @@ final class CreateUser implements CreateUserPresenter
     /**
      * @param array<mixed> $attributes
      */
-    public function __invoke(array $attributes): UserStructure
+    public function __invoke(array $attributes): UserModel
     {
         $attributes = $this->validator->validate($attributes);
         $user = $this->factory->new($attributes);
