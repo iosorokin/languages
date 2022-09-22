@@ -14,7 +14,7 @@ final class GetLearningLanguage implements GetLearningLanguagePresenter
         private LearningLanguageRepository $repository,
     ) {}
 
-    public function __invoke(Client $client, int $id): LearningLanguageStructure
+    public function __invoke(int $id): LearningLanguageStructure
     {
         $learningLanguage = $this->repository->getById($id);
 

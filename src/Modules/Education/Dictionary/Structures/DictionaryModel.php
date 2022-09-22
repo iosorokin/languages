@@ -7,7 +7,7 @@ namespace Modules\Education\Dictionary\Structures;
 use App\Extensions\Assert;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
-use Modules\Languages\LanguageStructure;
+use Modules\Languages\Common\Contracts\LanguageStructure;
 
 final class DictionaryModel extends Model implements DictionaryStructure
 {

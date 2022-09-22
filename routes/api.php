@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\Education\Dictionary\Controller\StoreDictionaryController;
 use Modules\Education\Source\Controllers\CreateSourceController;
 use Modules\Languages\Learning\Controllers\LearnRealLanguageController;
 use Modules\Languages\Real\Controllers\Api\CreateRealLanguageController;
@@ -8,8 +9,8 @@ use Modules\Languages\Real\Controllers\Api\IndexRealLanguagesController;
 use Modules\Languages\Real\Controllers\Api\ShowRealLanguageController;
 use Modules\Personal\Auth\Controllers\LearnerBaseLoginController;
 use Modules\Personal\Auth\Controllers\LearnerLogoutController;
-use Modules\Personal\Learner\Controllers\Api\RegistrationLernerController;
-use Modules\Personal\Learner\Controllers\Api\ShowLearnerController;
+use Modules\Personal\Learner\Controllers\RegistrationLernerController;
+use Modules\Personal\Learner\Controllers\ShowLearnerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,9 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('logout', LearnerLogoutController::class)
         ->name('learners.logout');
+
+    Route::post('dictionaries', StoreDictionaryController::class)
+        ->name('dictionaries.store');
 });
 
 Route::post('login', LearnerBaseLoginController::class)
@@ -49,3 +53,4 @@ Route::post('real_languages/{id}/learn', LearnRealLanguageController::class)
 
 Route::post('sources', CreateSourceController::class)
     ->name('sources.create');
+

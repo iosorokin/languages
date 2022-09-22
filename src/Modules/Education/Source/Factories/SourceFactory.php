@@ -4,7 +4,7 @@ namespace Modules\Education\Source\Factories;
 
 use Illuminate\Support\Arr;
 use Modules\Education\Source\Structures\SourceModel;
-use Modules\Languages\LanguageStructure;
+use Modules\Languages\Common\Contracts\LanguageStructure;
 
 class SourceFactory
 {

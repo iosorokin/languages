@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Languages;
+namespace Modules\Languages\Common\Contracts;
 
 /**
  * @property int $id

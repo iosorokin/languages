@@ -8,7 +8,7 @@ use Modules\Education\Source\Factories\SourceFactory;
 use Modules\Education\Source\Repositories\SourceRepository;
 use Modules\Education\Source\Structures\SourceModel;
 use Modules\Education\Source\Validators\CreateSourceValidator;
-use Modules\Languages\LanguageStructure;
+use Modules\Languages\Common\Contracts\LanguageStructure;
 
 final class CreateSource
 {

@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Core\Extensions;
 
 use Illuminate\Http\Request as LaravelRequest;
 
-class Request
+final class Request
 {
     public function __construct(
         public readonly LaravelRequest $request

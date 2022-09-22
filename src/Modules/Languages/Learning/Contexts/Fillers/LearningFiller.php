@@ -2,7 +2,7 @@
 
 namespace Modules\Languages\Learning\Contexts\Fillers;
 
-use Modules\Languages\LearnableStructure;
+use Modules\Languages\Common\Contracts\LearnableStructure;
 use Modules\Languages\Learning\Structures\LearningLanguageStructure;
 use Modules\Personal\Learner\Structures\LearnerStructure;
 

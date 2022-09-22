@@ -3,7 +3,7 @@
 namespace Modules\Languages\Learning\Factories;
 
 use Illuminate\Support\Arr;
-use Modules\Languages\LearnableStructure;
+use Modules\Languages\Common\Contracts\LearnableStructure;
 use Modules\Languages\Learning\Contexts\Fillers\LearningFiller;
 use Modules\Languages\Learning\Structures\LearningLanguageModel;
 use Modules\Languages\Learning\Structures\LearningLanguageStructure;

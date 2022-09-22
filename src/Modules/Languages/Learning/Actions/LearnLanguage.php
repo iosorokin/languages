@@ -2,7 +2,7 @@
 
 namespace Modules\Languages\Learning\Actions;
 
-use Modules\Languages\LearnableStructure;
+use Modules\Languages\Common\Contracts\LearnableStructure;
 use Modules\Languages\Learning\Factories\LearningFactory;
 use Modules\Languages\Learning\Repositories\LearningLanguageRepository;
 use Modules\Languages\Learning\Structures\LearningLanguageStructure;

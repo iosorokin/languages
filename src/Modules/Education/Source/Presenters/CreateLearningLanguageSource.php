@@ -22,7 +22,7 @@ final class CreateLearningLanguageSource implements CreateLearningLanguageSource
      */
     public function __invoke(Client $client, array $attributes): SourceModel
     {
-        $language = ($this->getLearningLanguage)($client, Arr::get($attributes, 'id'));
+        $language = ($this->getLearningLanguage)(Arr::get($attributes, 'id'));
         $source = ($this->createSource)($language, $attributes);
 
         return $source;

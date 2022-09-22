@@ -2,7 +2,7 @@
 
 namespace Modules\Education\Source\Structures;
 
-use Modules\Languages\LanguageStructure;
+use Modules\Languages\Common\Contracts\LanguageStructure;
 
 /**
  * @property int $id

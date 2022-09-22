@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Personal\Learner\Controllers\Api;
+namespace Modules\Personal\Learner\Controllers;
 
 use Core\Http\Controller;
 use Core\Http\Responses\Json\CreatedResponse;

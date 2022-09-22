@@ -6,7 +6,7 @@ use App\Extensions\Assert;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
-use Modules\Languages\LearnableStructure;
+use Modules\Languages\Common\Contracts\LearnableStructure;
 use Modules\Languages\Real\Structures\RealLanguageModel;
 use Modules\Personal\Learner\Structures\LearnerModel;
 use Modules\Personal\Learner\Structures\LearnerStructure;
