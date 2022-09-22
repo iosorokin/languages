@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\Learner\Controllers\Api;
 
-use App\Base\Controller;
+use Core\Http\Controller;
 
 class ShowLearnerController extends Controller
 {

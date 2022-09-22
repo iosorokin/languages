@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\Learner\Controllers\Api;
 
-use App\Base\Controller;
+use Core\Http\Controller;
 use Core\Http\Responses\Json\CreatedResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;

@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\Auth\Controllers;
 
-use App\Base\Controller;
+use Core\Http\Controller;
 use Core\Http\Responses\Json\NoContentResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;

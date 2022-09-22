@@ -2,8 +2,8 @@
 
 namespace Modules\Languages\Learning\Controllers;
 
-use App\Base\Controller;
 use Core\Extensions\Request;
+use Core\Http\Controller;
 use Core\Http\Responses\Json\CreatedResponse;
 use Illuminate\Http\JsonResponse;
 use Modules\Languages\Learning\Presenters\LearnRealLanguagePresenter;

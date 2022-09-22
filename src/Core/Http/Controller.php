@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Base;
+namespace Core\Http;
 
 use Modules\Personal\Auth\Presenters\GetClientPresenter;
 
