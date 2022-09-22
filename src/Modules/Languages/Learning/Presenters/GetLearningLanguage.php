@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace Modules\Languages\Learning\Presenters;
 
 use App\Contracts\Contexts\Client;
-use App\Contracts\Presenters\Languages\Learning\GetLearningLanguagePresenter;
-use App\Contracts\Structures\LearningLanguageStructure;
 use Modules\Languages\Learning\Repositories\LearningLanguageRepository;
+use Modules\Languages\Learning\Structures\LearningLanguageStructure;
 
 final class GetLearningLanguage implements GetLearningLanguagePresenter
 {

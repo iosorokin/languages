@@ -3,7 +3,6 @@
 namespace Modules\Notification\Mailer\Presenters;
 
 
-use App\Contracts\Presenters\Notification\Mailer\SendLearnerRegistrationEmailPresenter;
 use Illuminate\Bus\Dispatcher;
 use Modules\Notification\Mailer\Tasks\SendLearnerRegistrationEmailTask;
 use Modules\Personal\Learner\Structures\LearnerModel;

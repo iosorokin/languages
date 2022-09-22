@@ -2,15 +2,14 @@
 
 namespace Modules\Languages\Learning\Structures;
 
-use App\Contracts\Structures\LearnableStructure;
-use App\Contracts\Structures\LearnerStructure;
-use App\Contracts\Structures\LearningLanguageStructure;
 use App\Extensions\Assert;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Modules\Languages\LearnableStructure;
 use Modules\Languages\Real\Structures\RealLanguageModel;
 use Modules\Personal\Learner\Structures\LearnerModel;
+use Modules\Personal\Learner\Structures\LearnerStructure;
 
 class LearningLanguageModel extends Model implements LearningLanguageStructure
 {

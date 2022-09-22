@@ -2,7 +2,7 @@
 
 namespace Modules\Position\Actions;
 
-use App\Contracts\Positionable;
+use Modules\Position\Contracts\Positionable;
 
 class InitPosition
 {

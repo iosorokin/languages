@@ -2,9 +2,9 @@
 
 namespace Modules\Education\Source\Factories;
 
-use App\Contracts\Structures\LanguageStructure;
 use Illuminate\Support\Arr;
 use Modules\Education\Source\Structures\SourceModel;
+use Modules\Languages\LanguageStructure;
 
 class SourceFactory
 {

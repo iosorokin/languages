@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Education\Dictionaries\Structures;
 
-use App\Contracts\Structures\DictionaryStructure;
-use App\Contracts\Structures\LanguageStructure;
 use App\Extensions\Assert;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Modules\Languages\LanguageStructure;
 
 final class DictionaryModel extends Model implements DictionaryStructure
 {

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Education\Source\Enums;
 
-use App\Contracts\Presenters\Education\Source\CreateLearningLanguageSourcePresenter;
-use App\Contracts\Presenters\Education\Source\CreateRealLanguageSourcePresenter;
+use Modules\Education\Source\Presenters\CreateLearningLanguageSourcePresenter;
+use Modules\Education\Source\Presenters\CreateRealLanguageSourcePresenter;
 
 enum LanguageTypes: string
 {

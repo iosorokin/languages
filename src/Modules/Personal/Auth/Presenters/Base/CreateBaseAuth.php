@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Personal\Auth\Presenters\Base;
 
-use App\Contracts\Presenters\Personal\Auth\CreateBaseAuthPresenter;
 use Modules\Personal\Auth\Factories\BaseAuthFactory;
 use Modules\Personal\Auth\Structures\BaseAuthModel;
 

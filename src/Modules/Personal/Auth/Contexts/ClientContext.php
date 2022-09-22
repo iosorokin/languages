@@ -3,7 +3,7 @@
 namespace Modules\Personal\Auth\Contexts;
 
 use App\Contracts\Contexts\Client;
-use App\Contracts\Structures\AuthableStructure;
+use Modules\Personal\Auth\Structures\AuthableStructure;
 
 class ClientContext implements Client
 {

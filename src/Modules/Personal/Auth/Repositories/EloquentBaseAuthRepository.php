@@ -2,10 +2,10 @@
 
 namespace Modules\Personal\Auth\Repositories;
 
-use App\Contracts\Structures\BaseAuthStructure;
 use App\Extensions\Assert;
 use Modules\Personal\Auth\Contexts\Fillers\BaseAuthFiller;
 use Modules\Personal\Auth\Structures\BaseAuthModel;
+use Modules\Personal\Auth\Structures\BaseAuthStructure;
 
 class EloquentBaseAuthRepository implements BaseAuthRepository
 {

@@ -5,11 +5,10 @@ declare(strict_types=1);
 namespace Modules\Education\Source\Presenters;
 
 use App\Contracts\Contexts\Client;
-use App\Contracts\Presenters\Education\Source\CreateLearningLanguageSourcePresenter;
-use App\Contracts\Presenters\Languages\Learning\GetLearningLanguagePresenter;
 use Illuminate\Support\Arr;
 use Modules\Education\Source\Actions\CreateSource;
 use Modules\Education\Source\Structures\SourceModel;
+use Modules\Languages\Learning\Presenters\GetLearningLanguagePresenter;
 
 final class CreateLearningLanguageSource implements CreateLearningLanguageSourcePresenter
 {

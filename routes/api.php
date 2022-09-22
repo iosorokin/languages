@@ -2,12 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\Education\Source\Controllers\CreateSourceController;
-use Modules\Languages\Learning\Controllers\Api\LearnRealLanguageController;
+use Modules\Languages\Learning\Controllers\LearnRealLanguageController;
 use Modules\Languages\Real\Controllers\Api\CreateRealLanguageController;
 use Modules\Languages\Real\Controllers\Api\IndexRealLanguagesController;
 use Modules\Languages\Real\Controllers\Api\ShowRealLanguageController;
-use Modules\Personal\Auth\Controllers\Api\Learner\LearnerBaseLoginController;
-use Modules\Personal\Auth\Controllers\Api\Learner\LearnerLogoutController;
+use Modules\Personal\Auth\Controllers\LearnerBaseLoginController;
+use Modules\Personal\Auth\Controllers\LearnerLogoutController;
 use Modules\Personal\Learner\Controllers\Api\RegistrationLernerController;
 use Modules\Personal\Learner\Controllers\Api\ShowLearnerController;
 

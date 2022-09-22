@@ -2,8 +2,8 @@
 
 namespace Modules\Languages\Real\Controllers\Api;
 
-use App\Contracts\Presenters\Languages\Real\GetRealLanguagePresenter;
 use Illuminate\Http\Request;
+use Modules\Languages\Real\Presenters\GetRealLanguagePresenter;
 
 class ShowRealLanguageController
 {

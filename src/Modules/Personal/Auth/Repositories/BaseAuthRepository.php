@@ -2,8 +2,8 @@
 
 namespace Modules\Personal\Auth\Repositories;
 
-use App\Contracts\Structures\BaseAuthStructure;
 use Modules\Personal\Auth\Contexts\Fillers\BaseAuthFiller;
+use Modules\Personal\Auth\Structures\BaseAuthStructure;
 
 interface BaseAuthRepository
 {

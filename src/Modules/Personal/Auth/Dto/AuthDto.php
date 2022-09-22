@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\Auth\Dto;
 
-use App\Contracts\Structures\AuthableStructure;
+use Modules\Personal\Auth\Structures\AuthableStructure;
 
 class AuthDto
 {

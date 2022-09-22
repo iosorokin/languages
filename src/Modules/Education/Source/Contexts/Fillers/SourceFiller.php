@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Education\Source\Contexts\Fillers;
 
-use App\Contracts\Structures\LanguageStructure;
-use App\Contracts\Structures\SourceStructure;
+use Modules\Education\Source\Structures\SourceStructure;
+use Modules\Languages\LanguageStructure;
 
 final class SourceFiller
 {

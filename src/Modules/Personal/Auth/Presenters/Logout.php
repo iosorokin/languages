@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\Personal\Auth\Presenters;
 
 use App\Contracts\Contexts\Client;
-use App\Contracts\Presenters\Personal\Auth\LogoutPresenter;
 use Modules\Personal\Auth\Services\AuthService;
 
 final class Logout implements LogoutPresenter

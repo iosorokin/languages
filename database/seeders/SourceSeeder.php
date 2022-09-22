@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
-use App\Tests\Helpers\Education\SourceHelper;
 use Illuminate\Database\Seeder;
+use Modules\Education\Source\Tests\SourceHelper;
 
 final class SourceSeeder extends Seeder
 {

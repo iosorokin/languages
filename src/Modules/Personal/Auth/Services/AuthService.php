@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\Auth\Services;
 
-use App\Contracts\Structures\AuthableStructure;
+use Modules\Personal\Auth\Structures\AuthableStructure;
 
 interface AuthService
 {

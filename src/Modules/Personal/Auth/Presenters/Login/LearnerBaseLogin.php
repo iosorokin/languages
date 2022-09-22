@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\Personal\Auth\Presenters\Login;
 
-use App\Contracts\Presenters\Personal\Auth\LearnerBaseLoginPresenter;
-use App\Contracts\Structures\LearnerStructure;
 use Modules\Personal\Auth\Actions\GetBaseAuth;
 use Modules\Personal\Auth\Dto\GetBaseAuthDto;
 use Modules\Personal\Auth\Services\AuthService;
 use Modules\Personal\Auth\Validators\BaseAuthValidator;
 use Modules\Personal\Learner\Repositories\LearnerRepository;
 use Modules\Personal\Learner\Structures\LearnerModel;
+use Modules\Personal\Learner\Structures\LearnerStructure;
 use Webmozart\Assert\Assert;
 
 final class LearnerBaseLogin implements LearnerBaseLoginPresenter

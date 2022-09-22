@@ -2,7 +2,7 @@
 
 namespace Modules\Education\Dictionaries\Repositories;
 
-use App\Contracts\Structures\DictionaryStructure;
+use Modules\Education\Dictionaries\Structures\DictionaryStructure;
 
 interface DictionaryRepository
 {

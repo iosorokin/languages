@@ -2,11 +2,10 @@
 
 namespace Modules\Education\Source\Structures;
 
-use App\Contracts\Structures\LanguageStructure;
-use App\Contracts\Structures\SourceStructure;
 use App\Extensions\Assert;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Modules\Languages\LanguageStructure;
 
 final class SourceModel extends Model implements SourceStructure
 {

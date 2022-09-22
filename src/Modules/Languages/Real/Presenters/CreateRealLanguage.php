@@ -2,11 +2,10 @@
 
 namespace Modules\Languages\Real\Presenters;
 
-use App\Contracts\Presenters\Languages\Real\CreateRealLanguagePresenter;
-use App\Contracts\Structures\RealLanguageStructure;
 use Modules\Languages\Real\Dto\CreateRealLanguageDto;
 use Modules\Languages\Real\Factories\RealLanguageFactory;
 use Modules\Languages\Real\Repositories\RealLanguageRepository;
+use Modules\Languages\Real\Structures\RealLanguageStructure;
 
 class CreateRealLanguage implements CreateRealLanguagePresenter
 {

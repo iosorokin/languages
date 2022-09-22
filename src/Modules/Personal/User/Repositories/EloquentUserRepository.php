@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Personal\User\Repositories;
 
-use App\Contracts\Structures\UserStructure;
 use Modules\Personal\User\Structures\UserModel;
+use Modules\Personal\User\Structures\UserStructure;
 use Webmozart\Assert\Assert;
 
 final class EloquentUserRepository implements UserRepository

@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace Modules\Personal\Employers\Presenters;
 
 use App\Contracts\Contexts\Client;
-use App\Contracts\Presenters\Personal\Employers\GetEmployerPresenter;
-use App\Contracts\Structures\EmployerStructure;
 use Modules\Personal\Employers\Repositories\EmployerRepository;
+use Modules\Personal\Employers\Structures\EmployerStructure;
 
 final class GetEmployer implements GetEmployerPresenter
 {

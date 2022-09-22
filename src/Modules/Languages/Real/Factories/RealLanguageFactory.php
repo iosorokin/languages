@@ -2,9 +2,9 @@
 
 namespace Modules\Languages\Real\Factories;
 
-use App\Contracts\Structures\RealLanguageStructure;
 use Modules\Languages\Real\Contexts\RealLanguageContext;
 use Modules\Languages\Real\Dto\CreateRealLanguageDto;
+use Modules\Languages\Real\Structures\RealLanguageStructure;
 use stdClass;
 
 class RealLanguageFactory

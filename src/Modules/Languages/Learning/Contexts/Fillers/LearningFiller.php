@@ -2,9 +2,9 @@
 
 namespace Modules\Languages\Learning\Contexts\Fillers;
 
-use App\Contracts\Structures\LearnableStructure;
-use App\Contracts\Structures\LearnerStructure;
-use App\Contracts\Structures\LearningLanguageStructure;
+use Modules\Languages\LearnableStructure;
+use Modules\Languages\Learning\Structures\LearningLanguageStructure;
+use Modules\Personal\Learner\Structures\LearnerStructure;
 
 class LearningFiller
 {

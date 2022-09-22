@@ -2,7 +2,7 @@
 
 namespace Modules\Education\Words\Repositories;
 
-use App\Contracts\Structures\WordStructure;
+use Modules\Education\Words\Structures\WordStructure;
 
 interface WordRepository
 {

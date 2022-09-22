@@ -2,9 +2,9 @@
 
 namespace Modules\Education\Source\Repositories;
 
-use App\Contracts\Structures\SourceStructure;
 use App\Extensions\Assert;
 use Modules\Education\Source\Structures\SourceModel;
+use Modules\Education\Source\Structures\SourceStructure;
 
 class EloquentSourceRepository implements SourceRepository
 {

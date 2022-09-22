@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace Modules\Education\Dictionaries\Presenters;
 
 use App\Contracts\Contexts\Client;
-use App\Contracts\Structures\DictionaryStructure;
-use App\Contracts\Structures\LanguageStructure;
 use Illuminate\Support\Arr;
 use Modules\Education\Dictionaries\Repositories\DictionaryRepository;
 use Modules\Education\Dictionaries\Structures\DictionaryModel;
+use Modules\Education\Dictionaries\Structures\DictionaryStructure;
+use Modules\Languages\LanguageStructure;
 
 final class CreateDictionary
 {

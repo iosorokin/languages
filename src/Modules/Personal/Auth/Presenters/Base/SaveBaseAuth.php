@@ -2,9 +2,8 @@
 
 namespace Modules\Personal\Auth\Presenters\Base;
 
-use App\Contracts\Presenters\Personal\Auth\SaveBaseAuthPresenter;
-use App\Contracts\Structures\BaseAuthStructure;
 use Modules\Personal\Auth\Repositories\BaseAuthRepository;
+use Modules\Personal\Auth\Structures\BaseAuthStructure;
 
 final class SaveBaseAuth implements SaveBaseAuthPresenter
 {

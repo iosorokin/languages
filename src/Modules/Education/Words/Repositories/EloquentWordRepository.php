@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Education\Words\Repositories;
 
-use App\Contracts\Structures\WordStructure;
 use App\Extensions\Assert;
 use Exception;
-use Modules\Education\Words\Models\WordModel;
+use Modules\Education\Words\Structures\WordModel;
+use Modules\Education\Words\Structures\WordStructure;
 
 final class EloquentWordRepository implements WordRepository
 {

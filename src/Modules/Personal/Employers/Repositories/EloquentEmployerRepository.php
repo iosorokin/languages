@@ -2,9 +2,9 @@
 
 namespace Modules\Personal\Employers\Repositories;
 
-use App\Contracts\Structures\EmployerStructure;
 use App\Extensions\Assert;
 use Modules\Personal\Employers\Structures\EmployerModel;
+use Modules\Personal\Employers\Structures\EmployerStructure;
 
 class EloquentEmployerRepository implements EmployerRepository
 {

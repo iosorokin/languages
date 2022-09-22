@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Personal\Auth\Actions;
 
-use App\Contracts\Structures\BaseAuthStructure;
 use Exception;
 use Modules\Personal\Auth\Dto\GetBaseAuthDto;
 use Modules\Personal\Auth\Repositories\BaseAuthRepository;
+use Modules\Personal\Auth\Structures\BaseAuthStructure;
 
 class GetBaseAuth
 {

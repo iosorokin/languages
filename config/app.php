@@ -197,20 +197,20 @@ return [
         /*
          * Application Service Providers
          */
-        App\Providers\AppServiceProvider::class,
+        App\AppServiceProvider::class,
 
         /*
          * Module Service Providers
          */
-        App\Providers\Modules\AuthServiceProvider::class,
-        App\Providers\Modules\UserServiceProvider::class,
-        App\Providers\Modules\LearnerServiceProvider::class,
-        App\Providers\Modules\LearningLanguageServiceProvider::class,
-        App\Providers\Modules\RealLanguageServiceProvider::class,
-        App\Providers\Modules\MailerServiceProvider::class,
-        App\Providers\Modules\SourceServiceProvider::class,
-        App\Providers\Modules\EmployerProvider::class,
-        App\Providers\Modules\WordServiceProvider::class,
+        \Modules\Personal\Auth\AuthServiceProvider::class,
+        \Modules\Personal\User\UserServiceProvider::class,
+        \Modules\Personal\Learner\LearnerServiceProvider::class,
+        \Modules\Languages\Learning\LearningLanguageServiceProvider::class,
+        \Modules\Languages\Real\RealLanguageServiceProvider::class,
+        \Modules\Notification\Mailer\MailerServiceProvider::class,
+        \Modules\Education\Source\SourceServiceProvider::class,
+        \Modules\Personal\Employers\EmployerProvider::class,
+        \Modules\Education\Words\WordServiceProvider::class,
     ],
 
     /*

@@ -2,8 +2,8 @@
 
 namespace Modules\Personal\Learner\Repositories;
 
-use App\Contracts\Structures\LearnerStructure;
 use Modules\Personal\Learner\Structures\LearnerModel;
+use Modules\Personal\Learner\Structures\LearnerStructure;
 use Webmozart\Assert\Assert;
 
 class EloquentLernerRepository implements LearnerRepository

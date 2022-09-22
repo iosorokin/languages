@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Personal\Learner\Presenters;
 
-use App\Contracts\Presenters\Notification\Mailer\SendLearnerRegistrationEmailPresenter;
-use App\Contracts\Presenters\Personal\Auth\CreateBaseAuthPresenter;
-use App\Contracts\Presenters\Personal\Learner\RegisterLearnerPresenter;
-use App\Contracts\Presenters\Personal\User\CreateUserPresenter;
-use App\Contracts\Structures\LearnerStructure;
+use Modules\Notification\Mailer\Presenters\SendLearnerRegistrationEmailPresenter;
+use Modules\Personal\Auth\Presenters\Base\CreateBaseAuthPresenter;
 use Modules\Personal\Learner\Actions\CreateLearner;
 use Modules\Personal\Learner\Actions\SaveRegisteredLearner;
+use Modules\Personal\Learner\Structures\LearnerStructure;
+use Modules\Personal\User\Presenters\CreateUserPresenter;
 
 final class RegisterLearner implements RegisterLearnerPresenter
 {

@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Education\Source\Actions;
 
-use App\Contracts\Structures\LanguageStructure;
 use Modules\Education\Source\Factories\SourceFactory;
 use Modules\Education\Source\Repositories\SourceRepository;
 use Modules\Education\Source\Structures\SourceModel;
 use Modules\Education\Source\Validators\CreateSourceValidator;
+use Modules\Languages\LanguageStructure;
 
 final class CreateSource
 {

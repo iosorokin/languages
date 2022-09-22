@@ -2,7 +2,7 @@
 
 namespace App\Contracts\Contexts;
 
-use App\Contracts\Structures\AuthableStructure;
+use Modules\Personal\Auth\Structures\AuthableStructure;
 
 interface Client
 {

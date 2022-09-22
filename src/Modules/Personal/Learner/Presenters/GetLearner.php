@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace Modules\Personal\Learner\Presenters;
 
 use App\Contracts\Contexts\Client;
-use App\Contracts\Presenters\Personal\Learner\GetLearnerPresenter;
-use App\Contracts\Structures\LearnerStructure;
 use Modules\Personal\Learner\Repositories\LearnerRepository;
+use Modules\Personal\Learner\Structures\LearnerStructure;
 
 final class GetLearner implements GetLearnerPresenter
 {

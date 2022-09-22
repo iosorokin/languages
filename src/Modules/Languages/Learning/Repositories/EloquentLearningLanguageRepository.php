@@ -2,9 +2,9 @@
 
 namespace Modules\Languages\Learning\Repositories;
 
-use App\Contracts\Structures\LearningLanguageStructure;
 use App\Extensions\Assert;
 use Modules\Languages\Learning\Structures\LearningLanguageModel;
+use Modules\Languages\Learning\Structures\LearningLanguageStructure;
 
 class EloquentLearningLanguageRepository implements LearningLanguageRepository
 {

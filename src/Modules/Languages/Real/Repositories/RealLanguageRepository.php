@@ -2,9 +2,9 @@
 
 namespace Modules\Languages\Real\Repositories;
 
-use App\Contracts\Structures\RealLanguageStructure;
 use Illuminate\Pagination\CursorPaginator;
 use Modules\Languages\Real\Filters\RealLanguageFilter;
+use Modules\Languages\Real\Structures\RealLanguageStructure;
 use stdClass;
 
 interface RealLanguageRepository

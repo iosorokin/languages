@@ -2,7 +2,7 @@
 
 namespace Modules\Languages\Learning\Repositories;
 
-use App\Contracts\Structures\LearningLanguageStructure;
+use Modules\Languages\Learning\Structures\LearningLanguageStructure;
 
 interface LearningLanguageRepository
 {

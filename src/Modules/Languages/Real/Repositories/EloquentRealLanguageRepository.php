@@ -2,13 +2,13 @@
 
 namespace Modules\Languages\Real\Repositories;
 
-use App\Contracts\Structures\RealLanguageStructure;
 use App\Extensions\Assert;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Pagination\CursorPaginator;
 use Illuminate\Support\Facades\DB;
 use Modules\Languages\Real\Filters\RealLanguageFilter;
 use Modules\Languages\Real\Structures\RealLanguageModel;
+use Modules\Languages\Real\Structures\RealLanguageStructure;
 use stdClass;
 
 class EloquentRealLanguageRepository implements RealLanguageRepository

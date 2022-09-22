@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Personal\Auth\Structures;
 
-use App\Contracts\Structures\AuthableStructure;
-use App\Contracts\Structures\BaseAuthStructure;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 

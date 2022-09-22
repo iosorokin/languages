@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Personal\Employers\Actions;
 
-use App\Contracts\Presenters\Personal\Auth\SaveBaseAuthPresenter;
-use App\Contracts\Presenters\Personal\User\SaveUserPresenter;
 use Illuminate\Support\Facades\DB;
+use Modules\Personal\Auth\Presenters\Base\SaveBaseAuthPresenter;
 use Modules\Personal\Auth\Structures\BaseAuthModel;
 use Modules\Personal\Employers\Repositories\EmployerRepository;
 use Modules\Personal\Employers\Structures\EmployerModel;
+use Modules\Personal\User\Presenters\SaveUserPresenter;
 use Modules\Personal\User\Structures\UserModel;
 
 final class SaveCreatedEmployer

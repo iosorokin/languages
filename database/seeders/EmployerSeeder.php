@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
-use App\Tests\Helpers\Personal\EmployerHelper;
 use Illuminate\Database\Seeder;
+use Modules\Personal\Employers\Tests\EmployerHelper;
 
 final class EmployerSeeder extends Seeder
 {

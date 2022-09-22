@@ -2,11 +2,11 @@
 
 namespace Modules\Languages\Learning\Actions;
 
-use App\Contracts\Structures\LearnableStructure;
-use App\Contracts\Structures\LearnerStructure;
-use App\Contracts\Structures\LearningLanguageStructure;
+use Modules\Languages\LearnableStructure;
 use Modules\Languages\Learning\Factories\LearningFactory;
 use Modules\Languages\Learning\Repositories\LearningLanguageRepository;
+use Modules\Languages\Learning\Structures\LearningLanguageStructure;
+use Modules\Personal\Learner\Structures\LearnerStructure;
 
 class LearnLanguage
 {

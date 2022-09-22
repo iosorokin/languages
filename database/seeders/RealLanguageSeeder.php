@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Tests\Helpers\Languages\RealLanguageHelper;
 use Illuminate\Database\Seeder;
+use Modules\Languages\Real\Tests\RealLanguageHelper;
 
 class RealLanguageSeeder extends Seeder
 {

@@ -2,8 +2,6 @@
 
 namespace Modules\Languages\Real\Presenters;
 
-use App\Contracts\Presenters\Languages\Real\IndexRealLanguagesPresenter;
-use Illuminate\Support\Collection;
 use Modules\Languages\Real\Factories\RealLanguageFactory;
 use Modules\Languages\Real\Filters\RealLanguageFilter;
 use Modules\Languages\Real\Repositories\RealLanguageRepository;

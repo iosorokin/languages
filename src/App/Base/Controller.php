@@ -2,7 +2,7 @@
 
 namespace App\Base;
 
-use App\Contracts\Presenters\Personal\Auth\GetClientPresenter;
+use Modules\Personal\Auth\Presenters\GetClientPresenter;
 
 abstract class Controller
 {

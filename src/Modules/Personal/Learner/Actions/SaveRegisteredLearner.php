@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Personal\Learner\Actions;
 
-use App\Contracts\Presenters\Personal\Auth\SaveBaseAuthPresenter;
-use App\Contracts\Presenters\Personal\User\SaveUserPresenter;
 use Illuminate\Support\Facades\DB;
+use Modules\Personal\Auth\Presenters\Base\SaveBaseAuthPresenter;
 use Modules\Personal\Auth\Structures\BaseAuthModel;
 use Modules\Personal\Learner\Structures\LearnerModel;
+use Modules\Personal\User\Presenters\SaveUserPresenter;
 use Modules\Personal\User\Structures\UserModel;
 
 final class SaveRegisteredLearner

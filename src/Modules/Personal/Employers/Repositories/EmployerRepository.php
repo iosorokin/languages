@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\Employers\Repositories;
 
-use App\Contracts\Structures\EmployerStructure;
+use Modules\Personal\Employers\Structures\EmployerStructure;
 
 interface EmployerRepository
 {

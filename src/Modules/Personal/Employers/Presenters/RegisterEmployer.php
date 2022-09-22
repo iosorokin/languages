@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace Modules\Personal\Employers\Presenters;
 
 use App\Contracts\Contexts\Client;
-use App\Contracts\Presenters\Personal\Auth\CreateBaseAuthPresenter;
-use App\Contracts\Presenters\Personal\Employers\RegisterEmployerPresenter;
-use App\Contracts\Presenters\Personal\User\CreateUserPresenter;
+use Modules\Personal\Auth\Presenters\Base\CreateBaseAuthPresenter;
 use Modules\Personal\Employers\Actions\CreateEmployer;
 use Modules\Personal\Employers\Actions\SaveCreatedEmployer;
 use Modules\Personal\Employers\Structures\EmployerModel;
+use Modules\Personal\User\Presenters\CreateUserPresenter;
 
 final class RegisterEmployer implements RegisterEmployerPresenter
 {

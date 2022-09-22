@@ -2,7 +2,7 @@
 
 namespace Modules\Languages\Real\Contexts;
 
-use App\Contracts\Structures\RealLanguageStructure;
+use Modules\Languages\Real\Structures\RealLanguageStructure;
 
 class RealLanguageContext
 {

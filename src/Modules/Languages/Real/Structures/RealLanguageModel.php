@@ -2,9 +2,8 @@
 
 namespace Modules\Languages\Real\Structures;
 
-use App\Contracts\Structures\LearnableStructure;
-use App\Contracts\Structures\RealLanguageStructure;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Languages\LearnableStructure;
 
 class RealLanguageModel extends Model implements RealLanguageStructure, LearnableStructure
 {

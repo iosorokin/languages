@@ -3,10 +3,9 @@
 namespace Modules\Languages\Learning\Presenters;
 
 use App\Contracts\Contexts\Client;
-use App\Contracts\Presenters\Languages\Learning\LearnRealLanguagePresenter;
-use App\Contracts\Structures\LearningLanguageStructure;
 use Illuminate\Support\Arr;
 use Modules\Languages\Learning\Actions\LearnLanguage;
+use Modules\Languages\Learning\Structures\LearningLanguageStructure;
 use Modules\Languages\Real\Presenters\GetRealLanguage;
 
 class LearnRealLanguage implements LearnRealLanguagePresenter

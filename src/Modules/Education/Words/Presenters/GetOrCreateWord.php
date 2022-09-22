@@ -6,9 +6,8 @@ namespace Modules\Education\Words\Presenters;
 
 use App\Contracts\Contexts\Client;
 use App\Contracts\CreateableWords;
-use App\Contracts\Presenters\Education\Word\CreateWordPresenter;
-use App\Contracts\Structures\WordStructure;
-use Modules\Education\Words\Models\WordModel;
+use Modules\Education\Words\Structures\WordModel;
+use Modules\Education\Words\Structures\WordStructure;
 use Modules\Education\Words\Repositories\WordRepository;
 
 final class GetOrCreateWord implements CreateWordPresenter
