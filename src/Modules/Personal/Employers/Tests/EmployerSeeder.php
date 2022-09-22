@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Database\Seeders;
+namespace Modules\Personal\Employers\Tests;
 
 use Illuminate\Database\Seeder;
-use Modules\Personal\Employers\Tests\EmployerHelper;
 
 final class EmployerSeeder extends Seeder
 {

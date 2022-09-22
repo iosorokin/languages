@@ -1,10 +1,9 @@
 <?php
 
-namespace Database\Seeders;
+namespace Modules\Personal\Learner\Tests;
 
 use Illuminate\Database\Seeder;
 use Modules\Personal\Auth\Tests\BaseAuthApiHelper;
-use Modules\Personal\Learner\Tests\LearnerHelper;
 
 class LearnerSeeder extends Seeder
 {

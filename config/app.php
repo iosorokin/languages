@@ -189,7 +189,7 @@ return [
         /*
          * Core Service Providers...
          */
-        Core\Providers\CoreServiceProvider::class,
+        Core\CoreServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         Core\Providers\EventServiceProvider::class,
         Core\Providers\RouteServiceProvider::class,

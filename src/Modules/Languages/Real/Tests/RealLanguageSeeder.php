@@ -1,9 +1,8 @@
 <?php
 
-namespace Database\Seeders;
+namespace Modules\Languages\Real\Tests;
 
 use Illuminate\Database\Seeder;
-use Modules\Languages\Real\Tests\RealLanguageHelper;
 
 class RealLanguageSeeder extends Seeder
 {

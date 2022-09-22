@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Database\Seeders;
+namespace Modules\Education\Source\Tests;
 
 use Illuminate\Database\Seeder;
-use Modules\Education\Source\Tests\SourceHelper;
+use Modules\Languages\Real\Tests\RealLanguageSeeder;
 
 final class SourceSeeder extends Seeder
 {
