@@ -15,8 +15,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+            EmployerSeeder::class,
             LearnerSeeder::class,
             RealLanguageSeeder::class,
+            LearningLanguageSeeder::class,
+            SourceSeeder::class,
         ]);
     }
 }

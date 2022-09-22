@@ -3,7 +3,7 @@
 namespace Modules\Personal\Auth\Contexts\Fillers;
 
 use App\Contracts\Structures\AuthableStructure;
-use App\Contracts\Structures\Personal\BaseAuthStructure;
+use App\Contracts\Structures\BaseAuthStructure;
 use Illuminate\Support\Facades\Hash;
 
 class BaseAuthFiller

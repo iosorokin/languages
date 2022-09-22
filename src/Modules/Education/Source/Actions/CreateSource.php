@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Education\Source\Actions;
 
-use App\Contracts\Structures\Education\SourceStructure;
-use App\Contracts\Structures\Languages\LanguageStructure;
+use App\Contracts\Structures\LanguageStructure;
 use Modules\Education\Source\Factories\SourceFactory;
 use Modules\Education\Source\Repositories\SourceRepository;
+use Modules\Education\Source\Structures\SourceModel;
 use Modules\Education\Source\Validators\CreateSourceValidator;
 
 final class CreateSource
@@ -18,13 +18,12 @@ final class CreateSource
         private SourceRepository $repository,
     ) {}
 
-    public function __invoke(LanguageStructure $language, array $attributes): SourceStructure
+    public function __invoke(LanguageStructure $language, array $attributes): SourceModel
     {
         $attributes = $this->validator->validate($attributes);
-        $this->factory->new();
-        $this->repository->add();
+        $source = $this->factory->new($language, $attributes);
+        $this->repository->add($source);
 
+        return $source;
     }
-
-
 }

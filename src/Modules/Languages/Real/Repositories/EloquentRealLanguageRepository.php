@@ -2,11 +2,10 @@
 
 namespace Modules\Languages\Real\Repositories;
 
-use App\Contracts\Structures\Languages\RealLanguageStructure;
+use App\Contracts\Structures\RealLanguageStructure;
 use App\Extensions\Assert;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Pagination\CursorPaginator;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Modules\Languages\Real\Filters\RealLanguageFilter;
 use Modules\Languages\Real\Structures\RealLanguageModel;

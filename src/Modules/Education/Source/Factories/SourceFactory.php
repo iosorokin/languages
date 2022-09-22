@@ -2,21 +2,19 @@
 
 namespace Modules\Education\Source\Factories;
 
-use App\Contracts\Structures\Education\SourceStructure;
+use App\Contracts\Structures\LanguageStructure;
 use Illuminate\Support\Arr;
-use Modules\Education\Source\Contexts\Fillers\SourceFiller;
 use Modules\Education\Source\Structures\SourceModel;
 
 class SourceFactory
 {
-    public function __construct(
-        private SourceFiller $sourceFiller,
-    ) {}
-
-    public function new(array $attributes): SourceStructure
+    public function new(LanguageStructure $language, array $attributes): SourceModel
     {
         $source = new SourceModel();
-        $this->sourceFiller->setStructure($source)
-            ->setType(Arr::get($attributes, 'type'));
+        $source->type = Arr::get($attributes, 'type');
+        $source->title = Arr::get($attributes, 'title');
+        $source->setLanguage($language);
+
+        return $source;
     }
 }

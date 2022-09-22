@@ -2,7 +2,7 @@
 
 namespace App\Contracts\Presenters\Personal\User;
 
-use App\Contracts\Structures\Personal\UserStructure;
+use App\Contracts\Structures\UserStructure;
 
 interface SaveUserPresenter
 {

@@ -8,6 +8,8 @@ use App\Extensions\Assert;
 use Core\Test\EndpointCase;
 use Core\Test\Helper;
 use Illuminate\Testing\TestResponse;
+use Modules\Personal\Auth\Structures\BaseAuthModel;
+use Modules\Personal\Learner\Structures\LearnerModel;
 
 final class BaseAuthApiHelper extends Helper
 {
@@ -39,7 +41,6 @@ final class BaseAuthApiHelper extends Helper
             'email' => self::SEEDED_TEST_LEARNER['email'],
             'password' => self::SEEDED_TEST_LEARNER['password'],
         ]);
-
         $token = $response->json('data.token');
         Assert::notNull($token);
 

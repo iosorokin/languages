@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\User\Repositories;
 
-use App\Contracts\Structures\Personal\UserStructure;
+use App\Contracts\Structures\UserStructure;
 
 interface UserRepository
 {

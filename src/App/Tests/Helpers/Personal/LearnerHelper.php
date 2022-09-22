@@ -4,13 +4,20 @@ declare(strict_types=1);
 
 namespace App\Tests\Helpers\Personal;
 
+use App\Contracts\Contexts\Client;
+use App\Contracts\Presenters\Personal\Learner\GetLearnerPresenter;
 use App\Contracts\Presenters\Personal\Learner\RegisterLearnerPresenter;
+use App\Contracts\Structures\LearnerStructure;
 use Core\Test\Helper;
 use Generator;
-use Illuminate\Support\Arr;
+use Modules\Personal\Learner\Repositories\LearnerRepository;
 
 final class LearnerHelper extends Helper
 {
+    public const SEEDED_TEST_LEARNER = [
+        'id' => 1,
+    ];
+
     public function __construct(
         private UserHelper     $userHelper,
         private BaseAuthHelper $authHelper,
@@ -35,5 +42,19 @@ final class LearnerHelper extends Helper
 
             yield $presenter($attributes);
         }
+    }
+
+    public function getLearner(Client $client, int $id): LearnerStructure
+    {
+        $getLearner = app()->make(GetLearnerPresenter::class);
+
+        return $getLearner($client, $id);
+    }
+
+    public function getTestLearnerStructure(): LearnerStructure
+    {
+        $repository = app()->get(LearnerRepository::class);
+
+        return $repository->getById(self::SEEDED_TEST_LEARNER['id']);
     }
 }

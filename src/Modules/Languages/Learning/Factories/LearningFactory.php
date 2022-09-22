@@ -2,10 +2,9 @@
 
 namespace Modules\Languages\Learning\Factories;
 
-use App\Contracts\Structures\Languages\LanguageStructure;
-use App\Contracts\Structures\Languages\LearnableStructure;
-use App\Contracts\Structures\Languages\LearningLanguageStructure;
-use App\Contracts\Structures\Personal\LearnerStructure;
+use App\Contracts\Structures\LearnableStructure;
+use App\Contracts\Structures\LearnerStructure;
+use App\Contracts\Structures\LearningLanguageStructure;
 use Illuminate\Support\Arr;
 use Modules\Languages\Learning\Contexts\Fillers\LearningFiller;
 use Modules\Languages\Learning\Structures\LearningLanguageModel;

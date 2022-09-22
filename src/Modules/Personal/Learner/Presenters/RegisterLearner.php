@@ -8,7 +8,7 @@ use App\Contracts\Presenters\Notification\Mailer\SendLearnerRegistrationEmailPre
 use App\Contracts\Presenters\Personal\Auth\CreateBaseAuthPresenter;
 use App\Contracts\Presenters\Personal\Learner\RegisterLearnerPresenter;
 use App\Contracts\Presenters\Personal\User\CreateUserPresenter;
-use App\Contracts\Structures\Personal\LearnerStructure;
+use App\Contracts\Structures\LearnerStructure;
 use Modules\Personal\Learner\Actions\CreateLearner;
 use Modules\Personal\Learner\Actions\SaveRegisteredLearner;
 
@@ -25,11 +25,9 @@ final class RegisterLearner implements RegisterLearnerPresenter
     public function __invoke(array $attributes): LearnerStructure
     {
         $user = ($this->createUser)($attributes);
-        $learner = ($this->createLearner)($user, $attributes);
-        $baseAuth = ($this->createBaseAuth)($learner, $attributes);
-
+        $learner = ($this->createLearner)($attributes);
+        $baseAuth = ($this->createBaseAuth)($attributes);
         ($this->saveRegisteredLearner)($user, $learner, $baseAuth);
-
         ($this->sendLearnerRegistrationEmail)($learner);
 
         return $learner;

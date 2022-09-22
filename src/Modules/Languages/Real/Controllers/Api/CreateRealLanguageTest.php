@@ -2,7 +2,7 @@
 
 namespace Modules\Languages\Real\Controllers\Api;
 
-use App\Tests\Helpers\languages\RealLanguageApiHelper;
+use App\Tests\Helpers\Languages\RealLanguageApiHelper;
 use Core\Test\EndpointCase;
 
 class CreateRealLanguageTest extends EndpointCase

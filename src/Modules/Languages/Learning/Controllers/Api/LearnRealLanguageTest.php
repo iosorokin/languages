@@ -2,7 +2,7 @@
 
 namespace Modules\Languages\Learning\Controllers\Api;
 
-use App\Tests\Helpers\languages\LearningLanguageApiHelper;
+use App\Tests\Helpers\Languages\LearningLanguageApiHelper;
 use App\Tests\Helpers\Personal\BaseAuthApiHelper;
 use Core\Test\EndpointCase;
 

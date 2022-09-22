@@ -2,7 +2,7 @@
 
 namespace App\Contracts\Presenters\Personal\Auth;
 
-use App\Contracts\Structures\Personal\BaseAuthStructure;
+use App\Contracts\Structures\BaseAuthStructure;
 
 interface SaveBaseAuthPresenter
 {

@@ -2,9 +2,9 @@
 
 namespace Modules\Languages\Learning\Structures;
 
-use App\Contracts\Structures\Languages\LearnableStructure;
-use App\Contracts\Structures\Languages\LearningLanguageStructure;
-use App\Contracts\Structures\Personal\LearnerStructure;
+use App\Contracts\Structures\LearnableStructure;
+use App\Contracts\Structures\LearnerStructure;
+use App\Contracts\Structures\LearningLanguageStructure;
 use App\Extensions\Assert;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

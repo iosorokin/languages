@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\Personal\User\Presenters;
 
 use App\Contracts\Presenters\Personal\User\CreateUserPresenter;
-use App\Contracts\Structures\Personal\UserStructure;
 use Modules\Personal\User\Factories\UserFactory;
 use Modules\Personal\User\Structures\UserModel;
 use Modules\Personal\User\Validators\CreateUserValidator;

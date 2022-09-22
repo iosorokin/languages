@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Personal\Auth\Presenters\Login;
 
 use App\Contracts\Presenters\Personal\Auth\LearnerBaseLoginPresenter;
-use App\Contracts\Structures\Personal\LearnerStructure;
+use App\Contracts\Structures\LearnerStructure;
 use Modules\Personal\Auth\Actions\GetBaseAuth;
 use Modules\Personal\Auth\Dto\GetBaseAuthDto;
 use Modules\Personal\Auth\Services\AuthService;

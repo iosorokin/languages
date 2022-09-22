@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Education\Source\Presenters;
 
+use App\Contracts\Contexts\Client;
 use App\Contracts\Presenters\Education\Source\CreateRealLanguageSourcePresenter;
 use App\Contracts\Presenters\Languages\Real\GetRealLanguagePresenter;
 use Illuminate\Support\Arr;
 use Modules\Education\Source\Actions\CreateSource;
-use Modules\Personal\Auth\Contexts\ClientContext;
+use Modules\Education\Source\Structures\SourceModel;
 
 class CreateRealLanguageSource implements CreateRealLanguageSourcePresenter
 {
@@ -20,9 +21,11 @@ class CreateRealLanguageSource implements CreateRealLanguageSourcePresenter
     /**
      * @param array<mixed> $attributes
      */
-    public function __invoke(ClientContext $client, array $attributes)
+    public function __invoke(Client $client, array $attributes): SourceModel
     {
         $language = ($this->getRealLanguage)(Arr::get($attributes, 'id'));
         $source = ($this->createSource)($language, $attributes);
+
+        return $source;
     }
 }

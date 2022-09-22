@@ -18,7 +18,7 @@ return new class extends Migration
             $table->morphs('language');
             $table->string('type', 16);
             $table->string('title');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }

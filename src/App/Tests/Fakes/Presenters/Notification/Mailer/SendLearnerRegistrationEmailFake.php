@@ -3,7 +3,7 @@
 namespace App\Tests\Fakes\Presenters\Notification\Mailer;
 
 use App\Contracts\Presenters\Notification\Mailer\SendLearnerRegistrationEmailPresenter;
-use App\Contracts\Structures\Personal\LearnerStructure;
+use App\Contracts\Structures\LearnerStructure;
 
 class SendLearnerRegistrationEmailFake implements SendLearnerRegistrationEmailPresenter
 {

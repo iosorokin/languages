@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\Learner\Repositories;
 
-use App\Contracts\Structures\Personal\LearnerStructure;
+use App\Contracts\Structures\LearnerStructure;
 
 interface LearnerRepository
 {

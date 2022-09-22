@@ -6,29 +6,26 @@ namespace Modules\Personal\Learner\Actions;
 
 use App\Contracts\Presenters\Personal\Auth\SaveBaseAuthPresenter;
 use App\Contracts\Presenters\Personal\User\SaveUserPresenter;
-use App\Contracts\Structures\Personal\BaseAuthStructure;
-use App\Contracts\Structures\Personal\LearnerStructure;
-use App\Contracts\Structures\Personal\UserStructure;
 use Illuminate\Support\Facades\DB;
-use Modules\Personal\Learner\Contexts\RelationBinder;
-use Modules\Personal\Learner\Repositories\LearnerRepository;
+use Modules\Personal\Auth\Structures\BaseAuthModel;
+use Modules\Personal\Learner\Structures\LearnerModel;
+use Modules\Personal\User\Structures\UserModel;
 
 final class SaveRegisteredLearner
 {
     public function __construct(
         private SaveUserPresenter     $saveUser,
-        private LearnerRepository     $repository,
+        private SaveLearner           $saveLearner,
         private SaveBaseAuthPresenter $saveBaseAuth,
-        private RelationBinder        $relationBinder,
     ) {}
 
-    public function __invoke(UserStructure $user, LearnerStructure $learner, BaseAuthStructure $baseAuth): void
+    public function __invoke(UserModel $user, LearnerModel $learner, BaseAuthModel $baseAuth): void
     {
         DB::transaction(function () use ($user, $learner, $baseAuth) {
             ($this->saveUser)($user);
-            $this->relationBinder->relateLearnerWithUser($learner, $user);
-            $this->repository->add($learner);
-            $this->relationBinder->relateBaseAuthWithLearner($baseAuth, $learner);
+            $learner->setUser($user);
+            ($this->saveLearner)($learner);
+            $baseAuth->setAuthable($learner);
             ($this->saveBaseAuth)($baseAuth);
         });
     }

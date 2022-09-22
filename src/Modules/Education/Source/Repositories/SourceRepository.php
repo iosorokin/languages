@@ -2,7 +2,7 @@
 
 namespace Modules\Education\Source\Repositories;
 
-use App\Contracts\Structures\Education\SourceStructure;
+use App\Contracts\Structures\SourceStructure;
 
 interface SourceRepository
 {

@@ -2,9 +2,9 @@
 
 namespace App\Contracts\Presenters\Notification\Mailer;
 
-use App\Contracts\Structures\Personal\LearnerStructure;
+use Modules\Personal\Learner\Structures\LearnerModel;
 
 interface SendLearnerRegistrationEmailPresenter
 {
-    public function __invoke(LearnerStructure $learner): void;
+    public function __invoke(LearnerModel $learner): void;
 }

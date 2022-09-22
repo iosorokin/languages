@@ -2,10 +2,9 @@
 
 namespace App\Contracts\Presenters\Personal\Auth;
 
-use App\Contracts\Structures\AuthableStructure;
-use App\Contracts\Structures\Personal\BaseAuthStructure;
+use App\Contracts\Structures\BaseAuthStructure;
 
 interface CreateBaseAuthPresenter
 {
-    public function __invoke(AuthableStructure $authable, array $attributes): BaseAuthStructure;
+    public function __invoke(array $attributes): BaseAuthStructure;
 }

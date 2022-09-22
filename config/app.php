@@ -202,13 +202,15 @@ return [
         /*
          * Module Service Providers
          */
-        App\Providers\Modules\Personal\AuthServiceProvider::class,
-        App\Providers\Modules\Personal\UserServiceProvider::class,
-        App\Providers\Modules\Personal\LearnerServiceProvider::class,
-        App\Providers\Modules\Languages\LearningLanguageServiceProvider::class,
-        App\Providers\Modules\Languages\RealLanguageServiceProvider::class,
-        App\Providers\Modules\Notification\MailerServiceProvider::class,
-        App\Providers\Modules\Education\SourceProvider::class,
+        App\Providers\Modules\AuthServiceProvider::class,
+        App\Providers\Modules\UserServiceProvider::class,
+        App\Providers\Modules\LearnerServiceProvider::class,
+        App\Providers\Modules\LearningLanguageServiceProvider::class,
+        App\Providers\Modules\RealLanguageServiceProvider::class,
+        App\Providers\Modules\MailerServiceProvider::class,
+        App\Providers\Modules\SourceServiceProvider::class,
+        App\Providers\Modules\EmployerProvider::class,
+        App\Providers\Modules\WordServiceProvider::class,
     ],
 
     /*

@@ -3,9 +3,9 @@
 namespace Modules\Personal\Learner\Structures;
 
 use App\Contracts\Structures\AuthableStructure;
-use App\Contracts\Structures\Personal\BaseAuthStructure;
-use App\Contracts\Structures\Personal\LearnerStructure;
-use App\Contracts\Structures\Personal\UserStructure;
+use App\Contracts\Structures\BaseAuthStructure;
+use App\Contracts\Structures\LearnerStructure;
+use App\Contracts\Structures\UserStructure;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

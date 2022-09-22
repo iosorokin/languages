@@ -2,7 +2,7 @@
 
 namespace App\Contracts\Presenters\Languages\Real;
 
-use App\Contracts\Structures\Languages\RealLanguageStructure;
+use App\Contracts\Structures\RealLanguageStructure;
 
 interface GetRealLanguagePresenter
 {

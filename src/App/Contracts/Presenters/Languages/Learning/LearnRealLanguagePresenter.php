@@ -3,8 +3,7 @@
 namespace App\Contracts\Presenters\Languages\Learning;
 
 use App\Contracts\Contexts\Client;
-use App\Contracts\Structures\Languages\LearningLanguageStructure;
-use App\Contracts\Structures\Personal\LearnerStructure;
+use App\Contracts\Structures\LearningLanguageStructure;
 
 interface LearnRealLanguagePresenter
 {

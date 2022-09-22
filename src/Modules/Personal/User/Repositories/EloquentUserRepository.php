@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Personal\User\Repositories;
 
-use App\Contracts\Structures\Personal\UserStructure;
+use App\Contracts\Structures\UserStructure;
 use Modules\Personal\User\Structures\UserModel;
 use Webmozart\Assert\Assert;
 

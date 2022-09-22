@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Personal\User\Structures;
 
-use App\Contracts\Structures\Personal\UserStructure;
+use App\Contracts\Structures\UserStructure;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Modules\Personal\Learner\Structures\LearnerModel;

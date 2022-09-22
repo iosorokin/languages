@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Personal\Auth\Structures;
 
 use App\Contracts\Structures\AuthableStructure;
-use App\Contracts\Structures\Personal\BaseAuthStructure;
+use App\Contracts\Structures\BaseAuthStructure;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
@@ -13,7 +13,7 @@ final class BaseAuthModel extends Model implements BaseAuthStructure
 {
     protected $table = 'base_auths';
 
-    public function authable(): MorphTo
+    private function authable(): MorphTo
     {
         return $this->morphTo();
     }
