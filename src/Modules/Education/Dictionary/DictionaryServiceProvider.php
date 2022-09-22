@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Modules\Education\Dictionaries;
+namespace Modules\Education\Dictionary;
 
 use Illuminate\Support\ServiceProvider;
-use Modules\Education\Dictionaries\Presenters\CreateDictionary;
-use Modules\Education\Dictionaries\Presenters\CreateDictionaryPresenter;
-use Modules\Education\Dictionaries\Repositories\DictionaryRepository;
-use Modules\Education\Dictionaries\Repositories\EloquentDictionaryRepository;
+use Modules\Education\Dictionary\Presenters\CreateDictionary;
+use Modules\Education\Dictionary\Presenters\CreateDictionaryPresenter;
+use Modules\Education\Dictionary\Repositories\DictionaryRepository;
+use Modules\Education\Dictionary\Repositories\EloquentDictionaryRepository;
 
 final class DictionaryServiceProvider extends ServiceProvider
 {

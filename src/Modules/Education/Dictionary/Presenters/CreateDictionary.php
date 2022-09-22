@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Modules\Education\Dictionaries\Presenters;
+namespace Modules\Education\Dictionary\Presenters;
 
 use App\Contracts\Contexts\Client;
 use Illuminate\Support\Arr;
-use Modules\Education\Dictionaries\Repositories\DictionaryRepository;
-use Modules\Education\Dictionaries\Structures\DictionaryModel;
-use Modules\Education\Dictionaries\Structures\DictionaryStructure;
+use Modules\Education\Dictionary\Repositories\DictionaryRepository;
+use Modules\Education\Dictionary\Structures\DictionaryModel;
+use Modules\Education\Dictionary\Structures\DictionaryStructure;
 use Modules\Languages\LanguageStructure;
 
 final class CreateDictionary

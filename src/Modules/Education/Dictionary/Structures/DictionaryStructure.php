@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Education\Dictionaries\Structures;
+namespace Modules\Education\Dictionary\Structures;
 
 use Modules\Languages\LanguageStructure;
 

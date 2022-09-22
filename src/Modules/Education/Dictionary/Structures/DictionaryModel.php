@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Education\Dictionaries\Structures;
+namespace Modules\Education\Dictionary\Structures;
 
 use App\Extensions\Assert;
 use Illuminate\Database\Eloquent\Model;
