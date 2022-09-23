@@ -18,6 +18,6 @@ final class DictionaryApiHelper extends Helper
     {
         $attributes = $this->dictionaryHelper->generateAttributes() + $attributes;
 
-        return $testCase->post(route('dictionaries.store'), $attributes);
+        return $testCase->post(route('api.dictionaries.store'), $attributes);
     }
 }

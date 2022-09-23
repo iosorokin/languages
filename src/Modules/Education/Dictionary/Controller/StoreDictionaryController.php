@@ -6,12 +6,12 @@ namespace Modules\Education\Dictionary\Controller;
 
 use Core\Extensions\Request;
 use Core\Http\Controller;
-use Modules\Education\Dictionary\Presenters\CreateDictionary;
+use Modules\Education\Dictionary\Presenters\CreateDictionaryPresenter;
 
 final class StoreDictionaryController extends Controller
 {
     public function __construct(
-        private CreateDictionary $createDictionary,
+        private CreateDictionaryPresenter $createDictionary,
     ) {}
 
     public function __invoke(Request $request)
