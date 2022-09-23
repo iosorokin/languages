@@ -9,6 +9,8 @@ use Modules\Container\Structures\ContainerStructure;
 
 final class ElementPositionCalculator
 {
+    private const START_POSITION = 1;
+
     private const STEP = 10;
 
     public function __construct(
@@ -18,7 +20,7 @@ final class ElementPositionCalculator
 
     public function next(): int
     {
-        $lastPositionInContainer = $this->repository->getLastPosition($this->container->id);
+        $lastPositionInContainer = $this->repository->getLastPosition($this->container->id) ?? self::START_POSITION;
         $savingElementPosition = $lastPositionInContainer + self::STEP;
 
         return $savingElementPosition;
