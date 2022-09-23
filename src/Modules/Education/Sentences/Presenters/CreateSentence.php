@@ -12,7 +12,7 @@ final class CreateSentence implements CreateSentencePresenter
     {
     }
 
-    public function __invoke(Client $client, string $text)
+    public function __invoke(string $text)
     {
 
     }
