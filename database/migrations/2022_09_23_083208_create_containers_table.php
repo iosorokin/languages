@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('containers', function (Blueprint $table) {
             $table->id();
             $table->morphs('containerable');
-            $table->json('order');
             $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();

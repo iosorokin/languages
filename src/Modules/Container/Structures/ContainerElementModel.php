@@ -9,9 +9,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Modules\Container\Contracts\ContainerableElement;
 
-final class ContainerElementModel extends Model implements ContainerElementsStructure
+final class ContainerElementModel extends Model implements ContainerElementStructure
 {
-    protected $table = 'container_elements';
+    public $table = 'container_elements';
 
     private function container(): BelongsTo
     {

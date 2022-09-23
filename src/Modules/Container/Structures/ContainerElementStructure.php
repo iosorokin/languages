@@ -10,10 +10,11 @@ use Modules\Container\Contracts\ContainerableElement;
  * @property int $container_id
  * @property string $element_type
  * @property string $element_id
+ * @property int $position
  * @property Carbon $created_at
  * @property Carbon $updated_at
  */
-interface ContainerElementsStructure
+interface ContainerElementStructure
 {
     public function setContainer(ContainerStructure $container): self;
 

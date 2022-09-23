@@ -17,7 +17,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('container_id');
             $table->morphs('element');
+            $table->unsignedSmallInteger('position');
             $table->timestamps();
+
+            $table->unique(['container_id', 'position']);
         });
     }
 
