@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Modules\Education\Source\Actions;
+namespace Modules\Container\Actions;
 
-use Modules\Education\Source\Factories\SourceFactory;
+use Modules\Container\Factories\SourceFactory;
+use Modules\Container\Validators\CreateSourceValidator;
 use Modules\Education\Source\Repositories\SourceRepository;
 use Modules\Education\Source\Structures\SourceModel;
-use Modules\Education\Source\Validators\CreateSourceValidator;
 use Modules\Languages\Common\Contracts\LanguageStructure;
 
 final class CreateSource

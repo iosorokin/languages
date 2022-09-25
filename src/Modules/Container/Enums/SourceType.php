@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Education\Source\Enums;
+namespace Modules\Container\Enums;
 
 enum SourceType: string
 {

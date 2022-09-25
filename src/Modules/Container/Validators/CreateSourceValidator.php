@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Education\Source\Validators;
+namespace Modules\Container\Validators;
 
 use Core\Extensions\BaseValidator;
 

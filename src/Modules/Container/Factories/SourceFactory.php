@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Education\Source\Factories;
+namespace Modules\Container\Factories;
 
 use Illuminate\Support\Arr;
 use Modules\Education\Source\Structures\SourceModel;

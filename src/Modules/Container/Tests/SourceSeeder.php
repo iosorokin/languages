@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Education\Source\Tests;
+namespace Modules\Container\Tests;
 
 use Illuminate\Database\Seeder;
 use Modules\Languages\Real\Tests\RealLanguageSeeder;

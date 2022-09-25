@@ -11,7 +11,7 @@ use Modules\Container\Structures\ContainerStructure;
 
 final class CreateContainer
 {
-    public function __invoke(Containerable $containerable, array $attributes)
+    public function __invoke(array $attributes)
     {
 
     }
@@ -22,7 +22,6 @@ final class CreateContainer
         $model->setContainerable($containerable);
         $model->title = Arr::get($attributes, 'title');
         $model->description = Arr::get($attributes, 'description');
-        $
 
         return $model;
     }

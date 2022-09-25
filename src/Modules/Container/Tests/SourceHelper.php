@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Modules\Education\Source\Tests;
+namespace Modules\Container\Tests;
 
 use Core\Test\Helper;
 use Illuminate\Support\Arr;
-use Modules\Education\Source\Presenters\CreateRealLanguageSourcePresenter;
+use Modules\Container\Presenters\CreateRealLanguageSourcePresenter;
 use Modules\Personal\Auth\Contexts\ClientContext;
 
 final class SourceHelper extends Helper

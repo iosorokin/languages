@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Education\Source\Contexts\Fillers;
+namespace Modules\Container\Contexts\Fillers;
 
 use Modules\Education\Source\Structures\SourceStructure;
 use Modules\Languages\Common\Contracts\LanguageStructure;

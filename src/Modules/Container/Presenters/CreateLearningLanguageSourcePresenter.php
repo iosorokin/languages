@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Education\Source\Presenters;
+namespace Modules\Container\Presenters;
 
 interface CreateLearningLanguageSourcePresenter
 {

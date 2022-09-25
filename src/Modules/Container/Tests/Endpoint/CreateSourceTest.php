@@ -1,9 +1,9 @@
 <?php
 
-namespace Modules\Education\Source\Tests\Endpoint;
+namespace Modules\Container\Tests\Endpoint;
 
 use Core\Test\EndpointCase;
-use Modules\Education\Source\Tests\SourceApiHelper;
+use Modules\Container\Tests\SourceApiHelper;
 
 class CreateSourceTest extends EndpointCase
 {

@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\Container\Controllers\CreateContainerController;
 use Modules\Education\Dictionary\Controller\StoreDictionaryController;
-use Modules\Education\Source\Controllers\CreateSourceController;
 use Modules\Languages\Learning\Controllers\LearnRealLanguageController;
 use Modules\Languages\Real\Controllers\Api\CreateRealLanguageController;
 use Modules\Languages\Real\Controllers\Api\IndexRealLanguagesController;
@@ -51,6 +51,6 @@ Route::get('real_languages/{id}', ShowRealLanguageController::class)
 Route::post('real_languages/{id}/learn', LearnRealLanguageController::class)
     ->name('real_languages.learn');
 
-Route::post('sources', CreateSourceController::class)
-    ->name('sources.create');
+Route::post('containers', CreateContainerController::class)
+    ->name('containers.create');
 
