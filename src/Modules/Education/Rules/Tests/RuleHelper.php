@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Modules\Education\Dictionary\Tests;
+namespace Modules\Education\Rules\Tests;
 
-use Core\Test\Helpers\Helper;
+use Core\Test\Helpers\AppHelper;
 
-final class DictionaryHelper extends Helper
+final class RuleHelper extends AppHelper
 {
     public function generateAttributes(): array
     {

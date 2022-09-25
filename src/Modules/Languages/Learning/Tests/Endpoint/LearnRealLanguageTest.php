@@ -14,7 +14,7 @@ class LearnRealLanguageTest extends EndpointCase
     public function __invoke()
     {
         BaseAuthApiHelper::new()->loginAsTestLearner($this);
-        $response = LearningLanguageApiHelper::new()->learn($this, 1);
+        $response = LearningLanguageApiHelper::new($this)->learn(1);
         $response->assertCreated();
     }
 }

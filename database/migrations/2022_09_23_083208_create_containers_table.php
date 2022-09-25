@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->morphs('containerable');
             $table->string('type', 16);
-            $table->string('sub_type', 16)->nullable();
             $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();

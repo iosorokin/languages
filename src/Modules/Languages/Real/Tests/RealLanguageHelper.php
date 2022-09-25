@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\Languages\Real\Tests;
 
-use Core\Test\Helper;
+use Core\Test\Helpers\AppHelper;
+use Core\Test\Helpers\Helper;
 use Faker\Factory;
 use Generator;
 use Illuminate\Support\Str;
 use Modules\Languages\Real\Presenters\CreateRealLanguage;
 
-final class RealLanguageHelper extends Helper
+final class RealLanguageHelper extends AppHelper
 {
     public function generateAttributes(): array
     {

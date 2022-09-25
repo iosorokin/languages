@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Test;
+namespace Core\Test\Helpers;
 
 use Faker\Factory;
 use Faker\Generator;
@@ -8,11 +8,6 @@ use Faker\Generator;
 abstract class Helper
 {
     private Generator $faker;
-
-    public static function new(): static
-    {
-        return app(static::class);
-    }
 
     protected function faker(): Generator
     {

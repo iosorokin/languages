@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\Languages\Learning\Tests;
 
-use Core\Test\Helper;
+use Core\Test\Helpers\AppHelper;
+use Core\Test\Helpers\Helper;
 use Modules\Languages\Learning\Presenters\LearnRealLanguagePresenter;
 use Modules\Personal\Auth\Contexts\ClientContext;
 use Modules\Personal\Learner\Structures\LearnerStructure;
 
-final class LearningLanguageHelper extends Helper
+final class LearningLanguageHelper extends AppHelper
 {
     public function generateAttributes(): array
     {

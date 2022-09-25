@@ -5,18 +5,15 @@ declare(strict_types=1);
 namespace Modules\Languages\Real\Tests;
 
 use Core\Test\EndpointCase;
-use Core\Test\Helper;
+use Core\Test\Helpers\ApiHelper;
+use Core\Test\Helpers\Helper;
 use Illuminate\Testing\TestResponse;
 
-final class RealLanguageApiHelper extends Helper
+final class RealLanguageApiHelper extends ApiHelper
 {
-    public function __construct(
-        private RealLanguageHelper $languageHelper,
-    ) {}
-
     public function create(EndpointCase $testCase, array $attributes = []): TestResponse
     {
-        $attributes = $this->languageHelper->generateAttributes() + $attributes;
+        $attributes = RealLanguageHelper::new()->generateAttributes() + $attributes;
 
         return $testCase->postJson(route('api.real_languages.create'), $attributes);
     }

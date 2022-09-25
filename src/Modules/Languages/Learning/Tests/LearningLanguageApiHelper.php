@@ -5,19 +5,16 @@ declare(strict_types=1);
 namespace Modules\Languages\Learning\Tests;
 
 use Core\Test\EndpointCase;
-use Core\Test\Helper;
+use Core\Test\Helpers\ApiHelper;
+use Core\Test\Helpers\Helper;
 use Illuminate\Testing\TestResponse;
 
-final class LearningLanguageApiHelper extends Helper
+final class LearningLanguageApiHelper extends ApiHelper
 {
-    public function __construct(
-        private LearningLanguageHelper $learningLanguageHelper,
-    ) {}
-
-    public function learn(EndpointCase $testCase, int $id, array $attributes = []): TestResponse
+    public function learn(int $id, array $attributes = []): TestResponse
     {
-        $attributes = $this->learningLanguageHelper->generateAttributes() + $attributes;
+        $attributes = LearningLanguageHelper::new()->generateAttributes() + $attributes;
 
-        return $testCase->postJson(route('api.real_languages.learn', compact('id')), $attributes);
+        return $this->testCase->postJson(route('api.real_languages.learn', compact('id')), $attributes);
     }
 }

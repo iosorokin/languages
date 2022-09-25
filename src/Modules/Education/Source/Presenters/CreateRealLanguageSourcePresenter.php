@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Container\Presenters;
+namespace Modules\Education\Source\Presenters;
 
 use Modules\Personal\Auth\Contexts\ClientContext;
 

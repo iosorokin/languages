@@ -6,7 +6,7 @@ namespace Modules\Personal\Auth\Tests;
 
 use App\Extensions\Assert;
 use Core\Test\EndpointCase;
-use Core\Test\Helper;
+use Core\Test\Helpers\Helper;
 use Illuminate\Testing\TestResponse;
 
 final class BaseAuthApiHelper extends Helper

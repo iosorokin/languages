@@ -8,11 +8,17 @@ use Illuminate\Support\Arr;
 use Modules\Container\Contracts\Containerable;
 use Modules\Container\Structures\ContainerModel;
 use Modules\Container\Structures\ContainerStructure;
+use Modules\Container\Validators\CreateContainerValidator;
 
 final class CreateContainer
 {
+    public function __construct(
+        private CreateContainerValidator $validator,
+    ) {}
+
     public function __invoke(array $attributes)
     {
+        $attributes = $this->validator->validate($attributes);
 
     }
 

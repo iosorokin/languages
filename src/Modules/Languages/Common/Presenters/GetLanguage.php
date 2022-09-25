@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Languages\Common\Presenters;
 
-use Modules\Languages\Common\Contracts\GetLanguagePresenter;
 use Modules\Languages\Common\Contracts\LanguageStructure;
 use Modules\Languages\Common\Enums\Language;
 use Modules\Languages\Learning\Presenters\GetLearningLanguagePresenter;

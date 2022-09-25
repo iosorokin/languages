@@ -2,14 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Modules\Container\Tests;
+namespace Modules\Education\Source\Tests;
 
-use Core\Test\Helper;
+use Core\Test\Helpers\AppHelper;
+use Core\Test\Helpers\Helper;
 use Illuminate\Support\Arr;
-use Modules\Container\Presenters\CreateRealLanguageSourcePresenter;
+use Modules\Education\Source\Presenters\CreateRealLanguageSourcePresenter;
 use Modules\Personal\Auth\Contexts\ClientContext;
 
-final class SourceHelper extends Helper
+final class SourceHelper extends AppHelper
 {
     public function generateAttributes(): array
     {

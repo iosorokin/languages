@@ -13,8 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('containers', function (Blueprint $table) {
+        Schema::create('sources', function (Blueprint $table) {
             $table->id();
+            $table->morphs('language');
+            $table->string('type', 16);
+            $table->string('title');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('containers');
+        Schema::dropIfExists('sources');
     }
 };

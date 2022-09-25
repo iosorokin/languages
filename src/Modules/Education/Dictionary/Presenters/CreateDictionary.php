@@ -8,8 +8,8 @@ use Illuminate\Support\Arr;
 use Modules\Education\Dictionary\Repositories\DictionaryRepository;
 use Modules\Education\Dictionary\Structures\DictionaryModel;
 use Modules\Education\Dictionary\Structures\DictionaryStructure;
-use Modules\Languages\Common\Contracts\GetLanguagePresenter;
 use Modules\Languages\Common\Contracts\LanguageStructure;
+use Modules\Languages\Common\Presenters\GetLanguagePresenter;
 
 final class CreateDictionary
 {
