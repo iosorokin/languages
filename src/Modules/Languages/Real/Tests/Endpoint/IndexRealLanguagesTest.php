@@ -2,7 +2,7 @@
 
 namespace Modules\Languages\Real\Tests\Endpoint;
 
-use Core\Test\EndpointCase;
+use Core\Base\Tests\EndpointCase;
 use Modules\Languages\Real\Tests\RealLanguageApiHelper;
 
 class IndexRealLanguagesTest extends EndpointCase

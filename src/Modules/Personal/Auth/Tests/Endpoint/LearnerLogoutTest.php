@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\Auth\Tests\Endpoint;
 
-use Core\Test\EndpointCase;
+use Core\Base\Tests\EndpointCase;
 use Modules\Personal\Auth\Tests\BaseAuthApiHelper;
 
 class LearnerLogoutTest extends EndpointCase

@@ -2,7 +2,7 @@
 
 namespace Modules\Education\Source\Tests\Endpoint;
 
-use Core\Test\EndpointCase;
+use Core\Base\Tests\EndpointCase;
 use Modules\Education\Source\Tests\SourceApiHelper;
 
 class CreateSourceTest extends EndpointCase

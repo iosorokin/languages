@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Languages\Real\Tests;
 
-use Core\Test\Helpers\AppHelper;
-use Core\Test\Helpers\Helper;
+use Core\Base\Helpers\AppHelper;
 use Faker\Factory;
 use Generator;
 use Illuminate\Support\Str;

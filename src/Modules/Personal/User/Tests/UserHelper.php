@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Personal\User\Tests;
 
-use Core\Test\Helpers\AppHelper;
+use Core\Base\Helpers\AppHelper;
 
 final class UserHelper extends AppHelper
 {

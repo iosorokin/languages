@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Education\Source\Tests;
 
-use Core\Test\Helpers\AppHelper;
-use Core\Test\Helpers\Helper;
+use Core\Base\Helpers\AppHelper;
 use Illuminate\Support\Arr;
 use Modules\Education\Source\Presenters\CreateRealLanguageSourcePresenter;
 use Modules\Personal\Auth\Contexts\ClientContext;

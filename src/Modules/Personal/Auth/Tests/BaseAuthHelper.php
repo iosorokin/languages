@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Personal\Auth\Tests;
 
-use Core\Test\Helpers\AppHelper;
+use Core\Base\Helpers\AppHelper;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Modules\Personal\Auth\Services\AuthService;
 

@@ -5,9 +5,7 @@ declare(strict_types=1);
 namespace Modules\Personal\Auth\Tests;
 
 use App\Extensions\Assert;
-use Core\Test\EndpointCase;
-use Core\Test\Helpers\ApiHelper;
-use Core\Test\Helpers\Helper;
+use Core\Base\Helpers\ApiHelper;
 use Illuminate\Testing\TestResponse;
 
 final class BaseAuthApiHelper extends ApiHelper

@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Test\Helpers;
+namespace Core\Base\Helpers;
 
 use Faker\Factory;
 use Faker\Generator;

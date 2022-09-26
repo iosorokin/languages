@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace Modules\Personal\Learner\Tests;
 
 use App\Contracts\Contexts\Client;
-use Core\Test\Helpers\AppHelper;
-use Core\Test\Helpers\Helper;
+use Core\Base\Helpers\AppHelper;
 use Generator;
 use Modules\Personal\Auth\Tests\BaseAuthHelper;
 use Modules\Personal\Learner\Presenters\GetLearnerPresenter;

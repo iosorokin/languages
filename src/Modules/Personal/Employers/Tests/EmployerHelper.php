@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace Modules\Personal\Employers\Tests;
 
 use App\Contracts\Contexts\Client;
-use Core\Test\Helpers\AppHelper;
-use Core\Test\Helpers\Helper;
+use Core\Base\Helpers\AppHelper;
 use Modules\Personal\Auth\Tests\BaseAuthHelper;
 use Modules\Personal\Employers\Presenters\Admin\CreateSuperAdmin;
 use Modules\Personal\Employers\Presenters\GetEmployerPresenter;

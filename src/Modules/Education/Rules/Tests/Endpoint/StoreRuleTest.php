@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Education\Rules\Tests\Endpoint;
 
-use Core\Test\EndpointCase;
+use Core\Base\Tests\EndpointCase;
 use Modules\Education\Rules\Tests\RuleApiHelper;
 
 final class StoreRuleTest extends EndpointCase

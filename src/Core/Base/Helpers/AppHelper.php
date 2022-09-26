@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Core\Test\Helpers;
+namespace Core\Base\Helpers;
 
 abstract class AppHelper extends Helper
 {

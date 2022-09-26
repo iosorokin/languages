@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Education\Source\Tests;
 
-use Core\Test\EndpointCase;
-use Core\Test\Helpers\ApiHelper;
-use Core\Test\Helpers\Helper;
+use Core\Base\Helpers\ApiHelper;
 use Illuminate\Support\Arr;
 use Illuminate\Testing\TestResponse;
 

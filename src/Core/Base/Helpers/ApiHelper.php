@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Core\Test\Helpers;
+namespace Core\Base\Helpers;
 
-use Core\Test\EndpointCase;
+use Core\Base\Tests\EndpointCase;
 
 abstract class ApiHelper
 {

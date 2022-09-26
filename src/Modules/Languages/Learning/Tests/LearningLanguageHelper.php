@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Languages\Learning\Tests;
 
-use Core\Test\Helpers\AppHelper;
-use Core\Test\Helpers\Helper;
+use Core\Base\Helpers\AppHelper;
 use Modules\Languages\Learning\Presenters\LearnRealLanguagePresenter;
 use Modules\Personal\Auth\Contexts\ClientContext;
 use Modules\Personal\Learner\Structures\LearnerStructure;

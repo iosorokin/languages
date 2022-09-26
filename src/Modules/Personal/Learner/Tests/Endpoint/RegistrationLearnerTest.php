@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\Learner\Tests\Endpoint;
 
-use Core\Test\EndpointCase;
+use Core\Base\Tests\EndpointCase;
 use Modules\Personal\Learner\Tests\LearnerApiHelper;
 
 class RegistrationLearnerTest extends EndpointCase

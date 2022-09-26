@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Education\Dictionary\Tests\Endpoint;
 
-use Core\Test\EndpointCase;
+use Core\Base\Tests\EndpointCase;
 use Modules\Education\Dictionary\Tests\DictionaryApiHelper;
 use Modules\Personal\Auth\Tests\BaseAuthApiHelper;
 

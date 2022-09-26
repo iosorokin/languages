@@ -1,9 +1,8 @@
 <?php
 
-namespace Core\Test;
+namespace Core\Base\Tests;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Kirschbaum\OpenApiValidator\ValidatesOpenApiSpec;
 
 class EndpointCase extends TestCase
 {
