@@ -5,19 +5,16 @@ declare(strict_types=1);
 namespace Modules\Personal\Learner\Tests;
 
 use Core\Test\EndpointCase;
+use Core\Test\Helpers\ApiHelper;
 use Core\Test\Helpers\Helper;
 use Illuminate\Testing\TestResponse;
 
-final class LearnerApiHelper extends Helper
+final class LearnerApiHelper extends ApiHelper
 {
-    public function __construct(
-        private readonly LearnerHelper $learnerHelper
-    ) {}
-
-    public function create(EndpointCase $testCase, array $attributes = []): TestResponse
+    public function create(array $attributes = []): TestResponse
     {
-        $attributes = $this->learnerHelper->generateAttributes() + $attributes;
+        $attributes = LearnerHelper::new()->generateAttributes() + $attributes;
 
-        return $testCase->postJson(route('api.learners.store'), $attributes);
+        return $this->testCase->postJson(route('api.learners.store'), $attributes);
     }
 }

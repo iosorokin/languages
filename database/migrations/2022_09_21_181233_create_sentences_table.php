@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('sentences', function (Blueprint $table) {
             $table->id();
-            $table->text('body');
+            $table->text('text');
             $table->timestamps();
         });
     }

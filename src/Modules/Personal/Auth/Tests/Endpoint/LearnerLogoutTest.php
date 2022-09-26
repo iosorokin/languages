@@ -12,11 +12,11 @@ class LearnerLogoutTest extends EndpointCase
      */
     public function __invoke()
     {
-        $helper = BaseAuthApiHelper::new();
-        $helper->loginAsTestLearner($this);
-        $response = $helper->logoutLearner($this);
+        $helper = BaseAuthApiHelper::new($this);
+        $helper->loginAsTestLearner();
+        $response = $helper->logoutLearner();
         $response->assertNoContent();
-        $response = $helper->logoutLearner($this);
+        $response = $helper->logoutLearner();
         $response->assertUnauthorized();
     }
 }

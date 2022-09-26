@@ -12,7 +12,7 @@ class RegistrationLearnerTest extends EndpointCase
      */
     public function __invoke()
     {
-        $response = LearnerApiHelper::new()->create($this);
+        $response = LearnerApiHelper::new($this)->create();
         $response->assertCreated();
     }
 }

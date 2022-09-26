@@ -14,7 +14,8 @@ abstract class ApiHelper
 
     public static function new(EndpointCase $testCase): static
     {
-        $instance = app(static::class);
+        /** @var ApiHelper $instance */
+        $instance = new static();
         $instance->setTestCase($testCase);
 
         return $instance;

@@ -11,20 +11,20 @@ use Illuminate\Testing\TestResponse;
 
 final class RealLanguageApiHelper extends ApiHelper
 {
-    public function create(EndpointCase $testCase, array $attributes = []): TestResponse
+    public function create(array $attributes = []): TestResponse
     {
         $attributes = RealLanguageHelper::new()->generateAttributes() + $attributes;
 
-        return $testCase->postJson(route('api.real_languages.create'), $attributes);
+        return $this->testCase->postJson(route('api.real_languages.create'), $attributes);
     }
 
-    public function index(EndpointCase $testCase, array $attributes = []): TestResponse
+    public function index(array $attributes = []): TestResponse
     {
-        return $testCase->getJson(route('api.real_languages.index', $attributes));
+        return $this->testCase->getJson(route('api.real_languages.index', $attributes));
     }
 
-    public function show(EndpointCase $testCase, array $attributes = []): TestResponse
+    public function show(array $attributes = []): TestResponse
     {
-        return $testCase->getJson(route('api.real_languages.show', $attributes));
+        return $this->testCase->getJson(route('api.real_languages.show', $attributes));
     }
 }

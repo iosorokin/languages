@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Personal\Employers\Tests;
 
 use App\Contracts\Contexts\Client;
+use Core\Test\Helpers\AppHelper;
 use Core\Test\Helpers\Helper;
 use Modules\Personal\Auth\Tests\BaseAuthHelper;
 use Modules\Personal\Employers\Presenters\Admin\CreateSuperAdmin;
@@ -13,10 +14,8 @@ use Modules\Personal\Employers\Repositories\EmployerRepository;
 use Modules\Personal\Employers\Structures\EmployerStructure;
 use Modules\Personal\User\Tests\UserHelper;
 
-final class EmployerHelper extends Helper
+final class EmployerHelper extends AppHelper
 {
-    public const SEEDED_SUPER_ADMIN_ID = 1;
-
     public function __construct(
         private UserHelper     $userHelper,
         private BaseAuthHelper $authHelper,
@@ -51,6 +50,6 @@ final class EmployerHelper extends Helper
     {
         $repository = app()->get(EmployerRepository::class);
 
-        return $repository->getById(self::SEEDED_SUPER_ADMIN_ID);
+        return $repository->getById(1);
     }
 }

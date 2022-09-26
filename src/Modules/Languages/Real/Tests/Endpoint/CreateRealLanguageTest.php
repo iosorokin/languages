@@ -12,7 +12,7 @@ class CreateRealLanguageTest extends EndpointCase
      */
     public function __invoke()
     {
-        $response = RealLanguageApiHelper::new()->create($this);
+        $response = RealLanguageApiHelper::new($this)->create();
         $response->assertCreated();
     }
 }

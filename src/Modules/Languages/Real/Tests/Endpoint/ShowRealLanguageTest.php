@@ -12,7 +12,7 @@ class ShowRealLanguageTest extends EndpointCase
      */
     public function __invoke()
     {
-        $response = RealLanguageApiHelper::new()->show($this, [
+        $response = RealLanguageApiHelper::new($this)->show([
             'id' => 1
         ]);
         $response->assertOk();

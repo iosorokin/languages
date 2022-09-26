@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Personal\User\Tests;
 
-use Core\Test\Helpers\Helper;
+use Core\Test\Helpers\AppHelper;
 
-final class UserHelper extends Helper
+final class UserHelper extends AppHelper
 {
     public function generateAttributes(): array
     {

@@ -12,7 +12,7 @@ class LearnerBaseLoginTest extends EndpointCase
      */
     public function __invoke()
     {
-        $response = BaseAuthApiHelper::new()->loginAsTestLearner($this);
+        $response = BaseAuthApiHelper::new($this)->loginAsTestLearner();
         $response->assertOk();
     }
 }

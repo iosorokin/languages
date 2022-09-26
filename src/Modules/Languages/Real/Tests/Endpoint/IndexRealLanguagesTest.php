@@ -12,7 +12,7 @@ class IndexRealLanguagesTest extends EndpointCase
      */
     public function __invoke()
     {
-        $response = RealLanguageApiHelper::new()->index($this);
+        $response = RealLanguageApiHelper::new($this)->index();
         $response->assertOk();
     }
 }

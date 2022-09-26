@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Personal\Learner\Tests;
 
 use App\Contracts\Contexts\Client;
+use Core\Test\Helpers\AppHelper;
 use Core\Test\Helpers\Helper;
 use Generator;
 use Modules\Personal\Auth\Tests\BaseAuthHelper;
@@ -14,12 +15,8 @@ use Modules\Personal\Learner\Repositories\LearnerRepository;
 use Modules\Personal\Learner\Structures\LearnerStructure;
 use Modules\Personal\User\Tests\UserHelper;
 
-final class LearnerHelper extends Helper
+final class LearnerHelper extends AppHelper
 {
-    public const SEEDED_TEST_LEARNER = [
-        'id' => 1,
-    ];
-
     public function __construct(
         private UserHelper     $userHelper,
         private BaseAuthHelper $authHelper,
@@ -57,6 +54,6 @@ final class LearnerHelper extends Helper
     {
         $repository = app()->get(LearnerRepository::class);
 
-        return $repository->getById(self::SEEDED_TEST_LEARNER['id']);
+        return $repository->getById(1);
     }
 }
