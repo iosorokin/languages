@@ -12,4 +12,6 @@ interface ContainerRepository
     public function push(ContainerStructure $container, ContainerElementStructure $element): void;
 
     public function getLastPosition(int $containerId): int;
+
+    public function getContainerById(int $id): ContainerStructure;
 }

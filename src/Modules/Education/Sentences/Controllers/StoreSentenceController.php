@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace Modules\Education\Sentences\Controllers;
 
 use Core\Extensions\Request;
+use Core\Http\Controller;
 use Core\Http\Responses\Json\NoContentResponse;
 use Illuminate\Http\JsonResponse;
 use Modules\Education\Sentences\Presenters\CreateSentence;
 
-final class StoreSentenceController
+final class StoreSentenceController extends Controller
 {
     public function __construct(
         private CreateSentence $createSentence,
