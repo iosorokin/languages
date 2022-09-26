@@ -12,7 +12,10 @@ class CreateSourceTest extends EndpointCase
      */
     public function __invoke()
     {
-        $response = SourceApiHelper::new($this)->create(1, 'learning');
+        $response = SourceApiHelper::new($this)->create([
+            'language_id' => 1,
+            'language_type' => 'learning',
+        ]);
         $response->assertCreated();
     }
 }

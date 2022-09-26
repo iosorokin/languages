@@ -5,19 +5,16 @@ declare(strict_types=1);
 namespace Modules\Education\Dictionary\Tests;
 
 use Core\Test\EndpointCase;
+use Core\Test\Helpers\ApiHelper;
 use Core\Test\Helpers\Helper;
 use Illuminate\Testing\TestResponse;
 
-final class DictionaryApiHelper extends Helper
+final class DictionaryApiHelper extends ApiHelper
 {
-    public function __construct(
-        private DictionaryHelper $dictionaryHelper,
-    ) {}
-
-    public function store(EndpointCase $testCase, array $attributes): TestResponse
+    public function store(array $attributes): TestResponse
     {
-        $attributes = $this->dictionaryHelper->generateAttributes() + $attributes;
+        $attributes = DictionaryHelper::new()->generateAttributes() + $attributes;
 
-        return $testCase->post(route('api.dictionaries.store'), $attributes);
+        return $this->testCase->post(route('api.dictionaries.store'), $attributes);
     }
 }

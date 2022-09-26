@@ -12,7 +12,7 @@ use Modules\Education\Rules\Presenters\CreateRulePresenter;
 final class StoreRuleController extends Controller
 {
     public function __construct(
-        CreateRulePresenter $createRule,
+        private CreateRulePresenter $createRule,
     ) {}
 
     public function __invoke(Request $request)

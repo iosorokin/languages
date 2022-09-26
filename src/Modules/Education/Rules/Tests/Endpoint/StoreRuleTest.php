@@ -14,7 +14,10 @@ final class StoreRuleTest extends EndpointCase
      */
     public function __invoke()
     {
-        $response = RuleApiHelper::new($this)->store(1, 'learning');
+        $response = RuleApiHelper::new($this)->store([
+            'language_id' => 1,
+            'language_type' => 'learning'
+        ]);
         $response->assertCreated();
     }
 }
