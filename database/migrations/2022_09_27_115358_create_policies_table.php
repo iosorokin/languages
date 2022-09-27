@@ -15,12 +15,9 @@ return new class extends Migration
     {
         Schema::create('policies', function (Blueprint $table) {
             $table->id();
-            $table->morphs('authorization');
-            $table->unsignedBigInteger('container_id');
+            $table->morphs('owner');
+            $table->morphs('authorizeable');
             $table->timestamps();
-
-            $table->foreign('container_id')->on('containers')->references('id');
-            $table->unique('container_id');
         });
     }
 
