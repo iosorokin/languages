@@ -4,23 +4,26 @@ declare(strict_types=1);
 
 namespace Modules\Education\Sentences\Presenters;
 
+use Modules\Container\Presenters\Policies\CanEditContainerPresenter;
+use Modules\Education\Sentences\Factories\SentenceDtoFactory;
 use Modules\Education\Sentences\Factories\SentenceFactory;
 use Modules\Education\Sentences\Repositories\SentenceRepository;
 use Modules\Education\Sentences\Structures\SentenceStructure;
-use Modules\Education\Sentences\Validators\CreateSentenceValidator;
 
 final class CreateSentence implements CreateSentencePresenter
 {
     public function __construct(
-        private CreateSentenceValidator $validator,
-        private SentenceFactory $factory,
-        private SentenceRepository $repository,
+        private SentenceDtoFactory        $dtoFactory,
+        private CanEditContainerPresenter $canEditContainer,
+        private SentenceFactory           $factory,
+        private SentenceRepository        $repository,
     ) {}
 
     public function __invoke(array $attributes): SentenceStructure
     {
-        $attributes = $this->validator->validate($attributes);
-        $sentence = $this->factory->new($attributes);
+        $dto = $this->dtoFactory->create($attributes);
+        $container = ($this->canEditContainer)($dto->getContainerId());
+        $sentence = $this->factory->new($container, $dto);
         $this->repository->save($sentence);
 
         return $sentence;

@@ -13,5 +13,7 @@ interface ContainerRepository
 
     public function getLastPosition(int $containerId): int;
 
-    public function getContainerById(int $id): ContainerStructure;
+    public function getContainer(int $id): ?ContainerStructure;
+
+    public function getContainerWithDependenses(int $id): ?ContainerStructure;
 }

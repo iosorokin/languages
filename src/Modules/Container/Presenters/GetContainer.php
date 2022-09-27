@@ -15,6 +15,6 @@ final class GetContainer implements GetContainerPresenter
 
     public function __invoke(int $id): ContainerStructure
     {
-        return $this->repository->getContainerById($id);
+        return $this->repository->getContainer($id);
     }
 }

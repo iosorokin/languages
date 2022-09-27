@@ -8,7 +8,7 @@ class Assert extends BaseAssert
 {
     public static function isNotSet(array|object $value, string $key, string $message = ''): void
     {
-        if (self::isset($value, $key)) {
+        if (self::isSet($value, $key)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Key %s in source %s is set',
                 $key,
@@ -17,7 +17,7 @@ class Assert extends BaseAssert
         }
     }
 
-    private static function isset(array|object $source, string $key): bool
+    private static function isSet(array|object $source, string $key): bool
     {
         if (is_object($source)) {
             return isset($source->$key);

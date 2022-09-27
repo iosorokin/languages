@@ -37,4 +37,23 @@ final class EloquentContainerRepository implements ContainerRepository
             ->first()
             ->position;
     }
+
+    public function getContainer(int $id): ?ContainerStructure
+    {
+        /** @var ContainerModel $container */
+        $container = ContainerModel::query()
+            ->find($id);
+
+        return $container;
+    }
+
+    public function getContainerWithDependenses(int $id): ContainerStructure
+    {
+        /** @var ContainerModel $container */
+        $container = ContainerModel::query()
+            ->with('containerable')
+            ->find($id);
+
+        return $container;
+    }
 }

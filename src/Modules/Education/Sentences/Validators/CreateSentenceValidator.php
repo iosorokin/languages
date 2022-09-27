@@ -6,12 +6,14 @@ namespace Modules\Education\Sentences\Validators;
 
 use Core\Extensions\BaseValidator;
 
-final class CreateSentenceValidator extends BaseValidator
+final class CreateSentenceValidator extends SentenceValidator
 {
     protected function rules(): array
     {
-        return [
-            'text' => ['required', 'string'],
+        $rules = [
+            'container_id' => ['required', 'int']
         ];
+
+        return $this->defaultRules() + $rules;
     }
 }
