@@ -2,12 +2,11 @@
 
 namespace Modules\Personal\Auth\Repositories;
 
-use Modules\Personal\Auth\Contexts\Fillers\BaseAuthFiller;
-use Modules\Personal\Auth\Structures\BaseAuthStructure;
+use Modules\Personal\Auth\Entity\BaseAuth;
 
 interface BaseAuthRepository
 {
-    public function add(BaseAuthStructure $structure): void;
+    public function save(BaseAuth $baseAuth): void;
 
-    public function getByEmail(string $email): ?BaseAuthFiller;
+    public function getByEmail(string $email): ?BaseAuth;
 }

@@ -1,18 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Personal\User\Validators;
 
-use Core\Extensions\BaseValidator;
 
-class CreateUserValidator extends BaseValidator
+final class CreateUserValidator extends UserValidator
 {
     /**
      * @return array<mixed>
      */
     protected function rules(): array
     {
-        return [
-            'name' => ['required', 'string', 'min:2', 'max:32']
-        ];
+        return $this->defaultRules();
     }
 }

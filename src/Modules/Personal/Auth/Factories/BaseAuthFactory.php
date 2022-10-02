@@ -2,18 +2,9 @@
 
 namespace Modules\Personal\Auth\Factories;
 
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Hash;
-use Modules\Personal\Auth\Structures\BaseAuthModel;
+use Modules\Personal\Auth\Entity\BaseAuth;
 
-class BaseAuthFactory
+interface BaseAuthFactory
 {
-    public function new(array $attributes): BaseAuthModel
-    {
-        $baseAuth = new BaseAuthModel();
-        $baseAuth->email = Arr::get($attributes, 'email');
-        $baseAuth->password = Hash::make(Arr::get($attributes, 'password'));
-
-        return $baseAuth;
-    }
+    public function create(array $attributes): BaseAuth;
 }

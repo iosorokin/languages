@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Core\Extensions;
 
+use Core\Extensions\Validator as ValidatorInterface;
 use Illuminate\Support\Facades\Validator;
 
-abstract class BaseValidator
+abstract class BaseValidator implements ValidatorInterface
 {
     /**
      * @param array<mixed> $attributes

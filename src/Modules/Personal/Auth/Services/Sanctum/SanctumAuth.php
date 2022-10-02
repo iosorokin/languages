@@ -7,7 +7,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Modules\Personal\Auth\Services\AuthService;
 use Modules\Personal\Auth\Services\Sanctum\Actions\CreateSanctumToken;
 use Modules\Personal\Auth\Services\Sanctum\Dto\CreateSanctumTokenDto;
-use Modules\Personal\Auth\Structures\AuthableStructure;
+use Modules\Personal\User\Entities\User;
 
 class SanctumAuth implements AuthService
 {
@@ -15,29 +15,29 @@ class SanctumAuth implements AuthService
         private AuthManager $authManager,
     ) {}
 
-    public function login(AuthableStructure $authable): ?string
+    public function login(User $user): ?string
     {
         /** @var CreateSanctumToken $createSanctumToken */
         $createSanctumToken = app()->make(CreateSanctumToken::class);
-        $createTokenDto = CreateSanctumTokenDto::new($authable);
+        $createTokenDto = CreateSanctumTokenDto::new($user);
         $token = $createSanctumToken($createTokenDto);
 
         return $token->plainTextToken;
     }
 
-    public function logout(AuthableStructure $authable): void
+    public function logout(User $user): void
     {
-        /** @var HasApiTokens $authable */
-        $authable->currentAccessToken()->delete();
+        /** @var HasApiTokens $user */
+        $user->currentAccessToken()->delete();
     }
 
-    public function getAuth(): ?AuthableStructure
+    public function getAuth(): ?User
     {
-        /** @var null|AuthableStructure $auth */
-        $auth = $this->authManager
+        /** @var null|User $user */
+        $user = $this->authManager
             ->guard('sanctum')
             ->user();
 
-        return $auth;
+        return $user;
     }
 }

@@ -2,13 +2,9 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Modules\Education\Source\Tests\SourceSeeder;
-use Modules\Languages\Learning\Tests\LearningLanguageSeeder;
-use Modules\Languages\Real\Tests\RealLanguageSeeder;
-use Modules\Personal\Employers\Tests\EmployerSeeder;
-use Modules\Personal\Learner\Tests\LearnerSeeder;
+use Modules\Languages\Tests\LanguageSeeder;
+use Modules\Personal\User\Tests\UserSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,11 +16,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            EmployerSeeder::class,
-            LearnerSeeder::class,
-            RealLanguageSeeder::class,
-            LearningLanguageSeeder::class,
-            SourceSeeder::class,
+            UserSeeder::class,
+            LanguageSeeder::class,
+//            SourceSeeder::class,
         ]);
     }
 }

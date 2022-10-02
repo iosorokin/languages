@@ -6,9 +6,9 @@ namespace Core\Extensions;
 
 use Illuminate\Http\Request as LaravelRequest;
 
-final class Request
+class Request
 {
-    public function __construct(
+    final public function __construct(
         public readonly LaravelRequest $request
     ) {}
 
@@ -16,5 +16,10 @@ final class Request
     {
         return $this->request->all()
             + $this->request->route()->parameters();
+    }
+
+    public function get(string $key): mixed
+    {
+        return $this->request->$key;
     }
 }

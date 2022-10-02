@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace Modules\Personal\Auth\Actions;
 
 use Exception;
+use Illuminate\Support\Facades\Hash;
 use Modules\Personal\Auth\Dto\GetBaseAuthDto;
+use Modules\Personal\Auth\Entity\BaseAuth;
 use Modules\Personal\Auth\Repositories\BaseAuthRepository;
-use Modules\Personal\Auth\Structures\BaseAuthStructure;
 
 class GetBaseAuth
 {
@@ -15,7 +16,7 @@ class GetBaseAuth
         private BaseAuthRepository $repository,
     ) {}
 
-    public function __invoke(GetBaseAuthDto $dto): BaseAuthStructure
+    public function __invoke(GetBaseAuthDto $dto): BaseAuth
     {
         $baseAuth = $this->repository->getByEmail($dto->email);
 
@@ -23,11 +24,11 @@ class GetBaseAuth
             $this->throwValidationException();
         }
 
-        if (! $baseAuth->isCorrectPassword($dto->password)) {
+        if (! Hash::check($dto->password, $baseAuth->getPassword())) {
             $this->throwValidationException();
         }
 
-        return $baseAuth->structure;
+        return $baseAuth;
     }
 
     private function throwValidationException(): void

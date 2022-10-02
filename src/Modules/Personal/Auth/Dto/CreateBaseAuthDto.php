@@ -3,7 +3,7 @@
 namespace Modules\Personal\Auth\Dto;
 
 use Illuminate\Support\Arr;
-use Modules\Personal\Auth\Structures\AuthableStructure;
+use Modules\Personal\Auth\Entity\AuthableStructure;
 
 class CreateBaseAuthDto
 {

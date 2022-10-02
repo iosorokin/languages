@@ -18,7 +18,7 @@ final class GetOrCreateWord implements CreateWordPresenter
 
     public function __invoke(Client $client, string $word): ?WordStructure
     {
-        $structure = $this->createWordModel($client->getStructure(), $word);
+        $structure = $this->createWordModel($client->user(), $word);
         $structure = $this->getOrCreate($structure);
 
         return $structure;

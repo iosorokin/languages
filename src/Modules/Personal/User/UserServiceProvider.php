@@ -3,14 +3,18 @@
 namespace Modules\Personal\User;
 
 use Illuminate\Support\ServiceProvider;
-use Modules\Personal\User\Presenters\CreateUser;
-use Modules\Personal\User\Presenters\CreateUserPresenter;
-use Modules\Personal\User\Presenters\SaveUser;
-use Modules\Personal\User\Presenters\SaveUserPresenter;
+use Modules\Personal\User\Factories\LaravelUserFactory;
+use Modules\Personal\User\Factories\UserFactory;
+use Modules\Personal\User\Policy\AdminUserPolicy;
+use Modules\Personal\User\Policy\LaravelAdminUserPolicy;
+use Modules\Personal\User\Presenters\Admin\AdminCreateUser;
+use Modules\Personal\User\Presenters\Admin\AdminCreateUserPresenter;
+use Modules\Personal\User\Presenters\GetUser;
+use Modules\Personal\User\Presenters\GetUserPresenter;
+use Modules\Personal\User\Presenters\Guest\Register;
+use Modules\Personal\User\Presenters\Guest\RegisterPresenter;
 use Modules\Personal\User\Repositories\EloquentUserRepository;
 use Modules\Personal\User\Repositories\UserRepository;
-use Modules\Personal\User\Structures\UserModel;
-use Modules\Personal\User\Structures\UserStructure;
 
 class UserServiceProvider extends ServiceProvider
 {
@@ -21,11 +25,14 @@ class UserServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->app->bind(AdminCreateUserPresenter::class, AdminCreateUser::class);
+        $this->app->bind(RegisterPresenter::class, Register::class);
+        $this->app->bind(GetUserPresenter::class, GetUser::class);
+
         $this->app->bind(UserRepository::class, EloquentUserRepository::class);
 
-        $this->app->bind(UserStructure::class, UserModel::class);
+        $this->app->bind(AdminUserPolicy::class, LaravelAdminUserPolicy::class);
 
-        $this->app->bind(CreateUserPresenter::class, CreateUser::class);
-        $this->app->bind(SaveUserPresenter::class, SaveUser::class);
+        $this->app->bind(UserFactory::class, LaravelUserFactory::class);
     }
 }

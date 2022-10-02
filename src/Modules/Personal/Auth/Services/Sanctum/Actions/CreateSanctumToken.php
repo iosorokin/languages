@@ -12,11 +12,11 @@ class CreateSanctumToken
 {
     public function __invoke(CreateSanctumTokenDto $dto): NewAccessToken
     {
-        /** @var HasApiTokens $authable */
-        $authable = $dto->authable;
-        Assert::isInstanceOf($authable, Model::class);
+        /** @var HasApiTokens $user */
+        $user = $dto->user;
+        Assert::isInstanceOf($user, Model::class);
 
-        return $authable->createToken(
+        return $user->createToken(
             name: $dto->name ?? 'default',
             abilities: $dto->abilities ?? ['*'],
             expiresAt: $dto->expires_at,

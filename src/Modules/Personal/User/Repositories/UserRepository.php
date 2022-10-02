@@ -2,9 +2,11 @@
 
 namespace Modules\Personal\User\Repositories;
 
-use Modules\Personal\User\Structures\UserStructure;
+use Modules\Personal\User\Entities\User;
 
 interface UserRepository
 {
-    public function add(UserStructure $user): void;
+    public function save(User $user): void;
+
+    public function get(int $id): ?User;
 }

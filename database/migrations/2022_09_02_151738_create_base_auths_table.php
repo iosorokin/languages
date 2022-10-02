@@ -15,12 +15,14 @@ return new class extends Migration
     {
         Schema::create('base_auths', function (Blueprint $table) {
             $table->id();
-            $table->morphs('authable');
+            $table->unsignedBigInteger('user_id');
             $table->string('email');
             $table->string('password');
             $table->timestamps();
 
-            $table->unique(['email', 'authable_type']);
+            $table->foreign('user_id')->on('users')->references('id');
+            $table->unique('email');
+            $table->index('email');
         });
     }
 

@@ -15,10 +15,14 @@ return new class extends Migration
     {
         Schema::create('rules', function (Blueprint $table) {
             $table->id();
-            $table->morphs('language');
+            $table->unsignedBigInteger('language_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('title');
             $table->string('description');
             $table->timestamps();
+
+            $table->foreign('language_id')->on('languages')->references('id');
+            $table->foreign('user_id')->on('users')->references('id');
         });
     }
 

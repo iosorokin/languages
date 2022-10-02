@@ -2,9 +2,17 @@
 
 namespace App\Contracts\Contexts;
 
-use Modules\Personal\Auth\Structures\AuthableStructure;
+use Modules\Personal\User\Entities\User;
 
 interface Client
 {
-    public function getStructure(): ?AuthableStructure;
+    public function user(): ?User;
+
+    public function id(): ?int;
+
+    public function isAdmin(): bool;
+
+    public function isUser(): bool;
+
+    public function isGuest(): bool;
 }

@@ -2,13 +2,13 @@
 
 namespace Modules\Personal\Auth\Services;
 
-use Modules\Personal\Auth\Structures\AuthableStructure;
+use Modules\Personal\User\Entities\User;
 
 interface AuthService
 {
-    public function login(AuthableStructure $authable): ?string;
+    public function login(User $user): ?string;
 
-    public function logout(AuthableStructure $authable): void;
+    public function logout(User $user): void;
 
-    public function getAuth(): ?AuthableStructure;
+    public function getAuth(): ?User;
 }

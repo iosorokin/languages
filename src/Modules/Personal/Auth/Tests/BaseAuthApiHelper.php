@@ -10,40 +10,37 @@ use Illuminate\Testing\TestResponse;
 
 final class BaseAuthApiHelper extends ApiHelper
 {
-    public const SEEDED_TEST_LEARNER = [
+    public const SEEDED_TEST_USER = [
         'email' => 'test@email.ru',
         'password' => 'testpassword',
     ];
 
-    public function loginLearner(array $attributes): TestResponse
+    public function login(array $attributes): TestResponse
     {
-        return $this->testCase->postJson(route('api.learners.login'), $attributes);
+        return $this->testCase->postJson(route('api.login'), $attributes);
     }
 
-    public function logoutLearner(): TestResponse
+    public function logout(): TestResponse
     {
-        $response = $this->testCase->postJson(route('api.learners.logout'));
+        $response = $this->testCase->postJson(route('api.user.logout'));
         $this->testCase->withHeader('Authorization', '');
 
         return $response;
     }
 
-    public function loginAsTestLearner(): TestResponse
+    public function loginAsTestUser(): TestResponse
     {
-        $response = $this->loginLearner([
-            'email' => self::SEEDED_TEST_LEARNER['email'],
-            'password' => self::SEEDED_TEST_LEARNER['password'],
+        $response = $this->login([
+            'email' => self::SEEDED_TEST_USER['email'],
+            'password' => self::SEEDED_TEST_USER['password'],
         ]);
         $token = $response->json('data.token');
-        Assert::notNull($token);
+        if (is_null($token)) {
+            $response->dd();
+        }
 
         $this->testCase->withHeader('Authorization', 'Bearer '. $token);
 
         return $response;
-    }
-
-    public function defaultAttributes(): array
-    {
-        return BaseAuthHelper::new()->generateAttributes();
     }
 }

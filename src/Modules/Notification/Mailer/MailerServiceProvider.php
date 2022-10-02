@@ -4,9 +4,9 @@ namespace Modules\Notification\Mailer;
 
 
 use Illuminate\Support\ServiceProvider;
-use Modules\Notification\Mailer\Presenters\SendLearnerRegistrationEmail;
-use Modules\Notification\Mailer\Presenters\SendLearnerRegistrationEmailFake;
-use Modules\Notification\Mailer\Presenters\SendLearnerRegistrationEmailPresenter;
+use Modules\Notification\Mailer\Presenters\SendRegistrationEmail;
+use Modules\Notification\Mailer\Presenters\SendRegistrationEmailFake;
+use Modules\Notification\Mailer\Presenters\SendRegistrationEmailPresenter;
 
 class MailerServiceProvider extends ServiceProvider
 {
@@ -14,13 +14,13 @@ class MailerServiceProvider extends ServiceProvider
     {
         if ($this->app->environment(['test', 'testing'])) {
             $this->app->bind(
-                SendLearnerRegistrationEmailPresenter::class,
-                SendLearnerRegistrationEmailFake::class
+                SendRegistrationEmailPresenter::class,
+                SendRegistrationEmailFake::class
             );
         } else {
             $this->app->bind(
-                SendLearnerRegistrationEmailPresenter::class,
-                SendLearnerRegistrationEmail::class
+                SendRegistrationEmailPresenter::class,
+                SendRegistrationEmail::class
             );
         }
     }

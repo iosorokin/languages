@@ -2,34 +2,24 @@
 
 namespace Modules\Personal\Auth\Repositories;
 
-use App\Extensions\Assert;
-use Modules\Personal\Auth\Contexts\Fillers\BaseAuthFiller;
-use Modules\Personal\Auth\Structures\BaseAuthModel;
-use Modules\Personal\Auth\Structures\BaseAuthStructure;
+use Modules\Personal\Auth\Entity\BaseAuth;
+use Modules\Personal\Auth\Entity\BaseAuthModel;
 
 class EloquentBaseAuthRepository implements BaseAuthRepository
 {
-    private const TABLE = 'base_auths';
-
-    public function add(BaseAuthStructure $structure): void
+    public function save(BaseAuth $baseAuth): void
     {
-        $this->assertIsBaseAuthModel($structure);
-        /** @var BaseAuthModel $structure */
-        $structure->save();
+        $baseAuth->save();
     }
 
-    public function getByEmail(string $email): ?BaseAuthFiller
+    public function getByEmail(string $email): ?BaseAuth
     {
-        /** @var BaseAuthModel $structure */
-        $structure = BaseAuthModel::query()
+        /** @var BaseAuthModel $baseAuth */
+        $baseAuth = BaseAuthModel::query()
             ->where('email', $email)
+            ->with('user')
             ->first();
 
-        return $structure ? new BaseAuthFiller($structure) : null;
-    }
-
-    private function assertIsBaseAuthModel(BaseAuthStructure $structure): void
-    {
-        Assert::isInstanceOf($structure, BaseAuthModel::class);
+        return $baseAuth;
     }
 }

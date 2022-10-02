@@ -1,19 +1,10 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Modules\Personal\User\Factories;
 
-use Illuminate\Support\Arr;
-use Modules\Personal\User\Structures\UserModel;
+use Modules\Personal\User\Entities\User;
 
-final class UserFactory
+interface UserFactory
 {
-    public function new(array $attributes): UserModel
-    {
-        $user = new UserModel();
-        $user->name = Arr::get($attributes, 'name');
-
-        return $user;
-    }
+    public function create(array $attributes): User;
 }

@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('policies', function (Blueprint $table) {
             $table->id();
-            $table->morphs('owner');
+            $table->unsignedBigInteger('user_id');
             $table->morphs('authorizeable');
             $table->timestamps();
+
+            $table->foreign('user_id')->on('users')->references('id');
         });
     }
 

@@ -204,12 +204,8 @@ return [
          */
         Modules\Personal\Auth\AuthServiceProvider::class,
         Modules\Personal\User\UserServiceProvider::class,
-        Modules\Personal\Learner\LearnerServiceProvider::class,
-        Modules\Languages\Common\LanguageModuleServiceProvider::class,
-        Modules\Languages\Learning\LearningLanguageServiceProvider::class,
-        Modules\Languages\Real\RealLanguageServiceProvider::class,
+        Modules\Languages\LanguageServiceProvider::class,
         Modules\Notification\Mailer\MailerServiceProvider::class,
-        Modules\Personal\Employers\EmployerProvider::class,
         Modules\Education\Words\WordServiceProvider::class,
         Modules\Container\ContainerServiceProvider::class,
         Modules\Education\Source\SourceServiceProvider::class,

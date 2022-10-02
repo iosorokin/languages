@@ -8,13 +8,13 @@ use App\Contracts\Contexts\Client;
 use Illuminate\Support\Arr;
 use Modules\Education\Source\Actions\CreateSource;
 use Modules\Education\Source\Structures\SourceModel;
-use Modules\Languages\Real\Presenters\GetRealLanguagePresenter;
+use Modules\Languages\Presenters\Admin\AdminGetLanguagePresenter;
 
 class CreateRealLanguageSource implements CreateRealLanguageSourcePresenter
 {
     public function __construct(
-        private CreateSource $createSource,
-        private GetRealLanguagePresenter $getRealLanguage,
+        private CreateSource              $createSource,
+        private AdminGetLanguagePresenter $getRealLanguage,
     ) {}
 
     /**
