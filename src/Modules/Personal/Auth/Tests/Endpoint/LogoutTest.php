@@ -15,7 +15,7 @@ class LogoutTest extends EndpointCase
         $helper = BaseAuthApiHelper::new($this);
         $response = $helper->logout();
         $response->assertUnauthorized();
-        $helper->loginAsTestUser();
+        $helper->loginAsTestSuperAdmin();
         $response = $helper->logout();
         $response->assertNoContent();
     }

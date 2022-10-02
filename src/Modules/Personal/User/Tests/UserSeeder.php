@@ -15,13 +15,18 @@ final class UserSeeder extends Seeder
     {
         $helper = UserHelper::new();
 
-        $attributes = [
-            'name' => 'Для теста',
+        $helper->create(overwrite: [
+            'name' => 'Супер админ для теста',
+            'email' => BaseAuthApiHelper::SEEDED_TEST_SUPER_ADMIN['email'],
+            'password' => BaseAuthApiHelper::SEEDED_TEST_SUPER_ADMIN['password'],
+        ])->current();
+
+        $helper->create(overwrite: [
+            'name' => 'Пользователь для теста',
             'email' => BaseAuthApiHelper::SEEDED_TEST_USER['email'],
             'password' => BaseAuthApiHelper::SEEDED_TEST_USER['password'],
-        ];
+        ])->current();
 
-        $helper->create(overwrite: $attributes)->current();
         foreach ($helper->create(self::COUNT_LEARNERS) as $_) {};
     }
 }

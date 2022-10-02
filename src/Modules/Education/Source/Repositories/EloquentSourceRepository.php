@@ -3,18 +3,18 @@
 namespace Modules\Education\Source\Repositories;
 
 use App\Extensions\Assert;
-use Modules\Education\Source\Structures\SourceModel;
-use Modules\Education\Source\Structures\SourceStructure;
+use Modules\Education\Source\Entity\SourceModel;
+use Modules\Education\Source\Entity\Source;
 
 class EloquentSourceRepository implements SourceRepository
 {
-    public function add(SourceStructure $source): void
+    public function save(Source $source): void
     {
         $this->assertEloquentModel($source);
         $source->save();
     }
 
-    private function assertEloquentModel(SourceStructure $source): void
+    private function assertEloquentModel(Source $source): void
     {
         Assert::isInstanceOf($source, SourceModel::class);
     }

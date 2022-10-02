@@ -4,23 +4,23 @@ declare(strict_types=1);
 
 namespace Modules\Container\Contexts\Fillers;
 
-use Modules\Education\Source\Structures\SourceStructure;
+use Modules\Education\Source\Entity\Source;
 use Modules\Languages\Common\Contracts\LanguageStructure;
 
 final class SourceFiller
 {
     public function __construct(
-        private SourceStructure $structure
+        private Source $structure
     ) {}
 
-    public function setStructure(SourceStructure $structure): self
+    public function setStructure(Source $structure): self
     {
         $this->structure = $structure;
 
         return $this;
     }
 
-    public function getStructure(): SourceStructure
+    public function getStructure(): Source
     {
         return $this->structure;
     }

@@ -13,7 +13,7 @@ final class LanguageApiHelper extends ApiHelper
     {
         $attributes = LanguageHelper::new()->generateAttributes() + $attributes;
 
-        return $this->testCase->postJson(route('api.languages.store'), $attributes);
+        return $this->testCase->postJson(route('api.admin.languages.store'), $attributes);
     }
 
     public function index(array $attributes = []): TestResponse

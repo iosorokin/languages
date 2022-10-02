@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Modules\Languages\Presenters\Admin;
+namespace Modules\Languages\Presenters;
 
 use Modules\Languages\Entity\Language;
-use Modules\Languages\Factories\ModelLanguageFactory;
 use Modules\Languages\Repositories\LanguageRepository;
 
-class AdminGetLanguage implements AdminGetLanguagePresenter
+final class GetLanguage implements GetLanguagePresenter
 {
     public function __construct(
-        private LanguageRepository   $repository,
-    ) {}
+        private LanguageRepository $repository
+    ){}
 
     public function __invoke(int $id): Language
     {
         $language = $this->repository->get($id);
+        abort_if(! $language, 404);
 
         return $language;
     }

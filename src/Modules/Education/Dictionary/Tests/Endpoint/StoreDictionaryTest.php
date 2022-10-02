@@ -15,7 +15,7 @@ final class StoreDictionaryTest extends EndpointCase
      */
     public function __invoke(): void
     {
-        BaseAuthApiHelper::new($this)->loginAsTestUser($this);
+        BaseAuthApiHelper::new($this)->loginAsTestSuperAdmin($this);
         $response = DictionaryApiHelper::new($this)->store([
             'language_id' => 1,
             'language_type' => 'real',

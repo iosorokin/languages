@@ -5,11 +5,11 @@ namespace Modules\Languages\Entity;
 use App\Base\Entity\Identify\EloquentId;
 use App\Base\Entity\Timestamps\EloquentTimestamps;
 use Illuminate\Database\Eloquent\Model;
-use Modules\Personal\User\Entities\EloquentHasUser;
+use Modules\Personal\User\Entities\EloquentUserRelation;
 
 class LanguageModel extends Model implements Language
 {
-    use EloquentHasUser;
+    use EloquentUserRelation;
     use EloquentId;
     use EloquentTimestamps;
 

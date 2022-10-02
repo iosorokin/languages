@@ -9,16 +9,18 @@ use Core\Http\Controller;
 use Core\Http\Responses\Json\CreatedResponse;
 use Illuminate\Support\Arr;
 use Modules\Container\Enums\LanguageTypes;
+use Modules\Education\Source\Presenters\User\UserCreateSourcePresenter;
 
 final class StoreSourceController extends Controller
 {
+    public function __construct(
+        private UserCreateSourcePresenter $userCreateSource,
+    ) {}
+
     public function __invoke(Request $request)
     {
         $attributes = $request->all();
-        $presenterClassName = LanguageTypes::tryFrom(Arr::get($attributes, 'type'))->getPresenterClassName();
-        $presenter = app()->make($presenterClassName);
-        $client = $this->client();
-        $presenter($client, $attributes);
+        $source = ($this->userCreateSource)($attributes);
 
         return new CreatedResponse();
     }

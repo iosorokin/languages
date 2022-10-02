@@ -13,7 +13,7 @@ final class SourceSeeder extends Seeder
     {
         for ($i = 1; $i <= LanguageSeeder::COUNT_LANGUAGES; $i++) {
             SourceHelper::new()
-                ->createRealLanguageSource($i);
+                ->createSource($i);
         }
     }
 }

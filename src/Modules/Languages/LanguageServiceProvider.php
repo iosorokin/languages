@@ -19,6 +19,8 @@ use Modules\Languages\Presenters\Admin\AdminIndexLanguages;
 use Modules\Languages\Presenters\Admin\AdminIndexLanguagesPresenter;
 use Modules\Languages\Presenters\Admin\AdminUpdateLanguage;
 use Modules\Languages\Presenters\Admin\AdminUpdateLanguagesPresenter;
+use Modules\Languages\Presenters\GetLanguage;
+use Modules\Languages\Presenters\GetLanguagePresenter;
 use Modules\Languages\Repositories\EloquentLanguageRepository;
 use Modules\Languages\Repositories\LanguageRepository;
 
@@ -43,5 +45,7 @@ class LanguageServiceProvider extends ServiceProvider
 
         $this->app->bind(AdminLanguagePolicy::class, LaravelAdminLanguagePolicy::class);
         $this->app->bind(LanguageFactory::class, ModelLanguageFactory::class);
+
+        $this->app->bind(GetLanguagePresenter::class, GetLanguage::class);
     }
 }

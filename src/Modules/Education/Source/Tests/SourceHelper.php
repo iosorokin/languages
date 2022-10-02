@@ -6,7 +6,6 @@ namespace Modules\Education\Source\Tests;
 
 use Core\Base\Helpers\AppHelper;
 use Illuminate\Support\Arr;
-use Modules\Education\Source\Presenters\CreateRealLanguageSourcePresenter;
 use Modules\Personal\Auth\Contexts\ClientContext;
 
 final class SourceHelper extends AppHelper
@@ -14,13 +13,13 @@ final class SourceHelper extends AppHelper
     public function generateAttributes(): array
     {
         return [
-            'type' => Arr::random(['movie']),
+            'type' => Arr::random(['movie', 'song']),
             'title' => $this->faker()->title(),
             'description' => $this->faker()->text(),
         ];
     }
 
-    public function createRealLanguageSource(int $id, array $attributes = []): void
+    public function createSource(int $id, array $attributes = []): void
     {
         $attributes = $this->generateAttributes() + $attributes;
         $attributes['id'] = $id;

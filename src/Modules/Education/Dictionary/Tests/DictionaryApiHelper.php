@@ -13,6 +13,6 @@ final class DictionaryApiHelper extends ApiHelper
     {
         $attributes = DictionaryHelper::new()->generateAttributes() + $attributes;
 
-        return $this->testCase->post(route('api.dictionaries.store'), $attributes);
+        return $this->testCase->post(route('api.user.dictionaries.store'), $attributes);
     }
 }

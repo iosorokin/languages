@@ -4,7 +4,7 @@ namespace Modules\Personal\User\Entities;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-trait EloquentHasUser
+trait EloquentUserRelation
 {
     public function user(): BelongsTo
     {

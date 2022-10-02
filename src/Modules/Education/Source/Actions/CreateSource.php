@@ -4,23 +4,23 @@ declare(strict_types=1);
 
 namespace Modules\Education\Source\Actions;
 
-use Modules\Container\Factories\SourceFactory;
-use Modules\Container\Validators\CreateContainerValidator;
+use Modules\Education\Source\Entity\SourceModel;
+use Modules\Education\Source\Factory\SourceFactory;
 use Modules\Education\Source\Repositories\SourceRepository;
-use Modules\Education\Source\Structures\SourceModel;
-use Modules\Languages\Common\Contracts\LanguageStructure;
+use Modules\Languages\Entity\Language;
+use Modules\Personal\User\Entities\User;
 
 final class CreateSource
 {
     public function __construct(
-        private SourceFactory            $factory,
-        private SourceRepository         $repository,
+        private SourceFactory $factory,
+        private SourceRepository   $repository,
     ) {}
 
-    public function __invoke(LanguageStructure $language, array $attributes): SourceModel
+    public function __invoke(User $user, Language $language, array $attributes): SourceModel
     {
-        $source = $this->factory->new($language, $attributes);
-        $this->repository->add($source);
+        $source = $this->factory->new($user, $language, $attributes);
+        $this->repository->save($source);
 
         return $source;
     }

@@ -16,6 +16,6 @@ final class SourceApiHelper extends ApiHelper
         $attributes['language_type'] = Arr::get($attributes, 'language_type');
         $attributes['language_id'] = Arr::get($attributes, 'language_id');
 
-        return $this->testCase->postJson(route('api.sources.create'), $attributes);
+        return $this->testCase->postJson(route('api.user.sources.create'), $attributes);
     }
 }

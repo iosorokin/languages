@@ -37,10 +37,8 @@ class EloquentLanguageRepository implements LanguageRepository
             ->cursorPaginate();
     }
 
-    public function get(int $id): ?stdClass
+    public function get(int $id): ?Language
     {
-        return DB::table('languages')
-            ->select()
-            ->first();
+        return LanguageModel::find($id);
     }
 }

@@ -2,9 +2,9 @@
 
 namespace Modules\Education\Source\Repositories;
 
-use Modules\Education\Source\Structures\SourceStructure;
+use Modules\Education\Source\Entity\Source;
 
 interface SourceRepository
 {
-    public function add(SourceStructure $source): void;
+    public function save(Source $source): void;
 }

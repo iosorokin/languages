@@ -7,14 +7,14 @@ namespace Modules\Personal\Auth\Entity;
 use App\Base\Entity\Identify\EloquentId;
 use App\Base\Entity\Timestamps\EloquentTimestamps;
 use Illuminate\Database\Eloquent\Model;
-use Modules\Personal\User\Entities\EloquentHasUser;
+use Modules\Personal\User\Entities\EloquentUserRelation;
 
 final class BaseAuthModel extends Model implements
     BaseAuth
 {
     use EloquentId;
     use EloquentTimestamps;
-    use EloquentHasUser;
+    use EloquentUserRelation;
 
     protected $table = 'base_auths';
 
