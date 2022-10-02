@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Personal\Auth\Presenters\Base;
 
-use Core\Base\Presenter;
 use Modules\Personal\Auth\Actions\GetBaseAuth;
 use Modules\Personal\Auth\Dto\GetBaseAuthDto;
 use Modules\Personal\Auth\Services\AuthService;
@@ -13,7 +12,7 @@ use Modules\Personal\User\Entities\User;
 use Modules\Personal\User\Repositories\UserRepository;
 use Webmozart\Assert\Assert;
 
-final class BaseLogin extends Presenter implements BaseLoginPresenter
+final class BaseLogin implements BaseLoginPresenter
 {
     public function __construct(
         private LoginValidator $validator,

@@ -9,10 +9,10 @@ use Modules\Personal\User\Policy\AdminUserPolicy;
 use Modules\Personal\User\Policy\LaravelAdminUserPolicy;
 use Modules\Personal\User\Presenters\Admin\AdminCreateUser;
 use Modules\Personal\User\Presenters\Admin\AdminCreateUserPresenter;
-use Modules\Personal\User\Presenters\GetUser;
-use Modules\Personal\User\Presenters\GetUserPresenter;
 use Modules\Personal\User\Presenters\Guest\Register;
 use Modules\Personal\User\Presenters\Guest\RegisterPresenter;
+use Modules\Personal\User\Presenters\Internal\GetUser;
+use Modules\Personal\User\Presenters\Internal\GetUserPresenter;
 use Modules\Personal\User\Repositories\EloquentUserRepository;
 use Modules\Personal\User\Repositories\UserRepository;
 

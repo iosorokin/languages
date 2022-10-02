@@ -2,12 +2,11 @@
 
 namespace Modules\Languages\Presenters\Admin;
 
-use Core\Base\Presenter;
 use Modules\Languages\Actions\CreateLanguage;
 use Modules\Languages\Entity\Language;
 use Modules\Languages\Policies\AdminLanguagePolicy;
 
-class AdminCreateLanguage extends Presenter implements AdminCreateLanguagePresenter
+class AdminCreateLanguage implements AdminCreateLanguagePresenter
 {
     public function __construct(
         private AdminLanguagePolicy  $policy,

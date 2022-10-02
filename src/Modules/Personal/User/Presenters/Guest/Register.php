@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Personal\User\Presenters\Guest;
 
-use Core\Base\Presenter;
 use Modules\Notification\Mailer\Presenters\SendRegistrationEmailPresenter;
 use Modules\Personal\User\Actions\CreateUser;
 use Modules\Personal\User\Entities\User;
