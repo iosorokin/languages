@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Languages\Presenters\Internal;
+namespace Modules\Languages\Presenters;
 
 use App\Extensions\Assert;
 use Modules\Languages\Actions\CreateLanguage;
@@ -10,7 +10,7 @@ use Modules\Personal\Auth\Tests\AuthHelper;
 use Modules\Personal\User\Entities\User;
 use Modules\Personal\User\Repositories\UserRepository;
 
-final class InternalCreateLanguage
+final class SeedLanguage
 {
     public function __construct(
         private CreateLanguage $createLanguage,

@@ -8,7 +8,7 @@ use Core\Base\Helpers\AppHelper;
 use Faker\Factory;
 use Generator;
 use Illuminate\Support\Str;
-use Modules\Languages\Presenters\Internal\InternalCreateLanguage;
+use Modules\Languages\Presenters\SeedLanguage;
 
 final class LanguageHelper extends AppHelper
 {
@@ -23,8 +23,8 @@ final class LanguageHelper extends AppHelper
 
     public function create(int $count = 1, array $overwrite = []): Generator
     {
-        /** @var InternalCreateLanguage $presenter */
-        $presenter = app()->get(InternalCreateLanguage::class);
+        /** @var SeedLanguage $presenter */
+        $presenter = app()->get(SeedLanguage::class);
 
         for ($i = 0; $i < $count; $i++) {
             $attributes = $overwrite + $this->generateAttributes();
