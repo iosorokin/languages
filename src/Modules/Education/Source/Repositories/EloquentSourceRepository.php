@@ -10,12 +10,11 @@ class EloquentSourceRepository implements SourceRepository
 {
     public function save(Source $source): void
     {
-        $this->assertEloquentModel($source);
         $source->save();
     }
 
-    private function assertEloquentModel(Source $source): void
+    public function get(int $id): ?Source
     {
-        Assert::isInstanceOf($source, SourceModel::class);
+        return SourceModel::find($id);
     }
 }

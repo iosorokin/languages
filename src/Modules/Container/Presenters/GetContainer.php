@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Container\Presenters;
 
 use Modules\Container\Repository\ContainerRepository;
-use Modules\Container\Structures\ContainerStructure;
+use Modules\Container\Entites\Container;
 
 final class GetContainer implements GetContainerPresenter
 {
@@ -13,7 +13,7 @@ final class GetContainer implements GetContainerPresenter
         private ContainerRepository $repository,
     ) {}
 
-    public function __invoke(int $id): ContainerStructure
+    public function __invoke(int $id): Container
     {
         return $this->repository->getContainer($id);
     }

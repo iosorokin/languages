@@ -2,9 +2,9 @@
 
 namespace Modules\Container\Presenters;
 
-use Modules\Container\Structures\ContainerStructure;
+use Modules\Container\Entites\Container;
 
 interface GetContainerPresenter
 {
-    public function __invoke(int $id): ContainerStructure;
+    public function __invoke(int $id): Container;
 }

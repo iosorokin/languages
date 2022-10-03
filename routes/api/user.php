@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Container\Controllers\CreateContainerController;
+use Modules\Container\Controllers\User\UserCreateContainerController;
 use Modules\Education\Dictionary\Controller\StoreDictionaryController;
 use Modules\Education\Rules\Controllers\StoreRuleController;
 use Modules\Education\Source\Controllers\StoreSourceController;
@@ -14,7 +14,7 @@ Route::post('sources', StoreSourceController::class)
 Route::post('rules', StoreRuleController::class)
     ->name('rules.store');
 
-Route::post('containers', CreateContainerController::class)
+Route::post('containers', UserCreateContainerController::class)
     ->name('containers.create');
 
 Route::post('logout', LogoutController::class)

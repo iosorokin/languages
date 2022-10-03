@@ -2,9 +2,9 @@
 
 namespace Modules\Education\Sentences\Repositories;
 
-use Modules\Education\Sentences\Structures\SentenceStructure;
+use Modules\Education\Sentences\Entities\Sentence;
 
 interface SentenceRepository
 {
-    public function save(SentenceStructure $sentence): void;
+    public function save(Sentence $sentence): void;
 }

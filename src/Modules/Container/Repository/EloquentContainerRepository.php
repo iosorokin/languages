@@ -6,21 +6,19 @@ namespace Modules\Container\Repository;
 
 use App\Extensions\Assert;
 use Illuminate\Support\Facades\DB;
-use Modules\Container\Structures\ContainerElementModel;
-use Modules\Container\Structures\ContainerElementStructure;
-use Modules\Container\Structures\ContainerModel;
-use Modules\Container\Structures\ContainerStructure;
+use Modules\Container\Entites\ContainerElementModel;
+use Modules\Container\Entites\ContainerElement;
+use Modules\Container\Entites\ContainerModel;
+use Modules\Container\Entites\Container;
 
 final class EloquentContainerRepository implements ContainerRepository
 {
-    public function save(ContainerStructure $container): void
+    public function save(Container $container): void
     {
-        Assert::isInstanceOf($container, ContainerModel::class);
-
         $container->save();
     }
 
-    public function push(ContainerStructure $container, ContainerElementStructure $element): void
+    public function push(Container $container, ContainerElement $element): void
     {
         $element->setContainer($container);
         $element->save();
@@ -38,7 +36,7 @@ final class EloquentContainerRepository implements ContainerRepository
             ->position;
     }
 
-    public function getContainer(int $id): ?ContainerStructure
+    public function getContainer(int $id): ?Container
     {
         /** @var ContainerModel $container */
         $container = ContainerModel::query()
@@ -47,7 +45,7 @@ final class EloquentContainerRepository implements ContainerRepository
         return $container;
     }
 
-    public function getContainerWithDependenses(int $id): ContainerStructure
+    public function getContainerWithDependenses(int $id): Container
     {
         /** @var ContainerModel $container */
         $container = ContainerModel::query()

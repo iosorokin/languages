@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Education\Dictionary\Action;
 
 use App\Contracts\Contexts\Client;
+use Modules\Container\Presenters\Internal\InitWrapperContainerPresenter as InitWrapperContainer;
 use Modules\Education\Dictionary\Entity\Dictionary;
 use Modules\Education\Dictionary\Factory\DictionaryFactory;
 use Modules\Education\Dictionary\Policy\DictionaryPolicy;
@@ -20,6 +21,7 @@ final class CreateDictionary
         private DictionaryPolicy $policy,
         private DictionaryFactory $factory,
         private DictionaryRepository $repository,
+        private InitWrapperContainer $initWrapperContainer
     ) {}
 
     public function __invoke(Client $client, array $attributes): Dictionary
@@ -29,6 +31,7 @@ final class CreateDictionary
         $this->policy->canCreate($client, $language);
         $dictionary = $this->factory->create($client->user(), $language, $attributes);
         $this->repository->save($dictionary);
+        ($this->initWrapperContainer)($dictionary);
 
         return $dictionary;
     }

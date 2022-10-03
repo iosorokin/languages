@@ -2,17 +2,15 @@
 
 namespace Modules\Languages\Entity;
 
-use Illuminate\Support\Carbon;
-use Modules\Personal\User\Entities\User;
+use App\Base\Entity\Identify\HasIntId;
+use App\Base\Entity\Timestamps\HasTimestamps;
+use Modules\Personal\User\Entities\HasUser;
 
-interface Language
+interface Language extends
+    HasIntId,
+    HasUser,
+    HasTimestamps
 {
-    public function getId(): int;
-
-    public function setUser(User $user): self;
-
-    public function getUser(): User;
-
     public function setName(string $name): self;
 
     public function getName(): string;
@@ -24,8 +22,4 @@ interface Language
     public function setCode(string $code): self;
 
     public function getCode(): string;
-
-    public function getCreatedAt(): Carbon;
-
-    public function getUpdatedAt(): Carbon;
 }

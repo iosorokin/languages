@@ -2,31 +2,23 @@
 
 namespace Modules\Education\Dictionary\Entity;
 
-use Illuminate\Support\Carbon;
-use Modules\Languages\Entity\Language;
-use Modules\Personal\User\Entities\User;
+use App\Base\Entity\HasDescription;
+use App\Base\Entity\HasTitle;
+use App\Base\Entity\Identify\HasIntId;
+use App\Base\Entity\Timestamps\HasTimestamps;
+use Modules\Container\Contracts\Containerable;
+use Modules\Languages\Entity\HasLanguage;
+use Modules\Personal\User\Entities\HasUser;
 
-interface Dictionary
+interface Dictionary extends
+    HasIntId,
+    HasUser,
+    HasLanguage,
+    HasTitle,
+    HasDescription,
+    HasTimestamps,
+
+    Containerable
 {
-    public function getId(): int;
 
-    public function setUser(User $user): self;
-
-    public function getUser(): User;
-
-    public function setLanguage(Language $language): self;
-
-    public function getLanguage(): Language;
-
-    public function setTitle(string $title): self;
-
-    public function getTitle(): string;
-
-    public function setDescription(string $description): self;
-
-    public function getDescription(): string;
-
-    public function getCreatedAt(): Carbon;
-
-    public function getUpdatedAt(): Carbon;
 }

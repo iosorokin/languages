@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Container\Presenters\Elements;
 
-use Modules\Container\Actions\ContainerDispatcher;
 use Modules\Container\Contracts\ContainerableElement;
-use Modules\Container\Structures\ContainerElementStructure;
-use Modules\Container\Structures\ContainerStructure;
+use Modules\Container\Entites\Container;
+use Modules\Container\Entites\ContainerElement;
+use Modules\Container\Services\ContainerDispatcher;
 
 final class AddElement
 {
@@ -15,7 +15,7 @@ final class AddElement
         private ContainerDispatcher $dispatcher,
     ) {}
 
-    public function __invoke(ContainerStructure $container, ContainerableElement $element): ContainerElementStructure
+    public function __invoke(Container $container, ContainerableElement $element): ContainerElement
     {
         return $this->dispatcher->setContainer($container)
             ->push($element);

@@ -8,12 +8,12 @@ use Core\Extensions\Request;
 use Core\Http\Controller;
 use Core\Http\Responses\Json\NoContentResponse;
 use Illuminate\Http\JsonResponse;
-use Modules\Education\Sentences\Presenters\CreateSentence;
+use Modules\Education\Sentences\Presenters\User\UserCreateSentence;
 
 final class StoreSentenceController extends Controller
 {
     public function __construct(
-        private CreateSentence $createSentence,
+        private UserCreateSentence $createSentence,
     ) {}
 
     public function __invoke(Request $request): JsonResponse

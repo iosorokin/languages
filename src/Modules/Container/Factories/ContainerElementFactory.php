@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace Modules\Container\Factories;
 
 use Modules\Container\Contracts\ContainerableElement;
-use Modules\Container\Structures\ContainerElementModel;
-use Modules\Container\Structures\ContainerElementStructure;
-use Modules\Container\Structures\ContainerStructure;
+use Modules\Container\Entites\ContainerElementModel;
+use Modules\Container\Entites\ContainerElement;
+use Modules\Container\Entites\Container;
 
 final class ContainerElementFactory
 {
-    public function create(ContainerStructure $container, ContainerableElement $element): ContainerElementStructure
+    public function create(Container $container, ContainerableElement $element): ContainerElement
     {
         $structure = new ContainerElementModel();
         $structure->setContainer($container);

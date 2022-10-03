@@ -6,17 +6,17 @@ namespace Modules\Container\Enums;
 
 enum ContainerType: string
 {
-    case Raw = 'raw';
+    case Wrapper = 'wrapper';
 
     case Chapter = 'chapter';
 
     public function isRaw(): bool
     {
-        return $this->value === self::Raw->value;
+        return $this->value === self::Wrapper->value;
     }
 
     public function isChapter(): bool
     {
-        return $this->value === self::Raw->value;
+        return $this->value === self::Wrapper->value;
     }
 }

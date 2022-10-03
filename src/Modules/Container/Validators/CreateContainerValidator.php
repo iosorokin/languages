@@ -11,11 +11,7 @@ class CreateContainerValidator extends BaseValidator
     protected function rules(): array
     {
         return [
-            'containerable_type' => ['required'],
-            'containerable_id'   => ['required', 'int'],
             'type' => ['required', new Enum(ContainerType::class)],
-            'title' => ['string'],
-            'description' => ['string'],
         ];
     }
 }

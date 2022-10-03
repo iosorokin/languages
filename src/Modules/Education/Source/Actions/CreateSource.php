@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Education\Source\Actions;
 
 use App\Contracts\Contexts\Client;
+use Modules\Container\Presenters\Internal\InitWrapperContainerPresenter as InitWrapperContainer;
 use Modules\Education\Source\Entity\SourceModel;
 use Modules\Education\Source\Factory\SourceFactory;
 use Modules\Education\Source\Policy\SourcePolicy;
@@ -16,10 +17,11 @@ final class CreateSource
 {
     public function __construct(
         private CreateSourceValidator $validator,
-        private GetLanguagePresenter $getLanguage,
-        private SourcePolicy $policy,
-        private SourceFactory $factory,
-        private SourceRepository   $repository,
+        private GetLanguagePresenter  $getLanguage,
+        private SourcePolicy          $policy,
+        private SourceFactory         $factory,
+        private SourceRepository      $repository,
+        private InitWrapperContainer  $initWrapperContainer
     ) {}
 
     public function __invoke(Client $client, array $attributes): SourceModel
@@ -30,6 +32,7 @@ final class CreateSource
 
         $source = $this->factory->new($client->user(), $language, $attributes);
         $this->repository->save($source);
+        ($this->initWrapperContainer)($source);
 
         return $source;
     }
