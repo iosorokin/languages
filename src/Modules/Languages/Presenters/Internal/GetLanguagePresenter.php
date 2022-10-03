@@ -8,5 +8,7 @@ use Modules\Languages\Entity\Language;
 
 interface GetLanguagePresenter
 {
-    public function __invoke(int $id): Language;
+    public function getOrThrowNotFound(int $id): Language;
+
+    public function getOrThrowBadRequest(int $id): Language;
 }

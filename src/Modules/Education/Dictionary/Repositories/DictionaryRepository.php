@@ -2,9 +2,9 @@
 
 namespace Modules\Education\Dictionary\Repositories;
 
-use Modules\Education\Dictionary\Structures\DictionaryStructure;
+use Modules\Education\Dictionary\Entity\Dictionary;
 
 interface DictionaryRepository
 {
-    public function save(DictionaryStructure $dictionary): void;
+    public function save(Dictionary $dictionary): void;
 }

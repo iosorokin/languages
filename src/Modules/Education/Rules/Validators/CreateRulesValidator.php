@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\Education\Rules\Validators;
 
-use Core\Extensions\BaseValidator;
 
-final class CreateRulesValidator extends BaseValidator
+final class CreateRulesValidator extends RuleValidator
 {
     protected function rules(): array
     {
-        return [
+        $rules = [
 
         ];
+
+        return $this->commonRules() + $rules;
     }
 }

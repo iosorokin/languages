@@ -10,16 +10,6 @@ use Illuminate\Testing\TestResponse;
 
 final class BaseAuthApiHelper extends ApiHelper
 {
-    public const SEEDED_TEST_SUPER_ADMIN = [
-        'email' => 'test@email.ru',
-        'password' => 'testpassword',
-    ];
-
-    public const SEEDED_TEST_USER = [
-        'email' => 'user@email.ru',
-        'password' => 'userpassword',
-    ];
-
     public function login(array $attributes): TestResponse
     {
         $response = $this->testCase->postJson(route('api.login'), $attributes);
@@ -44,8 +34,8 @@ final class BaseAuthApiHelper extends ApiHelper
     public function loginAsTestSuperAdmin(): TestResponse
     {
         $response = $this->login([
-            'email' => self::SEEDED_TEST_SUPER_ADMIN['email'],
-            'password' => self::SEEDED_TEST_SUPER_ADMIN['password'],
+            'email' => config('seed.users.super_admin.email'),
+            'password' => config('seed.users.super_admin.password'),
         ]);
 
         return $response;
@@ -54,8 +44,8 @@ final class BaseAuthApiHelper extends ApiHelper
     public function loginAsTestUser(): TestResponse
     {
         $response = $this->login([
-            'email' => self::SEEDED_TEST_USER['email'],
-            'password' => self::SEEDED_TEST_USER['password']
+            'email' => config('seed.users.test_user.email'),
+            'password' => config('seed.users.test_user.password'),
         ]);
 
         return $response;

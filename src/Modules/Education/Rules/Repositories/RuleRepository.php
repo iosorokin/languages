@@ -2,9 +2,9 @@
 
 namespace Modules\Education\Rules\Repositories;
 
-use Modules\Education\Rules\Structures\RuleStructure;
+use Modules\Education\Rules\Entities\Rule;
 
 interface RuleRepository
 {
-    public function save(RuleStructure $rule): void;
+    public function save(Rule $rule): void;
 }

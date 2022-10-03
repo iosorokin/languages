@@ -6,17 +6,21 @@ namespace Modules\Education\Dictionary\Controller;
 
 use Core\Extensions\Request;
 use Core\Http\Controller;
-use Modules\Education\Dictionary\Presenters\CreateDictionaryPresenter;
+use Core\Http\Responses\Json\CreatedResponse;
+use Illuminate\Http\JsonResponse;
+use Modules\Education\Dictionary\Presenters\User\UserCreateDictionaryPresenter;
 
 final class StoreDictionaryController extends Controller
 {
     public function __construct(
-        private CreateDictionaryPresenter $createDictionary,
+        private UserCreateDictionaryPresenter $createDictionary,
     ) {}
 
-    public function __invoke(Request $request)
+    public function __invoke(Request $request): JsonResponse
     {
         $attributes = $request->all();
         ($this->createDictionary)($attributes);
+
+        return new CreatedResponse();
     }
 }

@@ -6,19 +6,20 @@ namespace Modules\Education\Rules\Controllers;
 
 use Core\Extensions\Request;
 use Core\Http\Controller;
-use Core\Http\Responses\Json\NoContentResponse;
-use Modules\Education\Rules\Presenters\CreateRulePresenter;
+use Core\Http\Responses\Json\CreatedResponse;
+use Illuminate\Http\JsonResponse;
+use Modules\Education\Rules\Presenters\User\UserCreateRulePresenter;
 
 final class StoreRuleController extends Controller
 {
     public function __construct(
-        private CreateRulePresenter $createRule,
+        private UserCreateRulePresenter $createRule,
     ) {}
 
-    public function __invoke(Request $request)
+    public function __invoke(Request $request): JsonResponse
     {
         $rule = ($this->createRule)($request->all());
 
-        return new NoContentResponse();
+        return new CreatedResponse();
     }
 }

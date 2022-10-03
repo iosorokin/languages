@@ -4,6 +4,7 @@ namespace Modules\Education\Source\Policy;
 
 use App\Contracts\Contexts\Client;
 use Modules\Languages\Entity\Language;
+use Modules\Personal\User\Entities\User;
 
 interface SourcePolicy
 {

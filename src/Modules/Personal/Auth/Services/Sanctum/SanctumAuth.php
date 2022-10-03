@@ -28,7 +28,7 @@ class SanctumAuth implements AuthService
     public function logout(User $user): void
     {
         /** @var HasApiTokens $user */
-        $user->currentAccessToken()->delete();
+        $user->currentAccessToken()?->delete();
     }
 
     public function getAuth(): ?User

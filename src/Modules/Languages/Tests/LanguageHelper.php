@@ -21,7 +21,7 @@ final class LanguageHelper extends AppHelper
         ];
     }
 
-    public function create(int $count = 1, array $overwrite = []): Generator
+    public function create(int $userId, int $count = 1, array $overwrite = []): Generator
     {
         /** @var SeedLanguage $presenter */
         $presenter = app()->get(SeedLanguage::class);
@@ -29,7 +29,7 @@ final class LanguageHelper extends AppHelper
         for ($i = 0; $i < $count; $i++) {
             $attributes = $overwrite + $this->generateAttributes();
 
-            yield $presenter(1, $attributes);
+            yield $presenter($userId, $attributes);
         }
     }
 }

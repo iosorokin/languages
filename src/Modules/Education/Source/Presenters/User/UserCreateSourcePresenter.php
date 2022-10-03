@@ -9,5 +9,5 @@ use Modules\Personal\User\Entities\User;
 
 interface UserCreateSourcePresenter
 {
-    public function __invoke(User $user, array $attributes): Source;
+    public function __invoke(array $attributes): Source;
 }

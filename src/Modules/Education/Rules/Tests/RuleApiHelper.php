@@ -13,7 +13,6 @@ final class RuleApiHelper extends ApiHelper
     public function store(array $attributes = []): TestResponse
     {
         $attributes = RuleHelper::new()->generateAttributes() + $attributes;
-        $attributes['language_type'] = Arr::get($attributes, 'language_type');
         $attributes['language_id'] = Arr::get($attributes, 'language_id');
 
         return $this->testCase->postJson(route('api.user.rules.store'), $attributes);

@@ -7,20 +7,18 @@ namespace Modules\Personal\Auth\Presenters;
 use App\Contracts\Contexts\Client;
 use Modules\Personal\Auth\Contexts\ClientContext;
 use Modules\Personal\Auth\Services\AuthService;
+use Modules\Personal\User\Entities\User;
 
 final class GetClient implements GetClientPresenter
 {
-    public static Client $client;
-
     public function __construct(
         private AuthService $authService,
     ) {}
 
-    public function __invoke(): Client
+    public function __invoke(?User $user = null): Client
     {
-        $auth = $this->authService->getAuth();
-        self::$client = self::$client ?? new ClientContext($auth);
+        $user = $user ?? $this->authService->getAuth();
 
-        return self::$client;
+        return new ClientContext($user);
     }
 }
