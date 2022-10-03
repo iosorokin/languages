@@ -206,7 +206,6 @@ return [
         Modules\Personal\User\UserServiceProvider::class,
         Modules\Languages\LanguageServiceProvider::class,
         Modules\Notification\Mailer\MailerServiceProvider::class,
-        Modules\Education\Words\WordServiceProvider::class,
         Modules\Container\ContainerServiceProvider::class,
         Modules\Education\Source\SourceServiceProvider::class,
         Modules\Education\Dictionary\DictionaryServiceProvider::class,
