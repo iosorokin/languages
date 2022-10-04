@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Modules\Education\Dictionary;
 
 use Illuminate\Support\ServiceProvider;
-use Modules\Education\Dictionary\Factory\DictionaryFactory;
-use Modules\Education\Dictionary\Factory\ModelDictionaryFactory;
-use Modules\Education\Dictionary\Policy\DictionaryPolicy;
-use Modules\Education\Dictionary\Policy\LaravelDictionaryPolicy;
+use Modules\Education\Dictionary\Factories\DictionaryFactory;
+use Modules\Education\Dictionary\Factories\ModelDictionaryFactory;
+use Modules\Education\Dictionary\Policies\DictionaryPolicy;
+use Modules\Education\Dictionary\Policies\LaravelDictionaryPolicy;
 use Modules\Education\Dictionary\Presenters\User\UserCreateDictionary;
 use Modules\Education\Dictionary\Presenters\User\UserCreateDictionaryPresenter;
 use Modules\Education\Dictionary\Repositories\DictionaryRepository;

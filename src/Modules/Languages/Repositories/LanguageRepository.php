@@ -4,7 +4,7 @@ namespace Modules\Languages\Repositories;
 
 use Illuminate\Pagination\CursorPaginator;
 use Modules\Languages\Filters\RealLanguageFilter;
-use Modules\Languages\Entity\Language;
+use Modules\Languages\Entities\Language;
 
 interface LanguageRepository
 {

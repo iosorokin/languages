@@ -2,7 +2,7 @@
 
 namespace Modules\Languages\Factories;
 
-use Modules\Languages\Entity\Language;
+use Modules\Languages\Entities\Language;
 use Modules\Personal\User\Entities\User;
 
 interface LanguageFactory

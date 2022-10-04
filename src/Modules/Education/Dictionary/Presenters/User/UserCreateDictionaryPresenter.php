@@ -2,7 +2,7 @@
 
 namespace Modules\Education\Dictionary\Presenters\User;
 
-use Modules\Education\Dictionary\Entity\Dictionary;
+use Modules\Education\Dictionary\Entities\Dictionary;
 
 interface UserCreateDictionaryPresenter
 {

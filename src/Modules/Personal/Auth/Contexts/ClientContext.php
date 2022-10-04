@@ -2,7 +2,6 @@
 
 namespace Modules\Personal\Auth\Contexts;
 
-use App\Contracts\Contexts\Client;
 use Modules\Personal\User\Entities\User;
 
 class ClientContext implements Client

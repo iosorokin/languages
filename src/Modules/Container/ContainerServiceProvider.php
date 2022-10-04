@@ -13,8 +13,8 @@ use Modules\Container\Presenters\Internal\InitWrapperContainer;
 use Modules\Container\Presenters\Internal\InitWrapperContainerPresenter;
 use Modules\Container\Presenters\User\UserPushElement;
 use Modules\Container\Presenters\User\UserPushElementPresenter;
-use Modules\Container\Repository\ContainerRepository;
-use Modules\Container\Repository\EloquentContainerRepository;
+use Modules\Container\Repositories\ContainerRepository;
+use Modules\Container\Repositories\EloquentContainerRepository;
 
 final class ContainerServiceProvider extends ServiceProvider
 {

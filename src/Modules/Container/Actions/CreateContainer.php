@@ -7,7 +7,7 @@ namespace Modules\Container\Actions;
 use Modules\Container\Contracts\Containerable;
 use Modules\Container\Entites\Container;
 use Modules\Container\Factories\ContainerFactory;
-use Modules\Container\Repository\ContainerRepository;
+use Modules\Container\Repositories\ContainerRepository;
 use Modules\Container\Validators\CreateContainerValidator;
 
 final class CreateContainer

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Container\Contexts\Fillers;
 
-use Modules\Education\Source\Entity\Source;
+use Modules\Education\Source\Entities\Source;
 use Modules\Languages\Common\Contracts\LanguageStructure;
 
 final class SourceFiller

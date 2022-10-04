@@ -2,8 +2,8 @@
 
 namespace Modules\Personal\Auth;
 
-use App\Contracts\Contexts\Client;
 use Illuminate\Support\ServiceProvider;
+use Modules\Personal\Auth\Contexts\Client;
 use Modules\Personal\Auth\Contexts\ClientContext;
 use Modules\Personal\Auth\Presenters\Base\BaseLogin;
 use Modules\Personal\Auth\Presenters\Base\BaseLoginPresenter;

@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Container\Controllers\User\UserCreateContainerController;
-use Modules\Education\Dictionary\Controller\StoreDictionaryController;
+use Modules\Container\Controllers\User\UserPushElementToContainerController;
+use Modules\Education\Dictionary\Controllers\StoreDictionaryController;
 use Modules\Education\Rules\Controllers\StoreRuleController;
 use Modules\Education\Source\Controllers\StoreSourceController;
 use Modules\Personal\Auth\Controllers\LogoutController;
@@ -14,7 +14,7 @@ Route::post('sources', StoreSourceController::class)
 Route::post('rules', StoreRuleController::class)
     ->name('rules.store');
 
-Route::post('containers', UserCreateContainerController::class)
+Route::post('containers', UserPushElementToContainerController::class)
     ->name('containers.create');
 
 Route::post('logout', LogoutController::class)
@@ -22,3 +22,6 @@ Route::post('logout', LogoutController::class)
 
 Route::post('dictionaries', StoreDictionaryController::class)
     ->name('dictionaries.store');
+
+Route::post('containers/{id}/elements', UserPushElementToContainerController::class)
+    ->name('containers.elements.store');

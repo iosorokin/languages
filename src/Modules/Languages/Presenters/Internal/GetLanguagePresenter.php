@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Languages\Presenters\Internal;
 
-use Modules\Languages\Entity\Language;
+use Modules\Languages\Entities\Language;
 
 interface GetLanguagePresenter
 {

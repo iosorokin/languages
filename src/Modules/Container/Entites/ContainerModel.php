@@ -28,7 +28,7 @@ final class ContainerModel extends Model implements Container
 
     protected $table = 'containers';
 
-    private function containerable(): MorphTo
+    public function containerable(): MorphTo
     {
         return $this->morphTo();
     }

@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Modules\Education\Source;
 
 use Illuminate\Support\ServiceProvider;
-use Modules\Education\Source\Factory\ModelSourceFactory;
-use Modules\Education\Source\Factory\SourceFactory;
-use Modules\Education\Source\Policy\LaravelSourcePolicy;
-use Modules\Education\Source\Policy\SourcePolicy;
+use Modules\Education\Source\Factories\ModelSourceFactory;
+use Modules\Education\Source\Factories\SourceFactory;
+use Modules\Education\Source\Policies\LaravelSourcePolicy;
+use Modules\Education\Source\Policies\SourcePolicy;
 use Modules\Education\Source\Presenters\Internal\GetSource;
 use Modules\Education\Source\Presenters\Internal\GetSourcePresenter;
 use Modules\Education\Source\Presenters\User\UserCreateSource;

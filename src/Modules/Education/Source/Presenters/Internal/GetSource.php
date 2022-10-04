@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Education\Source\Presenters\Internal;
 
 use Illuminate\Validation\ValidationException;
-use Modules\Education\Source\Entity\Source;
+use Modules\Education\Source\Entities\Source;
 use Modules\Education\Source\Repositories\SourceRepository;
 
 final class GetSource implements GetSourcePresenter

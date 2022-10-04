@@ -6,7 +6,7 @@ namespace Modules\Education\Rules\Factories;
 
 use Modules\Education\Rules\Entities\Rule;
 use Modules\Education\Rules\Entities\RuleModel;
-use Modules\Languages\Entity\Language;
+use Modules\Languages\Entities\Language;
 use Modules\Personal\User\Entities\User;
 
 final class ModelRuleFactory implements RuleFactory

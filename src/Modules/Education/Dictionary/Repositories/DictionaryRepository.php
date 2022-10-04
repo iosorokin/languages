@@ -2,7 +2,7 @@
 
 namespace Modules\Education\Dictionary\Repositories;
 
-use Modules\Education\Dictionary\Entity\Dictionary;
+use Modules\Education\Dictionary\Entities\Dictionary;
 
 interface DictionaryRepository
 {

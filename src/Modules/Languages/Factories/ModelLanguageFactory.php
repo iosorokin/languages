@@ -2,8 +2,8 @@
 
 namespace Modules\Languages\Factories;
 
-use Modules\Languages\Entity\LanguageModel;
-use Modules\Languages\Entity\Language;
+use Modules\Languages\Entities\LanguageModel;
+use Modules\Languages\Entities\Language;
 use Modules\Languages\Validators\CreateLanguageValidator;
 use Modules\Personal\User\Entities\User;
 

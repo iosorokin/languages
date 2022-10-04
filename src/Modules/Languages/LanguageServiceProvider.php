@@ -3,8 +3,8 @@
 namespace Modules\Languages;
 
 use Illuminate\Support\ServiceProvider;
-use Modules\Languages\Entity\Language;
-use Modules\Languages\Entity\LanguageModel;
+use Modules\Languages\Entities\Language;
+use Modules\Languages\Entities\LanguageModel;
 use Modules\Languages\Factories\LanguageFactory;
 use Modules\Languages\Factories\ModelLanguageFactory;
 use Modules\Languages\Policies\AdminLanguagePolicy;

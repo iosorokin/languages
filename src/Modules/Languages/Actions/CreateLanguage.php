@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Languages\Actions;
 
-use Modules\Languages\Entity\Language;
+use Modules\Languages\Entities\Language;
 use Modules\Languages\Factories\LanguageFactory;
 use Modules\Languages\Repositories\LanguageRepository;
 use Modules\Personal\User\Entities\User;

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Education\Rules\Presenters;
 
-use Modules\Education\Rules\Action\CreateRule;
+use Modules\Education\Rules\Actions\CreateRule;
 use Modules\Education\Rules\Entities\Rule;
 use Modules\Personal\Auth\Presenters\GetClientPresenter;
 use Modules\Personal\User\Entities\User;

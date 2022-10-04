@@ -2,7 +2,7 @@
 
 namespace Modules\Container\Policies;
 
-use App\Contracts\Contexts\Client;
+use Modules\Personal\Auth\Contexts\Client;
 
 interface ContainerPolicy
 {

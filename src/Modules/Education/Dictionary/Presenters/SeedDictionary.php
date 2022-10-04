@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Education\Dictionary\Presenters;
 
-use Modules\Education\Dictionary\Action\CreateDictionary;
-use Modules\Education\Dictionary\Entity\Dictionary;
+use Modules\Education\Dictionary\Actions\CreateDictionary;
+use Modules\Education\Dictionary\Entities\Dictionary;
 use Modules\Personal\Auth\Presenters\GetClientPresenter;
 use Modules\Personal\User\Entities\User;
 use Modules\Personal\User\Presenters\Internal\GetUserPresenter;

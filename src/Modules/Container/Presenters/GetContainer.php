@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Container\Presenters;
 
-use Modules\Container\Repository\ContainerRepository;
+use Modules\Container\Repositories\ContainerRepository;
 use Modules\Container\Entites\Container;
 
 final class GetContainer implements GetContainerPresenter

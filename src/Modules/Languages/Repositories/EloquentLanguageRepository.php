@@ -7,8 +7,8 @@ use Illuminate\Database\Query\Builder;
 use Illuminate\Pagination\CursorPaginator;
 use Illuminate\Support\Facades\DB;
 use Modules\Languages\Filters\RealLanguageFilter;
-use Modules\Languages\Entity\LanguageModel;
-use Modules\Languages\Entity\Language;
+use Modules\Languages\Entities\LanguageModel;
+use Modules\Languages\Entities\Language;
 use stdClass;
 
 class EloquentLanguageRepository implements LanguageRepository

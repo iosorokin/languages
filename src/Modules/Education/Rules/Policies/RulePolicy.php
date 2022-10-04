@@ -2,8 +2,8 @@
 
 namespace Modules\Education\Rules\Policies;
 
-use App\Contracts\Contexts\Client;
-use Modules\Languages\Entity\Language;
+use Modules\Languages\Entities\Language;
+use Modules\Personal\Auth\Contexts\Client;
 
 interface RulePolicy
 {

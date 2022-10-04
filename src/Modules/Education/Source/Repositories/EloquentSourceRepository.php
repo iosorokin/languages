@@ -3,8 +3,8 @@
 namespace Modules\Education\Source\Repositories;
 
 use App\Extensions\Assert;
-use Modules\Education\Source\Entity\SourceModel;
-use Modules\Education\Source\Entity\Source;
+use Modules\Education\Source\Entities\SourceModel;
+use Modules\Education\Source\Entities\Source;
 
 class EloquentSourceRepository implements SourceRepository
 {

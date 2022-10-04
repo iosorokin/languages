@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\Education\Source\Actions;
 
-use App\Contracts\Contexts\Client;
 use Modules\Container\Presenters\Internal\InitWrapperContainerPresenter as InitWrapperContainer;
-use Modules\Education\Source\Entity\SourceModel;
-use Modules\Education\Source\Factory\SourceFactory;
-use Modules\Education\Source\Policy\SourcePolicy;
+use Modules\Education\Source\Entities\SourceModel;
+use Modules\Education\Source\Factories\SourceFactory;
+use Modules\Education\Source\Policies\SourcePolicy;
 use Modules\Education\Source\Repositories\SourceRepository;
-use Modules\Education\Source\Validator\CreateSourceValidator;
+use Modules\Education\Source\Validators\CreateSourceValidator;
 use Modules\Languages\Presenters\Internal\GetLanguagePresenter;
+use Modules\Personal\Auth\Contexts\Client;
 
 final class CreateSource
 {

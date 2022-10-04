@@ -2,7 +2,7 @@
 
 namespace Modules\Languages\Presenters\Admin;
 
-use Modules\Languages\Entity\Language;
+use Modules\Languages\Entities\Language;
 
 interface AdminGetLanguagePresenter
 {

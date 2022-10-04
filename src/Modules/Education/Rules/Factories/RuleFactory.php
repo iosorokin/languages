@@ -3,7 +3,7 @@
 namespace Modules\Education\Rules\Factories;
 
 use Modules\Education\Rules\Entities\Rule;
-use Modules\Languages\Entity\Language;
+use Modules\Languages\Entities\Language;
 use Modules\Personal\User\Entities\User;
 
 interface RuleFactory

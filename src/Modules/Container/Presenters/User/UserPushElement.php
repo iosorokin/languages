@@ -18,7 +18,7 @@ final class UserPushElement implements UserPushElementPresenter
     public function __invoke(array $attributes): Container
     {
         $client = ($this->getClient)();
-
+        $container = ($this->createContainer)($client, $attributes);
 
         return $container;
     }

@@ -9,23 +9,22 @@ use Modules\Container\Contracts\ContainerableElement;
 use Modules\Container\Entites\Container;
 use Modules\Container\Entites\ContainerElement;
 use Modules\Container\Factories\ContainerElementFactory;
-use Modules\Container\Repository\ContainerRepository;
+use Modules\Container\Repositories\ContainerRepository;
 
 final class ContainerDispatcher
 {
+    private Container $container;
+
     public function __construct(
         private ElementPositionCalculator $calculator,
         private ContainerRepository $repository,
         private ContainerElementFactory $elementFactory,
-    ) {
-        $this->repository = app()->make(ContainerRepository::class);
-        $this->elementFactory = app()->make(ContainerElementFactory::class);
-        $this->calculator = new ElementPositionCalculator($this->container, $this->repository);
-    }
+    ) {}
 
     public function setContainer(Container $container): self
     {
         $this->container = $container;
+        $this->calculator->setContainer($container);
 
         return $this;
     }
@@ -35,10 +34,10 @@ final class ContainerDispatcher
         $containerElement = $this->elementFactory->create($this->container, $element);
         $containerElement->position = $this->calculator->next();
 
+        static $tries = 0;
         try {
             $this->repository->push($this->container, $containerElement);
         } catch (Exception) {
-            static $tries;
             $tries++;
             if ($tries < 5) {
                 $this->push($element);

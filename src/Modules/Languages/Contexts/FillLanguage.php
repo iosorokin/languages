@@ -2,7 +2,7 @@
 
 namespace Modules\Languages\Contexts;
 
-use Modules\Languages\Entity\Language;
+use Modules\Languages\Entities\Language;
 
 class FillLanguage
 {

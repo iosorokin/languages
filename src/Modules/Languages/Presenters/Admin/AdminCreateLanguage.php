@@ -3,7 +3,7 @@
 namespace Modules\Languages\Presenters\Admin;
 
 use Modules\Languages\Actions\CreateLanguage;
-use Modules\Languages\Entity\Language;
+use Modules\Languages\Entities\Language;
 use Modules\Languages\Policies\AdminLanguagePolicy;
 
 class AdminCreateLanguage implements AdminCreateLanguagePresenter
