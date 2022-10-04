@@ -5,11 +5,15 @@ declare(strict_types=1);
 namespace Modules\Container\Repositories;
 
 use App\Extensions\Assert;
+use Core\Services\Morph\Morph;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 use Modules\Container\Entites\ContainerElementModel;
 use Modules\Container\Entites\ContainerElement;
 use Modules\Container\Entites\ContainerModel;
 use Modules\Container\Entites\Container;
+use Modules\Education\Rules\Entities\RuleModel;
+use Modules\Education\Sentences\Entities\SentenceModel;
 
 final class EloquentContainerRepository implements ContainerRepository
 {
@@ -18,13 +22,30 @@ final class EloquentContainerRepository implements ContainerRepository
         $container->save();
     }
 
-    public function push(Container $container, ContainerElement $element): void
+    public function get(int $id): ?Container
     {
-        $element->setContainer($container);
+        return ContainerModel::find($id);
+    }
+
+    public function hasElement(Container $container, ContainerElement $element): bool
+    {
+        return (bool)ContainerModel::query()
+            ->whereHasMorph(
+                'elements',
+                [RuleModel::class, SentenceModel::class, ContainerModel::class],
+                function (Builder $query) use ($element) {
+                    $query->where('element_id', $element->getId())
+                        ->where('element_type', Morph::getMorph($element));
+                }
+            )->first();
+    }
+
+    public function saveElement(ContainerElement $element): void
+    {
         $element->save();
     }
 
-    public function getLastPosition(int $containerId): int
+    public function getLastPosition(int $containerId): ?int
     {
         return DB::query()
             ->select('position')
@@ -33,16 +54,7 @@ final class EloquentContainerRepository implements ContainerRepository
             ->orderBy('position')
             ->limit(1)
             ->first()
-            ->position;
-    }
-
-    public function getContainer(int $id): ?Container
-    {
-        /** @var ContainerModel $container */
-        $container = ContainerModel::query()
-            ->find($id);
-
-        return $container;
+            ?->position;
     }
 
     public function getContainerWithDependenses(int $id): Container

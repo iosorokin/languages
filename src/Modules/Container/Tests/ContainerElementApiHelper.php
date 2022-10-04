@@ -9,8 +9,11 @@ use Illuminate\Testing\TestResponse;
 
 final class ContainerElementApiHelper extends ApiHelper
 {
-    public function create(array $attributes): TestResponse
+    public function create(int $containerId, array $attributes = []): TestResponse
     {
-        return $this->testCase->postJson(route('api.user.containers.elements.store'), $attributes);
+        return $this->testCase->postJson(
+            route('api.user.containers.elements.store', ['id' => $containerId]),
+            $attributes
+        );
     }
 }

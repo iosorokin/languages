@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
 use Modules\Container\Entites\Container;
+use Modules\Container\Entites\ContainerElement;
+use Modules\Container\Entites\ContainerElementModel;
 use Modules\Container\Entites\ContainerModel;
 use Modules\Education\Dictionary\Entities\Dictionary;
 use Modules\Education\Dictionary\Entities\DictionaryModel;
@@ -35,6 +37,7 @@ final class EloquentServiceProvider extends ServiceProvider
             Arr::get($morphs, Dictionary::class) => DictionaryModel::class,
             Arr::get($morphs, Container::class) => ContainerModel::class,
             Arr::get($morphs, Rule::class) => RuleModel::class,
+            Arr::get($morphs, ContainerElement::class) => ContainerElementModel::class,
         ]);
     }
 }

@@ -9,11 +9,13 @@ interface ContainerRepository
 {
     public function save(Container $container): void;
 
-    public function push(Container $container, ContainerElement $element): void;
+    public function get(int $id): ?Container;
 
-    public function getLastPosition(int $containerId): int;
+    public function hasElement(Container $container, ContainerElement $element): bool;
 
-    public function getContainer(int $id): ?Container;
+    public function saveElement(ContainerElement $element): void;
+
+    public function getLastPosition(int $containerId): ?int;
 
     public function getContainerWithDependenses(int $id): ?Container;
 }

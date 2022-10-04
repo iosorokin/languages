@@ -2,25 +2,20 @@
 
 namespace Modules\Container\Entites;
 
-use Illuminate\Support\Carbon;
+use App\Base\Entity\Identify\HasIntId;
+use App\Base\Entity\Timestamps\HasTimestamps;
 use Modules\Container\Contracts\ContainerableElement;
 
-/**
- * @property int $id
- * @property int $container_id
- * @property string $element_type
- * @property string $element_id
- * @property int $position
- * @property Carbon $created_at
- * @property Carbon $updated_at
- */
-interface ContainerElement
+interface ContainerElement extends
+    HasIntId,
+    HasTimestamps,
+    HasContainer
 {
-    public function setContainer(Container $container): self;
-
-    public function getContainer(): Container;
-
     public function setElement(ContainerableElement $element): self;
 
     public function getElement(): ContainerableElement;
+
+    public function setPosition(int $position): self;
+
+    public function getPosition(): int;
 }

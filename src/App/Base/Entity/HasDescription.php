@@ -6,5 +6,5 @@ interface HasDescription
 {
     public function setDescription(?string $description): self;
 
-    public function getDescription(): string;
+    public function getDescription(): ?string;
 }

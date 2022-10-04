@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unsignedSmallInteger('position');
             $table->timestamps();
 
+            $table->unique(['element_type', 'element_id']);
             $table->unique(['container_id', 'position']);
         });
     }

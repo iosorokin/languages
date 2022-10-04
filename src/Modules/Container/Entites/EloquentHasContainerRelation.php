@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\Container\Entites;
 
-use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 trait EloquentHasContainerRelation
 {
-    public function container(): MorphOne
+    public function container(): BelongsTo
     {
-        return $this->morphOne(ContainerModel::class, 'containerable');
+        return $this->belongsTo(ContainerModel::class);
     }
 
     public function setContainer(Container $container): self

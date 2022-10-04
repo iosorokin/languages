@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Modules\Container\Services;
+namespace Modules\Container\Services\Dispatcher;
 
-use Modules\Container\Repositories\ContainerRepository;
 use Modules\Container\Entites\Container;
+use Modules\Container\Repositories\ContainerRepository;
 
 final class ElementPositionCalculator
 {
@@ -28,8 +28,13 @@ final class ElementPositionCalculator
 
     public function next(): int
     {
-        $lastPositionInContainer = $this->repository->getLastPosition($this->container->getId()) ?? self::START_POSITION;
-        $savingElementPosition = $lastPositionInContainer + self::STEP;
+        $lastPositionInContainer = $this->repository->getLastPosition($this->container->getId());
+
+        if (! $lastPositionInContainer) {
+            $savingElementPosition = self::START_POSITION;
+        } else {
+            $savingElementPosition = $lastPositionInContainer + self::STEP;
+        }
 
         return $savingElementPosition;
     }

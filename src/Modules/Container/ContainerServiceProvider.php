@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Modules\Container;
 
 use Illuminate\Support\ServiceProvider;
+use Modules\Container\Factories\ContainerElementFactory;
 use Modules\Container\Factories\ContainerFactory;
+use Modules\Container\Factories\ModelContainerElementFactory;
 use Modules\Container\Factories\ModelContainerFactory;
 use Modules\Container\Policies\ContainerPolicy;
 use Modules\Container\Policies\LaravelContainerPolicy;
@@ -25,5 +27,6 @@ final class ContainerServiceProvider extends ServiceProvider
         $this->app->bind(ContainerPolicy::class, LaravelContainerPolicy::class);
         $this->app->bind(ContainerRepository::class, EloquentContainerRepository::class);
         $this->app->bind(ContainerFactory::class, ModelContainerFactory::class);
+        $this->app->bind(ContainerElementFactory::class, ModelContainerElementFactory::class);
     }
 }

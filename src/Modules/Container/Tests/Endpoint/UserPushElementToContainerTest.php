@@ -16,8 +16,9 @@ final class UserPushElementToContainerTest extends EndpointCase
     public function __invoke()
     {
         BaseAuthApiHelper::new($this)->loginAsTestUser();
-        $response = ContainerElementApiHelper::new($this)->create([
-            'container_id' => 1
+        $response = ContainerElementApiHelper::new($this)->create(1, [
+            'element_type' => 'rule',
+            'element_id' => 1,
         ]);
         $response->assertCreated();
     }

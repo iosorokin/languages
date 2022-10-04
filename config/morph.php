@@ -7,4 +7,5 @@ return [
     \Modules\Education\Dictionary\Entities\Dictionary::class => 'dictionary',
     \Modules\Education\Rules\Entities\Rule::class => 'rule',
     \Modules\Container\Entites\Container::class => 'container',
+    \Modules\Container\Entites\ContainerElement::class => 'container_element',
 ];

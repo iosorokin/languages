@@ -15,4 +15,9 @@ final class EloquentRuleRepository implements RuleRepository
         Assert::isInstanceOf($rule, RuleModel::class);
         $rule->save();
     }
+
+    public function get(int $id): ?Rule
+    {
+        return RuleModel::find($id);
+    }
 }
