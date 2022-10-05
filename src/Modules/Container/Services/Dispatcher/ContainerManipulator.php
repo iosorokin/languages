@@ -50,21 +50,22 @@ final class ContainerManipulator
 
     public function insertAfter(int $id, ContainerableElement $element): ContainerElement
     {
+        /**
+         * - достать элемент по id + 10 элементов слева и справа
+         * -
+         */
+
         $replaceElement = $this->container->getElements()->where('id', $id);
-        $replaceKey = $replaceElement->keys()[0];
+        $replaceKey = $replaceElement->keys()->first();
         $removedPos = $replaceElement->first()->getPosition();
 
         $offset = max($replaceKey - 10, 0);
-        $slice = $this->container->getElements()->slice($offset, 10);
-
-        dd($slice);
-
-
-
-
+        $slice = $this->container->getElements()->slice($offset, 20);
 
 
         $containerElement = $this->elementFactory->create($this->container, $element);
+
+        $this->repository->saveElement($containerElement);
 
         return $containerElement;
     }
