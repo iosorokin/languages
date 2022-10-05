@@ -29,11 +29,12 @@ final class ElementPositionCalculator
     public function next(): int
     {
         $lastPositionInContainer = $this->repository->getLastPosition($this->container->getId());
+        $expectedLastPosition = $this->container->getCount() * self::STEP + 1;
 
         if (! $lastPositionInContainer) {
             $savingElementPosition = self::START_POSITION;
         } else {
-            $savingElementPosition = $lastPositionInContainer + self::STEP;
+            $savingElementPosition = max($expectedLastPosition, $lastPositionInContainer);
         }
 
         return $savingElementPosition;

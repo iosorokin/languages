@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Container\Services\Dispatcher;
 
 use Exception;
+use Illuminate\Support\Collection;
 use Modules\Container\Contracts\ContainerableElement;
 use Modules\Container\Entites\Container;
 use Modules\Container\Entites\ContainerElement;
@@ -50,23 +51,92 @@ final class ContainerManipulator
 
     public function insertAfter(int $id, ContainerableElement $element): ContainerElement
     {
-        /**
-         * - достать элемент по id + 10 элементов слева и справа
-         * -
-         */
+        // элемент контейнера нужно загружать только наперёд, условно + 50. Назад контейнер не движется
+        $newElement = $this->elementFactory->create($this->container, $element);
 
-        $replaceElement = $this->container->getElements()->where('id', $id);
-        $replaceKey = $replaceElement->keys()->first();
-        $removedPos = $replaceElement->first()->getPosition();
+        // 1. Проверяем был ли элемент вставлен в начало или после метки (mark)
+        if ($id === 0) {
+            // 1.1. (вначало) проверяем первый и второй элемементы, что первый можно подвинуть между новым элементом и вторым
+        } else {
+            // 1.2. (после метки) поверяем элемент, следующий за меткой что между ними есть свободное пространство
+            $markedElement = $this->container->getElements()->where('id', $id);
+            $markedElementKey = $markedElement->keys()->first();
+            $markedElementPos = $markedElement->first()->getPosition();
 
-        $offset = max($replaceKey - 10, 0);
-        $slice = $this->container->getElements()->slice($offset, 20);
+            $nextElementKey = $markedElementKey + 1;
+            /** @var ContainerElement $nextElement */
+            $nextElement = $this->container->getElements()->get($nextElementKey);
+            $nextElementPos = $nextElement->getPosition();
+
+            $hasEmptySpace = $nextElementPos - $markedElementPos > 1;
+
+            if ($hasEmptySpace) {
+                // 1.2.1. свободное место есть, всё хорошо. ЗАВЕРШЕНИЕ
+                $newPos = (int) floor(($nextElementPos + $markedElementPos) / 2);
+                $newElement->setPosition($newPos);
+            } else {
+                // 1.2.2. свободного места нет, придётся двигать элементы
+                // контейнер должен поддерживать принцип самовыравнивания, поэтому толкаем только вправо
+                // берём срез до первого элемента, где расстояние между ними 10 и более.
+                // при этом надо учесть что если упрёмся в конец контейнера то надо ровнять последний элемент
+
+                $elements = $this->container->getElements()->where('id', '>', $id);
+
+                $slice = new Collection();
+                $elements->each(function (ContainerElement $containerElement) use ($slice) {
+                    static $lastElement;
+
+                    if ($lastElement && $containerElement->getPosition() - $lastElement->getPosition() >= 10) {
+                        return false;
+                    }
+                    $lastElement = $containerElement;
+                    $slice->push($containerElement);
+
+                    return true;
+                });
+
+                $slice = $slice->reverse();
+                $slice->push($newElement);
+                /** @var ContainerElement $lastElementInSlice */
+                $lastElementInSlice = $slice->first();
+                $isLastElementInContainer = $lastElementInSlice->getPosition() === $this->container->getLastPosition();
+                if ($isLastElementInContainer) {
+                    // 1.2.2.1. если в слайс попал конец контейнера всё просто - двигаем последний элемент на его правильное место
+                    // а остальные передвигаем относительно правого края
+                    $expectedPos = $this->container->getCount() * 10 + 1;
+                    // может быть ситуация, что в контейнере удаляли элементы и позиция последнего больше предполагаемой
+                    if ($expectedPos > $lastElementInSlice->getPosition()) {
+                        //1.2.2.1.1 если последний элемент получилось сдвинуть на его ожидаемую  позицию то всех можно двигать на -10
+                        $pos = $expectedPos;
+                        $slice->transform(function (ContainerElement $containerElement) use (&$pos) {
+                            $containerElement->setPosition($pos);
+                            $pos -= 10;
+
+                            return $containerElement;
+                        });
+                    } else {
+                        // теперь сложнее, в контейнере явно удалялись элементы и последний занимает не своё место
+                        // двигать мы его не будем, но остальные надо придвинуть поближе.
+                        // при этом надо не промахнуться чтобы не подвинуть элементы не в том порядке
 
 
-        $containerElement = $this->elementFactory->create($this->container, $element);
+                    }
+                } else {
+                    // 1.2.2.2. если не последний, толкаем всех на 10
+                    $pos = $slice->first()->getPosition() + 10;
 
-        $this->repository->saveElement($containerElement);
+                    $slice->transform(function (ContainerElement $containerElement) use (&$pos) {
+                        $containerElement->setPosition($pos);
+                        $pos -= 10;
 
-        return $containerElement;
+                        return $containerElement;
+                    });
+                }
+            }
+        }
+
+        $this->repository->saveElement($newElement);
+
+        return $newElement;
     }
 }

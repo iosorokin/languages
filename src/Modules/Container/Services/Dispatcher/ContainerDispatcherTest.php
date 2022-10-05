@@ -39,7 +39,7 @@ final class ContainerDispatcherTest extends UnitCase
         }
     }
 
-    public function testInsert()
+    public function testInsertAfterThenContainerHasEmptySpace()
     {
         $manipulator = $this->dispatcher->load(1);
         for ($i = 0; $i < 10; $i++) {
@@ -48,6 +48,43 @@ final class ContainerDispatcherTest extends UnitCase
         }
 
         $insertedElement = new RuleModel();
-        $manipulator->insertAfter(4, $insertedElement);
+        $insertAfterId = 4;
+        $newContainerElement = $manipulator->insertAfter($insertAfterId, $insertedElement);
+        $expectedPos = 36; // средня позиция между 4ым и 5ым элементом (31 и 41)
+        $this->assertSame($expectedPos, $newContainerElement->getPosition());
+    }
+
+    public function testInsertAfterThenContainerDoesNotHaveEmptySpaceAndSliceHasHeadElement()
+    {
+        $manipulator = $this->dispatcher->load(1);
+        for ($i = 0; $i < 10; $i++) {
+            $element = new RuleModel();
+            $element = $manipulator->push($element);
+            $element->setPosition($i + 1);
+        }
+
+        $insertedElement = new RuleModel();
+        $insertAfterId = 4;
+        $newContainerElement = $manipulator->insertAfter($insertAfterId, $insertedElement);
+        $expectedPos = 41; // все сдвинулись на + 10,
+        $this->assertSame($expectedPos, $newContainerElement->getPosition());
+    }
+
+    public function testInsertAfterThenContainerDoesNotHaveEmptySpaceAndSliceDoestHaveHeadElement()
+    {
+        $manipulator = $this->dispatcher->load(1);
+        for ($i = 0; $i < 10; $i++) {
+            $element = new RuleModel();
+            $element = $manipulator->push($element);
+            if ($i >= 7) continue;
+            $element->setPosition($i + 1);
+        }
+
+        $insertedElement = new RuleModel();
+        $insertAfterId = 4;
+        $newContainerElement = $manipulator->insertAfter($insertAfterId, $insertedElement);
+        $expectedPos = 41; // все сдвинулись на + 10,
+
+        // $this->assertSame($expectedPos, $newContainerElement->getPosition());
     }
 }
