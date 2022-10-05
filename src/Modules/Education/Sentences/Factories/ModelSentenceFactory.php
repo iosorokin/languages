@@ -10,11 +10,10 @@ use Modules\Education\Sentences\Entities\Sentence;
 
 final class ModelSentenceFactory implements SentenceFactory
 {
-    public function new(Container $container, array $attributes): Sentence
+    public function create(array $attributes): Sentence
     {
         $structure = new SentenceModel();
-        $structure->setContainer($container);
-        $structure->text = $attributes['text'];
+        $structure->setText($attributes['text']);
 
         return $structure;
     }

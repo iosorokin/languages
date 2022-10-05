@@ -7,6 +7,7 @@ namespace Modules\Education\Rules\Tests;
 use Core\Base\Helpers\AppHelper;
 use Generator;
 use Modules\Education\Rules\Presenters\SeedRule;
+use Modules\Personal\User\Entities\User;
 
 final class RuleHelper extends AppHelper
 {
@@ -18,7 +19,7 @@ final class RuleHelper extends AppHelper
         ];
     }
 
-    public function create(int $userId, int $languageId, int $count = 1, array $overwrite = []): Generator
+    public function create(User $user, int $languageId, int $count = 1, array $overwrite = []): Generator
     {
         $overwrite['language_id'] = $languageId;
         /** @var SeedRule $createRule */
@@ -26,7 +27,7 @@ final class RuleHelper extends AppHelper
 
         for ($i = 0; $i < $count; $i++) {
             $attributes = $overwrite + $this->generateAttributes();
-            $source = $createRule($userId, $attributes);
+            $source = $createRule($user, $attributes);
 
             yield $source;
         }

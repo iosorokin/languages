@@ -9,6 +9,7 @@ use Generator;
 use Illuminate\Support\Arr;
 use Modules\Education\Source\Presenters\SeedSource;
 use Modules\Personal\Auth\Contexts\ClientContext;
+use Modules\Personal\User\Entities\User;
 
 final class SourceHelper extends AppHelper
 {
@@ -21,7 +22,7 @@ final class SourceHelper extends AppHelper
         ];
     }
 
-    public function create(int $userId, int $languageId, int $count = 1, array $overwrite = []): Generator
+    public function create(User|int $user, int $languageId, int $count = 1, array $overwrite = []): Generator
     {
         $overwrite['language_id'] = $languageId;
         /** @var SeedSource $createSource */
@@ -29,7 +30,7 @@ final class SourceHelper extends AppHelper
 
         for ($i = 0; $i < $count; $i++) {
             $attributes = $overwrite + $this->generateAttributes();
-            $source = $createSource($userId, $attributes);
+            $source = $createSource($user, $attributes);
 
             yield $source;
         }

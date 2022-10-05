@@ -24,7 +24,13 @@ final class EloquentContainerRepository implements ContainerRepository
 
     public function get(int $id): ?Container
     {
-        return ContainerModel::find($id);
+        /** @var ContainerModel $container */
+        $container = ContainerModel::find($id);
+        $container->with('elements');
+        $container->setCount($container->getElements()->count());
+        $container->setLastPosition($container->getElements()->last()?->getPosition());
+
+        return $container;
     }
 
     public function hasElement(Container $container, ContainerElement $element): bool

@@ -7,6 +7,7 @@ use App\Base\Entity\EloquentHasTitle;
 use App\Base\Entity\Identify\EloquentId;
 use App\Base\Entity\Timestamps\EloquentTimestamps;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Container\Entites\EloquentHasContainerRelation;
 use Modules\Education\Source\Enums\SourceType;
 use Modules\Languages\Entities\EloquentLanguageRelation;
 use Modules\Personal\User\Entities\EloquentUserRelation;
@@ -19,6 +20,7 @@ final class SourceModel extends Model implements Source
     use EloquentTimestamps;
     use EloquentHasTitle;
     use EloquentHasDescription;
+    use EloquentHasContainerRelation;
 
     protected $table = 'sources';
 

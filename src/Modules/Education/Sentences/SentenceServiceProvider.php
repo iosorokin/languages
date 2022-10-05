@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Modules\Education\Sentences;
 
 use Illuminate\Support\ServiceProvider;
+use Modules\Education\Sentences\Factories\ModelSentenceFactory;
+use Modules\Education\Sentences\Factories\SentenceFactory;
 use Modules\Education\Sentences\Policies\LaravelSentencePolicy;
 use Modules\Education\Sentences\Policies\SentencePolicy;
 use Modules\Education\Sentences\Presenters\User\UserCreateSentence;
@@ -19,5 +21,6 @@ final class SentenceServiceProvider extends ServiceProvider
         $this->app->bind(UserCreateSentencePresenter::class, UserCreateSentence::class);
         $this->app->bind(SentenceRepository::class, EloquentSentenceRepository::class);
         $this->app->bind(SentencePolicy::class, LaravelSentencePolicy::class);
+        $this->app->bind(SentenceFactory::class, ModelSentenceFactory::class);
     }
 }

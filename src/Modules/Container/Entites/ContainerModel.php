@@ -65,7 +65,7 @@ final class ContainerModel extends Model implements Container
 
     public function elements(): HasMany
     {
-        return $this->hasMany(ContainerElementModel::class);
+        return $this->hasMany(ContainerElementModel::class, 'container_id');
     }
 
     public function addElement(ContainerElement $element): self
@@ -86,6 +86,4 @@ final class ContainerModel extends Model implements Container
     {
         return $this->elements;
     }
-
-
 }

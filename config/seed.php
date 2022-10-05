@@ -14,7 +14,7 @@ return [
     ],
     'languages' => [
         'count' => 100,
-        'chance_to_learn_language' => 1,
+        'chance_to_learn_language' => 0.5,
     ],
     'sources' => [
         'count_for_user' => [
@@ -30,6 +30,12 @@ return [
     ],
     'rules' => [
         'count_for_user' => [
+            'min' => 0,
+            'max' => 250,
+        ],
+    ],
+    'sentences' => [
+        'count_for_source' => [
             'min' => 0,
             'max' => 250,
         ],

@@ -9,6 +9,7 @@ use App\Base\Entity\EloquentHasTitle;
 use App\Base\Entity\HasDescription;
 use App\Base\Entity\HasTitle;
 use App\Base\Entity\Identify\EloquentId;
+use App\Base\Entity\Identify\HasIntId;
 use App\Base\Entity\Timestamps\EloquentTimestamps;
 use Core\Base\Tests\UnitCase;
 use Illuminate\Support\Carbon;
@@ -46,6 +47,7 @@ final class MorphTest extends UnitCase
         $this->expectException(NotUniqueMorph::class);
 
         $class = new class implements Rule, Dictionary {
+            public function setId(int $id): \App\Base\Entity\Identify\HasIntId {}
             public function getTitle(): ?string {}
             public function setTitle(?string $title): \App\Base\Entity\HasTitle {}
             public function getUser(): User {}

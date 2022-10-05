@@ -7,6 +7,7 @@ namespace Modules\Education\Dictionary\Tests;
 use Core\Base\Helpers\AppHelper;
 use Generator;
 use Modules\Education\Dictionary\Presenters\SeedDictionary;
+use Modules\Personal\User\Entities\User;
 
 final class DictionaryHelper extends AppHelper
 {
@@ -18,7 +19,7 @@ final class DictionaryHelper extends AppHelper
         ];
     }
 
-    public function create(int $userId, int $languageId, int $count = 1, array $overwrite = []): Generator
+    public function create(User|int $user, int $languageId, int $count = 1, array $overwrite = []): Generator
     {
         /** @var SeedDictionary $presenter */
         $presenter = app(SeedDictionary::class);
@@ -26,7 +27,7 @@ final class DictionaryHelper extends AppHelper
 
         for ($i = 0; $i < $count; $i++) {
             $attributes = $this->generateAttributes() + $overwrite;
-            $dictionary = $presenter($userId, $attributes);
+            $dictionary = $presenter($user, $attributes);
 
             yield $dictionary;
         }

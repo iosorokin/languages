@@ -6,5 +6,7 @@ use Modules\Container\Entites\Container;
 
 interface GetContainerPresenter
 {
-    public function __invoke(int $id): Container;
+    public function getOrThrowNotFound(int $id): Container;
+
+    public function getOrThrowBadRequest(int $id): Container;
 }

@@ -9,9 +9,11 @@ use Modules\Container\Entites\HasContainer;
 
 interface Sentence extends
     HasIntId,
-    HasContainer,
     HasTimestamps,
 
     ContainerableElement
 {
+    public function setText(string $text): self;
+
+    public function getText(): string;
 }

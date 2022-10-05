@@ -23,6 +23,7 @@ final class CreateContainer
         $attributes = $this->validator->validate($attributes);
         $container = $this->factory->create($containerable, $attributes);
         $this->repository->save($container);
+        $containerable->setContainer($container);
 
         return $container;
     }

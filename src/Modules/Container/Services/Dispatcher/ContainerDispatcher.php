@@ -28,13 +28,9 @@ final class ContainerDispatcher
         $this->repository->save($container);
     }
 
-    public function load(int $id): ContainerManipulator
+    public function manipulate(int|Container $container): ContainerManipulator
     {
-        return $this->manipulate($this->get($id));
-    }
-
-    public function manipulate(Container $container): ContainerManipulator
-    {
+        $container = is_int($container) ? $this->get($container) : $container;
         $this->manipulator->setContainer($container);
 
         return $this->manipulator;

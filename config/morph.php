@@ -8,4 +8,5 @@ return [
     \Modules\Education\Rules\Entities\Rule::class => 'rule',
     \Modules\Container\Entites\Container::class => 'container',
     \Modules\Container\Entites\ContainerElement::class => 'container_element',
+    \Modules\Education\Sentences\Entities\Sentence::class => 'sentence',
 ];

@@ -211,6 +211,7 @@ return [
         Modules\Education\Source\SourceServiceProvider::class,
         Modules\Education\Dictionary\DictionaryServiceProvider::class,
         Modules\Education\Rules\RuleServiceProvider::class,
+        Modules\Education\Sentences\SentenceServiceProvider::class,
     ],
 
     /*

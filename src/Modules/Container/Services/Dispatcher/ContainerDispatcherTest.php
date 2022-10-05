@@ -29,7 +29,7 @@ final class ContainerDispatcherTest extends UnitCase
 
     public function testPushed()
     {
-        $manipulator = $this->dispatcher->load(1);
+        $manipulator = $this->dispatcher->manipulate(1);
         for ($i = 0; $i < 10; $i++) {
             $element = new RuleModel();
             $element = $manipulator->push($element);
@@ -41,7 +41,7 @@ final class ContainerDispatcherTest extends UnitCase
 
     public function testInsertAfterThenContainerHasEmptySpace()
     {
-        $manipulator = $this->dispatcher->load(1);
+        $manipulator = $this->dispatcher->manipulate(1);
         for ($i = 0; $i < 10; $i++) {
             $element = new RuleModel();
             $manipulator->push($element);
@@ -56,7 +56,7 @@ final class ContainerDispatcherTest extends UnitCase
 
     public function testInsertAfterThenContainerDoesNotHaveEmptySpaceAndSliceHasHeadElement()
     {
-        $manipulator = $this->dispatcher->load(1);
+        $manipulator = $this->dispatcher->manipulate(1);
         for ($i = 0; $i < 10; $i++) {
             $element = new RuleModel();
             $element = $manipulator->push($element);
@@ -72,7 +72,7 @@ final class ContainerDispatcherTest extends UnitCase
 
     public function testInsertAfterThenContainerDoesNotHaveEmptySpaceAndSliceDoestHaveHeadElement()
     {
-        $manipulator = $this->dispatcher->load(1);
+        $manipulator = $this->dispatcher->manipulate(1);
         for ($i = 0; $i < 10; $i++) {
             $element = new RuleModel();
             $element = $manipulator->push($element);

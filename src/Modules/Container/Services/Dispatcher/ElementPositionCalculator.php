@@ -15,10 +15,6 @@ final class ElementPositionCalculator
 
     private const STEP = 10;
 
-    public function __construct(
-        private ContainerRepository $repository,
-    ) {}
-
     public function setContainer(Container $container): self
     {
         $this->container = $container;
@@ -28,7 +24,7 @@ final class ElementPositionCalculator
 
     public function next(): int
     {
-        $lastPositionInContainer = $this->repository->getLastPosition($this->container->getId());
+        $lastPositionInContainer = $this->container->getLastPosition();
         $expectedLastPosition = $this->container->getCount() * self::STEP + 1;
 
         if (! $lastPositionInContainer) {
