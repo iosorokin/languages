@@ -1,23 +1,23 @@
 <?php
 
-namespace Modules\Domain\Languages\Controllers\Api;
+namespace Modules\Domain\Languages\Controllers;
 
-use Core\Http\Controller;
 use Core\Http\Responses\Json\CreatedResponse;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Modules\Domain\Languages\Presenters\Admin\AdminCreateLanguagePresenter;
 
-class CreateLanguageController extends Controller
+class CreateLanguageController
 {
     public function __construct(
         private AdminCreateLanguagePresenter $newRealLanguage,
     ) {}
 
-    public function __invoke(Request $request)
+    public function __invoke(Request $request): JsonResponse
     {
-        $user = $this->client();
         $language = ($this->newRealLanguage)($request->all());
+        $location = route('api.languages.show', ['language_id' => $language->getId()]);
 
-        return new CreatedResponse();
+        return new CreatedResponse($location);
     }
 }

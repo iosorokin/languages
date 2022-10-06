@@ -7,8 +7,8 @@ use Modules\Domain\Languages\Entities\Language;
 use Modules\Domain\Languages\Entities\LanguageModel;
 use Modules\Domain\Languages\Factories\LanguageFactory;
 use Modules\Domain\Languages\Factories\ModelLanguageFactory;
-use Modules\Domain\Languages\Policies\AdminLanguagePolicy;
-use Modules\Domain\Languages\Policies\LaravelAdminLanguagePolicy;
+use Modules\Domain\Languages\Policies\LanguagePolicy;
+use Modules\Domain\Languages\Policies\LaravelLanguagePolicy;
 use Modules\Domain\Languages\Presenters\Admin\AdminCreateLanguage;
 use Modules\Domain\Languages\Presenters\Admin\AdminCreateLanguagePresenter;
 use Modules\Domain\Languages\Presenters\Admin\AdminDeleteLanguage;
@@ -43,7 +43,7 @@ class LanguageServiceProvider extends ServiceProvider
         $this->app->bind(AdminIndexLanguagesPresenter::class, AdminIndexLanguages::class);
         $this->app->bind(AdminUpdateLanguagesPresenter::class, AdminUpdateLanguage::class);
 
-        $this->app->bind(AdminLanguagePolicy::class, LaravelAdminLanguagePolicy::class);
+        $this->app->bind(LanguagePolicy::class, LaravelLanguagePolicy::class);
         $this->app->bind(LanguageFactory::class, ModelLanguageFactory::class);
 
         $this->app->bind(GetLanguagePresenter::class, GetLanguage::class);

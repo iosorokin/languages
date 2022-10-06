@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Laravel\Sanctum\HasApiTokens;
 use Modules\Personal\Auth\Entity\BaseAuth;
 use Modules\Personal\Auth\Entity\BaseAuthModel;
+use Modules\Personal\Permissions\Entities\Permission;
+use Modules\Personal\Permissions\Entities\PermissionModel;
 
 final class UserModel extends Model implements
     Authenticatable,
@@ -24,7 +26,7 @@ final class UserModel extends Model implements
 
     protected $table = 'users';
 
-    private function baseAuth(): HasOne
+    public function baseAuth(): HasOne
     {
         return $this->hasOne(BaseAuthModel::class);
     }
@@ -32,6 +34,23 @@ final class UserModel extends Model implements
     public function getBaseAuth(): BaseAuth
     {
         return $this->baseAuth;
+    }
+
+    public function permission(): HasOne
+    {
+        return $this->hasOne(PermissionModel::class);
+    }
+
+    public function setPermission(Permission $permission): self
+    {
+        $this->permission = $permission;
+
+        return $this;
+    }
+
+    public function getPermission(): Permission
+    {
+        return $this->permission;
     }
 
     public function setName(string $name): User

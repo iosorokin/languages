@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Personal\User\Presenters\Guest;
+namespace Modules\Personal\User\Presenters\Publics;
 
 use Modules\Notification\Mailer\Presenters\SendRegistrationEmailPresenter;
 use Modules\Personal\User\Actions\CreateUser;

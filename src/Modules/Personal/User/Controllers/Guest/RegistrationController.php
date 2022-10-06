@@ -6,7 +6,7 @@ use Core\Http\Controller;
 use Core\Http\Responses\Json\CreatedResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Modules\Personal\User\Presenters\Guest\Register;
+use Modules\Personal\User\Presenters\Publics\Register;
 
 final class RegistrationController extends Controller
 {

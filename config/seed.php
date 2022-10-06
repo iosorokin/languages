@@ -22,18 +22,6 @@ return [
             'max' => 100,
         ],
     ],
-    'dictionaries' => [
-        'count_for_user' => [
-            'min' => 0,
-            'max' => 10,
-        ],
-    ],
-    'rules' => [
-        'count_for_user' => [
-            'min' => 0,
-            'max' => 250,
-        ],
-    ],
     'sentences' => [
         'count_for_source' => [
             'min' => 0,

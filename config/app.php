@@ -205,11 +205,12 @@ return [
          */
         Modules\Personal\Auth\AuthServiceProvider::class,
         Modules\Personal\User\UserServiceProvider::class,
-        \Modules\Domain\Languages\LanguageServiceProvider::class,
+        Modules\Domain\Languages\LanguageServiceProvider::class,
         Modules\Notification\Mailer\MailerServiceProvider::class,
         Modules\Container\ContainerServiceProvider::class,
-        \Modules\Domain\Sources\SourceServiceProvider::class,
-        \Modules\Domain\Sentences\SentenceServiceProvider::class,
+        Modules\Domain\Sources\SourceServiceProvider::class,
+        Modules\Domain\Sentences\SentenceServiceProvider::class,
+        Modules\Personal\Permissions\PermissionServiceProvider::class,
     ],
 
     /*

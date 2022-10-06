@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Personal\User\Presenters\Guest;
+namespace Modules\Personal\User\Presenters\Publics;
 
 use Modules\Personal\User\Entities\User;
 

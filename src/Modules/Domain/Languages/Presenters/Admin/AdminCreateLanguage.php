@@ -4,18 +4,21 @@ namespace Modules\Domain\Languages\Presenters\Admin;
 
 use Modules\Domain\Languages\Actions\CreateLanguage;
 use Modules\Domain\Languages\Entities\Language;
-use Modules\Domain\Languages\Policies\AdminLanguagePolicy;
+use Modules\Domain\Languages\Policies\LanguagePolicy;
+use Modules\Personal\Auth\Presenters\GetClientPresenter;
 
 class AdminCreateLanguage implements AdminCreateLanguagePresenter
 {
     public function __construct(
-        private AdminLanguagePolicy  $policy,
-        private CreateLanguage $createLanguage,
+        private GetClientPresenter $getClient,
+        private LanguagePolicy     $policy,
+        private CreateLanguage     $createLanguage,
     ) {}
 
     public function __invoke(array $attributes): Language
     {
-        $client = $this->policy->canCreate();
+        $client = ($this->getClient)();
+        $this->policy->canCreate($client);
         $language = ($this->createLanguage)($client->user(), $attributes);
 
         return $language;

@@ -5,6 +5,8 @@ namespace Modules\Personal\Auth;
 use Illuminate\Support\ServiceProvider;
 use Modules\Personal\Auth\Contexts\Client;
 use Modules\Personal\Auth\Contexts\ClientContext;
+use Modules\Personal\Auth\Factories\BaseAuthFactory;
+use Modules\Personal\Auth\Factories\ModelBaseAuthFactory;
 use Modules\Personal\Auth\Presenters\Base\BaseLogin;
 use Modules\Personal\Auth\Presenters\Base\BaseLoginPresenter;
 use Modules\Personal\Auth\Presenters\GetClient;
@@ -28,6 +30,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->app->bind(Client::class, ClientContext::class);
 
         $this->app->bind(BaseAuthRepository::class, EloquentBaseAuthRepository::class);
+        $this->app->bind(BaseAuthFactory::class, ModelBaseAuthFactory::class);
 
         $this->app->bind(AuthService::class, SanctumAuth::class);
 

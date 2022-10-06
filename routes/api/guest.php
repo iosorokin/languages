@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Domain\Languages\Controllers\Api\IndexLanguagesController;
-use Modules\Domain\Languages\Controllers\Api\ShowLanguageController;
+use Modules\Domain\Languages\Controllers\IndexLanguagesController;
+use Modules\Domain\Languages\Controllers\ShowLanguageController;
 use Modules\Domain\Sources\Controllers\ShowSourceController;
 use Modules\Personal\Auth\Controllers\BaseLoginController;
 use Modules\Personal\User\Controllers\Guest\RegistrationController;
