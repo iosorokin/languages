@@ -3,19 +3,12 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Modules\Education\Dictionary\Tests\DictionaryHelper;
-use Modules\Education\Dictionary\Tests\DictionarySeeder;
-use Modules\Education\Rules\Tests\RuleHelper;
-use Modules\Education\Rules\Tests\RuleSeeder;
 use Modules\Education\Sentences\Tests\SentenceHelper;
 use Modules\Education\Source\Entities\Source;
 use Modules\Education\Source\Tests\SourceHelper;
-use Modules\Education\Source\Tests\SourceSeeder;
 use Modules\Languages\Tests\LanguageHelper;
-use Modules\Languages\Tests\LanguageSeeder;
 use Modules\Personal\User\Entities\User;
 use Modules\Personal\User\Tests\UserHelper;
-use Modules\Personal\User\Tests\UserSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -81,8 +74,6 @@ class DatabaseSeeder extends Seeder
             if ($chance > config('seed.languages.chance_to_learn_language')) continue;
 
             $this->seedSources($user, $languageId);
-            $this->seedDictionaries($user, $languageId);
-            $this->seedRules($user, $languageId);
         }
     }
 
@@ -97,28 +88,6 @@ class DatabaseSeeder extends Seeder
         foreach ($sourceHelper->create($user, $languageId, $count) as $source) {
             $this->seedSentences($user, $source);
         }
-    }
-
-    private function seedDictionaries(User $user, int $languageId): void
-    {
-        $dictionaryHelper = DictionaryHelper::new();
-        $count = random_int(
-            config('seed.dictionaries.count_for_user.min'),
-            config('seed.dictionaries.count_for_user.max')
-        );
-
-        foreach ($dictionaryHelper->create($user, $languageId, $count) as $_) {}
-    }
-
-    private function seedRules(User $user, int $languageId): void
-    {
-        $ruleHelper = RuleHelper::new();
-        $count = random_int(
-            config('seed.rules.count_for_user.min'),
-            config('seed.rules.count_for_user.max')
-        );
-
-        foreach ($ruleHelper->create($user, $languageId, $count) as $_) {}
     }
 
     private function seedSentences(User $user, Source $source): void

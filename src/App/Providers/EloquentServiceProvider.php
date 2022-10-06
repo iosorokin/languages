@@ -12,10 +12,6 @@ use Modules\Container\Entites\Container;
 use Modules\Container\Entites\ContainerElement;
 use Modules\Container\Entites\ContainerElementModel;
 use Modules\Container\Entites\ContainerModel;
-use Modules\Education\Dictionary\Entities\Dictionary;
-use Modules\Education\Dictionary\Entities\DictionaryModel;
-use Modules\Education\Rules\Entities\Rule;
-use Modules\Education\Rules\Entities\RuleModel;
 use Modules\Education\Sentences\Entities\Sentence;
 use Modules\Education\Sentences\Entities\SentenceModel;
 use Modules\Education\Source\Entities\Source;
@@ -36,9 +32,7 @@ final class EloquentServiceProvider extends ServiceProvider
             Arr::get($morphs, User::class) => UserModel::class,
             Arr::get($morphs, Language::class) => LanguageModel::class,
             Arr::get($morphs, Source::class) => SourceModel::class,
-            Arr::get($morphs, Dictionary::class) => DictionaryModel::class,
             Arr::get($morphs, Container::class) => ContainerModel::class,
-            Arr::get($morphs, Rule::class) => RuleModel::class,
             Arr::get($morphs, ContainerElement::class) => ContainerElementModel::class,
             Arr::get($morphs, Sentence::class) => SentenceModel::class,
         ]);

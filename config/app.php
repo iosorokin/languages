@@ -209,8 +209,6 @@ return [
         Modules\Notification\Mailer\MailerServiceProvider::class,
         Modules\Container\ContainerServiceProvider::class,
         Modules\Education\Source\SourceServiceProvider::class,
-        Modules\Education\Dictionary\DictionaryServiceProvider::class,
-        Modules\Education\Rules\RuleServiceProvider::class,
         Modules\Education\Sentences\SentenceServiceProvider::class,
     ],
 

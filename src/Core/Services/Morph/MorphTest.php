@@ -19,6 +19,10 @@ use Modules\Container\Entites\HasContainer;
 use Modules\Education\Dictionary\Entities\Dictionary;
 use Modules\Education\Rules\Entities\Rule;
 use Modules\Education\Sentences\Entities\Sentence;
+use Modules\Education\Source\Entities\Source;
+use Modules\Education\Source\Enums\SourceType;
+use Modules\Languages\Entities\HasLanguage;
+use Modules\Languages\Entities\Language;
 use Modules\Personal\User\Entities\EloquentUserRelation;
 use Modules\Personal\User\Entities\HasUser;
 use Modules\Personal\User\Entities\User;
@@ -46,20 +50,27 @@ final class MorphTest extends UnitCase
     {
         $this->expectException(NotUniqueMorph::class);
 
-        $class = new class implements Rule, Dictionary {
-            public function setId(int $id): \App\Base\Entity\Identify\HasIntId {}
-            public function getTitle(): ?string {}
-            public function setTitle(?string $title): \App\Base\Entity\HasTitle {}
-            public function getUser(): User {}
-            public function setUser(User $user): \Modules\Personal\User\Entities\HasUser {}
-            public function getDescription(): ?string {}
-            public function setDescription(?string $description): \App\Base\Entity\HasDescription {}
-            public function getCreatedAt(): Carbon {}
-            public function getId(): int {}
-            public function getUpdatedAt(): Carbon {}
-            public function getContainer(): Container {}
-            public function setContainer(Container $container): \Modules\Container\Entites\HasContainer {}
+        $class = new class implements Sentence, Source {
+            public function getText(): string {}
+            public function setText(string $text): Sentence{}
+            public function getUpdatedAt(): Carbon{}
+            public function setTitle(?string $title): HasTitle{}
+            public function getCreatedAt(): Carbon{}
+            public function setType(SourceType $type): Source{}
+            public function getTitle(): ?string{}
+            public function setId(int $id): HasIntId{}
+            public function getDescription(): ?string{}
+            public function setDescription(?string $description): HasDescription{}
+            public function getType(): SourceType{}
+            public function setUser(User $user): HasUser{}
+            public function getId(): int{}
+            public function setContainer(Container $container): HasContainer{}
+            public function getContainer(): Container{}
+            public function setLanguage(Language $language): \Modules\Languages\Entities\HasLanguage{}
+            public function getUser(): User{}
+            public function getLanguage(): Language{}
         };
+
         Morph::getMorph($class::class);
     }
 }
