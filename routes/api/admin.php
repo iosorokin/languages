@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Core\Languages\Controllers\Api\CreateLanguageController;
+use Modules\Domain\Languages\Controllers\Api\CreateLanguageController;
 
 Route::post('languages', CreateLanguageController::class)
     ->name('languages.store');

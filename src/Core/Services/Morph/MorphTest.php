@@ -11,10 +11,10 @@ use Core\Base\Tests\UnitCase;
 use Illuminate\Support\Carbon;
 use Modules\Container\Entites\Container;
 use Modules\Container\Entites\HasContainer;
-use Modules\Core\Languages\Entities\Language;
-use Modules\Core\Sentences\Entities\Sentence;
-use Modules\Core\Sources\Entities\Source;
-use Modules\Core\Sources\Enums\SourceType;
+use Modules\Domain\Languages\Entities\Language;
+use Modules\Domain\Sentences\Entities\Sentence;
+use Modules\Domain\Sources\Entities\Source;
+use Modules\Domain\Sources\Enums\SourceType;
 use Modules\Personal\User\Entities\HasUser;
 use Modules\Personal\User\Entities\User;
 use Modules\Personal\User\Entities\UserModel;
@@ -57,7 +57,7 @@ final class MorphTest extends UnitCase
             public function getId(): int{}
             public function setContainer(Container $container): HasContainer{}
             public function getContainer(): Container{}
-            public function setLanguage(Language $language): \Modules\Core\Languages\Entities\HasLanguage{}
+            public function setLanguage(Language $language): \Modules\Domain\Languages\Entities\HasLanguage{}
             public function getUser(): User{}
             public function getLanguage(): Language{}
         };

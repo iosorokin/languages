@@ -9,7 +9,7 @@ use Illuminate\Support\Collection;
 use Modules\Container\Entites\ContainerModel;
 use Modules\Container\Repositories\ContainerRepository;
 use Modules\Container\Repositories\FakeContainerRepository;
-use Modules\Core\Sentences\Entities\SentenceModel;
+use Modules\Domain\Sentences\Entities\SentenceModel;
 
 final class ContainerDispatcherTest extends UnitCase
 {

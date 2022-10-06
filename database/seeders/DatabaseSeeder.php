@@ -3,10 +3,10 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Modules\Core\Languages\Tests\LanguageHelper;
-use Modules\Core\Sentences\Tests\SentenceHelper;
-use Modules\Core\Sources\Entities\Source;
-use Modules\Core\Sources\Tests\SourceHelper;
+use Modules\Domain\Languages\Tests\LanguageHelper;
+use Modules\Domain\Sentences\Tests\SentenceHelper;
+use Modules\Domain\Sources\Entities\Source;
+use Modules\Domain\Sources\Tests\SourceHelper;
 use Modules\Personal\User\Entities\User;
 use Modules\Personal\User\Tests\UserHelper;
 

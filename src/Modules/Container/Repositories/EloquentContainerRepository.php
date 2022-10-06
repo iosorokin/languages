@@ -11,7 +11,7 @@ use Modules\Container\Entites\Container;
 use Modules\Container\Entites\ContainerElement;
 use Modules\Container\Entites\ContainerElementModel;
 use Modules\Container\Entites\ContainerModel;
-use Modules\Core\Sentences\Entities\SentenceModel;
+use Modules\Domain\Sentences\Entities\SentenceModel;
 
 final class EloquentContainerRepository implements ContainerRepository
 {

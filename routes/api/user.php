@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\Container\Controllers\User\UserPushElementToContainerController;
-use Modules\Core\Sources\Controllers\StoreSourceController;
+use Modules\Domain\Sources\Controllers\StoreSourceController;
 use Modules\Personal\Auth\Controllers\LogoutController;
 
 
