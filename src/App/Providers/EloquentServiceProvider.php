@@ -12,12 +12,12 @@ use Modules\Container\Entites\Container;
 use Modules\Container\Entites\ContainerElement;
 use Modules\Container\Entites\ContainerElementModel;
 use Modules\Container\Entites\ContainerModel;
-use Modules\Education\Sentences\Entities\Sentence;
-use Modules\Education\Sentences\Entities\SentenceModel;
-use Modules\Education\Source\Entities\Source;
-use Modules\Education\Source\Entities\SourceModel;
-use Modules\Languages\Entities\Language;
-use Modules\Languages\Entities\LanguageModel;
+use Modules\Core\Languages\Entities\Language;
+use Modules\Core\Languages\Entities\LanguageModel;
+use Modules\Core\Sentences\Entities\Sentence;
+use Modules\Core\Sentences\Entities\SentenceModel;
+use Modules\Core\Sources\Entities\Source;
+use Modules\Core\Sources\Entities\SourceModel;
 use Modules\Personal\User\Entities\User;
 use Modules\Personal\User\Entities\UserModel;
 

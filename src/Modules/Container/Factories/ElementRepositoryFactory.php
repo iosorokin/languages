@@ -6,7 +6,7 @@ namespace Modules\Container\Factories;
 
 use Modules\Container\Enums\ElementType;
 use Modules\Container\Repositories\ContainerRepository;
-use Modules\Education\Sentences\Repositories\SentenceRepository;
+use Modules\Core\Sentences\Repositories\SentenceRepository;
 
 final class ElementRepositoryFactory
 {

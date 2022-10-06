@@ -4,26 +4,17 @@ declare(strict_types=1);
 
 namespace Core\Services\Morph;
 
-use App\Base\Entity\EloquentHasDescription;
-use App\Base\Entity\EloquentHasTitle;
 use App\Base\Entity\HasDescription;
 use App\Base\Entity\HasTitle;
-use App\Base\Entity\Identify\EloquentId;
 use App\Base\Entity\Identify\HasIntId;
-use App\Base\Entity\Timestamps\EloquentTimestamps;
 use Core\Base\Tests\UnitCase;
 use Illuminate\Support\Carbon;
 use Modules\Container\Entites\Container;
-use Modules\Container\Entites\EloquentHasContainerRelation;
 use Modules\Container\Entites\HasContainer;
-use Modules\Education\Dictionary\Entities\Dictionary;
-use Modules\Education\Rules\Entities\Rule;
-use Modules\Education\Sentences\Entities\Sentence;
-use Modules\Education\Source\Entities\Source;
-use Modules\Education\Source\Enums\SourceType;
-use Modules\Languages\Entities\HasLanguage;
-use Modules\Languages\Entities\Language;
-use Modules\Personal\User\Entities\EloquentUserRelation;
+use Modules\Core\Languages\Entities\Language;
+use Modules\Core\Sentences\Entities\Sentence;
+use Modules\Core\Sources\Entities\Source;
+use Modules\Core\Sources\Enums\SourceType;
 use Modules\Personal\User\Entities\HasUser;
 use Modules\Personal\User\Entities\User;
 use Modules\Personal\User\Entities\UserModel;
@@ -66,7 +57,7 @@ final class MorphTest extends UnitCase
             public function getId(): int{}
             public function setContainer(Container $container): HasContainer{}
             public function getContainer(): Container{}
-            public function setLanguage(Language $language): \Modules\Languages\Entities\HasLanguage{}
+            public function setLanguage(Language $language): \Modules\Core\Languages\Entities\HasLanguage{}
             public function getUser(): User{}
             public function getLanguage(): Language{}
         };
