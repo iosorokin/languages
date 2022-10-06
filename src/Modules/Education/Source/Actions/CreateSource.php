@@ -27,7 +27,7 @@ final class CreateSource
     public function __invoke(Client $client, array $attributes): SourceModel
     {
         $attributes = $this->validator->validate($attributes);
-        $language = $this->getLanguage->getOrThrowBadRequest($attributes['language_id']);
+        $language = $this->getLanguage->getOrThrowBadRequest((int) $attributes['language_id']);
         $this->policy->canCreate($client, $language);
 
         $source = $this->factory->new($client->user(), $language, $attributes);

@@ -8,7 +8,7 @@ use Modules\Education\Source\Controllers\StoreSourceController;
 use Modules\Personal\Auth\Controllers\LogoutController;
 
 
-Route::post('sources', StoreSourceController::class)
+Route::post('languages/{language_id}/sources', StoreSourceController::class)
     ->name('sources.create');
 
 Route::post('rules', StoreRuleController::class)

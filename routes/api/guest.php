@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\Education\Source\Controllers\ShowSourceController;
 use Modules\Languages\Controllers\Api\IndexLanguagesController;
 use Modules\Languages\Controllers\Api\ShowLanguageController;
 use Modules\Personal\Auth\Controllers\BaseLoginController;
@@ -31,4 +32,5 @@ Route::get('languages', IndexLanguagesController::class)
 Route::get('languages/{id}', ShowLanguageController::class)
     ->name('languages.show');
 
-
+Route::get('sources/{source_id}', ShowSourceController::class)
+    ->name('sources.show');

@@ -32,11 +32,10 @@ final class CreateSentence
         $this->policy->canCreate($client, $container);
         $sentence = $this->factory->create($attributes);
 
-
+        DB::transaction(function () use ($container, $sentence) {
             $this->repository->save($sentence);
             ($this->pushElement)($container, $sentence);
-
-
+        });
 
         return $sentence;
     }

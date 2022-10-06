@@ -15,7 +15,7 @@ class ModelSourceFactory implements SourceFactory
         $source = new SourceModel();
         $source->setUser($user);
         $source->setLanguage($language);
-        $source->setTitle($attributes['type']);
+        $source->setTitle($attributes['title']);
         $source->setDescription($attributes['description']);
         $source->setType(SourceType::tryFrom($attributes['type']));
 

@@ -15,4 +15,6 @@ interface Client
     public function isUser(): bool;
 
     public function isGuest(): bool;
+
+    public function isMember(): bool;
 }

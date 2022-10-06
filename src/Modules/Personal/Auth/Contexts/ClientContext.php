@@ -34,4 +34,9 @@ class ClientContext implements Client
     {
         return true;
     }
+
+    public function isMember(): bool
+    {
+        return $this->isUser() || $this->isAdmin();
+    }
 }

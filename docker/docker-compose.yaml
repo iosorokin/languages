@@ -13,9 +13,12 @@ services:
       - nosql:nosql
     volumes:
     - ../:/var/www/html
-#    - ../laravel-worker.conf:/etc/supervisor/conf.d/laravel-worker.conf
+    - ./supervisor/supervisord.conf:/etc/supervisor/supervisord.conf
+    - ../laravel-worker.conf:/etc/supervisor/conf.d/laravel-worker.conf
     command: >
       bash -c "/usr/bin/supervisord -n"
+    expose:
+      - 9000
 
   web:
     image: nginx:1.21
