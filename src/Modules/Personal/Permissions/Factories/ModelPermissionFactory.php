@@ -19,8 +19,8 @@ final class ModelPermissionFactory implements PermissionFactory
         $model = new PermissionModel();
         $model->setUser($user);
 
-        foreach ($permissions as $role) {
-            $model->setPermission($role);
+        foreach ($permissions as $permission) {
+            $model->setPermission($permission);
         }
 
         return $model;

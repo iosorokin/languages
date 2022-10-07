@@ -14,15 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('user_permissions', function (Blueprint $table) {
-            $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->boolean('is_root')->default(false);
-            $table->boolean('is_admin')->default(false);
-            $table->boolean('is_user')->default(false);
+            $table->boolean('root')->nullable();
+            $table->boolean('admin')->nullable();
+            $table->boolean('user')->nullable();
             $table->timestamps();
 
-            $table->unique('user_id');
-            $table->unique('is_root');
+            $table->primary('user_id');
+            $table->unique('root');
             $table->foreign('user_id')->on('users')->references('id');
         });
     }

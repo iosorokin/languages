@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $admin = $this->createSuperAdmin();
+        $admin = $this->createRoot();
         $testUser = $this->createTestUser();
         $languageIds = $this->createLanguages();
         $this->seedContent($testUser, $languageIds);
@@ -29,14 +29,10 @@ class DatabaseSeeder extends Seeder
         }
     }
 
-    private function createSuperAdmin(): User
+    private function createRoot(): User
     {
         $helper = UserHelper::new();
-        $user = $helper->create(overwrite: [
-            'name' => 'Супер админ для теста',
-            'email' => config('seed.users.super_admin.email'),
-            'password' => config('seed.users.super_admin.password'),
-        ])->current();
+        $user = $helper->createRoot();
 
         return $user;
     }
@@ -70,8 +66,8 @@ class DatabaseSeeder extends Seeder
     private function seedContent(User $user, array $languageIds)
     {
         foreach ($languageIds as $languageId) {
-            $chance = random_int(1, 100);
-            if ($chance > config('seed.languages.chance_to_learn_language')) continue;
+            $chance = (float) random_int(1, 100000) / 100;
+            if ($chance > (float) config('seed.languages.chance_to_learn_language')) continue;
 
             $this->seedSources($user, $languageId);
         }

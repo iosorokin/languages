@@ -11,6 +11,6 @@ final class LaravelSentencePolicy implements SentencePolicy
 {
     public function canCreate(Client $client, Container $container): void
     {
-        // TODO: Implement canCreate() method.
+
     }
 }

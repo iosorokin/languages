@@ -14,7 +14,7 @@ return [
     ],
     'languages' => [
         'count' => 100,
-        'chance_to_learn_language' => 0.5,
+        'chance_to_learn_language' => 1,
     ],
     'sources' => [
         'count_for_user' => [

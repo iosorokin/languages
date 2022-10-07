@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load(base_path('src/Modules/Personal/Employers/Commands'));
+        $this->load(app_path('/Personal/User/Commands'));
 
         require base_path('routes/console.php');
     }
