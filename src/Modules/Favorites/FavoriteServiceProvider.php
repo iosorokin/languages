@@ -6,10 +6,7 @@ namespace Modules\Favorites;
 
 use Illuminate\Support\ServiceProvider;
 
-final class CommentServiceProvider extends ServiceProvider
+final class FavoriteServiceProvider extends ServiceProvider
 {
-    public function boot()
-    {
 
-    }
 }

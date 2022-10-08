@@ -2,7 +2,7 @@
 
 namespace Modules\Favorites\Policies;
 
-interface CommentPolicy
+interface FavoritePolicy
 {
 
 }

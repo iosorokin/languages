@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Modules\Container\Controllers\User\UserPushElementToContainerController;
 use Modules\Domain\Sources\Controllers\StoreSourceController;
+use Modules\Favorites\Controllers\UserAddFavoriteController;
+use Modules\Favorites\Controllers\UserRemoveFavoriteController;
 use Modules\Personal\Auth\Controllers\LogoutController;
 
 
@@ -17,3 +19,8 @@ Route::post('logout', LogoutController::class)
 
 Route::post('containers/{id}/elements', UserPushElementToContainerController::class)
     ->name('containers.elements.store');
+
+Route::post('favorites/add', UserAddFavoriteController::class)
+    ->name('favorites.add');
+Route::post('favorites/remove', UserRemoveFavoriteController::class)
+    ->name('favorites.remove');

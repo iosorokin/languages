@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Comments\Resources;
+namespace Modules\Favorites\Resources;
 
 final class CommentCollection
 {

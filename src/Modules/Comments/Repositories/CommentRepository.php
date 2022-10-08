@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Comments\Repositories;
+namespace Modules\Favorites\Repositories;
 
 interface CommentRepository
 {

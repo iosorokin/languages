@@ -2,7 +2,7 @@
 
 namespace Modules\Favorites\Entitites;
 
-interface Comment
+interface Favorite
 {
 
 }

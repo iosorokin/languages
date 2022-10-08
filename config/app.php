@@ -211,6 +211,7 @@ return [
         Modules\Domain\Sources\SourceServiceProvider::class,
         Modules\Domain\Sentences\SentenceServiceProvider::class,
         Modules\Personal\Permissions\PermissionServiceProvider::class,
+        Modules\Favorites\FavoriteServiceProvider::class,
     ],
 
     /*
