@@ -6,8 +6,8 @@ namespace Modules\Domain\Sentences\Tests;
 
 use Core\Base\Helpers\AppHelper;
 use Generator;
-use Modules\Container\Entites\Container;
 use Modules\Domain\Sentences\Presenters\SeedSentence;
+use Modules\Internal\Container\Entites\Container;
 use Modules\Personal\User\Entities\User;
 
 final class SentenceHelper extends AppHelper

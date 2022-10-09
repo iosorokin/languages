@@ -4,7 +4,7 @@ namespace Modules\Domain\Sentences\Entities;
 
 use App\Base\Entity\Identify\HasIntId;
 use App\Base\Entity\Timestamps\HasTimestamps;
-use Modules\Container\Contracts\ContainerableElement;
+use Modules\Internal\Container\Contracts\ContainerableElement;
 
 interface Sentence extends
     HasIntId,

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sentences\Policies;
 
-use Modules\Container\Entites\Container;
+use Modules\Internal\Container\Entites\Container;
 use Modules\Personal\Auth\Contexts\Client;
 
 final class LaravelSentencePolicy implements SentencePolicy

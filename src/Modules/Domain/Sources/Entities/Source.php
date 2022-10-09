@@ -6,10 +6,10 @@ use App\Base\Entity\HasDescription;
 use App\Base\Entity\HasTitle;
 use App\Base\Entity\Identify\HasIntId;
 use App\Base\Entity\Timestamps\HasTimestamps;
-use Modules\Container\Contracts\Containerable;
-use Modules\Container\Entites\HasContainer;
 use Modules\Domain\Languages\Entities\HasLanguage;
 use Modules\Domain\Sources\Enums\SourceType;
+use Modules\Internal\Container\Contracts\Containerable;
+use Modules\Internal\Container\Entites\HasContainer;
 use Modules\Personal\User\Entities\HasUser;
 
 interface Source extends

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Modules\Domain\Sources\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Modules\Container\Resources\ShowContainerResource;
 use Modules\Domain\Sources\Entities\Source;
+use Modules\Internal\Container\Resources\ShowContainerResource;
 
 final class ShowSourceResource extends JsonResource
 {

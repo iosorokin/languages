@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace Modules\Domain\Sentences\Actions;
 
 use Illuminate\Support\Facades\DB;
-use Modules\Container\Presenters\GetContainerPresenter;
-use Modules\Container\Presenters\Internal\PushElementPresenter;
 use Modules\Domain\Sentences\Entities\Sentence;
 use Modules\Domain\Sentences\Factories\SentenceFactory;
 use Modules\Domain\Sentences\Policies\SentencePolicy;
 use Modules\Domain\Sentences\Repositories\SentenceRepository;
 use Modules\Domain\Sentences\Validators\CreateSentenceValidator;
+use Modules\Internal\Container\Presenters\GetContainerPresenter;
+use Modules\Internal\Container\Presenters\Internal\PushElementPresenter;
 use Modules\Personal\Auth\Contexts\Client;
 
 final class CreateSentence

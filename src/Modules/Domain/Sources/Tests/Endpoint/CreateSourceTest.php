@@ -14,7 +14,7 @@ class CreateSourceTest extends EndpointCase
     public function __invoke()
     {
         BaseAuthApiHelper::new($this)->loginAsTestUser();
-        $response = SourceApiHelper::new($this)->create([
+        $response = SourceApiHelper::new($this)->store([
             'language_id' => 1,
             'language_type' => 'learning',
         ]);

@@ -7,9 +7,9 @@ use App\Base\Entity\EloquentHasTitle;
 use App\Base\Entity\Identify\EloquentId;
 use App\Base\Entity\Timestamps\EloquentTimestamps;
 use Illuminate\Database\Eloquent\Model;
-use Modules\Container\Entites\EloquentHasContainerRelation;
 use Modules\Domain\Languages\Entities\EloquentLanguageRelation;
 use Modules\Domain\Sources\Enums\SourceType;
+use Modules\Internal\Container\Entites\EloquentHasContainerRelation;
 use Modules\Personal\User\Entities\EloquentUserRelation;
 
 final class SourceModel extends Model implements Source

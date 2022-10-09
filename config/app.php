@@ -207,11 +207,12 @@ return [
         Modules\Personal\User\UserServiceProvider::class,
         Modules\Domain\Languages\LanguageServiceProvider::class,
         Modules\Notification\Mailer\MailerServiceProvider::class,
-        Modules\Container\ContainerServiceProvider::class,
+        Modules\Internal\Container\ContainerServiceProvider::class,
         Modules\Domain\Sources\SourceServiceProvider::class,
         Modules\Domain\Sentences\SentenceServiceProvider::class,
         Modules\Personal\Permissions\PermissionServiceProvider::class,
         Modules\Favorites\FavoriteServiceProvider::class,
+        Modules\Domain\Chapters\ChapterServiceProvider::class,
     ],
 
     /*
