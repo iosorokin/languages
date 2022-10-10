@@ -5,8 +5,8 @@ namespace Modules\Personal\User;
 use Illuminate\Support\ServiceProvider;
 use Modules\Personal\User\Factories\LaravelUserFactory;
 use Modules\Personal\User\Factories\UserFactory;
-use Modules\Personal\User\Policy\AdminUserPolicy;
-use Modules\Personal\User\Policy\LaravelAdminUserPolicy;
+use Modules\Personal\User\Policy\UserPolicy;
+use Modules\Personal\User\Policy\LaravelUserPolicy;
 use Modules\Personal\User\Presenters\Admin\AdminCreateUser;
 use Modules\Personal\User\Presenters\Admin\AdminCreateUserPresenter;
 use Modules\Personal\User\Presenters\Publics\Register;
@@ -34,7 +34,7 @@ class UserServiceProvider extends ServiceProvider
 
         $this->app->bind(UserRepository::class, EloquentUserRepository::class);
 
-        $this->app->bind(AdminUserPolicy::class, LaravelAdminUserPolicy::class);
+        $this->app->bind(UserPolicy::class, LaravelUserPolicy::class);
 
         $this->app->bind(UserFactory::class, LaravelUserFactory::class);
     }

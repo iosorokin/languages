@@ -4,21 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sentences\Presenters\User;
 
-use Modules\Domain\Sentences\Policies\SentencePolicy;
-use Modules\Domain\Sentences\Repositories\SentenceRepository;
+use Modules\Domain\Sentences\Actions\DeleteSentence;
 use Modules\Personal\Auth\Presenters\GetClientPresenter;
 
 final class UserDeleteSentence implements UserDeleteSentencePresenter
 {
     public function __construct(
         private GetClientPresenter $getClient,
-        private SentencePolicy $policy,
+        private DeleteSentence $deleteSentence,
     ) {}
 
     public function __invoke(array $attributes): void
     {
         $client = ($this->getClient)();
-        $sentence = $
-        $this->policy->canDelete($client);
+        ($this->deleteSentence)($client, $attributes);
     }
 }

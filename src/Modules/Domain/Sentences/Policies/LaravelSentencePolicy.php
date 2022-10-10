@@ -17,6 +17,10 @@ final class LaravelSentencePolicy implements SentencePolicy
 
     public function canDelete(Client $client, Sentence $sentence): void
     {
-        // TODO: Implement canDelete() method.
+        $source = $sentence->getSource();
+        $userId = $source->getUserId();
+        if (! $client->isAdmin() || $client->id() !== $userId) {
+            abort(403);
+        }
     }
 }

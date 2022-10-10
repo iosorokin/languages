@@ -18,4 +18,9 @@ final class EloquentSentenceRepository implements SentenceRepository
     {
         return SentenceModel::find($id);
     }
+
+    public function delete(Sentence $sentence): void
+    {
+        $sentence->delete();
+    }
 }

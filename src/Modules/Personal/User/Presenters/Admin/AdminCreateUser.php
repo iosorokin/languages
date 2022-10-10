@@ -6,12 +6,12 @@ namespace Modules\Personal\User\Presenters\Admin;
 
 use Modules\Personal\User\Actions\CreateUser;
 use Modules\Personal\User\Entities\User;
-use Modules\Personal\User\Policy\AdminUserPolicy;
+use Modules\Personal\User\Policy\UserPolicy;
 
 final class AdminCreateUser implements AdminCreateUserPresenter
 {
     public function __construct(
-        private AdminUserPolicy $policy,
+        private UserPolicy $policy,
         private CreateUser $createUser,
     ) {}
 

@@ -22,4 +22,9 @@ trait EloquentUserRelation
     {
         return $this->user;
     }
+
+    public function getUserId(): int
+    {
+        return $this->user_id;
+    }
 }
