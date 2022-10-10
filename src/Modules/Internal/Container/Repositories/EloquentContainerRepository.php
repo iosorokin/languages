@@ -24,11 +24,29 @@ final class EloquentContainerRepository implements ContainerRepository
     {
         /** @var ContainerModel $container */
         $container = ContainerModel::find($id);
+        if ($container) {
+            $this->loadElements($container);
+        }
+
+        return $container;
+    }
+
+    public function getBySource(int $sourceId): ?Container
+    {
+        /** @var ContainerModel $container */
+        $container = ContainerModel::whereSourceId($sourceId)->first();
+        if ($container) {
+            $this->loadElements($container);
+        }
+
+        return $container;
+    }
+
+    private function loadElements(Container $container): void
+    {
         $container->with('elements');
         $container->setCount($container->getElements()->count());
         $container->setLastPosition($container->getElements()->last()?->getPosition());
-
-        return $container;
     }
 
     public function hasElement(Container $container, ContainerElement $element): bool

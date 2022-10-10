@@ -12,7 +12,6 @@ use Modules\Internal\Container\Entites\Container;
 use Modules\Internal\Container\Enums\ContainerType;
 use Modules\Internal\Container\Presenters\Internal\CreateContainerPresenter;
 use Modules\Internal\Container\Presenters\Internal\PushElementPresenter;
-use Modules\Internal\Container\Presenters\User\UserPushElementPresenter;
 use Modules\Personal\Auth\Presenters\GetClientPresenter;
 
 final class UserStoreChapter implements UserStoreChapterPresenter

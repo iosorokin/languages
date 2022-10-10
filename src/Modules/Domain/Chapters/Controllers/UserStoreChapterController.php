@@ -12,12 +12,12 @@ use Modules\Domain\Chapters\Presenters\UserStoreChapterPresenter;
 final class UserStoreChapterController
 {
     public function __construct(
-        private UserStoreChapterPresenter $createChapter,
+        private UserStoreChapterPresenter $userStoreChapter,
     ) {}
 
     public function __invoke(Request $request): JsonResponse
     {
-        $chapter = ($this->createChapter)($request->all());
+        $chapter = ($this->userStoreChapter)($request->all());
 
         return new CreatedResponse();
     }
