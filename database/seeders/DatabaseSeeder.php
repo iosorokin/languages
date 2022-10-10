@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Modules\Domain\Chapters\Tests\ChapterAppHelper;
 use Modules\Domain\Languages\Tests\LanguageHelper;
 use Modules\Domain\Sentences\Tests\SentenceHelper;
 use Modules\Domain\Sources\Entities\Source;
@@ -82,11 +83,27 @@ class DatabaseSeeder extends Seeder
         );
 
         foreach ($sourceHelper->create($user, $languageId, $count) as $source) {
+            $this->seedChapters($user, $source);
             $this->seedSentences($user, $source);
         }
     }
 
-    private function seedSentences(User $user, Source $source): void
+    private function seedChapters(User $user, Source $source): void
+    {
+        $chapterAppHelper = ChapterAppHelper::new();
+        $count = random_int(
+            config('seed.chapters.count_for_source.min'),
+            config('seed.chapters.count_for_source.max')
+        );
+
+        foreach ($chapterAppHelper->create($source, $count) as $chapter) {
+            $this->seedSentences($user, $source, [
+                'chapter_id' => $chapter->getId(),
+            ]);
+        }
+    }
+
+    private function seedSentences(User $user, Source $source, array $overwrite = []): void
     {
         $sentenceHelper = SentenceHelper::new();
         $count = random_int(
@@ -94,6 +111,6 @@ class DatabaseSeeder extends Seeder
             config('seed.sentences.count_for_source.max')
         );
 
-        foreach ($sentenceHelper->create($user, $source->getContainer()->getId(), $count) as $sentence) {}
+        foreach ($sentenceHelper->create($user, $source, $count, $overwrite) as $sentence) {}
     }
 }

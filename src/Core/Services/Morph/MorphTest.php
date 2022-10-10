@@ -8,9 +8,12 @@ use App\Base\Entity\HasDescription;
 use App\Base\Entity\HasTitle;
 use App\Base\Entity\Identify\HasIntId;
 use Core\Base\Tests\UnitCase;
+use Core\Services\Morph\Exceptions\MorphNotFound;
+use Core\Services\Morph\Exceptions\NotUniqueMorph;
 use Illuminate\Support\Carbon;
 use Modules\Domain\Languages\Entities\Language;
 use Modules\Domain\Sentences\Entities\Sentence;
+use Modules\Domain\Sources\Entities\HasSource;
 use Modules\Domain\Sources\Entities\Source;
 use Modules\Domain\Sources\Enums\SourceType;
 use Modules\Internal\Container\Entites\Container;
@@ -42,6 +45,9 @@ final class MorphTest extends UnitCase
         $this->expectException(NotUniqueMorph::class);
 
         $class = new class implements Sentence, Source {
+            public function getSource(): Source {}
+            public function getSourceId(): int {}
+            public function setSource(Source $source): \Modules\Domain\Sources\Entities\HasSource {}
             public function getText(): string {}
             public function setText(string $text): Sentence{}
             public function getUpdatedAt(): Carbon{}

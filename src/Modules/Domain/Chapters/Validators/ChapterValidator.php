@@ -10,7 +10,7 @@ use Core\Extensions\BaseValidator;
 
 abstract class ChapterValidator extends BaseValidator
 {
-    protected function commonRules(): array
+    protected function commonAttributesRules(): array
     {
         return [
             'title' => ['required', new Title()],

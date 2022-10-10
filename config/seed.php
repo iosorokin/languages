@@ -27,5 +27,11 @@ return [
             'min' => 0,
             'max' => 250,
         ],
+    ],
+    'chapters' => [
+        'count_for_source' => [
+            'min' => 0,
+            'max' => 10,
+        ]
     ]
 ];

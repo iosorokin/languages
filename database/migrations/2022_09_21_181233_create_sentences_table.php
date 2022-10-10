@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('sentences', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('source_id');
             $table->text('text');
             $table->timestamps();
         });

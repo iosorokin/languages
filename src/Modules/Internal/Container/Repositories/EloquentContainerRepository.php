@@ -12,6 +12,7 @@ use Modules\Internal\Container\Entites\Container;
 use Modules\Internal\Container\Entites\ContainerElement;
 use Modules\Internal\Container\Entites\ContainerElementModel;
 use Modules\Internal\Container\Entites\ContainerModel;
+use Modules\Internal\Container\Enums\ContainerType;
 
 final class EloquentContainerRepository implements ContainerRepository
 {
@@ -31,10 +32,28 @@ final class EloquentContainerRepository implements ContainerRepository
         return $container;
     }
 
-    public function getBySource(int $sourceId): ?Container
+    public function getChapter(int $id): ?Container
     {
         /** @var ContainerModel $container */
-        $container = ContainerModel::whereSourceId($sourceId)->first();
+        $container = ContainerModel::query()
+            ->where('containerable_type', Morph::getMorph(Container::class))
+            ->where('type', ContainerType::Chapter->value)
+            ->where('id', $id)
+            ->first();
+        if ($container) {
+            $this->loadElements($container);
+        }
+
+        return $container;
+    }
+
+    public function getByContainerable(string $type, int $id): ?Container
+    {
+        /** @var ContainerModel $container */
+        $container = ContainerModel::query()
+            ->where('containerable_type', $type)
+            ->where('containerable_id', $id)
+            ->first();
         if ($container) {
             $this->loadElements($container);
         }

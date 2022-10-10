@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Internal\Container\Repositories;
 
+use Core\Services\Morph\Morph;
 use Illuminate\Support\Collection;
 use Modules\Internal\Container\Entites\Container;
 use Modules\Internal\Container\Entites\ContainerElement;
+use Modules\Internal\Container\Enums\ContainerType;
 
 final class FakeContainerRepository implements ContainerRepository
 {
@@ -39,13 +41,34 @@ final class FakeContainerRepository implements ContainerRepository
         $container = static::$containters->where('id', $id)->first();
 
         if ($container) {
-            $elements = static::$elements->where('container_id', $container->getId());
-            $container->setElements($elements);
-            $container->setLastPosition($elements->last()?->getPosition());
-            $container->setCount($elements->count());
+            $this->loadElements($container);
         }
 
         return $container;
+    }
+
+    public function getChapter(int $id): ?Container
+    {
+        /** @var Container|null $container */
+        $container = static::$containters
+            ->where('containerable_type', Morph::getMorph(Container::class))
+            ->where('type', ContainerType::Chapter->value)
+            ->where('id', $id)
+            ->first();
+
+        if ($container) {
+            $this->loadElements($container);
+        }
+
+        return $container;
+    }
+
+    private function loadElements(Container $container): void
+    {
+        $elements = static::$elements->where('container_id', $container->getId());
+        $container->setElements($elements);
+        $container->setLastPosition($elements->last()?->getPosition());
+        $container->setCount($elements->count());
     }
 
     public function getContainerWithDependenses(int $id): ?Container

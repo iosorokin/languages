@@ -14,6 +14,6 @@ final class CreateChapterValidator extends ChapterValidator
             'source_id' => ['required', new BigIntId()]
         ];
 
-        return $rules + $this->commonRules();
+        return $rules + $this->commonAttributesRules();
     }
 }

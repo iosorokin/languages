@@ -6,14 +6,16 @@ namespace Modules\Domain\Sentences\Factories;
 
 use Modules\Domain\Sentences\Entities\Sentence;
 use Modules\Domain\Sentences\Entities\SentenceModel;
+use Modules\Domain\Sources\Entities\Source;
 
 final class ModelSentenceFactory implements SentenceFactory
 {
-    public function create(array $attributes): Sentence
+    public function create(Source $source, array $attributes): Sentence
     {
-        $structure = new SentenceModel();
-        $structure->setText($attributes['text']);
+        $sentence = new SentenceModel();
+        $sentence->setSource($source);
+        $sentence->setText($attributes['text']);
 
-        return $structure;
+        return $sentence;
     }
 }

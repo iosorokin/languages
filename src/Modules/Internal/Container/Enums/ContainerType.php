@@ -10,7 +10,7 @@ enum ContainerType: string
 
     case Chapter = 'chapter';
 
-    public function isRaw(): bool
+    public function isWrapper(): bool
     {
         return $this->value === self::Wrapper->value;
     }

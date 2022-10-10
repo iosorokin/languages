@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sources\Presenters\Internal;
 
+use Core\Services\Morph\Morph;
 use Illuminate\Validation\ValidationException;
 use Modules\Domain\Sources\Entities\Source;
 use Modules\Domain\Sources\Repositories\SourceRepository;
@@ -40,6 +41,9 @@ final class GetSource implements GetSourcePresenter
 
     private function setContainer(Source $source): void
     {
-        $source->setContainer($this->containerRepository->get($source->getId()));
+        $source->setContainer($this->containerRepository->getByContainerable(
+            Morph::getMorph($source),
+            $source->getId(),
+        ));
     }
 }

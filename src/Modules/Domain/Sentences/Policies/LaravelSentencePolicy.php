@@ -4,13 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sentences\Policies;
 
-use Modules\Internal\Container\Entites\Container;
+use Modules\Domain\Sentences\Entities\Sentence;
+use Modules\Domain\Sources\Entities\Source;
 use Modules\Personal\Auth\Contexts\Client;
 
 final class LaravelSentencePolicy implements SentencePolicy
 {
-    public function canCreate(Client $client, Container $container): void
+    public function canCreate(Client $client, Source $source): void
     {
 
+    }
+
+    public function canDelete(Client $client, Sentence $sentence): void
+    {
+        // TODO: Implement canDelete() method.
     }
 }

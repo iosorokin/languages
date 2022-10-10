@@ -11,13 +11,21 @@ use Modules\Internal\Container\Tests\ContainerAppHelper;
 
 final class ChapterApiHelper extends ApiHelper
 {
-    public function store(Source|int $source, array $overwrite = []): TestResponse
+    public function store(int $sourceId, array $overwrite = []): TestResponse
     {
         $attributes = ContainerAppHelper::new()->generateAttributes();
         $attributes += $overwrite;
         $response = $this->testCase->postJson(route('api.user.chapters.store', [
-            'source_id' => is_int($source) ? $source : $source->getId()
+            'source_id' => $sourceId,
         ]), $attributes);
+
+        return $response;
+    }
+
+    public function show(int $chapterId, array $query = []): TestResponse
+    {
+        $query['chapter_id'] = $chapterId;
+        $response = $this->testCase->getJson(route('api.chapters.show', $query));
 
         return $response;
     }

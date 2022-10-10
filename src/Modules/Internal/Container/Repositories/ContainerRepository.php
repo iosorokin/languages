@@ -11,7 +11,9 @@ interface ContainerRepository
 
     public function get(int $id): ?Container;
 
-    public function getBySource(int $sourceId): ?Container;
+    public function getByContainerable(string $type, int $id): ?Container;
+
+    public function getChapter(int $id): ?Container;
 
     public function hasElement(Container $container, ContainerElement $element): bool;
 

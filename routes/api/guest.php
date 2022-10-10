@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\Domain\Chapters\Controllers\UserShowChapterController;
 use Modules\Domain\Languages\Controllers\IndexLanguagesController;
 use Modules\Domain\Languages\Controllers\ShowLanguageController;
 use Modules\Domain\Sources\Controllers\ShowSourceController;
@@ -34,3 +35,6 @@ Route::get('languages/{id}', ShowLanguageController::class)
 
 Route::get('sources/{source_id}', ShowSourceController::class)
     ->name('sources.show');
+
+Route::get('chapters/{chapter_id}', UserShowChapterController::class)
+    ->name('chapters.show');
