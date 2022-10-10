@@ -38,7 +38,24 @@ final class FakeContainerRepository implements ContainerRepository
     public function get(int $id): ?Container
     {
         /** @var Container|null $container */
-        $container = static::$containters->where('id', $id)->first();
+        $container = static::$containters
+            ->where('id', $id)
+            ->first();
+
+        if ($container) {
+            $this->loadElements($container);
+        }
+
+        return $container;
+    }
+
+    public function getByContainerable(string $type, int $id): ?Container
+    {
+        /** @var Container|null $container */
+        $container = static::$containters
+            ->where('containerable_type', $type)
+            ->where('containerable_id', $id)
+            ->first();
 
         if ($container) {
             $this->loadElements($container);

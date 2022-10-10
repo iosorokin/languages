@@ -103,7 +103,7 @@ class DatabaseSeeder extends Seeder
         }
     }
 
-    private function seedSentences(User $user, Source $source, array $overwrite = []): void
+    private function seedSentences(User $user, Source $source, array $attributes = []): void
     {
         $sentenceHelper = SentenceHelper::new();
         $count = random_int(
@@ -111,6 +111,6 @@ class DatabaseSeeder extends Seeder
             config('seed.sentences.count_for_source.max')
         );
 
-        foreach ($sentenceHelper->create($user, $source, $count, $overwrite) as $sentence) {}
+        foreach ($sentenceHelper->create($user, $source, $count, $attributes) as $sentence) {}
     }
 }

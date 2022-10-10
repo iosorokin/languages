@@ -11,6 +11,8 @@ use Modules\Domain\Sentences\Policies\LaravelSentencePolicy;
 use Modules\Domain\Sentences\Policies\SentencePolicy;
 use Modules\Domain\Sentences\Presenters\User\UserCreateSentence;
 use Modules\Domain\Sentences\Presenters\User\UserCreateSentencePresenter;
+use Modules\Domain\Sentences\Presenters\User\UserDeleteSentence;
+use Modules\Domain\Sentences\Presenters\User\UserDeleteSentencePresenter;
 use Modules\Domain\Sentences\Repositories\EloquentSentenceRepository;
 use Modules\Domain\Sentences\Repositories\SentenceRepository;
 
@@ -19,6 +21,7 @@ final class SentenceServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app->bind(UserCreateSentencePresenter::class, UserCreateSentence::class);
+        $this->app->bind(UserDeleteSentencePresenter::class, UserDeleteSentence::class);
         $this->app->bind(SentenceRepository::class, EloquentSentenceRepository::class);
         $this->app->bind(SentencePolicy::class, LaravelSentencePolicy::class);
         $this->app->bind(SentenceFactory::class, ModelSentenceFactory::class);

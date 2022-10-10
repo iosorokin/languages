@@ -15,7 +15,7 @@ final class UserDeleteSentence implements UserDeleteSentencePresenter
         private SentencePolicy $policy,
     ) {}
 
-    public function __invoke(int $id): void
+    public function __invoke(array $attributes): void
     {
         $client = ($this->getClient)();
         $sentence = $

@@ -43,30 +43,7 @@ final class MorphTest extends UnitCase
     public function testThrowIfNotUniqueMorph()
     {
         $this->expectException(NotUniqueMorph::class);
-
-        $class = new class implements Sentence, Source {
-            public function getSource(): Source {}
-            public function getSourceId(): int {}
-            public function setSource(Source $source): \Modules\Domain\Sources\Entities\HasSource {}
-            public function getText(): string {}
-            public function setText(string $text): Sentence{}
-            public function getUpdatedAt(): Carbon{}
-            public function setTitle(?string $title): HasTitle{}
-            public function getCreatedAt(): Carbon{}
-            public function setType(SourceType $type): Source{}
-            public function getTitle(): ?string{}
-            public function setId(int $id): HasIntId{}
-            public function getDescription(): ?string{}
-            public function setDescription(?string $description): HasDescription{}
-            public function getType(): SourceType{}
-            public function setUser(User $user): HasUser{}
-            public function getId(): int{}
-            public function setContainer(Container $container): HasContainer{}
-            public function getContainer(): Container{}
-            public function setLanguage(Language $language): \Modules\Domain\Languages\Entities\HasLanguage{}
-            public function getUser(): User{}
-            public function getLanguage(): Language{}
-        };
+        $class = new FakeEntityForTestMorph();
 
         Morph::getMorph($class::class);
     }

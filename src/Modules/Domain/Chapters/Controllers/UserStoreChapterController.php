@@ -18,7 +18,10 @@ final class UserStoreChapterController
     public function __invoke(Request $request): JsonResponse
     {
         $chapter = ($this->userStoreChapter)($request->all());
+        $location = route('api.chapters.show', [
+            'chapter_id' => $chapter->getId(),
+        ]);
 
-        return new CreatedResponse();
+        return new CreatedResponse($location);
     }
 }

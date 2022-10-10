@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Core\Base\Helpers;
 
 use Core\Base\Tests\EndpointCase;
+use Illuminate\Support\Arr;
+use Illuminate\Testing\TestResponse;
 
 abstract class ApiHelper
 {
@@ -19,6 +21,14 @@ abstract class ApiHelper
         $instance->setTestCase($testCase);
 
         return $instance;
+    }
+
+    public static function getCreatedIdFromLocation(TestResponse $response): int
+    {
+        $location = $response->headers->get('location');
+        $id = (int) Arr::last(explode('/', $location));
+
+        return $id;
     }
 
     private function setTestCase(EndpointCase $testCase): void

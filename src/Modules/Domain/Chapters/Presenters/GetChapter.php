@@ -14,9 +14,14 @@ final class GetChapter implements GetChapterPresenter
         private ContainerRepository $containerRepository,
     ) {}
 
+    public function get(int $id): ?Container
+    {
+        return $this->containerRepository->getChapter($id);
+    }
+
     public function getOrThrowNotFound(int $id): Container
     {
-        $chapter = $this->containerRepository->getChapter($id);
+        $chapter = $this->get($id);
         abort_if(! $chapter, 404);
 
         return $chapter;
@@ -24,7 +29,7 @@ final class GetChapter implements GetChapterPresenter
 
     public function getOrThrowBadRequest(int $id): Container
     {
-        $chapter = $this->containerRepository->getChapter($id);
+        $chapter = $this->get($id);
         if (! $chapter) {
             throw ValidationException::withMessages([
                 'chapter_id' => sprintf('Chapter with id %d not found', $id)
