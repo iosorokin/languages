@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Favorites\Validators;
 
-use Core\Validation\BaseValidator;
+use Core\Base\Validation\BaseValidator;
 
 final class FavoriteValidator extends BaseValidator
 {

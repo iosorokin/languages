@@ -8,5 +8,7 @@ interface HasUser
 
     public function getUser(): User;
 
+    public function setUserId(int $id): self;
+
     public function getUserId(): int;
 }

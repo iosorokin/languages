@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Personal\User\Validators;
 
-use Core\Validation\BaseCombinedValidator;
+use Core\Base\Validation\BaseCombinedValidator;
 use Modules\Personal\Auth\Validators\CreateBaseAuthValidator;
 use Modules\Personal\User\Validators\Single\CreateUserValidator;
 

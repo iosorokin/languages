@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Internal\Container\Validators;
 
 use App\Rules\BigIntId;
-use Core\Validation\BaseValidator;
+use Core\Base\Validation\BaseValidator;
 use Illuminate\Validation\Rules\Enum;
 use Modules\Internal\Container\Enums\ElementType;
 

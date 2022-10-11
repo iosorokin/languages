@@ -6,8 +6,8 @@ namespace Core\Services\Morph;
 
 use App\Base\Entity\EloquentHasDescription;
 use App\Base\Entity\EloquentHasTitle;
-use App\Base\Entity\Identify\EloquentId;
-use App\Base\Entity\Timestamps\EloquentTimestamps;
+use App\Base\Entity\Identify\IntId;
+use App\Base\Entity\Timestamps\Timestamps;
 use Modules\Domain\Languages\Entities\EloquentLanguageRelation;
 use Modules\Domain\Sentences\Entities\Sentence;
 use Modules\Domain\Sources\Entities\EloquentSourceRelation;
@@ -18,12 +18,12 @@ use Modules\Personal\User\Entities\EloquentUserRelation;
 
 final class FakeEntityForTestMorph implements Sentence, Source
 {
-    use EloquentId;
-    use EloquentTimestamps;
+    use IntId;
+    use Timestamps;
     use EloquentSourceRelation;
     use EloquentUserRelation;
     use EloquentLanguageRelation;
-    use EloquentTimestamps;
+    use Timestamps;
     use EloquentHasTitle;
     use EloquentHasDescription;
     use EloquentHasContainerRelation;

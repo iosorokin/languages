@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Domain\Analysis\Validators;
 
 use App\Rules\Description;
-use Core\Validation\BaseValidator;
+use Core\Base\Validation\BaseValidator;
 
 abstract class AnalysisValidator extends BaseValidator
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\Domain\Languages\Tests\Endpoint;
+namespace Modules\Domain\Languages\Controllers\Admin;
 
 use Core\Base\Tests\EndpointCase;
-use Modules\Domain\Languages\Tests\LanguageApiHelper;
+use Modules\Domain\Languages\Helpers\LanguageApiHelper;
 use Modules\Personal\Auth\Tests\BaseAuthApiHelper;
 
-class CreateLanguageTest extends EndpointCase
+class AdminCreateLanguageTest extends EndpointCase
 {
     /**
      * @test

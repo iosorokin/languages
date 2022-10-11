@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Core\Validation\Tests\Fakes;
+namespace Core\Base\Validation\Tests\Fakes;
 
-use Core\Validation\BaseValidator;
+use Core\Base\Validation\BaseValidator;
 
 final class FakeThirdSingleValidator extends BaseValidator
 {

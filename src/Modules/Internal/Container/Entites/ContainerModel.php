@@ -6,8 +6,8 @@ namespace Modules\Internal\Container\Entites;
 
 use App\Base\Entity\EloquentHasDescription;
 use App\Base\Entity\EloquentHasTitle;
-use App\Base\Entity\Identify\EloquentId;
-use App\Base\Entity\Timestamps\EloquentTimestamps;
+use App\Base\Entity\Identify\IntId;
+use App\Base\Entity\Timestamps\Timestamps;
 use App\Extensions\Assert;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -19,10 +19,10 @@ use Modules\Internal\Container\Enums\ContainerType;
 
 final class ContainerModel extends Model implements Container
 {
-    use EloquentId;
+    use IntId;
     use EloquentHasDescription;
     use EloquentHasTitle;
-    use EloquentTimestamps;
+    use Timestamps;
     use ContainerState;
     use EloquentHasContainerRelation;
 

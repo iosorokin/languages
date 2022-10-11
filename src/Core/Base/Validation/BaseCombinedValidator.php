@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Core\Validation;
+namespace Core\Base\Validation;
 
 use App\Extensions\Assert;
 use Illuminate\Support\Collection;

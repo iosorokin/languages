@@ -4,8 +4,8 @@ namespace Modules\Domain\Sources\Entities;
 
 use App\Base\Entity\EloquentHasDescription;
 use App\Base\Entity\EloquentHasTitle;
-use App\Base\Entity\Identify\EloquentId;
-use App\Base\Entity\Timestamps\EloquentTimestamps;
+use App\Base\Entity\Identify\IntId;
+use App\Base\Entity\Timestamps\Timestamps;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Domain\Languages\Entities\EloquentLanguageRelation;
 use Modules\Domain\Sources\Enums\SourceType;
@@ -14,10 +14,10 @@ use Modules\Personal\User\Entities\EloquentUserRelation;
 
 final class SourceModel extends Model implements Source
 {
-    use EloquentId;
+    use IntId;
     use EloquentUserRelation;
     use EloquentLanguageRelation;
-    use EloquentTimestamps;
+    use Timestamps;
     use EloquentHasTitle;
     use EloquentHasDescription;
     use EloquentHasContainerRelation;

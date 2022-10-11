@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Personal\Permissions\Entities;
 
 use App\Base\Entity\Identify\HasIntId;
-use App\Base\Entity\Timestamps\EloquentTimestamps;
+use App\Base\Entity\Timestamps\Timestamps;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Personal\Permissions\Enums\PermissionType;
 use Modules\Personal\User\Entities\EloquentUserRelation;
@@ -13,7 +13,7 @@ use Modules\Personal\User\Entities\EloquentUserRelation;
 final class PermissionModel extends Model implements Permission
 {
     use EloquentUserRelation;
-    use EloquentTimestamps;
+    use Timestamps;
 
     protected $table = 'user_permissions';
 

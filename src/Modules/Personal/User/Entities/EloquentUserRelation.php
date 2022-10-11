@@ -23,6 +23,13 @@ trait EloquentUserRelation
         return $this->user;
     }
 
+    public function setUserId(int $id): self
+    {
+        $this->user_id = $id;
+
+        return $this;
+    }
+
     public function getUserId(): int
     {
         return $this->user_id;

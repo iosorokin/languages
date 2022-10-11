@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Internal\Container\Entites;
 
-use App\Base\Entity\Identify\EloquentId;
-use App\Base\Entity\Timestamps\EloquentTimestamps;
+use App\Base\Entity\Identify\IntId;
+use App\Base\Entity\Timestamps\Timestamps;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
@@ -13,8 +13,8 @@ use Modules\Internal\Container\Contracts\ContainerableElement;
 
 final class ContainerElementModel extends Model implements ContainerElement
 {
-    use EloquentId;
-    use EloquentTimestamps;
+    use IntId;
+    use Timestamps;
 
     public $table = 'container_elements';
 

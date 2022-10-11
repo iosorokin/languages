@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Personal\User\Validators\Single;
 
-use Core\Validation\BaseValidator;
+use Core\Base\Validation\BaseValidator;
 
 abstract class UserValidator extends BaseValidator
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Domain\Languages\Tests\Endpoint;
+namespace Modules\Domain\Languages\Controllers\Guest;
 
 use Core\Base\Tests\EndpointCase;
-use Modules\Domain\Languages\Tests\LanguageApiHelper;
+use Modules\Domain\Languages\Helpers\LanguageApiHelper;
 
-class ShowLanguageTest extends EndpointCase
+class GuestShowLanguageTest extends EndpointCase
 {
     /**
      * @test

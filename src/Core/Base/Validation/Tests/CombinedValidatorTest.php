@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Core\Validation\Tests;
+namespace Core\Base\Validation\Tests;
 
 use Core\Base\Tests\UnitCase;
-use Core\Validation\Tests\Fakes\FakeCombinedValidator;
-use Core\Validation\Tests\Fakes\FakeFouthSingleValidator;
+use Core\Base\Validation\Tests\Fakes\FakeCombinedValidator;
+use Core\Base\Validation\Tests\Fakes\FakeFouthSingleValidator;
 use Illuminate\Validation\ValidationException;
 
 final class CombinedValidatorTest extends UnitCase

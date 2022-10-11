@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Personal\User\Entities;
 
-use App\Base\Entity\Identify\EloquentId;
-use App\Base\Entity\Timestamps\EloquentTimestamps;
+use App\Base\Entity\Identify\IntId;
+use App\Base\Entity\Timestamps\Timestamps;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -21,8 +21,8 @@ final class UserModel extends Model implements
 {
     use \Illuminate\Auth\Authenticatable;
     use HasApiTokens;
-    use EloquentId;
-    use EloquentTimestamps;
+    use IntId;
+    use Timestamps;
 
     protected $table = 'users';
 

@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\Personal\Auth\Entity;
 
-use App\Base\Entity\Identify\EloquentId;
-use App\Base\Entity\Timestamps\EloquentTimestamps;
+use App\Base\Entity\Identify\IntId;
+use App\Base\Entity\Timestamps\Timestamps;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Personal\User\Entities\EloquentUserRelation;
 
 final class BaseAuthModel extends Model implements
     BaseAuth
 {
-    use EloquentId;
-    use EloquentTimestamps;
+    use IntId;
+    use Timestamps;
     use EloquentUserRelation;
 
     protected $table = 'base_auths';

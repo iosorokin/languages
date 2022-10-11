@@ -6,9 +6,10 @@ use App\Extensions\Assert;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Pagination\CursorPaginator;
 use Illuminate\Support\Facades\DB;
+use Modules\Domain\Languages\Collections\Languages;
 use Modules\Domain\Languages\Entities\Language;
 use Modules\Domain\Languages\Entities\LanguageModel;
-use Modules\Domain\Languages\Filters\RealLanguageFilter;
+use Modules\Domain\Languages\Filters\LanguageFilter;
 
 class EloquentLanguageRepository implements LanguageRepository
 {
@@ -19,9 +20,10 @@ class EloquentLanguageRepository implements LanguageRepository
         $language->save();
     }
 
-    public function all(RealLanguageFilter $filter): CursorPaginator
+    public function all(LanguageFilter $filter): Languages
     {
-        return DB::table('languages')
+        /** @var CursorPaginator $paginator */
+        $paginator = DB::table('languages')
             ->select()
             ->when($filter->name, function (Builder $query) use ($filter) {
                 $query->where('name', '%' . $filter->name . '%');
@@ -34,6 +36,9 @@ class EloquentLanguageRepository implements LanguageRepository
             })
             ->orderBy('id')
             ->cursorPaginate();
+
+        $languages = new Languages($paginator->getCollection());
+        dd($languages);
     }
 
     public function get(int $id): ?Language

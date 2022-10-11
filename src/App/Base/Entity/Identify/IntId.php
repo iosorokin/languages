@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Base\Entity\Identify;
 
-trait EloquentId
+trait IntId
 {
+    private int $id;
+
     public function setId(int $id): self
     {
         $this->id = $id;

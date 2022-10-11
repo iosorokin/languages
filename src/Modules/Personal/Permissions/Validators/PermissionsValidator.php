@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Personal\Permissions\Validators;
 
-use Core\Validation\BaseValidator;
+use Core\Base\Validation\BaseValidator;
 use Illuminate\Validation\Rules\Enum;
 use Modules\Personal\Permissions\Enums\PermissionType;
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Domain\Languages\Tests;
+namespace Modules\Domain\Languages\Helpers;
 
 use Core\Base\Helpers\ApiHelper;
 use Illuminate\Testing\TestResponse;
@@ -11,7 +11,7 @@ final class LanguageApiHelper extends ApiHelper
 {
     public function create(array $attributes = []): TestResponse
     {
-        $attributes = LanguageHelper::new()->generateAttributes() + $attributes;
+        $attributes = LanguageAppHelper::new()->generateAttributes() + $attributes;
 
         return $this->testCase->postJson(route('api.admin.languages.store'), $attributes);
     }

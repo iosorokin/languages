@@ -5,17 +5,17 @@ declare(strict_types=1);
 namespace Modules\Domain\Analysis\Entities;
 
 use App\Base\Entity\EloquentHasDescription;
-use App\Base\Entity\Identify\EloquentId;
-use App\Base\Entity\Timestamps\EloquentTimestamps;
+use App\Base\Entity\Identify\IntId;
+use App\Base\Entity\Timestamps\Timestamps;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Domain\Sentences\Entities\EloquentSentenceRelation;
 use Modules\Personal\User\Entities\EloquentUserRelation;
 
 final class AnalysisModel extends Model implements Analysis
 {
-    use EloquentId;
+    use IntId;
     use EloquentHasDescription;
-    use EloquentTimestamps;
+    use Timestamps;
     use EloquentSentenceRelation;
     use EloquentUserRelation;
 

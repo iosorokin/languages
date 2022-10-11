@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Core\Validation;
+namespace Core\Base\Validation;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;

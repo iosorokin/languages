@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Domain\Languages\Tests;
+namespace Modules\Domain\Languages\Helpers;
 
 use Core\Base\Helpers\AppHelper;
 use Faker\Factory;
@@ -10,7 +10,7 @@ use Generator;
 use Illuminate\Support\Str;
 use Modules\Domain\Languages\Presenters\SeedLanguage;
 
-final class LanguageHelper extends AppHelper
+final class LanguageAppHelper extends AppHelper
 {
     public function generateAttributes(): array
     {

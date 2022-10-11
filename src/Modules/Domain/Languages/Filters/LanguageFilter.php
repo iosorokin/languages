@@ -5,7 +5,7 @@ namespace Modules\Domain\Languages\Filters;
 use App\Helpers\Pagination\CursorPaginator;
 use Illuminate\Support\Arr;
 
-class RealLanguageFilter
+class LanguageFilter
 {
     public function __construct(
         public readonly CursorPaginator $paginator,
@@ -23,4 +23,5 @@ class RealLanguageFilter
             code: Arr::get($attributes, 'code'),
         );
     }
+
 }

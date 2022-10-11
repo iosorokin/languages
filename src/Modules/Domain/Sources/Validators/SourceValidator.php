@@ -6,7 +6,7 @@ namespace Modules\Domain\Sources\Validators;
 
 use App\Rules\Description;
 use App\Rules\Title;
-use Core\Validation\BaseValidator;
+use Core\Base\Validation\BaseValidator;
 use Illuminate\Validation\Rules\Enum;
 use Modules\Domain\Sources\Enums\SourceType;
 
