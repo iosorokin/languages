@@ -13,7 +13,7 @@ class ShowLanguageTest extends EndpointCase
     public function __invoke()
     {
         $response = LanguageApiHelper::new($this)->show([
-            'id' => 1
+            'language_id' => 1
         ]);
         $response->assertOk();
     }

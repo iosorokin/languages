@@ -2,7 +2,7 @@
 
 return [
     'users' => [
-        'count_random_users' => 99,
+        'count_random_users' => 98,
         'super_admin' => [
             'email' => 'super@email.example',
             'password' => 'superpassword'
@@ -19,13 +19,13 @@ return [
     'sources' => [
         'count_for_user' => [
             'min' => 0,
-            'max' => 100,
+            'max' => 10,
         ],
     ],
     'sentences' => [
         'count_for_source' => [
             'min' => 0,
-            'max' => 250,
+            'max' => 100,
         ],
     ],
     'chapters' => [
@@ -33,5 +33,8 @@ return [
             'min' => 0,
             'max' => 10,
         ]
+    ],
+    'analysis' => [
+        'chance' => 80,
     ]
 ];

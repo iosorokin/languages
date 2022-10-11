@@ -14,7 +14,7 @@ final class EloquentSentenceRepository implements SentenceRepository
         $sentence->save();
     }
 
-    public function get(int $id): Sentence
+    public function get(int $id): ?Sentence
     {
         return SentenceModel::find($id);
     }

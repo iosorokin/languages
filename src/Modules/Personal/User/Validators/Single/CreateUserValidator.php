@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Personal\User\Validators;
+namespace Modules\Personal\User\Validators\Single;
 
 
 final class CreateUserValidator extends UserValidator

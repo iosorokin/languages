@@ -24,11 +24,10 @@ final class SentenceHelper extends AppHelper
     {
         /** @var SeedSentence $presenter */
         $presenter = app()->make(SeedSentence::class);
+        $overwrite['source_id'] = is_int($source) ? $source : $source->getId();
 
         for ($i = 0; $i < $count; $i++) {
             $attributes = $this->generateAttributes() + $overwrite;
-            $attributes['source_id'] = is_int($source) ? $source : $source->getId();
-
             yield $presenter($user, $attributes);
         }
     }

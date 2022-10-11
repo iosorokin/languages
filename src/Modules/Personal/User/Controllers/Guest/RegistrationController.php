@@ -6,18 +6,18 @@ use Core\Http\Controller;
 use Core\Http\Responses\Json\CreatedResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Modules\Personal\User\Presenters\Publics\Register;
+use Modules\Personal\User\Presenters\Publics\RegisterPresenter;
 
 final class RegistrationController extends Controller
 {
     public function __construct(
-        private Register $register,
+        private RegisterPresenter $register,
     ) {}
 
     public function __invoke(Request $request): JsonResponse
     {
         $user = ($this->register)($request->all());
-        $location = route('api.users.show', ['id' => $user->getId()]);
+        $location = route('api.users.show', ['user_id' => $user->getId()]);
 
         return new CreatedResponse($location);
     }

@@ -18,6 +18,5 @@ final class UserShowChapterTest extends EndpointCase
         BaseAuthApiHelper::new($this)->loginAsTestUser();
         $response = ChapterApiHelper::new($this)->show(2);
         $response->assertOk();
-        $response->dd();
     }
 }

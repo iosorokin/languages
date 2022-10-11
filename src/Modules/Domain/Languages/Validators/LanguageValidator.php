@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Validators;
 
-use Core\Extensions\BaseValidator;
+use Core\Validation\BaseValidator;
 
 abstract class LanguageValidator extends BaseValidator
 {

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sources\Presenters\Internal;
 
+use App\Extensions\Assert;
 use Core\Services\Morph\Morph;
 use Illuminate\Validation\ValidationException;
 use Modules\Domain\Sources\Entities\Source;
@@ -34,6 +35,15 @@ final class GetSource implements GetSourcePresenter
                 'source_id' => sprintf('Source with id %d not found', $id)
             ]);
         }
+        $this->setContainer($source);
+
+        return $source;
+    }
+
+    public function getOrThrowException(int $id): Source
+    {
+        $source = $this->repository->get($id);
+        Assert::notNull($source);
         $this->setContainer($source);
 
         return $source;

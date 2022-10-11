@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\Domain\Languages\Controllers;
+namespace Modules\Domain\Languages\Controllers\Guest;
 
 
 use Illuminate\Http\Request;
 use Modules\Domain\Languages\Presenters\Admin\AdminIndexLanguages;
 
-class IndexLanguagesController
+class GuestIndexLanguagesController
 {
     public function __construct(
         private AdminIndexLanguages $indexRealLanguages

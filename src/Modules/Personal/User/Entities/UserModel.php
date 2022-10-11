@@ -38,7 +38,7 @@ final class UserModel extends Model implements
 
     public function permission(): HasOne
     {
-        return $this->hasOne(PermissionModel::class);
+        return $this->hasOne(PermissionModel::class, 'user_id');
     }
 
     public function setPermission(Permission $permission): self

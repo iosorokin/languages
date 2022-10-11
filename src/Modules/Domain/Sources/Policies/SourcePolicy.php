@@ -11,4 +11,6 @@ interface SourcePolicy
     public function canCreate(Client $client, Language $language): void;
 
     public function canShow(Client $client, Source $source): void;
+
+    public function canTakeToWork(Client $client, Source $source): void;
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\Domain\Analysis\Controllers\UserStoreAnalysisController;
 use Modules\Domain\Chapters\Controllers\UserStoreChapterController;
 use Modules\Domain\Sentences\Controllers\UserDeleteSentenceController;
 use Modules\Domain\Sentences\Controllers\StoreSentenceController;
@@ -16,6 +17,9 @@ Route::post('sources/{source_id}/chapters', UserStoreChapterController::class)
 Route::post('sources/{source_id}/sentences', StoreSentenceController::class)
     ->name('sentences.store');
 Route::delete('sentences/{sentence_id}', UserDeleteSentenceController::class);
+
+Route::post('sentences/{sentence_id}/analysis', UserStoreAnalysisController::class)
+    ->name('analysis.store');
 
 Route::post('logout', LogoutController::class)
     ->name('logout');

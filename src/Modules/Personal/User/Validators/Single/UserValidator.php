@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Modules\Personal\User\Validators;
+namespace Modules\Personal\User\Validators\Single;
 
-use Core\Extensions\BaseValidator;
+use Core\Validation\BaseValidator;
 
 abstract class UserValidator extends BaseValidator
 {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Personal\Auth\Validators;
 
-use Core\Extensions\BaseValidator;
+use Core\Validation\BaseValidator;
 
 final class LoginValidator extends BaseValidator
 {

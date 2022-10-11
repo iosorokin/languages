@@ -18,7 +18,7 @@ final class GetUser implements GetUserPresenter
     public function __invoke(int $id): User
     {
         $client = ($this->getClient)();
-        $user = $client->id() === $id ? $client : $this->repository->get($id);
+        $user = $client->id() === $id ? $client->user() : $this->repository->get($id);
 
         return $user;
     }

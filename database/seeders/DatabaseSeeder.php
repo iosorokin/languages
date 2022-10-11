@@ -3,8 +3,10 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Modules\Domain\Analysis\Tests\AnalysisAppHelper;
 use Modules\Domain\Chapters\Tests\ChapterAppHelper;
 use Modules\Domain\Languages\Tests\LanguageHelper;
+use Modules\Domain\Sentences\Entities\Sentence;
 use Modules\Domain\Sentences\Tests\SentenceHelper;
 use Modules\Domain\Sources\Entities\Source;
 use Modules\Domain\Sources\Tests\SourceHelper;
@@ -111,6 +113,17 @@ class DatabaseSeeder extends Seeder
             config('seed.sentences.count_for_source.max')
         );
 
-        foreach ($sentenceHelper->create($user, $source, $count, $attributes) as $sentence) {}
+        foreach ($sentenceHelper->create($user, $source, $count, $attributes) as $sentence) {
+            $this->seedAnalysis($user, $sentence);
+        }
+    }
+
+    private function seedAnalysis(User $user, Sentence $sentence, array $overwrite = []): void
+    {
+        $analysisHelper = AnalysisAppHelper::new();
+        $chance = random_int(1, 100);
+        if ($chance < config('seed.analysis.chance')) {
+            $analysisHelper->create($user, $sentence, $overwrite);
+        }
     }
 }

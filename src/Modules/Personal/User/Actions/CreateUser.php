@@ -28,15 +28,8 @@ final class CreateUser
         $user = $this->userFactory->create($attributes);
         $baseAuth = $this->baseAuthFactory->create($attributes);
         $permission = $this->permissionFactory->create($user, $attributes['permissions'] ?? []);
-        $this->hashPassword($baseAuth);
         ($this->saveUser)($user, $baseAuth, $permission);
 
         return $user;
-    }
-
-    private function hashPassword(BaseAuth $baseAuth): void
-    {
-        $hashedPassword = Hash::make($baseAuth->getPassword());
-        $baseAuth->setPassword($hashedPassword);
     }
 }

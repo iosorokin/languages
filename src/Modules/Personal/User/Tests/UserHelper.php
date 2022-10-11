@@ -6,6 +6,7 @@ namespace Modules\Personal\User\Tests;
 
 use Core\Base\Helpers\AppHelper;
 use Generator;
+use Illuminate\Support\Facades\Log;
 use Modules\Personal\Auth\Tests\BaseAuthHelper;
 use Modules\Personal\Permissions\Enums\PermissionType;
 use Modules\Personal\User\Actions\CreateUser;
@@ -18,9 +19,6 @@ final class UserHelper extends AppHelper
     {
         return [
             'name' => $this->faker()->name(),
-            'permissions' => [
-                PermissionType::User,
-            ]
         ];
     }
 
@@ -49,7 +47,6 @@ final class UserHelper extends AppHelper
             $attributes = $overwrite
                 + $this->generateAttributes()
                 + BaseAuthHelper::new()->generateAttributes();
-
             $user = $action($attributes);
 
             yield $user;

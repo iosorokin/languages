@@ -53,7 +53,7 @@ final class PermissionModel extends Model implements Permission
 
     public function isRoot(): bool
     {
-        return $this->root;
+        return $this->root ?? false;
     }
 
     public function assignAdmin(): self
@@ -72,7 +72,7 @@ final class PermissionModel extends Model implements Permission
 
     public function isAdmin(): bool
     {
-        return $this->admin;
+        return $this->admin ?? false;
     }
 
     public function assignUser(): self
@@ -91,6 +91,6 @@ final class PermissionModel extends Model implements Permission
 
     public function isUser(): bool
     {
-        return $this->user;
+        return $this->user ?? false;
     }
 }

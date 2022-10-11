@@ -213,6 +213,7 @@ return [
         Modules\Personal\Permissions\PermissionServiceProvider::class,
         Modules\Favorites\FavoriteServiceProvider::class,
         Modules\Domain\Chapters\ChapterServiceProvider::class,
+        Modules\Domain\Analysis\AnalysisServiceProvider::class,
     ],
 
     /*

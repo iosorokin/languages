@@ -9,4 +9,6 @@ interface GetSourcePresenter
     public function getOrThrowNotFound(int $id): Source;
 
     public function getOrThrowBadRequest(int $id): Source;
+
+    public function getOrThrowException(int $id): Source;
 }

@@ -21,4 +21,13 @@ final class LaravelSourcePolicy implements SourcePolicy
     {
 
     }
+
+    public function canTakeToWork(Client $client, Source $source): void
+    {
+        $isClientOwner = $client->id() === $source->getUserId();
+        if ($isClientOwner) return;
+        $owner = $source->getUser();
+        $permission = $owner->getPermission();
+        abort_if($permission->isAdmin(), 403);
+    }
 }

@@ -1,13 +1,13 @@
 <?php
 
-namespace Modules\Domain\Languages\Controllers;
+namespace Modules\Domain\Languages\Controllers\Admin;
 
 use Core\Http\Responses\Json\CreatedResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Modules\Domain\Languages\Presenters\Admin\AdminCreateLanguagePresenter;
 
-class CreateLanguageController
+class AdminCreateLanguageController
 {
     public function __construct(
         private AdminCreateLanguagePresenter $newRealLanguage,
