@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Modules\Internal\Container\Factories;
 
 use Modules\Internal\Container\Contracts\ContainerableElement;
-use Modules\Internal\Container\Entites\Container;
-use Modules\Internal\Container\Entites\ContainerElement;
-use Modules\Internal\Container\Entites\ContainerElementModel;
+use Modules\Internal\Container\Structures\Container;
+use Modules\Internal\Container\Structures\ContainerElement;
+use Modules\Internal\Container\Structures\ContainerElementModel;
 
 final class ModelContainerElementFactory implements ContainerElementFactory
 {

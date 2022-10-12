@@ -2,7 +2,7 @@
 
 namespace Modules\Domain\Sources\Repositories;
 
-use Modules\Domain\Sources\Entities\Source;
+use Modules\Domain\Sources\Structures\Source;
 
 interface SourceRepository
 {

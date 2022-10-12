@@ -2,10 +2,10 @@
 
 namespace Modules\Domain\Languages\Factories;
 
-use Modules\Domain\Languages\Entities\Language;
-use Modules\Domain\Languages\Entities\LanguageModel;
+use Modules\Domain\Languages\Structures\Language;
+use Modules\Domain\Languages\Structures\LanguageModel;
 use Modules\Domain\Languages\Validators\CreateLanguageValidator;
-use Modules\Personal\User\Entities\User;
+use Modules\Personal\User\Structures\User;
 
 class ModelLanguageFactory extends BaseLanguageFactory
 {

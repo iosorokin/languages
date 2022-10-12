@@ -8,7 +8,7 @@ use Illuminate\Support\Arr;
 use Modules\Domain\Chapters\Policies\ChapterPolicy;
 use Modules\Domain\Chapters\Validators\CreateChapterValidator;
 use Modules\Domain\Sources\Presenters\Internal\GetSourcePresenter;
-use Modules\Internal\Container\Entites\Container;
+use Modules\Internal\Container\Structures\Container;
 use Modules\Internal\Container\Enums\ContainerType;
 use Modules\Internal\Container\Presenters\Internal\CreateContainerPresenter;
 use Modules\Internal\Container\Presenters\Internal\PushElementPresenter;

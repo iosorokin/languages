@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\User\Presenters\Special;
 
-use Modules\Personal\User\Entities\User;
+use Modules\Personal\User\Structures\User;
 
 interface InitRootUserPresenter
 {

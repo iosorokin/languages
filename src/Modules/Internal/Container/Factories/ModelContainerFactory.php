@@ -6,8 +6,8 @@ namespace Modules\Internal\Container\Factories;
 
 use Illuminate\Support\Arr;
 use Modules\Internal\Container\Contracts\Containerable;
-use Modules\Internal\Container\Entites\Container;
-use Modules\Internal\Container\Entites\ContainerModel;
+use Modules\Internal\Container\Structures\Container;
+use Modules\Internal\Container\Structures\ContainerModel;
 use Modules\Internal\Container\Enums\ContainerType;
 
 final class ModelContainerFactory implements ContainerFactory

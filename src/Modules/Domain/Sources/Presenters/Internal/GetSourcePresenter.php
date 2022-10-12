@@ -2,7 +2,7 @@
 
 namespace Modules\Domain\Sources\Presenters\Internal;
 
-use Modules\Domain\Sources\Entities\Source;
+use Modules\Domain\Sources\Structures\Source;
 
 interface GetSourcePresenter
 {

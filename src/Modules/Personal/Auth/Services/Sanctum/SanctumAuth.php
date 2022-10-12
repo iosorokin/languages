@@ -7,7 +7,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Modules\Personal\Auth\Services\AuthService;
 use Modules\Personal\Auth\Services\Sanctum\Actions\CreateSanctumToken;
 use Modules\Personal\Auth\Services\Sanctum\Dto\CreateSanctumTokenDto;
-use Modules\Personal\User\Entities\User;
+use Modules\Personal\User\Structures\User;
 
 class SanctumAuth implements AuthService
 {

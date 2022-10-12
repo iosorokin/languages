@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Modules\Domain\Analysis\Presenters;
 
 use Modules\Domain\Analysis\Actions\CreateAnalysis;
-use Modules\Domain\Analysis\Entities\Analysis;
+use Modules\Domain\Analysis\Structures\Analysis;
 use Modules\Personal\Auth\Presenters\GetClientPresenter;
-use Modules\Personal\User\Entities\User;
+use Modules\Personal\User\Structures\User;
 use Modules\Personal\User\Presenters\Internal\GetUserPresenter;
 
 final class SeedAnalysis

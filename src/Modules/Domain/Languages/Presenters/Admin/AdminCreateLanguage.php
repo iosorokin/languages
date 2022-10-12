@@ -3,7 +3,7 @@
 namespace Modules\Domain\Languages\Presenters\Admin;
 
 use Modules\Domain\Languages\Actions\CreateLanguage;
-use Modules\Domain\Languages\Entities\Language;
+use Modules\Domain\Languages\Structures\Language;
 use Modules\Domain\Languages\Policies\LanguagePolicy;
 use Modules\Personal\Auth\Presenters\GetClientPresenter;
 

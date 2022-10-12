@@ -2,7 +2,7 @@
 
 namespace Modules\Domain\Languages\Policies;
 
-use Modules\Domain\Languages\Entities\Language;
+use Modules\Domain\Languages\Structures\Language;
 use Modules\Personal\Auth\Contexts\Client;
 
 interface LanguagePolicy
@@ -14,4 +14,6 @@ interface LanguagePolicy
     public function canUpdate(Client $client, Language $language): void;
 
     public function canDelete(Client $client, Language $language): void;
+
+    public function canTakeToLearn(Client $client, Language $language): void;
 }

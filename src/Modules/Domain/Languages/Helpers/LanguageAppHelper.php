@@ -9,6 +9,8 @@ use Faker\Factory;
 use Generator;
 use Illuminate\Support\Str;
 use Modules\Domain\Languages\Presenters\SeedLanguage;
+use Modules\Domain\Languages\Structures\Language;
+use Modules\Personal\User\Structures\User;
 
 final class LanguageAppHelper extends AppHelper
 {
@@ -21,15 +23,26 @@ final class LanguageAppHelper extends AppHelper
         ];
     }
 
-    public function create(int $userId, int $count = 1, array $overwrite = []): Generator
+    public function create(User|int $user, int $count = 1, array $overwrite = []): Generator
     {
-        /** @var SeedLanguage $presenter */
-        $presenter = app()->get(SeedLanguage::class);
+        $presenter = $this->presenter();
 
         for ($i = 0; $i < $count; $i++) {
             $attributes = $overwrite + $this->generateAttributes();
 
-            yield $presenter($userId, $attributes);
+            yield $presenter->create($user, $attributes);
         }
+    }
+
+    public function update(User|int $user, Language|int $language, array $attributes): void
+    {
+        $presenter = $this->presenter();
+
+        $presenter->update($user, $language, $attributes);
+    }
+
+    private function presenter(): SeedLanguage
+    {
+        return app()->get(SeedLanguage::class);
     }
 }

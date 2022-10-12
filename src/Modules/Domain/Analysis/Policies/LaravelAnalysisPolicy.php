@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Analysis\Policies;
 
-use Modules\Domain\Sentences\Entities\Sentence;
+use Modules\Domain\Sentences\Structures\Sentence;
 use Modules\Domain\Sources\Policies\SourcePolicy;
 use Modules\Personal\Auth\Contexts\Client;
 

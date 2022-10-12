@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Domain\Languages\Presenters\Internal;
 
 use Illuminate\Validation\ValidationException;
-use Modules\Domain\Languages\Entities\Language;
+use Modules\Domain\Languages\Structures\Language;
 use Modules\Domain\Languages\Repositories\LanguageRepository;
 
 final class GetLanguage implements GetLanguagePresenter

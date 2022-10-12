@@ -7,7 +7,7 @@ namespace Modules\Domain\Sentences\Actions;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Modules\Domain\Chapters\Presenters\GetChapterPresenter;
-use Modules\Domain\Sentences\Entities\Sentence;
+use Modules\Domain\Sentences\Structures\Sentence;
 use Modules\Domain\Sentences\Factories\SentenceFactory;
 use Modules\Domain\Sentences\Policies\SentencePolicy;
 use Modules\Domain\Sentences\Repositories\SentenceRepository;

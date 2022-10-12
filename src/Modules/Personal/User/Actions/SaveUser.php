@@ -6,10 +6,10 @@ namespace Modules\Personal\User\Actions;
 
 use Illuminate\Support\Facades\DB;
 use Modules\Personal\Auth\Repositories\BaseAuthRepository;
-use Modules\Personal\Auth\Entity\BaseAuthModel;
-use Modules\Personal\Permissions\Entities\Permission;
+use Modules\Personal\Auth\Structures\BaseAuthModel;
+use Modules\Personal\Permissions\Structures\Permission;
 use Modules\Personal\Permissions\Repositories\PermissionRepository;
-use Modules\Personal\User\Entities\UserModel;
+use Modules\Personal\User\Structures\UserModel;
 use Modules\Personal\User\Repositories\UserRepository;
 
 final class SaveUser

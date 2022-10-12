@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('native_name');
             $table->string('code', 8);
+            $table->boolean('is_active');
             $table->timestamps();
 
             $table->foreign('user_id')->on('users')->references('id');

@@ -9,9 +9,11 @@ final class CreateLanguageValidator extends LanguageValidator
     protected function rules(): array
     {
         $rules = [
-
+            'name' => ['required'],
+            'native_name' => ['required'],
+            'code' => ['required'],
         ];
 
-        return $this->defaultRules() + $rules;
+        return array_merge_recursive($this->commonRules() , $rules);
     }
 }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Internal\Container\Services\Dispatcher;
 
-use Modules\Internal\Container\Entites\Container;
+use Modules\Internal\Container\Structures\Container;
 use Modules\Internal\Container\Repositories\ContainerRepository;
 use Modules\Internal\Container\Services\Dispatcher\Exceptions\ContainerNotFound;
 

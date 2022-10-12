@@ -2,8 +2,8 @@
 
 namespace Modules\Domain\Sources\Repositories;
 
-use Modules\Domain\Sources\Entities\Source;
-use Modules\Domain\Sources\Entities\SourceModel;
+use Modules\Domain\Sources\Structures\Source;
+use Modules\Domain\Sources\Structures\SourceModel;
 
 class EloquentSourceRepository implements SourceRepository
 {

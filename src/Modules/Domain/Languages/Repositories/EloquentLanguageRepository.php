@@ -7,8 +7,8 @@ use Core\Services\Pagination\CursorPaginator;
 use Illuminate\Contracts\Pagination\CursorPaginator as EloquentCursorPaginator;
 use Illuminate\Database\Query\Builder;
 use Modules\Domain\Languages\Collections\Languages;
-use Modules\Domain\Languages\Entities\Language;
-use Modules\Domain\Languages\Entities\LanguageModel;
+use Modules\Domain\Languages\Structures\Language;
+use Modules\Domain\Languages\Structures\LanguageModel;
 use Modules\Domain\Languages\Filters\LanguageFilter;
 
 class EloquentLanguageRepository implements LanguageRepository

@@ -2,7 +2,7 @@
 
 namespace Modules\Internal\Container\Presenters;
 
-use Modules\Internal\Container\Entites\Container;
+use Modules\Internal\Container\Structures\Container;
 
 interface GetContainerPresenter
 {

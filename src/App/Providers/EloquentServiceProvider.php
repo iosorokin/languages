@@ -11,18 +11,18 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\ServiceProvider;
-use Modules\Domain\Languages\Entities\Language;
-use Modules\Domain\Languages\Entities\LanguageModel;
-use Modules\Domain\Sentences\Entities\Sentence;
-use Modules\Domain\Sentences\Entities\SentenceModel;
-use Modules\Domain\Sources\Entities\Source;
-use Modules\Domain\Sources\Entities\SourceModel;
-use Modules\Internal\Container\Entites\Container;
-use Modules\Internal\Container\Entites\ContainerElement;
-use Modules\Internal\Container\Entites\ContainerElementModel;
-use Modules\Internal\Container\Entites\ContainerModel;
-use Modules\Personal\User\Entities\User;
-use Modules\Personal\User\Entities\UserModel;
+use Modules\Domain\Languages\Structures\Language;
+use Modules\Domain\Languages\Structures\LanguageModel;
+use Modules\Domain\Sentences\Structures\Sentence;
+use Modules\Domain\Sentences\Structures\SentenceModel;
+use Modules\Domain\Sources\Structures\Source;
+use Modules\Domain\Sources\Structures\SourceModel;
+use Modules\Internal\Container\Structures\Container;
+use Modules\Internal\Container\Structures\ContainerElement;
+use Modules\Internal\Container\Structures\ContainerElementModel;
+use Modules\Internal\Container\Structures\ContainerModel;
+use Modules\Personal\User\Structures\User;
+use Modules\Personal\User\Structures\UserModel;
 
 final class EloquentServiceProvider extends ServiceProvider
 {

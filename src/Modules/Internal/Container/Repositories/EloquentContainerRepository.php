@@ -7,11 +7,11 @@ namespace Modules\Internal\Container\Repositories;
 use Core\Services\Morph\Morph;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
-use Modules\Domain\Sentences\Entities\SentenceModel;
-use Modules\Internal\Container\Entites\Container;
-use Modules\Internal\Container\Entites\ContainerElement;
-use Modules\Internal\Container\Entites\ContainerElementModel;
-use Modules\Internal\Container\Entites\ContainerModel;
+use Modules\Domain\Sentences\Structures\SentenceModel;
+use Modules\Internal\Container\Structures\Container;
+use Modules\Internal\Container\Structures\ContainerElement;
+use Modules\Internal\Container\Structures\ContainerElementModel;
+use Modules\Internal\Container\Structures\ContainerModel;
 use Modules\Internal\Container\Enums\ContainerType;
 
 final class EloquentContainerRepository implements ContainerRepository

@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Modules\Domain\Sentences\Presenters;
 
 use Modules\Domain\Sentences\Actions\CreateSentence;
-use Modules\Domain\Sentences\Entities\Sentence;
+use Modules\Domain\Sentences\Structures\Sentence;
 use Modules\Personal\Auth\Presenters\GetClientPresenter;
-use Modules\Personal\User\Entities\User;
+use Modules\Personal\User\Structures\User;
 use Modules\Personal\User\Presenters\Internal\GetUserPresenter;
 
 final class SeedSentence

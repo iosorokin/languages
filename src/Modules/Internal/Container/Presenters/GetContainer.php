@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Internal\Container\Presenters;
 
 use Illuminate\Validation\ValidationException;
-use Modules\Internal\Container\Entites\Container;
+use Modules\Internal\Container\Structures\Container;
 use Modules\Internal\Container\Repositories\ContainerRepository;
 
 final class GetContainer implements GetContainerPresenter

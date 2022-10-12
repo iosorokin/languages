@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\Auth\Factories;
 
-use Modules\Personal\Auth\Entity\BaseAuth;
+use Modules\Personal\Auth\Structures\BaseAuth;
 
 interface BaseAuthFactory
 {

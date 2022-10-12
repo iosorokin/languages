@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Analysis\Actions;
 
-use Modules\Domain\Analysis\Entities\Analysis;
+use Modules\Domain\Analysis\Structures\Analysis;
 use Modules\Domain\Analysis\Factories\AnalysisFactory;
 use Modules\Domain\Analysis\Policies\AnalysisPolicy;
 use Modules\Domain\Analysis\Repositories\AnalysisRepository;

@@ -2,8 +2,8 @@
 
 namespace Modules\Domain\Sources\Policies;
 
-use Modules\Domain\Languages\Entities\Language;
-use Modules\Domain\Sources\Entities\Source;
+use Modules\Domain\Languages\Structures\Language;
+use Modules\Domain\Sources\Structures\Source;
 use Modules\Personal\Auth\Contexts\Client;
 
 interface SourcePolicy

@@ -6,7 +6,7 @@ namespace Modules\Personal\User\Presenters\Admin;
 
 use Modules\Personal\Permissions\Validators\PermissionsValidator;
 use Modules\Personal\User\Actions\CreateUser;
-use Modules\Personal\User\Entities\User;
+use Modules\Personal\User\Structures\User;
 use Modules\Personal\User\Policy\UserPolicy;
 use Modules\Personal\User\Validators\RegistrationCombinedValidator;
 

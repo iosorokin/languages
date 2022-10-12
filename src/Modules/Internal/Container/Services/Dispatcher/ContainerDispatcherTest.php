@@ -6,8 +6,8 @@ namespace Modules\Internal\Container\Services\Dispatcher;
 
 use Core\Base\Tests\UnitCase;
 use Illuminate\Support\Collection;
-use Modules\Domain\Sentences\Entities\SentenceModel;
-use Modules\Internal\Container\Entites\ContainerModel;
+use Modules\Domain\Sentences\Structures\SentenceModel;
+use Modules\Internal\Container\Structures\ContainerModel;
 use Modules\Internal\Container\Repositories\ContainerRepository;
 use Modules\Internal\Container\Repositories\FakeContainerRepository;
 

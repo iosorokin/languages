@@ -9,11 +9,10 @@ use Illuminate\Contracts\Pagination\CursorPaginator as EloquentCursorPaginator;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use Modules\Domain\Languages\Collections\Languages;
-use Modules\Domain\Languages\Entities\Language;
+use Modules\Domain\Languages\Structures\Language;
 use Modules\Domain\Languages\Factories\EntityLanguageFactory;
 use Modules\Domain\Languages\Filters\LanguageFilter;
 use stdClass;
-use function Symfony\Component\Translation\t;
 
 final class EntityLanguageRepository implements LanguageRepository
 {
@@ -28,14 +27,21 @@ final class EntityLanguageRepository implements LanguageRepository
 
     public function get(int $id): ?Language
     {
-        // TODO: Implement get() method.
+        $language = DB::table('languages')
+            ->where('id', $id)
+            ->first();
+
+        if ($language) {
+            $language = $this->factory->restore((array) $language);
+        }
+
+        return $language;
     }
 
     public function all(LanguageFilter $filter): Languages
     {
         /** @var EloquentCursorPaginator $eloquentPaginator */
         $eloquentPaginator = DB::table('languages')
-            ->select()
             ->when($filter->name, function (Builder $query) use ($filter) {
                 $query->where('name', '%' . $filter->name . '%');
             })
@@ -47,13 +53,12 @@ final class EntityLanguageRepository implements LanguageRepository
             })
             ->orderBy('id')
             ->cursorPaginate();
-        $eloquentPaginator->getCollection()
-            ->transform(function (stdClass $item) {
-                return $this->factory->restore((array) $item);
-            });
 
         $paginator = new CursorPaginator($eloquentPaginator);
         $languages = new Languages($eloquentPaginator->getCollection());
+        $languages->lazyWrapper(function (stdClass $item) {
+            return $this->factory->restore((array) $item);
+        });
         $languages->setPaginator($paginator);
 
         return $languages;

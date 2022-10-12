@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Transformers;
 
-use Modules\Domain\Languages\Entities\Language;
+use Modules\Domain\Languages\Structures\Language;
 
 final class LanguageTransformer
 {

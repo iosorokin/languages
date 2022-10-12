@@ -2,7 +2,7 @@
 
 namespace Modules\Domain\Languages\Presenters\Guest;
 
-use Modules\Domain\Languages\Entities\Language;
+use Modules\Domain\Languages\Structures\Language;
 
 interface GuestShowLanguagePresenter
 {

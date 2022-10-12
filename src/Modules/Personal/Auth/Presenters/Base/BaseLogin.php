@@ -8,7 +8,7 @@ use Modules\Personal\Auth\Actions\GetBaseAuth;
 use Modules\Personal\Auth\Dto\GetBaseAuthDto;
 use Modules\Personal\Auth\Services\AuthService;
 use Modules\Personal\Auth\Validators\LoginValidator;
-use Modules\Personal\User\Entities\User;
+use Modules\Personal\User\Structures\User;
 use Modules\Personal\User\Repositories\UserRepository;
 use Webmozart\Assert\Assert;
 

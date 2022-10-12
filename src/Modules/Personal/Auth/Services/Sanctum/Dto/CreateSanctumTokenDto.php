@@ -4,7 +4,7 @@ namespace Modules\Personal\Auth\Services\Sanctum\Dto;
 
 use DateTimeInterface;
 use Illuminate\Support\Arr;
-use Modules\Personal\User\Entities\User;
+use Modules\Personal\User\Structures\User;
 
 class CreateSanctumTokenDto
 {

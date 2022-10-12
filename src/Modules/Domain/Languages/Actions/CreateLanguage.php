@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Actions;
 
-use Modules\Domain\Languages\Entities\Language;
+use Modules\Domain\Languages\Structures\Language;
 use Modules\Domain\Languages\Factories\LanguageFactory;
 use Modules\Domain\Languages\Repositories\LanguageRepository;
 use Modules\Domain\Languages\Validators\CreateLanguageValidator;
-use Modules\Personal\User\Entities\User;
+use Modules\Personal\User\Structures\User;
 
 final class CreateLanguage
 {

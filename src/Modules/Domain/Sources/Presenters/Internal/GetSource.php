@@ -7,7 +7,7 @@ namespace Modules\Domain\Sources\Presenters\Internal;
 use App\Extensions\Assert;
 use Core\Services\Morph\Morph;
 use Illuminate\Validation\ValidationException;
-use Modules\Domain\Sources\Entities\Source;
+use Modules\Domain\Sources\Structures\Source;
 use Modules\Domain\Sources\Repositories\SourceRepository;
 use Modules\Internal\Container\Repositories\ContainerRepository;
 

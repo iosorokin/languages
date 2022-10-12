@@ -8,12 +8,12 @@ use Core\Base\Validation\BaseValidator;
 
 abstract class LanguageValidator extends BaseValidator
 {
-    protected function defaultRules(): array
+    protected function commonRules(): array
     {
         return [
-            'name' => ['required'],
-            'native_name' => ['required'],
-            'code' => ['required'],
+            'name' => ['string'],
+            'native_name' => ['string'],
+            'code' => ['string'],
         ];
     }
 }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Presenters\Admin;
 
-use Modules\Domain\Languages\Entities\Language;
+use Modules\Domain\Languages\Structures\Language;
 use Modules\Domain\Languages\Repositories\LanguageRepository;
 
 class AdminGetLanguage implements AdminGetLanguagePresenter

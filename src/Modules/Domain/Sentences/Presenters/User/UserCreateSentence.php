@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Domain\Sentences\Presenters\User;
 
 use Modules\Domain\Sentences\Actions\CreateSentence;
-use Modules\Domain\Sentences\Entities\Sentence;
+use Modules\Domain\Sentences\Structures\Sentence;
 use Modules\Personal\Auth\Presenters\GetClientPresenter;
 
 final class UserCreateSentence implements UserCreateSentencePresenter

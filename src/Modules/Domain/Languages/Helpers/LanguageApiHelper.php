@@ -25,4 +25,11 @@ final class LanguageApiHelper extends ApiHelper
     {
         return $this->testCase->getJson(route('api.languages.show', $attributes));
     }
+
+    public function update(int $languageId, array $attributes = []): TestResponse
+    {
+        $attributes['language_id'] = $languageId;
+
+        return $this->testCase->putJson(route('api.admin.languages.update', $attributes));
+    }
 }

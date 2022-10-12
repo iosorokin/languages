@@ -6,7 +6,7 @@ namespace Modules\Domain\Chapters\Tests;
 
 use Core\Base\Helpers\ApiHelper;
 use Illuminate\Testing\TestResponse;
-use Modules\Domain\Sources\Entities\Source;
+use Modules\Domain\Sources\Structures\Source;
 use Modules\Internal\Container\Tests\ContainerAppHelper;
 
 final class ChapterApiHelper extends ApiHelper

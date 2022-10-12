@@ -4,8 +4,8 @@ namespace Modules\Personal\Auth\Factories;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
-use Modules\Personal\Auth\Entity\BaseAuth;
-use Modules\Personal\Auth\Entity\BaseAuthModel;
+use Modules\Personal\Auth\Structures\BaseAuth;
+use Modules\Personal\Auth\Structures\BaseAuthModel;
 
 class ModelBaseAuthFactory implements BaseAuthFactory
 {

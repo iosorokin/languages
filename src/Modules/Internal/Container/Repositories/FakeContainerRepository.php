@@ -6,8 +6,8 @@ namespace Modules\Internal\Container\Repositories;
 
 use Core\Services\Morph\Morph;
 use Illuminate\Support\Collection;
-use Modules\Internal\Container\Entites\Container;
-use Modules\Internal\Container\Entites\ContainerElement;
+use Modules\Internal\Container\Structures\Container;
+use Modules\Internal\Container\Structures\ContainerElement;
 use Modules\Internal\Container\Enums\ContainerType;
 
 final class FakeContainerRepository implements ContainerRepository

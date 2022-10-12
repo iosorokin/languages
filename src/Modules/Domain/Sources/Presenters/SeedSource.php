@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Modules\Domain\Sources\Presenters;
 
 use Modules\Domain\Sources\Actions\CreateSource;
-use Modules\Domain\Sources\Entities\Source;
+use Modules\Domain\Sources\Structures\Source;
 use Modules\Personal\Auth\Presenters\GetClientPresenter;
-use Modules\Personal\User\Entities\User;
+use Modules\Personal\User\Structures\User;
 use Modules\Personal\User\Repositories\UserRepository;
 
 final class SeedSource

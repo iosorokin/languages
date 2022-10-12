@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Analysis\Factories;
 
-use Modules\Domain\Analysis\Entities\Analysis;
-use Modules\Domain\Analysis\Entities\AnalysisModel;
-use Modules\Domain\Sentences\Entities\Sentence;
-use Modules\Personal\User\Entities\User;
+use Modules\Domain\Analysis\Structures\Analysis;
+use Modules\Domain\Analysis\Structures\AnalysisModel;
+use Modules\Domain\Sentences\Structures\Sentence;
+use Modules\Personal\User\Structures\User;
 
 final class ModelAnalysisFactory implements AnalysisFactory
 {

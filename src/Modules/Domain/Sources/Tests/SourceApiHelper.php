@@ -6,7 +6,7 @@ namespace Modules\Domain\Sources\Tests;
 
 use Core\Base\Helpers\ApiHelper;
 use Illuminate\Testing\TestResponse;
-use Modules\Domain\Sources\Entities\Source;
+use Modules\Domain\Sources\Structures\Source;
 
 final class SourceApiHelper extends ApiHelper
 {

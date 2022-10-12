@@ -2,7 +2,7 @@
 
 namespace Modules\Internal\Container\Presenters\User;
 
-use Modules\Internal\Container\Entites\ContainerElement;
+use Modules\Internal\Container\Structures\ContainerElement;
 
 interface UserPushElementPresenter
 {

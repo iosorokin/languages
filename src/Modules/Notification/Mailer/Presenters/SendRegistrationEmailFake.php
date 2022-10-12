@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Notification\Mailer\Presenters;
 
-use Modules\Personal\User\Entities\User;
+use Modules\Personal\User\Structures\User;
 
 final class SendRegistrationEmailFake implements SendRegistrationEmailPresenter
 {

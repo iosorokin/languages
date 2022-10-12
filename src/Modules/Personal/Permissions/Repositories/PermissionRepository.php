@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\Permissions\Repositories;
 
-use Modules\Personal\Permissions\Entities\Permission;
+use Modules\Personal\Permissions\Structures\Permission;
 
 interface PermissionRepository
 {

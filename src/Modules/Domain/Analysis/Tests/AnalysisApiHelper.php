@@ -6,7 +6,7 @@ namespace Modules\Domain\Analysis\Tests;
 
 use Core\Base\Helpers\ApiHelper;
 use Illuminate\Testing\TestResponse;
-use Modules\Domain\Sentences\Entities\Sentence;
+use Modules\Domain\Sentences\Structures\Sentence;
 
 final class AnalysisApiHelper extends ApiHelper
 {

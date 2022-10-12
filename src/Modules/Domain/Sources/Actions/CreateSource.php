@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Domain\Sources\Actions;
 
 use Modules\Domain\Languages\Presenters\Internal\GetLanguagePresenter;
-use Modules\Domain\Sources\Entities\Source;
+use Modules\Domain\Sources\Structures\Source;
 use Modules\Domain\Sources\Factories\SourceFactory;
 use Modules\Domain\Sources\Policies\SourcePolicy;
 use Modules\Domain\Sources\Repositories\SourceRepository;

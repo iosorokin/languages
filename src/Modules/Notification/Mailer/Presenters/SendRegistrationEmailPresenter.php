@@ -2,7 +2,7 @@
 
 namespace Modules\Notification\Mailer\Presenters;
 
-use Modules\Personal\User\Entities\User;
+use Modules\Personal\User\Structures\User;
 
 interface SendRegistrationEmailPresenter
 {

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Personal\User\Factories;
 
-use Modules\Personal\User\Entities\User;
-use Modules\Personal\User\Entities\UserModel;
+use Modules\Personal\User\Structures\User;
+use Modules\Personal\User\Structures\UserModel;
 
 final class LaravelUserFactory implements UserFactory
 {

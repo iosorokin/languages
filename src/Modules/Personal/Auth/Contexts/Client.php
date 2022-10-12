@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\Auth\Contexts;
 
-use Modules\Personal\User\Entities\User;
+use Modules\Personal\User\Structures\User;
 
 interface Client
 {

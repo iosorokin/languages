@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Domain\Analysis\Presenters\User;
 
 use Modules\Domain\Analysis\Actions\CreateAnalysis;
-use Modules\Domain\Analysis\Entities\Analysis;
+use Modules\Domain\Analysis\Structures\Analysis;
 use Modules\Personal\Auth\Presenters\GetClientPresenter;
 
 final class UserCreateAnalysis implements UserCreateAnalysisPresenter

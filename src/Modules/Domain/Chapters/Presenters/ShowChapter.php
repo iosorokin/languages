@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Domain\Chapters\Presenters;
 
 use Modules\Domain\Chapters\Validators\ShowChapterValidator;
-use Modules\Internal\Container\Entites\Container;
+use Modules\Internal\Container\Structures\Container;
 
 final class ShowChapter implements ShowChapterPresenter
 {

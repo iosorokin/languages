@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Modules\Internal\Container\Presenters\Internal;
 
 use Modules\Internal\Container\Contracts\ContainerableElement;
-use Modules\Internal\Container\Entites\Container;
-use Modules\Internal\Container\Entites\ContainerElement;
+use Modules\Internal\Container\Structures\Container;
+use Modules\Internal\Container\Structures\ContainerElement;
 use Modules\Internal\Container\Services\Dispatcher\ContainerDispatcher;
 
 final class PushElement implements PushElementPresenter

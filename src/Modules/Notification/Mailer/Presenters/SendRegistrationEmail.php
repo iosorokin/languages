@@ -6,7 +6,7 @@ namespace Modules\Notification\Mailer\Presenters;
 
 use Illuminate\Bus\Dispatcher;
 use Modules\Notification\Mailer\Tasks\SendLearnerRegistrationEmailTask;
-use Modules\Personal\User\Entities\User;
+use Modules\Personal\User\Structures\User;
 
 final class SendRegistrationEmail implements SendRegistrationEmailPresenter
 {

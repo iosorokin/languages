@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\Auth\Services;
 
-use Modules\Personal\User\Entities\User;
+use Modules\Personal\User\Structures\User;
 
 interface AuthService
 {

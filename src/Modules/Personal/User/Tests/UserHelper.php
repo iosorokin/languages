@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Log;
 use Modules\Personal\Auth\Tests\BaseAuthHelper;
 use Modules\Personal\Permissions\Enums\PermissionType;
 use Modules\Personal\User\Actions\CreateUser;
-use Modules\Personal\User\Entities\User;
+use Modules\Personal\User\Structures\User;
 use Modules\Personal\User\Presenters\Special\InitRootUserPresenter;
 
 final class UserHelper extends AppHelper

@@ -2,9 +2,9 @@
 
 namespace Modules\Domain\Analysis\Factories;
 
-use Modules\Domain\Analysis\Entities\Analysis;
-use Modules\Domain\Sentences\Entities\Sentence;
-use Modules\Personal\User\Entities\User;
+use Modules\Domain\Analysis\Structures\Analysis;
+use Modules\Domain\Sentences\Structures\Sentence;
+use Modules\Personal\User\Structures\User;
 
 interface AnalysisFactory
 {

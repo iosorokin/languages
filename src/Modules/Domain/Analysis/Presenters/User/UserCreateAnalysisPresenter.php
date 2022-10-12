@@ -2,7 +2,7 @@
 
 namespace Modules\Domain\Analysis\Presenters\User;
 
-use Modules\Domain\Analysis\Entities\Analysis;
+use Modules\Domain\Analysis\Structures\Analysis;
 
 interface UserCreateAnalysisPresenter
 {

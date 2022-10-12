@@ -8,7 +8,7 @@ use Core\Base\Helpers\AppHelper;
 use Generator;
 use Illuminate\Support\Arr;
 use Modules\Domain\Sources\Presenters\SeedSource;
-use Modules\Personal\User\Entities\User;
+use Modules\Personal\User\Structures\User;
 
 final class SourceHelper extends AppHelper
 {

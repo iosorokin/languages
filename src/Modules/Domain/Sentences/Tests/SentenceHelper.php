@@ -7,9 +7,9 @@ namespace Modules\Domain\Sentences\Tests;
 use Core\Base\Helpers\AppHelper;
 use Generator;
 use Modules\Domain\Sentences\Presenters\SeedSentence;
-use Modules\Domain\Sources\Entities\Source;
-use Modules\Internal\Container\Entites\Container;
-use Modules\Personal\User\Entities\User;
+use Modules\Domain\Sources\Structures\Source;
+use Modules\Internal\Container\Structures\Container;
+use Modules\Personal\User\Structures\User;
 
 final class SentenceHelper extends AppHelper
 {

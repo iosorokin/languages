@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace Modules\Personal\User\Actions;
 
 use Illuminate\Support\Facades\Hash;
-use Modules\Personal\Auth\Entity\BaseAuth;
+use Modules\Personal\Auth\Structures\BaseAuth;
 use Modules\Personal\Auth\Factories\BaseAuthFactory;
 use Modules\Personal\Permissions\Factories\PermissionFactory;
 use Modules\Personal\User\Factories\UserFactory;
-use Modules\Personal\User\Entities\UserModel;
+use Modules\Personal\User\Structures\UserModel;
 
 final class CreateUser
 {

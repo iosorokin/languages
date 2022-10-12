@@ -2,7 +2,7 @@
 
 namespace Modules\Domain\Chapters\Presenters;
 
-use Modules\Internal\Container\Entites\Container;
+use Modules\Internal\Container\Structures\Container;
 
 interface UserStoreChapterPresenter
 {

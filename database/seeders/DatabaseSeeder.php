@@ -6,11 +6,11 @@ use Illuminate\Database\Seeder;
 use Modules\Domain\Analysis\Tests\AnalysisAppHelper;
 use Modules\Domain\Chapters\Tests\ChapterAppHelper;
 use Modules\Domain\Languages\Helpers\LanguageAppHelper;
-use Modules\Domain\Sentences\Entities\Sentence;
+use Modules\Domain\Sentences\Structures\Sentence;
 use Modules\Domain\Sentences\Tests\SentenceHelper;
-use Modules\Domain\Sources\Entities\Source;
+use Modules\Domain\Sources\Structures\Source;
 use Modules\Domain\Sources\Tests\SourceHelper;
-use Modules\Personal\User\Entities\User;
+use Modules\Personal\User\Structures\User;
 use Modules\Personal\User\Tests\UserHelper;
 
 class DatabaseSeeder extends Seeder
@@ -22,9 +22,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $admin = $this->createRoot();
+        $root = $this->createRoot();
         $testUser = $this->createTestUser();
-        $languageIds = $this->createLanguages();
+        $languageIds = $this->createLanguages($root);
         $this->seedContent($testUser, $languageIds);
 
         foreach (UserHelper::new()->create(config('seed.users.count_random_users')) as $user) {
@@ -52,18 +52,26 @@ class DatabaseSeeder extends Seeder
         return $user;
     }
 
-    private function createLanguages(): array
+    private function createLanguages(User $user): array
     {
-        $ids = [];
-        $generator = LanguageAppHelper::new()->create(
-            userId: 1,
+        $helper = LanguageAppHelper::new();
+        $generator = $helper->create(
+            user: $user,
             count: config('seed.languages.count')
         );
+
+        $activeIds = [];
         foreach ($generator as $language) {
-            $ids[] = $language->getId();
+            $chance = random_int(1, 100);
+            if ($chance < 80) {
+                $helper->update($user, $language, [
+                    'is_active' => true,
+                ]);
+                $activeIds[] = $language->getId();
+            }
         }
 
-        return $ids;
+        return $activeIds;
     }
 
     private function seedContent(User $user, array $languageIds)

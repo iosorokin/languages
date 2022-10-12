@@ -2,7 +2,7 @@
 
 namespace Modules\Domain\Chapters\Policies;
 
-use Modules\Domain\Sources\Entities\Source;
+use Modules\Domain\Sources\Structures\Source;
 use Modules\Personal\Auth\Contexts\Client;
 
 interface ChapterPolicy

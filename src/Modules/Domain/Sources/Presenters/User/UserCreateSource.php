@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Domain\Sources\Presenters\User;
 
 use Modules\Domain\Sources\Actions\CreateSource;
-use Modules\Domain\Sources\Entities\Source;
+use Modules\Domain\Sources\Structures\Source;
 use Modules\Personal\Auth\Presenters\GetClientPresenter;
 
 final class UserCreateSource implements UserCreateSourcePresenter

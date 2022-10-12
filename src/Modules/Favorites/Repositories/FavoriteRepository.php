@@ -2,7 +2,7 @@
 
 namespace Modules\Favorites\Repositories;
 
-use Modules\Favorites\Entitites\Favorite;
+use Modules\Favorites\Structures\Favorite;
 
 interface FavoriteRepository
 {

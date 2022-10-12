@@ -2,7 +2,7 @@
 
 namespace Modules\Domain\Analysis\Repositories;
 
-use Modules\Domain\Analysis\Entities\Analysis;
+use Modules\Domain\Analysis\Structures\Analysis;
 
 interface AnalysisRepository
 {

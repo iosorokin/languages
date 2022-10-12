@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Internal\Container\Presenters\User;
 
-use Modules\Internal\Container\Entites\ContainerElement;
+use Modules\Internal\Container\Structures\ContainerElement;
 use Modules\Internal\Container\Factories\ElementRepositoryFactory;
 use Modules\Internal\Container\Presenters\Internal\PushElementPresenter;
 use Modules\Internal\Container\Validators\ElementValidator;

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Factories;
 
-use Modules\Domain\Languages\Entities\Language;
-use Modules\Domain\Languages\Entities\LanguageEntity;
+use Modules\Domain\Languages\Structures\Language;
+use Modules\Domain\Languages\Structures\LanguageEntity;
 
 final class EntityLanguageFactory extends BaseLanguageFactory
 {

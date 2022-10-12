@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace Core\Services\Morph;
 
-use App\Base\Entity\EloquentHasDescription;
-use App\Base\Entity\EloquentHasTitle;
-use App\Base\Entity\Identify\IntId;
-use App\Base\Entity\Timestamps\Timestamps;
-use Modules\Domain\Languages\Entities\EloquentLanguageRelation;
-use Modules\Domain\Sentences\Entities\Sentence;
-use Modules\Domain\Sources\Entities\EloquentSourceRelation;
-use Modules\Domain\Sources\Entities\Source;
+use App\Base\Structures\EloquentHasDescription;
+use App\Base\Structures\EloquentHasTitle;
+use App\Base\Structures\Identify\IntId;
+use App\Base\Structures\Timestamps\Timestamps;
+use Modules\Domain\Languages\Structures\EloquentLanguageRelation;
+use Modules\Domain\Sentences\Structures\Sentence;
+use Modules\Domain\Sources\Structures\EloquentSourceRelation;
+use Modules\Domain\Sources\Structures\Source;
 use Modules\Domain\Sources\Enums\SourceType;
-use Modules\Internal\Container\Entites\EloquentHasContainerRelation;
-use Modules\Personal\User\Entities\EloquentUserRelation;
+use Modules\Internal\Container\Structures\EloquentHasContainerRelation;
+use Modules\Personal\User\Structures\EloquentUserRelation;
 
 final class FakeEntityForTestMorph implements Sentence, Source
 {

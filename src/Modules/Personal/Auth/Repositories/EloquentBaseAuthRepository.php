@@ -2,8 +2,8 @@
 
 namespace Modules\Personal\Auth\Repositories;
 
-use Modules\Personal\Auth\Entity\BaseAuth;
-use Modules\Personal\Auth\Entity\BaseAuthModel;
+use Modules\Personal\Auth\Structures\BaseAuth;
+use Modules\Personal\Auth\Structures\BaseAuthModel;
 
 class EloquentBaseAuthRepository implements BaseAuthRepository
 {

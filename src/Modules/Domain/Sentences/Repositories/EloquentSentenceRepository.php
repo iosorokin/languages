@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sentences\Repositories;
 
-use Modules\Domain\Sentences\Entities\Sentence;
-use Modules\Domain\Sentences\Entities\SentenceModel;
+use Modules\Domain\Sentences\Structures\Sentence;
+use Modules\Domain\Sentences\Structures\SentenceModel;
 
 final class EloquentSentenceRepository implements SentenceRepository
 {

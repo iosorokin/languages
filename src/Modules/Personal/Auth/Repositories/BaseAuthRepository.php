@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\Auth\Repositories;
 
-use Modules\Personal\Auth\Entity\BaseAuth;
+use Modules\Personal\Auth\Structures\BaseAuth;
 
 interface BaseAuthRepository
 {

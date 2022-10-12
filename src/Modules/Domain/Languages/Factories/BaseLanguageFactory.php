@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Factories;
 
-use Modules\Domain\Languages\Entities\Language;
-use Modules\Personal\User\Entities\User;
+use Modules\Domain\Languages\Structures\Language;
+use Modules\Personal\User\Structures\User;
 
 abstract class BaseLanguageFactory implements LanguageFactory
 {
@@ -22,15 +22,24 @@ abstract class BaseLanguageFactory implements LanguageFactory
     {
         $language = $this->createStructure();
         $language->setId($attributes['id']);
+        $language->setUserId($attributes['user_id']);
         if ($user) $language->setUser($user);
         $this->fillAttributes($language, $attributes);
 
         return $language;
     }
 
+    public function update(Language $language, array $attributes, ?User $user = null): Language
+    {
+        $this->fillAttributes($language, $attributes);
+        if ($user) $language->setUser($user);
+
+        return $language;
+    }
 
     private function fillAttributes(Language $language, array $attributes): void
     {
+        $language->setIsActive($attributes['is_active'] ?? false);
         $language->setName($attributes['name']);
         $language->setNativeName($attributes['native_name']);
         $language->setCode($attributes['code']);

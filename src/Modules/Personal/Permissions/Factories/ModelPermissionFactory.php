@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Personal\Permissions\Factories;
 
-use Modules\Personal\Permissions\Entities\Permission;
-use Modules\Personal\Permissions\Entities\PermissionModel;
+use Modules\Personal\Permissions\Structures\Permission;
+use Modules\Personal\Permissions\Structures\PermissionModel;
 use Modules\Personal\Permissions\Enums\PermissionType;
-use Modules\Personal\User\Entities\User;
+use Modules\Personal\User\Structures\User;
 
 final class ModelPermissionFactory implements PermissionFactory
 {

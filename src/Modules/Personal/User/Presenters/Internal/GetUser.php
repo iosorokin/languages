@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Personal\User\Presenters\Internal;
 
 use Modules\Personal\Auth\Presenters\GetClientPresenter;
-use Modules\Personal\User\Entities\User;
+use Modules\Personal\User\Structures\User;
 use Modules\Personal\User\Repositories\UserRepository;
 
 final class GetUser implements GetUserPresenter

@@ -6,7 +6,7 @@ namespace Modules\Personal\User\Presenters\Publics;
 
 use Modules\Notification\Mailer\Presenters\SendRegistrationEmailPresenter;
 use Modules\Personal\User\Actions\CreateUser;
-use Modules\Personal\User\Entities\User;
+use Modules\Personal\User\Structures\User;
 use Modules\Personal\User\Validators\RegistrationCombinedValidator;
 
 final class Register implements RegisterPresenter

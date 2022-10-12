@@ -6,7 +6,7 @@ namespace Modules\Personal\User\Presenters\Special;
 
 use Modules\Personal\Permissions\Enums\PermissionType;
 use Modules\Personal\User\Actions\CreateUser;
-use Modules\Personal\User\Entities\User;
+use Modules\Personal\User\Structures\User;
 
 final class InitRootUser implements InitRootUserPresenter
 {

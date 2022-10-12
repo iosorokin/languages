@@ -2,7 +2,7 @@
 
 namespace Modules\Domain\Sentences\Repositories;
 
-use Modules\Domain\Sentences\Entities\Sentence;
+use Modules\Domain\Sentences\Structures\Sentence;
 
 interface SentenceRepository
 {

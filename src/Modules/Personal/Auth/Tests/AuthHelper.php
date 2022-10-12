@@ -6,7 +6,7 @@ namespace Modules\Personal\Auth\Tests;
 
 use Core\Base\Helpers\AppHelper;
 use Modules\Personal\Auth\Contexts\Client;
-use Modules\Personal\User\Entities\User;
+use Modules\Personal\User\Structures\User;
 
 final class AuthHelper extends AppHelper
 {

@@ -2,9 +2,9 @@
 
 namespace Modules\Personal\Permissions\Internal;
 
-use Modules\Personal\Permissions\Entities\Permission;
+use Modules\Personal\Permissions\Structures\Permission;
 use Modules\Personal\Permissions\Enums\PermissionType;
-use Modules\Personal\User\Entities\User;
+use Modules\Personal\User\Structures\User;
 
 interface AssignPermissionPresenter
 {

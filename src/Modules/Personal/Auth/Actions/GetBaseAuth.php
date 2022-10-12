@@ -7,7 +7,7 @@ namespace Modules\Personal\Auth\Actions;
 use Exception;
 use Illuminate\Support\Facades\Hash;
 use Modules\Personal\Auth\Dto\GetBaseAuthDto;
-use Modules\Personal\Auth\Entity\BaseAuth;
+use Modules\Personal\Auth\Structures\BaseAuth;
 use Modules\Personal\Auth\Repositories\BaseAuthRepository;
 
 class GetBaseAuth

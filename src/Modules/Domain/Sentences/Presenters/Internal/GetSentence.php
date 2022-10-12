@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Domain\Sentences\Presenters\Internal;
 
 use Illuminate\Validation\ValidationException;
-use Modules\Domain\Sentences\Entities\Sentence;
+use Modules\Domain\Sentences\Structures\Sentence;
 use Modules\Domain\Sentences\Repositories\SentenceRepository;
 
 final class GetSentence implements GetSentencePresenter

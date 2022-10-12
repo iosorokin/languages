@@ -7,7 +7,7 @@ namespace Modules\Domain\Chapters\Tests;
 use Core\Base\Helpers\AppHelper;
 use Generator;
 use Modules\Domain\Chapters\Presenters\UserStoreChapterPresenter;
-use Modules\Domain\Sources\Entities\Source;
+use Modules\Domain\Sources\Structures\Source;
 use Modules\Internal\Container\Tests\ContainerAppHelper;
 
 final class ChapterAppHelper extends AppHelper
