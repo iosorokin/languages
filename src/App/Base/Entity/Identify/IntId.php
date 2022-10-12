@@ -6,8 +6,6 @@ namespace App\Base\Entity\Identify;
 
 trait IntId
 {
-    private int $id;
-
     public function setId(int $id): self
     {
         $this->id = $id;

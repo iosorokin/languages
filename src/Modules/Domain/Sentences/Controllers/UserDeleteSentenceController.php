@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Domain\Sentences\Controllers;
 
 use Core\Extensions\Request;
-use Core\Http\Responses\Json\NoContentResponse;
+use Core\Services\Responses\Json\NoContentResponse;
 use Illuminate\Http\JsonResponse;
 use Modules\Domain\Sentences\Presenters\User\UserDeleteSentencePresenter;
 

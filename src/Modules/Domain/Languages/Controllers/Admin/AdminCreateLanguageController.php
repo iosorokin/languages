@@ -2,7 +2,7 @@
 
 namespace Modules\Domain\Languages\Controllers\Admin;
 
-use Core\Http\Responses\Json\CreatedResponse;
+use Core\Services\Responses\Json\CreatedResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Modules\Domain\Languages\Presenters\Admin\AdminCreateLanguagePresenter;

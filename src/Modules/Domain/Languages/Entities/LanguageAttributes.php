@@ -6,12 +6,6 @@ namespace Modules\Domain\Languages\Entities;
 
 trait LanguageAttributes
 {
-    private string $name;
-
-    private string $nativeName;
-
-    private string $code;
-
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -26,14 +20,14 @@ trait LanguageAttributes
 
     public function setNativeName(string $name): self
     {
-        $this->nativeName = $name;
+        $this->native_name = $name;
 
         return $this;
     }
 
     public function getNativeName(): string
     {
-        return $this->nativeName;
+        return $this->native_name;
     }
 
     public function setCode(string $code): self

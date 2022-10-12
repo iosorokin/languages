@@ -6,7 +6,7 @@ namespace Modules\Domain\Sources\Controllers;
 
 use Core\Extensions\Request;
 use Core\Http\Controller;
-use Core\Http\Responses\Json\CreatedResponse;
+use Core\Services\Responses\Json\CreatedResponse;
 use Modules\Domain\Sources\Presenters\User\UserCreateSourcePresenter;
 
 final class StoreSourceController extends Controller

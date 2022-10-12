@@ -12,7 +12,16 @@ class GuestIndexLanguagesTest extends EndpointCase
      */
     public function __invoke()
     {
-        $response = LanguageApiHelper::new($this)->index();
+        $helper = LanguageApiHelper::new($this);
+        $response = $helper->index();
+        $response->assertOk();
+        $cursor = $response->json('nextCursorUrl');
+        $this->assertNotEmpty($cursor);
+        $response = $helper->getJson($cursor);
+        $response->assertOk();
+        $cursor = $response->json('prevCursorUrl');
+        $this->assertNotEmpty($cursor);
+        $response = $helper->getJson($cursor);
         $response->assertOk();
     }
 }

@@ -7,5 +7,5 @@ use Modules\Personal\User\Entities\User;
 
 interface LanguageFactory
 {
-    public function new(User $user, array $attributes): Language;
+    public function create(User $user, array $attributes): Language;
 }

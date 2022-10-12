@@ -35,4 +35,9 @@ abstract class ApiHelper
     {
         $this->testCase = $testCase;
     }
+
+    public function getJson(string $path, array $attributes = []): TestResponse
+    {
+        return $this->testCase->getJson($path, $attributes);
+    }
 }

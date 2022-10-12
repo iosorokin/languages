@@ -6,9 +6,9 @@ use Illuminate\Support\Carbon;
 
 trait Timestamps
 {
-    public function _setCreatedAt($value): self
+    public function _setCreatedAt(Carbon $createdAt): self
     {
-        $this->created_at = $value;
+        $this->created_at = $createdAt;
 
         return $this;
     }
@@ -18,9 +18,9 @@ trait Timestamps
         return $this->created_at;
     }
 
-    public function _setUpdatedAt($value): self
+    public function _setUpdatedAt(Carbon $updatedAt): self
     {
-        $this->updated_at = $value;
+        $this->updated_at = $updatedAt;
 
         return $this;
     }

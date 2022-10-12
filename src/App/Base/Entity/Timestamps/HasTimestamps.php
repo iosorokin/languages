@@ -6,11 +6,11 @@ use Illuminate\Support\Carbon;
 
 interface HasTimestamps
 {
-    public function _setCreatedAt($value): self;
+    public function _setCreatedAt(Carbon $createdAt): self;
 
     public function getCreatedAt(): Carbon;
 
-    public function _setUpdatedAt($value): self;
+    public function _setUpdatedAt(Carbon $updatedAt): self;
 
     public function getUpdatedAt(): Carbon;
 }

@@ -4,20 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Presenters\Guest;
 
-use Illuminate\Support\Collection;
-use Modules\Domain\Languages\Filters\LanguageFilter;
-use Modules\Domain\Languages\Repositories\LanguageRepository;
+use Modules\Domain\Languages\Actions\IndexLanguages;
+use Modules\Domain\Languages\Collections\Languages;
 
 final class GuestIndexLanguages implements GuestIndexLanguagesPresenter
 {
     public function __construct(
-        private LanguageRepository $repository,
+        private IndexLanguages $indexLanguages,
     ) {}
 
-    public function __invoke(array $attributes): Collection
+    public function __invoke(array $attributes): Languages
     {
-        $filter = LanguageFilter::new($attributes);
-        $languages = $this->repository->all($filter);
+        $languages = ($this->indexLanguages)($attributes);
 
         return $languages;
     }
