@@ -10,6 +10,8 @@ interface Client
 
     public function id(): ?int;
 
+    public function isRoot(): bool;
+
     public function isAdmin(): bool;
 
     public function isUser(): bool;

@@ -48,4 +48,9 @@ class EloquentLanguageRepository implements LanguageRepository
     {
         return LanguageModel::find($id);
     }
+
+    public function delete(Language $language): void
+    {
+        $language->delete();
+    }
 }

@@ -31,7 +31,7 @@ final class LaravelLanguagePolicy implements LanguagePolicy
 
     public function canDelete(Client $client, Language $language): void
     {
-        if (! $client->isAdmin()) {
+        if (! $client->isRoot()) {
             abort(403);
         }
     }

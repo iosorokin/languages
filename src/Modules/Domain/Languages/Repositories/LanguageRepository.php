@@ -13,4 +13,6 @@ interface LanguageRepository
     public function all(LanguageFilter $filter): Languages;
 
     public function get(int $id): ?Language;
+
+    public function delete(Language $language): void;
 }

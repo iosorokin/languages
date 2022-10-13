@@ -63,4 +63,9 @@ final class EntityLanguageRepository implements LanguageRepository
 
         return $languages;
     }
+
+    public function delete(Language $language): void
+    {
+        // TODO: Implement delete() method.
+    }
 }

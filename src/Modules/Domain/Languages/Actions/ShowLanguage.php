@@ -6,6 +6,7 @@ namespace Modules\Domain\Languages\Actions;
 
 use Modules\Domain\Languages\Structures\Language;
 use Modules\Domain\Languages\Repositories\LanguageRepository;
+use Modules\Personal\Auth\Contexts\Client;
 
 final class ShowLanguage
 {
@@ -13,7 +14,7 @@ final class ShowLanguage
         private LanguageRepository $repository,
     ) {}
 
-    public function __invoke(int $id): Language
+    public function __invoke(Client $client, int $id): Language
     {
         $language = $this->repository->get($id);
 

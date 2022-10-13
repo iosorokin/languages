@@ -36,6 +36,7 @@ class LanguageServiceProvider extends ServiceProvider
     private array $write = [
         AdminCreateLanguagePresenter::class,
         AdminUpdateLanguagePresenter::class,
+        AdminDeleteLanguagePresenter::class,
         SeedLanguage::class,
     ];
 
