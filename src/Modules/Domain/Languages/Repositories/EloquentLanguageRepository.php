@@ -11,7 +11,7 @@ use Modules\Domain\Languages\Structures\Language;
 use Modules\Domain\Languages\Structures\LanguageModel;
 use Modules\Domain\Languages\Filters\LanguageFilter;
 
-class EloquentLanguageRepository implements LanguageRepository
+final class EloquentLanguageRepository implements LanguageRepository
 {
     public function save(Language $language): void
     {
