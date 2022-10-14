@@ -10,6 +10,7 @@ use Modules\Domain\Sentences\Structures\Sentence;
 use Modules\Domain\Sentences\Tests\SentenceHelper;
 use Modules\Domain\Sources\Structures\Source;
 use Modules\Domain\Sources\Tests\SourceHelper;
+use Modules\Personal\Permissions\Enums\PermissionType;
 use Modules\Personal\User\Structures\User;
 use Modules\Personal\User\Tests\UserHelper;
 
@@ -25,9 +26,15 @@ class DatabaseSeeder extends Seeder
         $root = $this->createRoot();
         $testUser = $this->createTestUser();
         $languageIds = $this->createLanguages($root);
+
         $this->seedContent($testUser, $languageIds);
 
-        foreach (UserHelper::new()->create(config('seed.users.count_random_users')) as $user) {
+        $attributes = [
+            'permissions' => [
+                PermissionType::User->value
+            ]
+        ];
+        foreach (UserHelper::new()->create(config('seed.users.count_random_users'), $attributes) as $user) {
             $this->seedContent($user, $languageIds);
         }
     }
@@ -47,6 +54,9 @@ class DatabaseSeeder extends Seeder
             'name' => 'Пользователь для теста',
             'email' => config('seed.users.test_user.email'),
             'password' => config('seed.users.test_user.password'),
+            'permissions' => [
+                PermissionType::User->value
+            ]
         ])->current();
 
         return $user;

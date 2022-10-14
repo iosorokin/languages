@@ -23,13 +23,12 @@ final class SourceHelper extends AppHelper
 
     public function create(User|int $user, int $languageId, int $count = 1, array $overwrite = []): Generator
     {
-        $overwrite['language_id'] = $languageId;
-        /** @var SeedSource $createSource */
-        $createSource = app()->make(SeedSource::class);
+        /** @var SeedSource $seedSource */
+        $seedSource = app()->make(SeedSource::class);
 
         for ($i = 0; $i < $count; $i++) {
             $attributes = $overwrite + $this->generateAttributes();
-            $source = $createSource($user, $attributes);
+            $source = $seedSource($user, $languageId, $attributes);
 
             yield $source;
         }

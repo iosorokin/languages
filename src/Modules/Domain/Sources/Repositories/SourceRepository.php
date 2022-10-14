@@ -9,4 +9,6 @@ interface SourceRepository
     public function save(Source $source): void;
 
     public function get(int $id): ?Source;
+
+    public function hasUserAnySourcesByLanguage(int $userId, int $languageId): bool;
 }

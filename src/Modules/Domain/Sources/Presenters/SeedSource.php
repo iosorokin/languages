@@ -21,10 +21,10 @@ final class SeedSource
 
     public function __invoke(User|int $user, Language|int $language, array $attributes): Source
     {
-        $user = is_int($user) ? $this->userRepository->get($user) : $user;
+        $user = is_int($user) ? $this->userRepository->get($user): $user;
         $language = is_int($language) ? $language : $language->getId();
         $client = ($this->getClient)($user);
-        $source = ($this->createSource)($client,$language, $attributes);
+        $source = ($this->createSource)($client, $language, $attributes);
 
         return $source;
     }

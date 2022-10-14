@@ -16,4 +16,12 @@ class EloquentSourceRepository implements SourceRepository
     {
         return SourceModel::find($id);
     }
+
+    public function hasUserAnySourcesByLanguage(int $userId, int $languageId): bool
+    {
+        return SourceModel::query()
+            ->where('user_id', $userId)
+            ->where('language_id', $languageId)
+            ->exists();
+    }
 }

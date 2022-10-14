@@ -12,7 +12,7 @@ use Modules\Personal\User\Structures\User;
 final class ModelPermissionFactory implements PermissionFactory
 {
     /**
-     * @param array<PermissionType> $permissions
+     * @param array<PermissionType|string> $permissions
      */
     public function create(User $user, array $permissions): Permission
     {
@@ -20,6 +20,7 @@ final class ModelPermissionFactory implements PermissionFactory
         $model->setUser($user);
 
         foreach ($permissions as $permission) {
+            $permission = is_string($permission) ? PermissionType::tryFrom($permission) : $permission;
             $model->setPermission($permission);
         }
 
