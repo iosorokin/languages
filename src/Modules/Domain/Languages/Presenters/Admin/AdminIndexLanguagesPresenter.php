@@ -2,9 +2,10 @@
 
 namespace Modules\Domain\Languages\Presenters\Admin;
 
-use Illuminate\Contracts\Pagination\CursorPaginator;
+use Modules\Domain\Languages\Collections\Languages;
+use Modules\Personal\Auth\Contexts\Client;
 
 interface AdminIndexLanguagesPresenter
 {
-    public function __invoke(array $attributes): CursorPaginator;
+    public function __invoke(Client $client, array $attributes): Languages;
 }

@@ -6,14 +6,10 @@ namespace Modules\Domain\Languages\Transformers;
 
 use Modules\Domain\Languages\Structures\Language;
 
-abstract class LanguageTransformer
+final class UserLanguageTransformer extends LanguageTransformer
 {
     public function transform(Language $language): array
     {
-        return [
-            'code' => $language->getCode(),
-            'name' => $language->getName(),
-            'nativeName' => $language->getNativeName(),
-        ];
+        return parent::transform($language);
     }
 }

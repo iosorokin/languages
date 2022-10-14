@@ -6,16 +6,19 @@ namespace Modules\Domain\Languages\Presenters\Guest;
 
 use Modules\Domain\Languages\Actions\IndexLanguages;
 use Modules\Domain\Languages\Collections\Languages;
+use Modules\Personal\Auth\Presenters\GetClientPresenter;
 
 final class GuestIndexLanguages implements GuestIndexLanguagesPresenter
 {
     public function __construct(
-        private IndexLanguages $indexLanguages,
+        private GetClientPresenter $getClient,
+        private IndexLanguages     $indexLanguages,
     ) {}
 
     public function __invoke(array $attributes): Languages
     {
-        $languages = ($this->indexLanguages)($attributes);
+        $client = ($this->getClient)();
+        $languages = ($this->indexLanguages)($client, $attributes);
 
         return $languages;
     }

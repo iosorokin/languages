@@ -3,12 +3,18 @@
 use Illuminate\Support\Facades\Route;
 use Modules\Domain\Analysis\Controllers\UserStoreAnalysisController;
 use Modules\Domain\Chapters\Controllers\UserStoreChapterController;
-use Modules\Domain\Sentences\Controllers\UserDeleteSentenceController;
+use Modules\Domain\Languages\Controllers\UserFavoriteLanguageController;
+use Modules\Domain\Languages\Controllers\UserLanguageController;
 use Modules\Domain\Sentences\Controllers\StoreSentenceController;
+use Modules\Domain\Sentences\Controllers\UserDeleteSentenceController;
 use Modules\Domain\Sources\Controllers\StoreSourceController;
-use Modules\Favorites\Controllers\UserAddFavoriteController;
-use Modules\Favorites\Controllers\UserRemoveFavoriteController;
 use Modules\Personal\Auth\Controllers\LogoutController;
+
+Route::apiResource('languages', UserLanguageController::class)
+    ->parameter('languages', 'language_id');
+Route::apiResource('languages.favorites', UserFavoriteLanguageController::class)
+    ->parameter('languages', 'language_id')
+    ->only(['store', 'destroy']);
 
 Route::post('languages/{language_id}/sources', StoreSourceController::class)
     ->name('sources.store');
@@ -23,8 +29,3 @@ Route::post('sentences/{sentence_id}/analysis', UserStoreAnalysisController::cla
 
 Route::post('logout', LogoutController::class)
     ->name('logout');
-
-Route::post('favorites/add', UserAddFavoriteController::class)
-    ->name('favorites.add');
-Route::post('favorites/remove', UserRemoveFavoriteController::class)
-    ->name('favorites.remove');

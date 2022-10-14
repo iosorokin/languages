@@ -9,6 +9,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Modules\Domain\Languages\Presenters\Guest\GuestIndexLanguagesPresenter;
 use Modules\Domain\Languages\Presenters\Guest\GuestShowLanguagePresenter;
+use Modules\Domain\Languages\Transformers\GuestLanguageTransformer;
 use Modules\Domain\Languages\Transformers\LanguageTransformer;
 
 final class GuestLanguageController
@@ -18,14 +19,14 @@ final class GuestLanguageController
         $languages = $presenter($request->all());
 
         return new OkResponse($languages->transform([
-            LanguageTransformer::class
+            GuestLanguageTransformer::class
         ])->toArray());
     }
 
     public function show(Request $request, GuestShowLanguagePresenter $presenter): JsonResponse
     {
         $language = $presenter((int) $request->route('language_id'));
-        $language = (new LanguageTransformer())->transform($language);
+        $language = (new GuestLanguageTransformer())->transform($language);
 
         return new OkResponse($language);
     }

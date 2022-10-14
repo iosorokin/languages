@@ -6,10 +6,12 @@ namespace Modules\Domain\Languages\Controllers;
 
 use Core\Http\Responses\Json\CreatedResponse;
 use Core\Http\Responses\Json\NoContentResponse;
+use Core\Http\Responses\Json\OkResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Modules\Domain\Languages\Presenters\Admin\AdminCreateLanguagePresenter;
 use Modules\Domain\Languages\Presenters\Admin\AdminDeleteLanguagePresenter;
+use Modules\Domain\Languages\Presenters\Admin\AdminShowLanguagePresenter;
 use Modules\Domain\Languages\Presenters\Admin\AdminUpdateLanguagePresenter;
 
 final class AdminLanguageController
@@ -20,6 +22,13 @@ final class AdminLanguageController
         $location = route('api.languages.show', ['language_id' => $language->getId()]);
 
         return new CreatedResponse($location);
+    }
+
+    public function show(Request $request, AdminShowLanguagePresenter $presenter): JsonResponse
+    {
+        $language = $presenter((int) $request->route('language_id'), $request->all());
+
+        return new OkResponse(['data' => $language->toArray()]);
     }
 
     public function update(Request $request, AdminUpdateLanguagePresenter $presenter): JsonResponse

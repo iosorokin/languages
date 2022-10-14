@@ -25,6 +25,26 @@ final class LanguageApiTest extends EndpointCase
     /**
      * @depends testAdminCreate
      */
+    public function testAdminShow(int $languageId)
+    {
+        BaseAuthApiHelper::new($this)->loginAsTestUser();
+        $response = LanguageApiHelper::new($this)->adminShow($languageId);
+        $response->assertOk();
+    }
+
+    /**
+     * @depends testAdminCreate
+     */
+    public function testUserShow(int $languageId)
+    {
+        BaseAuthApiHelper::new($this)->loginAsTestUser();
+        $response = LanguageApiHelper::new($this)->userShow($languageId);
+        $response->assertOk();
+    }
+
+    /**
+     * @depends testAdminCreate
+     */
     public function testGuestShow(int $languageId)
     {
         $response = LanguageApiHelper::new($this)->guestShow($languageId);

@@ -6,8 +6,7 @@ use App\Base\Structures\HasIsActive;
 use App\Base\Structures\Identify\HasIntId;
 use App\Base\Structures\Structure;
 use App\Base\Structures\Timestamps\HasTimestamps;
-use Illuminate\Contracts\Support\Arrayable;
-use Modules\Favorites\Contracts\Favoriteable;
+use Modules\Internal\Favorites\Contracts\Favoriteable;
 use Modules\Personal\User\Structures\HasUser;
 
 interface Language extends Structure,

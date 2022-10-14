@@ -22,6 +22,20 @@ final class LanguageApiHelper extends ApiHelper
         return $this->testCase->getJson(route('api.languages.index', $attributes));
     }
 
+    public function adminShow(Language|int $language, array $attributes = []): TestResponse
+    {
+        $attributes['language_id'] = is_int($language) ? $language : $language->getId();
+
+        return $this->testCase->getJson(route('api.admin.languages.show', $attributes));
+    }
+
+    public function userShow(Language|int $language, array $attributes = []): TestResponse
+    {
+        $attributes['language_id'] = is_int($language) ? $language : $language->getId();
+
+        return $this->testCase->getJson(route('api.user.languages.show', $attributes));
+    }
+
     public function guestShow(Language|int $language, array $attributes = []): TestResponse
     {
         $attributes['language_id'] = is_int($language) ? $language : $language->getId();
