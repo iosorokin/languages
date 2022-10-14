@@ -70,6 +70,27 @@ final class LanguageApiTest extends EndpointCase
     /**
      * @depends testAdminCreate
      */
+    public function testAddToFavorite(int $languageId)
+    {
+        BaseAuthApiHelper::new($this)->loginAsTestSuperAdmin();
+        $response = LanguageApiHelper::new($this)->userAddToFavorite($languageId);
+        $response->assertOk();
+    }
+
+    /**
+     * @depends testAdminCreate
+     * @depends testAddToFavorite
+     */
+    public function testRemoveFromFavorite(int $languageId, int $favoriteId)
+    {
+        BaseAuthApiHelper::new($this)->loginAsTestSuperAdmin();
+        $response = LanguageApiHelper::new($this)->userRemoveFromFavorite($languageId, $favoriteId);
+        $response->assertNoContent();
+    }
+
+    /**
+     * @depends testAdminCreate
+     */
     public function testAdminDelete(int $languageId)
     {
         BaseAuthApiHelper::new($this)->loginAsTestSuperAdmin();

@@ -13,7 +13,10 @@ use Modules\Personal\Auth\Controllers\LogoutController;
 Route::apiResource('languages', UserLanguageController::class)
     ->parameter('languages', 'language_id');
 Route::apiResource('languages.favorites', UserFavoriteLanguageController::class)
-    ->parameter('languages', 'language_id')
+    ->parameters([
+        'languages' => 'language_id',
+        'favorites' => 'favorite_id',
+    ])
     ->only(['store', 'destroy']);
 
 Route::post('languages/{language_id}/sources', StoreSourceController::class)
