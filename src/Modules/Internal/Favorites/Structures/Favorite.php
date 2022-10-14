@@ -15,8 +15,4 @@ interface Favorite extends
     public function setFavoriteable(Favoriteable $favoriteable): self;
 
     public function getFavoriteable(): Favoriteable;
-
-    public function setIsFavorite(bool $isFavorite): self;
-
-    public function isFavorite(): bool;
 }

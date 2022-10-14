@@ -16,7 +16,6 @@ final class ModelFavoriteFactory implements FavoriteFactory
         $favorite = new FavoriteModel();
         $favorite->setUser($user);
         $favorite->setFavoriteable($favoriteable);
-        $favorite->setIsFavorite(true);
 
         return $favorite;
     }

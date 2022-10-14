@@ -36,16 +36,4 @@ final class FavoriteModel extends Model implements Favorite
     {
         return $this->favoriteable;
     }
-
-    public function setIsFavorite(bool $isFavorite): self
-    {
-        $this->is_favorite = $isFavorite;
-
-        return $this;
-    }
-
-    public function isFavorite(): bool
-    {
-        return $this->is_favorite;
-    }
 }

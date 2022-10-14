@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->morphs('favoriteable');
-            $table->boolean('is_favorite');
             $table->timestamps();
 
             $table->foreign('user_id')->on('users')->references('id');
+            $table->unique(['user_id', 'favoriteable_type', 'favoriteable_id']);
         });
     }
 
