@@ -6,5 +6,5 @@ use Modules\Domain\Languages\Structures\Language;
 
 interface UserShowLanguagePresenter
 {
-    public function __invoke(array $attributes): Language;
+    public function __invoke(int $languageId): Language;
 }

@@ -24,10 +24,10 @@ final class CreateSource
         private InitWrapperContainer  $initWrapperContainer
     ) {}
 
-    public function __invoke(Client $client, array $attributes): Source
+    public function __invoke(Client $client, int $languageId, array $attributes): Source
     {
         $attributes = $this->validator->validate($attributes);
-        $language = $this->getLanguage->getOrThrowBadRequest((int) $attributes['language_id']);
+        $language = $this->getLanguage->getOrThrowBadRequest($languageId);
         $this->policy->canCreate($client, $language);
 
         $source = $this->factory->new($client->user(), $language, $attributes);

@@ -10,10 +10,6 @@ final class CreateSourceValidator extends SourceValidator
 {
     protected function rules(): array
     {
-        $rules = [
-            'language_id' => ['required', new BigIntId()]
-        ];
-
-        return $rules + $this->defaultRules();
+        return $this->defaultRules();
     }
 }

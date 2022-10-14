@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use Modules\Domain\Chapters\Controllers\UserShowChapterController;
 use Modules\Domain\Languages\Controllers\GuestLanguageController;
-use Modules\Domain\Sources\Controllers\ShowSourceController;
 use Modules\Personal\Auth\Controllers\BaseLoginController;
 use Modules\Personal\User\Controllers\Guest\RegistrationController;
 use Modules\Personal\User\Controllers\Guest\ShowUserController;
@@ -30,8 +29,6 @@ Route::get('users/{user_id}', ShowUserController::class)
 Route::apiResource('languages', GuestLanguageController::class)
     ->parameter('languages', 'language_id');
 
-Route::get('sources/{source_id}', ShowSourceController::class)
-    ->name('sources.show');
 
 Route::get('chapters/{chapter_id}', UserShowChapterController::class)
     ->name('chapters.show');

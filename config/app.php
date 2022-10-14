@@ -211,7 +211,7 @@ return [
         Modules\Domain\Sources\SourceServiceProvider::class,
         Modules\Domain\Sentences\SentenceServiceProvider::class,
         Modules\Personal\Permissions\PermissionServiceProvider::class,
-        \Modules\Internal\Favorites\FavoriteServiceProvider::class,
+        Modules\Internal\Favorites\FavoriteServiceProvider::class,
         Modules\Domain\Chapters\ChapterServiceProvider::class,
         Modules\Domain\Analysis\AnalysisServiceProvider::class,
     ],

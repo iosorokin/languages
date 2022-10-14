@@ -11,8 +11,8 @@ use Modules\Domain\Sources\Policies\LaravelSourcePolicy;
 use Modules\Domain\Sources\Policies\SourcePolicy;
 use Modules\Domain\Sources\Presenters\Internal\GetSource;
 use Modules\Domain\Sources\Presenters\Internal\GetSourcePresenter;
-use Modules\Domain\Sources\Presenters\Publics\PublicShowSource;
-use Modules\Domain\Sources\Presenters\Publics\PublicShowSourcePresenter;
+use Modules\Domain\Sources\Presenters\Guest\GuestShowSource;
+use Modules\Domain\Sources\Presenters\Guest\GuestShowSourcePresenter;
 use Modules\Domain\Sources\Presenters\User\UserCreateSource;
 use Modules\Domain\Sources\Presenters\User\UserCreateSourcePresenter;
 use Modules\Domain\Sources\Repositories\EloquentSourceRepository;
@@ -24,7 +24,7 @@ final class SourceServiceProvider extends ServiceProvider
     {
         $this->app->bind(UserCreateSourcePresenter::class, UserCreateSource::class);
         $this->app->bind(GetSourcePresenter::class, GetSource::class);
-        $this->app->bind(PublicShowSourcePresenter::class, PublicShowSource::class);
+        $this->app->bind(GuestShowSourcePresenter::class, GuestShowSource::class);
 
         $this->app->bind(SourceRepository::class, EloquentSourceRepository::class);
 

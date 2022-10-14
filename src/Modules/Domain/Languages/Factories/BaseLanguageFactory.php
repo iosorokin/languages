@@ -39,7 +39,9 @@ abstract class BaseLanguageFactory implements LanguageFactory
 
     private function fillAttributes(Language $language, array $attributes): void
     {
-        $language->setIsActive($attributes['is_active'] ?? false);
+        $isActive = (bool)($attributes['is_active'] ?? false);
+
+        $language->setIsActive($isActive);
         $language->setName($attributes['name']);
         $language->setNativeName($attributes['native_name']);
         $language->setCode($attributes['code']);
