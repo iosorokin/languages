@@ -66,7 +66,6 @@ final class ContainerManipulator
         } else {
             // 1.2. (после метки) поверяем элемент, следующий за меткой что между ними есть свободное пространство
             $markedElement = $this->container->getElements()->where('id', $id);
-            dd($this->container->getElements()->toArray(), $id);
             $markedElementKey = $markedElement->keys()->first();
             $markedElementPos = $markedElement->first()->getPosition();
 

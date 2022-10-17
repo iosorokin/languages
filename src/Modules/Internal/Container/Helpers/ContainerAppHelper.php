@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Internal\Container\Tests;
+namespace Modules\Internal\Container\Helpers;
 
 use Core\Base\Helpers\AppHelper;
 
