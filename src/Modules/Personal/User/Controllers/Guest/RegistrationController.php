@@ -3,7 +3,7 @@
 namespace Modules\Personal\User\Controllers\Guest;
 
 use Core\Http\Controller;
-use Core\Services\Responses\Json\CreatedResponse;
+use Core\Http\Responses\Json\CreatedResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Modules\Personal\User\Presenters\Publics\RegisterPresenter;

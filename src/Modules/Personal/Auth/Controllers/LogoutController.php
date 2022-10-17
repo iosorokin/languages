@@ -3,7 +3,7 @@
 namespace Modules\Personal\Auth\Controllers;
 
 use Core\Http\Controller;
-use Core\Services\Responses\Json\NoContentResponse;
+use Core\Http\Responses\Json\NoContentResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Modules\Personal\Auth\Presenters\Logout;

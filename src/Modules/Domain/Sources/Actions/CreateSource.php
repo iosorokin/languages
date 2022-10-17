@@ -23,10 +23,10 @@ final class CreateSource
         private SourceRepository      $repository,
     ) {}
 
-    public function __invoke(Client $client, int $languageId, array $attributes): Source
+    public function __invoke(Client $client, array $attributes): Source
     {
         $attributes = $this->validator->validate($attributes);
-        $language = $this->getLanguage->getOrThrowBadRequest($languageId);
+        $language = $this->getLanguage->getOrThrowBadRequest($attributes['language_id']);
         $this->policy->canCreate($client, $language);
         $source = $this->factory->new($client->user(), $language, $attributes);
         $this->repository->save($source);

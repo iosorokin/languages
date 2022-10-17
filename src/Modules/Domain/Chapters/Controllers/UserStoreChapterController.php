@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Domain\Chapters\Controllers;
 
 use Core\Extensions\Request;
-use Core\Services\Responses\Json\CreatedResponse;
+use Core\Http\Responses\Json\CreatedResponse;
 use Illuminate\Http\JsonResponse;
 use Modules\Domain\Chapters\Presenters\UserStoreChapterPresenter;
 

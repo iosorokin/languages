@@ -8,5 +8,5 @@ use Modules\Domain\Sources\Structures\Source;
 
 interface UserCreateSourcePresenter
 {
-    public function __invoke(int $languageId, array $attributes): Source;
+    public function __invoke(array $attributes): Source;
 }
