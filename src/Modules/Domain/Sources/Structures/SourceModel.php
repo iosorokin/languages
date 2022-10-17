@@ -7,6 +7,7 @@ use App\Base\Structures\EloquentHasTitle;
 use App\Base\Structures\Identify\IntId;
 use App\Base\Structures\Timestamps\Timestamps;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Queue\SerializesModels;
 use Modules\Domain\Languages\Structures\EloquentLanguageRelation;
 use Modules\Domain\Sources\Enums\SourceType;
 use Modules\Internal\Container\Structures\EloquentHasContainerRelation;
@@ -14,6 +15,8 @@ use Modules\Personal\User\Structures\EloquentUserRelation;
 
 final class SourceModel extends Model implements Source
 {
+    use SerializesModels;
+
     use IntId;
     use EloquentUserRelation;
     use EloquentLanguageRelation;

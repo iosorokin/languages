@@ -6,6 +6,7 @@ namespace Modules\Domain\Sources\Presenters\Internal;
 
 use App\Extensions\Assert;
 use Core\Services\Morph\Morph;
+use Exception;
 use Illuminate\Validation\ValidationException;
 use Modules\Domain\Sources\Structures\Source;
 use Modules\Domain\Sources\Repositories\SourceRepository;
@@ -32,7 +33,7 @@ final class GetSource implements GetSourcePresenter
         $source = $this->repository->get($id);
         if (! $source) {
             throw ValidationException::withMessages([
-                'source_id' => sprintf('Source with id %d not found', $id)
+                'source_id' => $this->getMessage($id),
             ]);
         }
         $this->setContainer($source);
@@ -43,7 +44,9 @@ final class GetSource implements GetSourcePresenter
     public function getOrThrowException(int $id): Source
     {
         $source = $this->repository->get($id);
-        Assert::notNull($source);
+        if (! $source) {
+            throw new Exception($this->getMessage($id));
+        }
         $this->setContainer($source);
 
         return $source;
@@ -51,9 +54,18 @@ final class GetSource implements GetSourcePresenter
 
     private function setContainer(Source $source): void
     {
-        $source->setContainer($this->containerRepository->getByContainerable(
+        $containerable = $this->containerRepository->getByContainerable(
             Morph::getMorph($source),
             $source->getId(),
-        ));
+        );
+
+        if ($containerable) {
+            $source->setContainer($containerable);
+        }
+    }
+
+    private function getMessage(int $id): string
+    {
+        return sprintf('Source with id %d not found', $id);
     }
 }

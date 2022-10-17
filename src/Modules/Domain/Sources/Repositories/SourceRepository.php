@@ -10,5 +10,5 @@ interface SourceRepository
 
     public function get(int $id): ?Source;
 
-    public function hasUserAnySourcesByLanguage(int $userId, int $languageId): bool;
+    public function ifUserFirstSourcesByLanguage(int $userId, int $languageId): bool;
 }

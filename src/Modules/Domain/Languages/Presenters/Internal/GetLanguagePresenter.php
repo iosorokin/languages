@@ -11,4 +11,6 @@ interface GetLanguagePresenter
     public function getOrThrowNotFound(int $id): Language;
 
     public function getOrThrowBadRequest(int $id): Language;
+
+    public function getOrThrowException(int $id): Language;
 }

@@ -9,6 +9,7 @@ use App\Base\Structures\Timestamps\Timestamps;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Queue\SerializesModels;
 use Laravel\Sanctum\HasApiTokens;
 use Modules\Personal\Auth\Structures\BaseAuth;
 use Modules\Personal\Auth\Structures\BaseAuthModel;
@@ -19,6 +20,7 @@ final class UserModel extends Model implements
     Authenticatable,
     User
 {
+    use SerializesModels;
     use \Illuminate\Auth\Authenticatable;
     use HasApiTokens;
     use IntId;
