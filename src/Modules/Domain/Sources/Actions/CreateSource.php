@@ -30,7 +30,7 @@ final class CreateSource
         $this->policy->canCreate($client, $language);
         $source = $this->factory->new($client->user(), $language, $attributes);
         $this->repository->save($source);
-        SourceCreated::dispatch($client->id(), $languageId, $source->getId());
+        SourceCreated::dispatch($client->id(), $language->getId(), $source->getId());
 
         return $source;
     }

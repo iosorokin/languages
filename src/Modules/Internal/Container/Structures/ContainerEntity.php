@@ -4,44 +4,27 @@ declare(strict_types=1);
 
 namespace Modules\Internal\Container\Structures;
 
-use Illuminate\Support\Carbon;
+use App\Base\Structures\EloquentHasDescription;
+use App\Base\Structures\EloquentHasTitle;
+use App\Base\Structures\Identify\EntityIntId;
+use App\Base\Structures\Timestamps\EntityTimestamps;
 use Illuminate\Support\Collection;
-use Modules\Internal\Container\Contracts\Containerable;
-use Modules\Internal\Container\Enums\ContainerType;
+use Modules\Internal\Container\Contexts\ContainerState;
 
 final class ContainerEntity implements Container
 {
-    private int $id;
-
-    private Containerable $containerable;
-
-    private ContainerType $type;
-
-    private string $title;
-
-    private string $description;
-
-    private Collection $elements;
-
-    private Carbon $created_at;
-
-    private Carbon $updated_at;
-
-    public function setId(int $id): self
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    public function getId(): int
-    {
-        return $this->id;
-    }
+    use EntityIntId;
+    use EloquentHasDescription;
+    use EloquentHasTitle;
+    use EntityTimestamps;
+    use ContainerState;
+    use EloquentHasContainerRelation;
 
     public function setContainerable(Containerable $containerable): self
     {
-        $this->containerable = $containerable;
+        Assert::isInstanceOf($containerable, Model::class);
+        /** @var Model $containerable */
+        $this->containerable()->associate($containerable);
 
         return $this;
     }
@@ -60,45 +43,30 @@ final class ContainerEntity implements Container
 
     public function getType(): ContainerType
     {
-        return $this->type;
+        return is_string($this->type) ? ContainerType::tryFrom($this->type) : $this->type;
     }
 
-    public function setDescription(?string $description): self
+    public function elements(): HasMany
     {
-        $this->description = $description;
+        return $this->hasMany(ContainerElementModel::class, 'container_id');
+    }
+
+    public function addElement(ContainerElement $element): self
+    {
+        $this->elements->push($element);
 
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function setElements(Collection $elements): self
     {
-        return $this->description;
-    }
-
-    public function setTitle(?string $title): self
-    {
-        $this->title = $title;
+        $this->elements = $elements;
 
         return $this;
-    }
-
-    public function getTitle(): ?string
-    {
-        return $this->title;
     }
 
     public function getElements(): Collection
     {
         return $this->elements;
-    }
-
-    public function getCreatedAt(): Carbon
-    {
-        return $this->created_at;
-    }
-
-    public function getUpdatedAt(): Carbon
-    {
-        return $this->updated_at;
     }
 }

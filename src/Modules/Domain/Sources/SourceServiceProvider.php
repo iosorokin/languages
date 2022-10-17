@@ -16,6 +16,8 @@ use Modules\Domain\Sources\Presenters\Guest\GuestShowSource;
 use Modules\Domain\Sources\Presenters\Guest\GuestShowSourcePresenter;
 use Modules\Domain\Sources\Presenters\User\UserCreateSource;
 use Modules\Domain\Sources\Presenters\User\UserCreateSourcePresenter;
+use Modules\Domain\Sources\Presenters\User\UserShowSource;
+use Modules\Domain\Sources\Presenters\User\UserShowSourcePresenter;
 use Modules\Domain\Sources\Repositories\EloquentSourceRepository;
 use Modules\Domain\Sources\Repositories\SourceRepository;
 use Modules\Internal\Container\Events\SourceCreated;
@@ -38,6 +40,7 @@ final class SourceServiceProvider extends ServiceProvider
         $this->app->bind(SourceRepository::class, EloquentSourceRepository::class);
         $this->app->bind(SourceFactory::class, ModelSourceFactory::class);
         $this->app->bind(SourcePolicy::class, LaravelSourcePolicy::class);
+        $this->app->bind(UserShowSourcePresenter::class, UserShowSource::class);
     }
 
     private function registerEvents()

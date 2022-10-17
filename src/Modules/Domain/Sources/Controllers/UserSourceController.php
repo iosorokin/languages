@@ -6,6 +6,7 @@ namespace Modules\Domain\Sources\Controllers;
 
 use Core\Http\Controller;
 use Core\Http\Responses\Json\CreatedResponse;
+use Core\Http\Responses\Json\IdResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Modules\Domain\Sources\Presenters\User\UserCreateSourcePresenter;
@@ -18,14 +19,13 @@ final class UserSourceController extends Controller
     {
         $attributes = $request->all();
         $source = $presenter($attributes);
-        $location = route('api.user.sources.store', ['source_id' => $source->getId()]);
 
-        return new CreatedResponse($location);
+        return new IdResponse($source->getId());
     }
 
     public function show(Request $request, UserShowSourcePresenter $presenter)
     {
-        $source = $presenter($request);
+        $source = $presenter((int) $request->route('source_id'));
 
         return ShowSourceResource::make($source);
     }

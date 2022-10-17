@@ -41,6 +41,13 @@ final class LanguageAppHelper extends AppHelper
         $presenter->update($user, $language, $attributes);
     }
 
+    public function activate(User|int $user, Language|int $language): void
+    {
+        $this->update($user, $language, [
+            'is_active' => true
+        ]);
+    }
+
     private function presenter(): SeedLanguage
     {
         return app()->get(SeedLanguage::class);

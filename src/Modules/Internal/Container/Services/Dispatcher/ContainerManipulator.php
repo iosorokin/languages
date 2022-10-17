@@ -6,6 +6,7 @@ namespace Modules\Internal\Container\Services\Dispatcher;
 
 use Exception;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Log;
 use Modules\Internal\Container\Contracts\ContainerableElement;
 use Modules\Internal\Container\Structures\Container;
 use Modules\Internal\Container\Structures\ContainerElement;
@@ -32,11 +33,16 @@ final class ContainerManipulator
     public function push(ContainerableElement $element): ContainerElement
     {
         $containerElement = $this->elementFactory->create($this->container, $element);
-        $containerElement->setPosition($this->calculator->setContainer($this->container)->next());
+        $nextPosition = $this->calculator->setContainer($this->container)->next();
+        $containerElement->setPosition($nextPosition);
 
         static $tries = 0;
         try {
             $this->repository->saveElement($containerElement);
+            $this->container->addElement($containerElement);
+            $lastPosition = max($containerElement->getPosition(), $this->container->getLastPosition());
+            $this->container->setLastPosition($lastPosition);
+            $this->container->setCount($this->container->getCount() + 1); //todo переписать на внутренний метод-инкремент
         } catch (Exception $e) {
             $tries++;
             if ($tries < 5) {
@@ -60,6 +66,7 @@ final class ContainerManipulator
         } else {
             // 1.2. (после метки) поверяем элемент, следующий за меткой что между ними есть свободное пространство
             $markedElement = $this->container->getElements()->where('id', $id);
+            dd($this->container->getElements()->toArray(), $id);
             $markedElementKey = $markedElement->keys()->first();
             $markedElementPos = $markedElement->first()->getPosition();
 

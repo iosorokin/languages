@@ -6,6 +6,7 @@ namespace Modules\Internal\Container\Services\Dispatcher;
 
 use Core\Base\Tests\UnitCase;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Log;
 use Modules\Domain\Sentences\Structures\SentenceModel;
 use Modules\Internal\Container\Structures\ContainerModel;
 use Modules\Internal\Container\Repositories\ContainerRepository;
@@ -20,10 +21,11 @@ final class ContainerDispatcherTest extends UnitCase
         parent::setUp();
 
         $this->app->bind(ContainerRepository::class, FakeContainerRepository::class);
+
         FakeContainerRepository::reset();
         $this->dispatcher = app()->make(ContainerDispatcher::class);
         $container = new ContainerModel();
-        $container->elements = new Collection();
+        $container->setElements(new Collection());
         $this->dispatcher->add($container);
     }
 
@@ -33,7 +35,6 @@ final class ContainerDispatcherTest extends UnitCase
         for ($i = 0; $i < 10; $i++) {
             $element = new SentenceModel();
             $element = $manipulator->push($element);
-
             $expectedPos = $i * 10 + 1;
             $this->assertSame($expectedPos, $element->getPosition());
         }

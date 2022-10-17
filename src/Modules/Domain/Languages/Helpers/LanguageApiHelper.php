@@ -69,6 +69,6 @@ final class LanguageApiHelper extends ApiHelper
         $attributes['language_id'] = is_int($language) ? $language : $language->getId();
         $attributes['favorite_id'] = $favoriteId;
 
-        return $this->testCase->postJson(route('api.user.languages.favorites.destroy', $attributes));
+        return $this->testCase->deleteJson(route('api.user.languages.favorites.destroy', $attributes));
     }
 }

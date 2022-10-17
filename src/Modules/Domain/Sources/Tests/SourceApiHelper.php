@@ -23,6 +23,6 @@ final class SourceApiHelper extends ApiHelper
     {
         $attributes['source_id'] = is_int($source) ? $source : $source->getId();
 
-        return $this->testCase->getJson(route('api.sources.show', $attributes));
+        return $this->testCase->getJson(route('api.user.sources.show', $attributes));
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Domain\Languages\Controllers;
 
 use Core\Http\Responses\Json\CreatedResponse;
+use Core\Http\Responses\Json\IdResponse;
 use Core\Http\Responses\Json\NoContentResponse;
 use Core\Http\Responses\Json\OkResponse;
 use Illuminate\Http\JsonResponse;
@@ -19,9 +20,8 @@ final class AdminLanguageController
     public function store(Request $request, AdminCreateLanguagePresenter $presenter): JsonResponse
     {
         $language = $presenter($request->all());
-        $location = route('api.languages.show', ['language_id' => $language->getId()]);
 
-        return new CreatedResponse($location);
+        return new IdResponse($language->getId());
     }
 
     public function show(Request $request, AdminShowLanguagePresenter $presenter): JsonResponse

@@ -14,18 +14,14 @@ final class FakeContainerRepository implements ContainerRepository
 {
     private static Collection $containters;
 
-    private static Collection $elements;
-
     public function __construct()
     {
         static::$containters ?? static::reset();
-        static::$elements ?? static::reset();
     }
 
     public static function reset(): void
     {
         static::$containters =  new Collection();
-        static::$elements = new Collection();
     }
 
     public function save(Container $container): void
@@ -82,8 +78,7 @@ final class FakeContainerRepository implements ContainerRepository
 
     private function loadElements(Container $container): void
     {
-        $elements = static::$elements->where('container_id', $container->getId());
-        $container->setElements($elements);
+        $elements = $container->getElements();
         $container->setLastPosition($elements->last()?->getPosition());
         $container->setCount($elements->count());
     }
@@ -110,8 +105,6 @@ final class FakeContainerRepository implements ContainerRepository
 
     public function saveElement(ContainerElement $element): void
     {
-        $id = static::$elements->count() + 1;
-        $element->setId($id);
-        static::$elements->push($element);
+        // элемент добавляется в контейнер из теста, сохранять снова не требуется
     }
 }

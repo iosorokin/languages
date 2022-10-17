@@ -13,6 +13,8 @@ use Modules\Domain\Languages\Presenters\User\UserAddLanguageToFavorite;
 use Modules\Domain\Languages\Presenters\User\UserAddLanguageToFavoritePresenter;
 use Modules\Domain\Languages\Presenters\User\UserIndexLanguages;
 use Modules\Domain\Languages\Presenters\User\UserIndexLanguagesPresenter;
+use Modules\Domain\Languages\Presenters\User\UserRemoveFromFavorite;
+use Modules\Domain\Languages\Presenters\User\UserRemoveLanguageFromFavoritePresenter;
 use Modules\Domain\Languages\Presenters\User\UserShowLanguage;
 use Modules\Domain\Languages\Presenters\User\UserShowLanguagePresenter;
 use Modules\Domain\Languages\Repositories\EntityLanguageRepository;
@@ -40,6 +42,7 @@ use Modules\Domain\Languages\Presenters\Internal\GetLanguage;
 use Modules\Domain\Languages\Presenters\Internal\GetLanguagePresenter;
 use Modules\Domain\Languages\Repositories\EloquentLanguageRepository;
 use Modules\Domain\Languages\Repositories\LanguageRepository;
+use Modules\Domain\Sources\Presenters\User\UserCreateSourcePresenter;
 
 class LanguageServiceProvider extends ServiceProvider
 {
@@ -48,6 +51,8 @@ class LanguageServiceProvider extends ServiceProvider
         UpdateLanguage::class,
         DeleteLanguage::class,
         UserAddLanguageToFavoritePresenter::class,
+        UserRemoveLanguageFromFavoritePresenter::class,
+        UserCreateSourcePresenter::class,
     ];
 
     private array $read = [
@@ -79,6 +84,7 @@ class LanguageServiceProvider extends ServiceProvider
         $this->app->bind(GuestIndexLanguagesPresenter::class, GuestIndexLanguages::class);
 
         $this->app->bind(UserAddLanguageToFavoritePresenter::class, UserAddLanguageToFavorite::class);
+        $this->app->bind(UserRemoveLanguageFromFavoritePresenter::class, UserRemoveFromFavorite::class);
 
         $this->app->bind(LanguagePolicy::class, LaravelLanguagePolicy::class);
 
