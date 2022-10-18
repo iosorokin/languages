@@ -18,6 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('source_id');
             $table->text('text');
             $table->timestamps();
+
+            $table->foreign('source_id')->on('sentences')->references('id');
         });
     }
 
