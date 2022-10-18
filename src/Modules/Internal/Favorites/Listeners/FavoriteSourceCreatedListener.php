@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Internal\Favorites\Listeners;
 
-use Dflydev\DotAccessData\Data;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Modules\Domain\Languages\Presenters\Internal\GetLanguagePresenter;
+use Modules\Domain\Sources\Events\SourceCreated;
 use Modules\Domain\Sources\Repositories\SourceRepository;
-use Modules\Internal\Container\Events\SourceCreated;
 use Modules\Internal\Favorites\Presenters\AddToFavoritePresenter;
 use Modules\Personal\User\Presenters\Internal\GetUserPresenter;
 

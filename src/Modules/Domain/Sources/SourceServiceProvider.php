@@ -6,23 +6,21 @@ namespace Modules\Domain\Sources;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
+use Modules\Domain\Sources\Events\SourceCreated;
 use Modules\Domain\Sources\Factories\ModelSourceFactory;
 use Modules\Domain\Sources\Factories\SourceFactory;
 use Modules\Domain\Sources\Policies\LaravelSourcePolicy;
 use Modules\Domain\Sources\Policies\SourcePolicy;
-use Modules\Domain\Sources\Presenters\Internal\GetSource;
-use Modules\Domain\Sources\Presenters\Internal\GetSourcePresenter;
 use Modules\Domain\Sources\Presenters\Guest\GuestShowSource;
 use Modules\Domain\Sources\Presenters\Guest\GuestShowSourcePresenter;
+use Modules\Domain\Sources\Presenters\Internal\GetSource;
+use Modules\Domain\Sources\Presenters\Internal\GetSourcePresenter;
 use Modules\Domain\Sources\Presenters\User\UserCreateSource;
 use Modules\Domain\Sources\Presenters\User\UserCreateSourcePresenter;
 use Modules\Domain\Sources\Presenters\User\UserShowSource;
 use Modules\Domain\Sources\Presenters\User\UserShowSourcePresenter;
 use Modules\Domain\Sources\Repositories\EloquentSourceRepository;
 use Modules\Domain\Sources\Repositories\SourceRepository;
-use Modules\Internal\Container\Events\SourceCreated;
-use Modules\Internal\Container\Listeners\ContainerSourceCreatedListener;
-use Modules\Internal\Favorites\Listeners\FavoriteSourceCreatedListener;
 
 final class SourceServiceProvider extends ServiceProvider
 {

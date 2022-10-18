@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Internal\Container\Events;
+namespace Modules\Domain\Sources\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 use Modules\Internal\Container\Listeners\ContainerSourceCreatedListener;
