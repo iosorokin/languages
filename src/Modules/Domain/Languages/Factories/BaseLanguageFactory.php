@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Factories;
 
+use Core\Services\Pagination\CursorPaginator;
+use Illuminate\Contracts\Pagination\CursorPaginator as LaravelCursorPaginator;
+use Modules\Domain\Languages\Collections\Languages;
 use Modules\Domain\Languages\Structures\Language;
 use Modules\Personal\User\Structures\User;
 
@@ -45,6 +48,15 @@ abstract class BaseLanguageFactory implements LanguageFactory
         $language->setName($attributes['name']);
         $language->setNativeName($attributes['native_name']);
         $language->setCode($attributes['code']);
+    }
+
+    public function collection(LaravelCursorPaginator $laravelPaginator): Languages
+    {
+        $paginator = new CursorPaginator($laravelPaginator);
+        $languages = new Languages($laravelPaginator->getCollection());
+        $languages->setPaginator($paginator);
+
+        return $languages;
     }
 
     abstract protected function createStructure(): Language;

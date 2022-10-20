@@ -37,8 +37,9 @@ use Modules\Domain\Languages\Presenters\User\UserRemoveFromFavorite;
 use Modules\Domain\Languages\Presenters\User\UserRemoveLanguageFromFavoritePresenter;
 use Modules\Domain\Languages\Presenters\User\UserShowLanguage;
 use Modules\Domain\Languages\Presenters\User\UserShowLanguagePresenter;
-use Modules\Domain\Languages\Repositories\Eloquent\EloquentLanguageBaseRepository;
+use Modules\Domain\Languages\Repositories\Eloquent\EloquentLanguageRepository;
 use Modules\Domain\Languages\Repositories\Entities\EntityLanguageRepository;
+use Modules\Domain\Languages\Repositories\LanguageQueryBuilder;
 use Modules\Domain\Languages\Repositories\LanguageRepository;
 use Modules\Domain\Languages\Structures\Language;
 use Modules\Domain\Languages\Structures\LanguageModel;
@@ -69,8 +70,6 @@ class LanguageServiceProvider extends ServiceProvider
     {
         $this->bindVariable();
 
-        $this->app->bind(Language::class, LanguageModel::class);
-
         $this->app->bind(AdminCreateLanguagePresenter::class, AdminCreateLanguage::class);
         $this->app->bind(AdminDeleteLanguagePresenter::class, AdminDeleteLanguage::class);
         $this->app->bind(AdminShowLanguagePresenter::class, AdminShowLanguage::class);
@@ -96,7 +95,7 @@ class LanguageServiceProvider extends ServiceProvider
     {
         foreach ($this->write as $class) {
             $this->app->beforeResolving($class, function () {
-                $this->app->bind(LanguageRepository::class, EloquentLanguageBaseRepository::class);
+                $this->app->bind(LanguageRepository::class, EloquentLanguageRepository::class);
                 $this->app->bind(LanguageFactory::class, ModelLanguageFactory::class);
             });
         }

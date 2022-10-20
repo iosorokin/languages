@@ -10,7 +10,7 @@ use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use Modules\Domain\Languages\Collections\Languages;
 use Modules\Domain\Languages\Factories\EntityLanguageFactory;
-use Modules\Domain\Languages\Queries\Filters\LanguageFilter;
+use Modules\Domain\Languages\Repositories\Filters\UserLanguageFilter;
 use Modules\Domain\Languages\Repositories\LanguageRepository;
 use Modules\Domain\Languages\Structures\Language;
 use stdClass;
@@ -39,7 +39,7 @@ final class EntityLanguageRepository implements LanguageRepository
         return $language;
     }
 
-    public function all(LanguageFilter $filter): Languages
+    public function all(UserLanguageFilter $filter): Languages
     {
         /** @var EloquentCursorPaginator $eloquentPaginator */
         $eloquentPaginator = DB::table('languages')
@@ -55,12 +55,7 @@ final class EntityLanguageRepository implements LanguageRepository
             ->orderBy('id')
             ->cursorPaginate();
 
-        $paginator = new CursorPaginator($eloquentPaginator);
-        $languages = new Languages($eloquentPaginator->getCollection());
-        $languages->lazyWrapper(function (stdClass $item) {
-            return $this->factory->restore((array) $item);
-        });
-        $languages->setPaginator($paginator);
+
 
         return $languages;
     }
