@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Internal\Container\Structures;
 
-use App\Base\Structures\EloquentHasDescription;
-use App\Base\Structures\EloquentHasTitle;
-use App\Base\Structures\Identify\EntityIntId;
-use App\Base\Structures\Timestamps\EntityTimestamps;
+use App\Base\Structure\EloquentHasDescription;
+use App\Base\Structure\EloquentHasTitle;
+use App\Base\Structure\Identify\EntityIntId;
+use App\Base\Structure\Timestamps\EntityTimestamps;
 use Illuminate\Support\Collection;
 use Modules\Internal\Container\Contexts\ContainerState;
 

@@ -2,10 +2,10 @@
 
 namespace Modules\Domain\Sources\Structures;
 
-use App\Base\Structures\EloquentHasDescription;
-use App\Base\Structures\EloquentHasTitle;
-use App\Base\Structures\Identify\IntId;
-use App\Base\Structures\Timestamps\Timestamps;
+use App\Base\Structure\EloquentHasDescription;
+use App\Base\Structure\EloquentHasTitle;
+use App\Base\Structure\Identify\IntId;
+use App\Base\Structure\Timestamps\Timestamps;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Queue\SerializesModels;
 use Modules\Domain\Languages\Structures\EloquentLanguageRelation;

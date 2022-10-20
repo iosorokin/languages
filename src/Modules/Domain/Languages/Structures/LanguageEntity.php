@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Structures;
 
-use App\Base\Structures\EntityIsActive;
-use App\Base\Structures\Identify\EntityIntId;
-use App\Base\Structures\Timestamps\EntityTimestamps;
+use App\Base\Structure\EntityIsActive;
+use App\Base\Structure\Identify\EntityIntId;
+use App\Base\Structure\Timestamps\EntityTimestamps;
 use App\Extensions\ToArray;
 use Modules\Personal\User\Structures\EntityUserRelation;
 

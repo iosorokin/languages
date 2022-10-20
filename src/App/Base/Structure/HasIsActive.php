@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Base\Structures;
+namespace App\Base\Structure;
 
 interface HasIsActive
 {

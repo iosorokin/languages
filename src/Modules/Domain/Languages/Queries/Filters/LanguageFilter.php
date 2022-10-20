@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Domain\Languages\Filters;
+namespace Modules\Domain\Languages\Queries\Filters;
 
 use App\Helpers\Pagination\CursorPaginator;
 use Illuminate\Support\Arr;
@@ -23,5 +23,4 @@ class LanguageFilter
             code: Arr::get($attributes, 'code'),
         );
     }
-
 }

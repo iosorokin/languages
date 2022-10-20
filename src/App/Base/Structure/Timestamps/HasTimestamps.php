@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Base\Structures\Timestamps;
+namespace App\Base\Structure\Timestamps;
 
 use Illuminate\Support\Carbon;
 

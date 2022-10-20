@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Personal\Permissions\Structures;
 
-use App\Base\Structures\Identify\HasIntId;
-use App\Base\Structures\Timestamps\Timestamps;
+use App\Base\Structure\Identify\HasIntId;
+use App\Base\Structure\Timestamps\Timestamps;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Personal\Permissions\Enums\PermissionType;
 use Modules\Personal\User\Structures\EloquentUserRelation;

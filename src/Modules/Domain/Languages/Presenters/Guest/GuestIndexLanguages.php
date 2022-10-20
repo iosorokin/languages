@@ -19,6 +19,7 @@ final class GuestIndexLanguages implements GuestIndexLanguagesPresenter
     {
         $client = ($this->getClient)();
         $languages = ($this->indexLanguages)($client, $attributes);
+        // todo закешировать
 
         return $languages;
     }

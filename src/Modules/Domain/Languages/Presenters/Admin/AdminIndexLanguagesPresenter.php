@@ -7,5 +7,5 @@ use Modules\Personal\Auth\Contexts\Client;
 
 interface AdminIndexLanguagesPresenter
 {
-    public function __invoke(Client $client, array $attributes): Languages;
+    public function __invoke(array $attributes): Languages;
 }

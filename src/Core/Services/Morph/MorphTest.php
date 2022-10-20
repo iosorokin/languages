@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Core\Services\Morph;
 
-use App\Base\Structures\HasDescription;
-use App\Base\Structures\HasTitle;
-use App\Base\Structures\Identify\HasIntId;
+use App\Base\Structure\HasDescription;
+use App\Base\Structure\HasTitle;
+use App\Base\Structure\Identify\HasIntId;
 use Core\Base\Tests\UnitCase;
 use Core\Services\Morph\Exceptions\MorphNotFound;
 use Core\Services\Morph\Exceptions\NotUniqueMorph;

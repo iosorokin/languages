@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Base\Structures\Identify;
+namespace App\Base\Structure\Identify;
 
 interface HasIntId
 {

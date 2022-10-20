@@ -2,9 +2,9 @@
 
 namespace Modules\Domain\Analysis\Structures;
 
-use App\Base\Structures\HasDescription;
-use App\Base\Structures\Identify\HasIntId;
-use App\Base\Structures\Timestamps\HasTimestamps;
+use App\Base\Structure\HasDescription;
+use App\Base\Structure\Identify\HasIntId;
+use App\Base\Structure\Timestamps\HasTimestamps;
 use Modules\Domain\Sentences\Structures\HasSentence;
 use Modules\Personal\User\Structures\HasUser;
 

@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\Permissions\Structures;
 
-use App\Base\Structures\Timestamps\HasTimestamps;
+use App\Base\Structure\Timestamps\HasTimestamps;
 use Modules\Personal\Permissions\Enums\PermissionType;
 use Modules\Personal\User\Structures\HasUser;
 

@@ -2,8 +2,8 @@
 
 namespace Modules\Internal\Container\Structures;
 
-use App\Base\Structures\Identify\HasIntId;
-use App\Base\Structures\Timestamps\HasTimestamps;
+use App\Base\Structure\Identify\HasIntId;
+use App\Base\Structure\Timestamps\HasTimestamps;
 use Modules\Internal\Container\Contracts\ContainerableElement;
 
 interface ContainerElement extends

@@ -1,47 +1,32 @@
 <?php
 
-declare(strict_types=1);
+namespace Modules\Domain\Languages\Repositories\Eloquent;
 
-namespace Modules\Domain\Languages\Repositories;
-
+use App\Base\Repository\BaseRepository;
+use App\Extensions\Assert;
 use Core\Services\Pagination\CursorPaginator;
 use Illuminate\Contracts\Pagination\CursorPaginator as EloquentCursorPaginator;
 use Illuminate\Database\Query\Builder;
-use Illuminate\Support\Facades\DB;
 use Modules\Domain\Languages\Collections\Languages;
+use Modules\Domain\Languages\Queries\Filters\LanguageFilter;
+use Modules\Domain\Languages\Repositories\LanguageRepository;
 use Modules\Domain\Languages\Structures\Language;
-use Modules\Domain\Languages\Factories\EntityLanguageFactory;
-use Modules\Domain\Languages\Filters\LanguageFilter;
-use stdClass;
+use Modules\Domain\Languages\Structures\LanguageModel;
 
-final class EntityLanguageRepository implements LanguageRepository
+final class EloquentLanguageBaseRepository extends BaseRepository implements LanguageRepository
 {
-    public function __construct(
-        private EntityLanguageFactory $factory
-    ) {}
-
     public function save(Language $language): void
     {
-        // TODO: Implement save() method.
-    }
-
-    public function get(int $id): ?Language
-    {
-        $language = DB::table('languages')
-            ->where('id', $id)
-            ->first();
-
-        if ($language) {
-            $language = $this->factory->restore((array) $language);
-        }
-
-        return $language;
+        Assert::isInstanceOf($language, LanguageModel::class);
+        /** @var LanguageModel $language */
+        $language->save();
     }
 
     public function all(LanguageFilter $filter): Languages
     {
         /** @var EloquentCursorPaginator $eloquentPaginator */
-        $eloquentPaginator = DB::table('languages')
+        $eloquentPaginator = LanguageModel::query()
+            ->select()
             ->when($filter->name, function (Builder $query) use ($filter) {
                 $query->where('name', '%' . $filter->name . '%');
             })
@@ -56,16 +41,18 @@ final class EntityLanguageRepository implements LanguageRepository
 
         $paginator = new CursorPaginator($eloquentPaginator);
         $languages = new Languages($eloquentPaginator->getCollection());
-        $languages->lazyWrapper(function (stdClass $item) {
-            return $this->factory->restore((array) $item);
-        });
         $languages->setPaginator($paginator);
 
         return $languages;
     }
 
+    public function get(int $id): ?Language
+    {
+        return LanguageModel::find($id);
+    }
+
     public function delete(Language $language): void
     {
-        // TODO: Implement delete() method.
+        $language->delete();
     }
 }

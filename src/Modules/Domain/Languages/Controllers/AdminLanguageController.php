@@ -12,6 +12,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Modules\Domain\Languages\Presenters\Admin\AdminCreateLanguagePresenter;
 use Modules\Domain\Languages\Presenters\Admin\AdminDeleteLanguagePresenter;
+use Modules\Domain\Languages\Presenters\Admin\AdminIndexLanguagesPresenter;
 use Modules\Domain\Languages\Presenters\Admin\AdminShowLanguagePresenter;
 use Modules\Domain\Languages\Presenters\Admin\AdminUpdateLanguagePresenter;
 
@@ -29,6 +30,13 @@ final class AdminLanguageController
         $language = $presenter((int) $request->route('language_id'), $request->all());
 
         return new OkResponse(['data' => $language->toArray()]);
+    }
+
+    public function index(Request $request, AdminIndexLanguagesPresenter $presenter): JsonResponse
+    {
+        $language = $presenter($request->all());
+
+        return new OkResponse($language->toArray());
     }
 
     public function update(Request $request, AdminUpdateLanguagePresenter $presenter): JsonResponse

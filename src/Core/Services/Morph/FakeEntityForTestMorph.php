@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Core\Services\Morph;
 
-use App\Base\Structures\EloquentHasDescription;
-use App\Base\Structures\EloquentHasTitle;
-use App\Base\Structures\Identify\IntId;
-use App\Base\Structures\Timestamps\Timestamps;
+use App\Base\Structure\EloquentHasDescription;
+use App\Base\Structure\EloquentHasTitle;
+use App\Base\Structure\Identify\IntId;
+use App\Base\Structure\Timestamps\Timestamps;
 use Modules\Domain\Languages\Structures\EloquentLanguageRelation;
 use Modules\Domain\Sentences\Structures\Sentence;
 use Modules\Domain\Sources\Structures\EloquentSourceRelation;

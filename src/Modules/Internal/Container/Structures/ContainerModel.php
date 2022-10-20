@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Internal\Container\Structures;
 
-use App\Base\Structures\EloquentHasDescription;
-use App\Base\Structures\EloquentHasTitle;
-use App\Base\Structures\Identify\IntId;
-use App\Base\Structures\Timestamps\Timestamps;
+use App\Base\Structure\EloquentHasDescription;
+use App\Base\Structure\EloquentHasTitle;
+use App\Base\Structure\Identify\IntId;
+use App\Base\Structure\Timestamps\Timestamps;
 use App\Extensions\Assert;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;

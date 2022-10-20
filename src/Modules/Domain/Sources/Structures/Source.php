@@ -2,10 +2,10 @@
 
 namespace Modules\Domain\Sources\Structures;
 
-use App\Base\Structures\HasDescription;
-use App\Base\Structures\HasTitle;
-use App\Base\Structures\Identify\HasIntId;
-use App\Base\Structures\Timestamps\HasTimestamps;
+use App\Base\Structure\HasDescription;
+use App\Base\Structure\HasTitle;
+use App\Base\Structure\Identify\HasIntId;
+use App\Base\Structure\Timestamps\HasTimestamps;
 use Modules\Domain\Languages\Structures\HasLanguage;
 use Modules\Domain\Sources\Enums\SourceType;
 use Modules\Internal\Container\Contracts\Containerable;

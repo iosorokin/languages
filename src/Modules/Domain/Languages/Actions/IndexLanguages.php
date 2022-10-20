@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace Modules\Domain\Languages\Actions;
 
 use Modules\Domain\Languages\Collections\Languages;
-use Modules\Domain\Languages\Filters\LanguageFilter;
+use Modules\Domain\Languages\Queries\Filters\LanguageFilter;
+use Modules\Domain\Languages\Queries\LanguageQuery;
 use Modules\Domain\Languages\Repositories\LanguageRepository;
 use Modules\Personal\Auth\Contexts\Client;
 
@@ -15,9 +16,8 @@ final class IndexLanguages
         private LanguageRepository $repository,
     ) {}
 
-    public function __invoke(Client $client, array $attributes): Languages
+    public function __invoke(Client $client, LanguageQuery $query): Languages
     {
-        $filter = LanguageFilter::new($attributes);
         $languages = $this->repository->all($filter);
 
         return $languages;

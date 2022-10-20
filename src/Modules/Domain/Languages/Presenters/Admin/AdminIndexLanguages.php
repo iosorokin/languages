@@ -2,12 +2,9 @@
 
 namespace Modules\Domain\Languages\Presenters\Admin;
 
-use Illuminate\Contracts\Pagination\CursorPaginator;
 use Modules\Domain\Languages\Actions\IndexLanguages;
 use Modules\Domain\Languages\Collections\Languages;
-use Modules\Domain\Languages\Filters\LanguageFilter;
-use Modules\Domain\Languages\Repositories\LanguageRepository;
-use Modules\Personal\Auth\Contexts\Client;
+use Modules\Domain\Languages\Queries\LanguageQuery;
 use Modules\Personal\Auth\Presenters\GetClientPresenter;
 
 class AdminIndexLanguages implements AdminIndexLanguagesPresenter
@@ -17,9 +14,10 @@ class AdminIndexLanguages implements AdminIndexLanguagesPresenter
         private IndexLanguages $indexLanguages,
     ) {}
 
-    public function __invoke(Client $client, array $attributes): Languages
+    public function __invoke(array $attributes): Languages
     {
         $client = ($this->getClient)();
+        $query = new LanguageQuery();
         $languages = ($this->indexLanguages)($client, $attributes);
 
         return $languages;

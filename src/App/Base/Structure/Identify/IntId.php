@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Base\Structures\Identify;
+namespace App\Base\Structure\Identify;
 
 trait IntId
 {

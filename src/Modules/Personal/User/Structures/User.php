@@ -2,8 +2,8 @@
 
 namespace Modules\Personal\User\Structures;
 
-use App\Base\Structures\Identify\HasIntId;
-use App\Base\Structures\Timestamps\HasTimestamps;
+use App\Base\Structure\Identify\HasIntId;
+use App\Base\Structure\Timestamps\HasTimestamps;
 use Modules\Personal\Auth\Structures\BaseAuth;
 use Modules\Personal\Permissions\Structures\Permission;
 

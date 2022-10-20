@@ -37,10 +37,9 @@ final class LanguageApiTest extends EndpointCase
     /**
      * @depends testAdminCreate
      */
-    public function testAdminShow(int $languageId)
+    public function testGuestShow(int $languageId)
     {
-        BaseAuthApiHelper::new($this)->loginAsTestUser();
-        $response = LanguageApiHelper::new($this)->adminShow($languageId);
+        $response = LanguageApiHelper::new($this)->guestShow($languageId);
         $response->assertOk();
     }
 
@@ -57,15 +56,30 @@ final class LanguageApiTest extends EndpointCase
     /**
      * @depends testAdminCreate
      */
-    public function testGuestShow(int $languageId)
+    public function testAdminShow(int $languageId)
     {
-        $response = LanguageApiHelper::new($this)->guestShow($languageId);
+        BaseAuthApiHelper::new($this)->loginAsTestUser();
+        $response = LanguageApiHelper::new($this)->adminShow($languageId);
         $response->assertOk();
     }
 
     public function testGuestIndex()
     {
         $response = LanguageApiHelper::new($this)->guestIndex();
+        $response->assertOk();
+    }
+
+    public function testUserIndex()
+    {
+        BaseAuthApiHelper::new($this)->loginAsTestUser();
+        $response = LanguageApiHelper::new($this)->userIndex();
+        $response->assertOk();
+    }
+
+    public function testAdminIndex()
+    {
+        BaseAuthApiHelper::new($this)->loginAsTestSuperAdmin();
+        $response = LanguageApiHelper::new($this)->adminIndex();
         $response->assertOk();
     }
 

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Personal\User\Structures;
 
-use App\Base\Structures\Identify\IntId;
-use App\Base\Structures\Timestamps\Timestamps;
+use App\Base\Structure\Identify\IntId;
+use App\Base\Structure\Timestamps\Timestamps;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;

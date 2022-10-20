@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Analysis\Structures;
 
-use App\Base\Structures\EloquentHasDescription;
-use App\Base\Structures\Identify\IntId;
-use App\Base\Structures\Timestamps\Timestamps;
+use App\Base\Structure\EloquentHasDescription;
+use App\Base\Structure\Identify\IntId;
+use App\Base\Structure\Timestamps\Timestamps;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Domain\Sentences\Structures\EloquentSentenceRelation;
 use Modules\Personal\User\Structures\EloquentUserRelation;
