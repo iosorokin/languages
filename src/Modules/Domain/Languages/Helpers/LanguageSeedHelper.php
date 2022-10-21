@@ -12,7 +12,7 @@ use Modules\Domain\Languages\Presenters\SeedLanguage;
 use Modules\Domain\Languages\Structures\Language;
 use Modules\Personal\User\Structures\User;
 
-final class LanguageAppHelper extends AppHelper
+final class LanguageSeedHelper extends AppHelper
 {
     public function generateAttributes(): array
     {

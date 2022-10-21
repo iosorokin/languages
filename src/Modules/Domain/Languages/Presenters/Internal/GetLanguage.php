@@ -6,18 +6,21 @@ namespace Modules\Domain\Languages\Presenters\Internal;
 
 use Exception;
 use Illuminate\Validation\ValidationException;
+use Modules\Domain\Languages\Factories\LanguageFactory;
 use Modules\Domain\Languages\Structures\Language;
 use Modules\Domain\Languages\Repositories\LanguageRepository;
 
 final class GetLanguage implements GetLanguagePresenter
 {
     public function __construct(
-        private LanguageRepository $repository
+        private LanguageFactory $factory
     ){}
 
     public function getOrThrowNotFound(int $id): Language
     {
-        $language = $this->repository->get($id);
+        $language = $this->factory
+            ->repository()
+            ->get($id);
         abort_if(! $language, 404);
 
         return $language;
@@ -25,7 +28,9 @@ final class GetLanguage implements GetLanguagePresenter
 
     public function getOrThrowBadRequest(int $id): Language
     {
-        $language = $this->repository->get($id);
+        $language = $this->factory
+            ->repository()
+            ->get($id);
         if (! $language) {
             throw ValidationException::withMessages([
                 'language_id' => $this->getMessage($id),
@@ -37,7 +42,9 @@ final class GetLanguage implements GetLanguagePresenter
 
     public function getOrThrowException(int $id): Language
     {
-        $language = $this->repository->get($id);
+        $language = $this->factory
+            ->repository()
+            ->get($id);
         if (! $language) {
             throw new Exception($this->getMessage($id));
         }

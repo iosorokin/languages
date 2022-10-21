@@ -2,7 +2,7 @@
 
 namespace Modules\Internal\Favorites\Factories;
 
-use Modules\Internal\Favorites\Contracts\Favoriteable;
+use Modules\Internal\Favorites\Entities\Favoriteable;
 use Modules\Internal\Favorites\Structures\Favorite;
 use Modules\Personal\User\Structures\User;
 

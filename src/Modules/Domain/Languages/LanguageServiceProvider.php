@@ -8,9 +8,12 @@ use Modules\Domain\Languages\Actions\DeleteLanguage;
 use Modules\Domain\Languages\Actions\IndexLanguages;
 use Modules\Domain\Languages\Actions\ShowLanguage;
 use Modules\Domain\Languages\Actions\UpdateLanguage;
+use Modules\Domain\Languages\Factories\EloquentLanguageStructureFactory;
 use Modules\Domain\Languages\Factories\EntityLanguageFactory;
 use Modules\Domain\Languages\Factories\LanguageFactory;
-use Modules\Domain\Languages\Factories\ModelLanguageFactory;
+use Modules\Domain\Languages\Factories\Structure\EntityLanguageStructureFactory;
+use Modules\Domain\Languages\Factories\Structure\LanguageStructureFactory;
+use Modules\Domain\Languages\Factories\Structure\ModelLanguageFactory;
 use Modules\Domain\Languages\Policies\LanguagePolicy;
 use Modules\Domain\Languages\Policies\LaravelLanguagePolicy;
 use Modules\Domain\Languages\Presenters\Admin\AdminCreateLanguage;
@@ -39,10 +42,7 @@ use Modules\Domain\Languages\Presenters\User\UserShowLanguage;
 use Modules\Domain\Languages\Presenters\User\UserShowLanguagePresenter;
 use Modules\Domain\Languages\Repositories\Eloquent\EloquentLanguageRepository;
 use Modules\Domain\Languages\Repositories\Entities\EntityLanguageRepository;
-use Modules\Domain\Languages\Repositories\LanguageQueryBuilder;
 use Modules\Domain\Languages\Repositories\LanguageRepository;
-use Modules\Domain\Languages\Structures\Language;
-use Modules\Domain\Languages\Structures\LanguageModel;
 use Modules\Domain\Sources\Presenters\User\UserCreateSourcePresenter;
 
 class LanguageServiceProvider extends ServiceProvider
@@ -58,7 +58,9 @@ class LanguageServiceProvider extends ServiceProvider
 
     private array $read = [
         ShowLanguage::class,
-        IndexLanguages::class,
+        GuestIndexLanguagesPresenter::class,
+        UserIndexLanguagesPresenter::class,
+        AdminIndexLanguagesPresenter::class,
     ];
 
     /**
@@ -95,14 +97,12 @@ class LanguageServiceProvider extends ServiceProvider
     {
         foreach ($this->write as $class) {
             $this->app->beforeResolving($class, function () {
-                $this->app->bind(LanguageRepository::class, EloquentLanguageRepository::class);
-                $this->app->bind(LanguageFactory::class, ModelLanguageFactory::class);
+                $this->app->bind(LanguageFactory::class, EloquentLanguageStructureFactory::class);
             });
         }
 
         foreach ($this->read as $class) {
             $this->app->beforeResolving($class, function () {
-                $this->app->bind(LanguageRepository::class,EntityLanguageRepository::class);
                 $this->app->bind(LanguageFactory::class, EntityLanguageFactory::class);
             });
         }

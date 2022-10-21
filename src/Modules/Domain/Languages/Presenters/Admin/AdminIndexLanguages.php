@@ -4,7 +4,6 @@ namespace Modules\Domain\Languages\Presenters\Admin;
 
 use Modules\Domain\Languages\Actions\IndexLanguages;
 use Modules\Domain\Languages\Collections\Languages;
-use Modules\Domain\Languages\Queries\LanguageQuery;
 use Modules\Personal\Auth\Presenters\GetClientPresenter;
 
 class AdminIndexLanguages implements AdminIndexLanguagesPresenter

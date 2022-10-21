@@ -8,6 +8,7 @@ use App\Base\Structure\EntityIsActive;
 use App\Base\Structure\Identify\EntityIntId;
 use App\Base\Structure\Timestamps\EntityTimestamps;
 use App\Extensions\ToArray;
+use Modules\Internal\Favorites\Entities\HasFavorite;
 use Modules\Personal\User\Structures\EntityUserRelation;
 
 final class LanguageEntity implements Language
@@ -19,4 +20,5 @@ final class LanguageEntity implements Language
     use EntityIsActive;
     use LanguageFillableAttributes;
     use ToArray;
+    use HasFavorite;
 }

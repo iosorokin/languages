@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Domain\Languages\Factories;
+namespace Modules\Domain\Languages\Factories\Structure;
 
 use Core\Services\Pagination\CursorPaginator;
 use Illuminate\Contracts\Pagination\CursorPaginator as LaravelCursorPaginator;
@@ -10,8 +10,10 @@ use Modules\Domain\Languages\Collections\Languages;
 use Modules\Domain\Languages\Structures\Language;
 use Modules\Personal\User\Structures\User;
 
-abstract class BaseLanguageFactory implements LanguageFactory
+abstract class BaseLanguageStructureFactory implements LanguageStructureFactory
 {
+    abstract protected function createStructure(): Language;
+
     public function create(User $user, array $attributes): Language
     {
         $language = $this->createStructure();
@@ -28,6 +30,7 @@ abstract class BaseLanguageFactory implements LanguageFactory
         $language->setUserId($attributes['user_id']);
         if ($user) $language->setUser($user);
         $this->fillAttributes($language, $attributes);
+        $this->calculateVariables($language, $attributes);
 
         return $language;
     }
@@ -40,6 +43,15 @@ abstract class BaseLanguageFactory implements LanguageFactory
         return $language;
     }
 
+    public function collection(LaravelCursorPaginator $laravelPaginator): Languages
+    {
+        $paginator = new CursorPaginator($laravelPaginator);
+        $languages = new Languages($laravelPaginator->getCollection());
+        $languages->setPaginator($paginator);
+
+        return $languages;
+    }
+
     private function fillAttributes(Language $language, array $attributes): void
     {
         $isActive = (bool)($attributes['is_active'] ?? false);
@@ -50,14 +62,8 @@ abstract class BaseLanguageFactory implements LanguageFactory
         $language->setCode($attributes['code']);
     }
 
-    public function collection(LaravelCursorPaginator $laravelPaginator): Languages
+    private function calculateVariables(Language $language, array $attributes): void
     {
-        $paginator = new CursorPaginator($laravelPaginator);
-        $languages = new Languages($laravelPaginator->getCollection());
-        $languages->setPaginator($paginator);
-
-        return $languages;
+        $language->setIsFavorite((bool)($attributes['favorite_id'] ?? false));
     }
-
-    abstract protected function createStructure(): Language;
 }

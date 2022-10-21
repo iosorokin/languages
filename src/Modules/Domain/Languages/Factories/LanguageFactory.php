@@ -2,18 +2,15 @@
 
 namespace Modules\Domain\Languages\Factories;
 
-use Illuminate\Contracts\Pagination\CursorPaginator;
-use Modules\Domain\Languages\Collections\Languages;
-use Modules\Domain\Languages\Structures\Language;
-use Modules\Personal\User\Structures\User;
+use Modules\Domain\Languages\Factories\Builder\LanguageQueryBuilder;
+use Modules\Domain\Languages\Factories\Structure\LanguageStructureFactory;
+use Modules\Domain\Languages\Repositories\LanguageRepository;
 
 interface LanguageFactory
 {
-    public function create(User $user, array $attributes): Language;
+    public function structure(): LanguageStructureFactory;
 
-    public function restore(array $attributes, ?User $user = null): Language;
+    public function builder():  LanguageQueryBuilder;
 
-    public function collection(CursorPaginator $paginator): Languages;
-
-    public function update(Language $language, array $attributes, ?User $user = null);
+    public function repository(): LanguageRepository;
 }

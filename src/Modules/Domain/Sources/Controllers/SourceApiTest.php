@@ -4,7 +4,7 @@ namespace Modules\Domain\Sources\Controllers;
 
 use Core\Base\Helpers\ApiHelper;
 use Core\Base\Tests\EndpointCase;
-use Modules\Domain\Languages\Helpers\LanguageAppHelper;
+use Modules\Domain\Languages\Helpers\LanguageSeedHelper;
 use Modules\Domain\Languages\Structures\Language;
 use Modules\Domain\Sources\Tests\SourceApiHelper;
 use Modules\Personal\Auth\Tests\BaseAuthApiHelper;
@@ -13,7 +13,7 @@ class SourceApiTest extends EndpointCase
 {
     public function testCreated()
     {
-        $helper = LanguageAppHelper::new();
+        $helper = LanguageSeedHelper::new();
         /** @var Language $language */
         $language = $helper->create(1)
             ->current();

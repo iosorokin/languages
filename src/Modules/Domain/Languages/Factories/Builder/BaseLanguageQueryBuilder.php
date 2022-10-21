@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Modules\Domain\Languages\Repositories;
+namespace Modules\Domain\Languages\Factories\Builder;
 
-use App\Base\Repository\SqlQueryBuilder;
+use App\Base\QueryBuilder\SqlQueryBuilder;
 use Core\Services\Morph\Morph;
 use Illuminate\Contracts\Database\Query\Builder;
 use Modules\Domain\Languages\Structures\Language;
@@ -12,6 +12,22 @@ use Modules\Personal\User\Structures\User;
 
 abstract class BaseLanguageQueryBuilder extends SqlQueryBuilder implements LanguageQueryBuilder
 {
+    public function selectLanguage($fields = ['*']): self
+    {
+        foreach ($fields as $field) {
+            $this->query->addSelect('languages.' . $field);
+        }
+
+        return $this;
+    }
+
+    public function selectFavoriteId(): self
+    {
+        $this->query->addSelect('favorites.id as favorite_id');
+
+        return $this;
+    }
+
     public function whereIsActive(bool $isActive = true): self
     {
         $this->query->where('is_active', $isActive);
@@ -49,16 +65,16 @@ abstract class BaseLanguageQueryBuilder extends SqlQueryBuilder implements Langu
 
     public function orderByUserFavorite(): self
     {
-        $this->query->orderBy('favorite.id');
+        $this->query->orderBy('favorites.id');
 
         return $this;
     }
 
     public function leftJoinUserFavorite(User|int $user): self
     {
-        $this->query->leftJoin('favorites as favorite', function (Builder $query) use ($user) {
-            $query->where('favorite.favorite_type', Morph::getMorph(Language::class))
-                ->whereColumn('favorite.favorite_id', 'language_id')
+        $this->query->leftJoin('favorites', function (Builder $query) use ($user) {
+            $query->where('favoriteable_type', Morph::getMorph(Language::class))
+                ->whereColumn('favoriteable_id', 'languages.id')
                 ->where('languages.user_id', $user->getId());
         });
 

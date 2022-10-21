@@ -2,17 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Modules\Domain\Languages\Repositories\Eloquent;
+namespace Modules\Domain\Languages\Factories\Builder;
 
 use App\Helpers\Cast;
 use Illuminate\Database\Eloquent\Builder;
-use Modules\Domain\Languages\Repositories\BaseLanguageQueryBuilder;
 use Modules\Personal\User\Structures\User;
 
 /**
  * @property \Illuminate\Contracts\Database\Eloquent\Builder $query
  */
-final class EloquentBaseLanguageQueryBuilder extends BaseLanguageQueryBuilder
+final class EloquentLanguageQueryBuilder extends BaseLanguageQueryBuilder
 {
     public function withUserFavorite(User|int $user): self
     {

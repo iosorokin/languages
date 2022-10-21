@@ -1,13 +1,11 @@
 <?php
 
-namespace Modules\Domain\Languages\Factories;
+namespace Modules\Domain\Languages\Factories\Structure;
 
 use Modules\Domain\Languages\Structures\Language;
 use Modules\Domain\Languages\Structures\LanguageModel;
-use Modules\Domain\Languages\Validators\CreateLanguageValidator;
-use Modules\Personal\User\Structures\User;
 
-class ModelLanguageFactory extends BaseLanguageFactory
+class ModelLanguageFactory extends BaseLanguageStructureFactory
 {
     protected function createStructure(): Language
     {

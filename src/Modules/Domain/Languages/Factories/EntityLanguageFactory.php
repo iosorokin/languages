@@ -4,26 +4,30 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Factories;
 
-use Illuminate\Contracts\Pagination\CursorPaginator as LaravelCursorPaginator;
-use Modules\Domain\Languages\Collections\Languages;
-use Modules\Domain\Languages\Structures\Language;
-use Modules\Domain\Languages\Structures\LanguageEntity;
-use stdClass;
+use Illuminate\Support\Facades\DB;
+use Modules\Domain\Languages\Factories\Builder\EntityLanguageQueryBuilder;
+use Modules\Domain\Languages\Factories\Builder\LanguageQueryBuilder;
+use Modules\Domain\Languages\Factories\Structure\EntityLanguageStructureFactory;
+use Modules\Domain\Languages\Factories\Structure\LanguageStructureFactory;
+use Modules\Domain\Languages\Repositories\Entities\EntityLanguageRepository;
+use Modules\Domain\Languages\Repositories\LanguageRepository;
 
-final class EntityLanguageFactory extends BaseLanguageFactory
+final class EntityLanguageFactory implements LanguageFactory
 {
-    protected function createStructure(): Language
+    public function builder(): LanguageQueryBuilder
     {
-        return new LanguageEntity();
+        return app()->make(EntityLanguageQueryBuilder::class, [
+            'query' => DB::table('languages'),
+        ]);
     }
 
-    public function collection(LaravelCursorPaginator $laravelPaginator): Languages
+    public function structure(): LanguageStructureFactory
     {
-        $languages = parent::collection($laravelPaginator);
-        $languages->lazyWrapper(function (stdClass $item) {
-            return $this->restore((array) $item);
-        });
+        return app()->make(EntityLanguageStructureFactory::class);
+    }
 
-        return $languages;
+    public function repository(): LanguageRepository
+    {
+        return app()->make(EntityLanguageRepository::class);
     }
 }

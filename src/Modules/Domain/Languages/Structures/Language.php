@@ -6,7 +6,7 @@ use App\Base\Structure\HasIsActive;
 use App\Base\Structure\Identify\HasIntId;
 use App\Base\Structure\Structure;
 use App\Base\Structure\Timestamps\HasTimestamps;
-use Modules\Internal\Favorites\Contracts\Favoriteable;
+use Modules\Internal\Favorites\Entities\Favoriteable;
 use Modules\Personal\User\Structures\HasUser;
 
 interface Language extends Structure,

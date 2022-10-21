@@ -8,7 +8,7 @@ use App\Base\Structure\Identify\IntId;
 use App\Base\Structure\Timestamps\Timestamps;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
-use Modules\Internal\Favorites\Contracts\Favoriteable;
+use Modules\Internal\Favorites\Entities\Favoriteable;
 use Modules\Personal\User\Structures\EloquentUserRelation;
 
 final class FavoriteModel extends Model implements Favorite

@@ -22,7 +22,6 @@ final class EloquentLanguageRepository extends BaseSqlRepository implements Lang
         $language->save();
     }
 
-
     public function get(int $id): ?Language
     {
         return LanguageModel::find($id);

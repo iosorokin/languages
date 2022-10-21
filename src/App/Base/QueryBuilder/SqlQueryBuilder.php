@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Base\Repository;
+namespace App\Base\QueryBuilder;
 
 use Illuminate\Contracts\Database\Query\Builder;
 

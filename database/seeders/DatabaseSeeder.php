@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Modules\Domain\Analysis\Tests\AnalysisAppHelper;
 use Modules\Domain\Chapters\Tests\ChapterAppHelper;
-use Modules\Domain\Languages\Helpers\LanguageAppHelper;
+use Modules\Domain\Languages\Helpers\LanguageSeedHelper;
 use Modules\Domain\Sentences\Structures\Sentence;
 use Modules\Domain\Sentences\Tests\SentenceHelper;
 use Modules\Domain\Sources\Structures\Source;
@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
 
     private function createLanguages(User $user): array
     {
-        $helper = LanguageAppHelper::new();
+        $helper = LanguageSeedHelper::new();
         $generator = $helper->create(
             user: $user,
             count: config('seed.languages.count')

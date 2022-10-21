@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Actions;
 
-use Modules\Domain\Languages\Factories\LanguageFactory;
+use Modules\Domain\Languages\Factories\Structure\LanguageStructureFactory;
 use Modules\Domain\Languages\Presenters\Internal\GetLanguagePresenter;
 use Modules\Domain\Languages\Repositories\LanguageRepository;
 use Modules\Domain\Languages\Structures\Language;
@@ -15,11 +15,11 @@ use Modules\Personal\User\Presenters\Internal\GetUserPresenter;
 final class UpdateLanguage
 {
     public function __construct(
-        private GetLanguagePresenter $getLanguage,
-        private GetUserPresenter $getUser,
-        private UpdateLanguageValidator $validator,
-        private LanguageFactory $factory,
-        private LanguageRepository $repository,
+        private GetLanguagePresenter     $getLanguage,
+        private GetUserPresenter         $getUser,
+        private UpdateLanguageValidator  $validator,
+        private LanguageStructureFactory $factory,
+        private LanguageRepository       $repository,
     ) {}
 
     public function __invoke(Client $client, Language|int $language, array $attributes): void

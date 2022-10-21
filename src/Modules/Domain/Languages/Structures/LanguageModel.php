@@ -9,6 +9,7 @@ use App\Base\Structure\IsActiveAttributes;
 use App\Base\Structure\Timestamps\Timestamps;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Modules\Internal\Favorites\Entities\HasFavorite;
 use Modules\Internal\Favorites\Structures\FavoriteModel;
 use Modules\Personal\User\Structures\EloquentUserRelation;
 
@@ -20,6 +21,7 @@ final class LanguageModel extends Model implements Language
     use LanguageAttributes;
     use Timestamps;
     use LanguageFillableAttributes;
+    use HasFavorite;
 
     protected $table = 'languages';
 

@@ -12,7 +12,7 @@ final class LanguageApiHelper extends ApiHelper
 {
     public function adminCreate(array $attributes = []): TestResponse
     {
-        $attributes = LanguageAppHelper::new()->generateAttributes() + $attributes;
+        $attributes = LanguageSeedHelper::new()->generateAttributes() + $attributes;
 
         return $this->testCase->postJson(route('api.admin.languages.store'), $attributes);
     }

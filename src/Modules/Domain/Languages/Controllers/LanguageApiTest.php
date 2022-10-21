@@ -7,7 +7,7 @@ namespace Modules\Domain\Languages\Controllers;
 use Core\Base\Helpers\ApiHelper;
 use Core\Base\Tests\EndpointCase;
 use Modules\Domain\Languages\Helpers\LanguageApiHelper;
-use Modules\Domain\Languages\Helpers\LanguageAppHelper;
+use Modules\Domain\Languages\Helpers\LanguageSeedHelper;
 use Modules\Personal\Auth\Tests\BaseAuthApiHelper;
 
 final class LanguageApiTest extends EndpointCase

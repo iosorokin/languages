@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Internal\Favorites\Factories;
 
-use Modules\Internal\Favorites\Contracts\Favoriteable;
+use Modules\Internal\Favorites\Entities\Favoriteable;
 use Modules\Internal\Favorites\Structures\Favorite;
 use Modules\Internal\Favorites\Structures\FavoriteModel;
 use Modules\Personal\User\Structures\User;

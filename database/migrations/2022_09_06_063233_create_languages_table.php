@@ -18,11 +18,15 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('native_name');
-            $table->string('code', 8);
             $table->boolean('is_active');
             $table->timestamps();
 
             $table->foreign('user_id')->on('users')->references('id');
+            $table->unique('code');
+            $table->unique('name');
+            $table->unique('native_name');
+            $table->index('name');
+            $table->index('native_name');
         });
     }
 

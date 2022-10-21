@@ -10,6 +10,10 @@ final class UserLanguageTransformer extends LanguageTransformer
 {
     public function transform(Language $language): array
     {
-        return parent::transform($language);
+        $data = [
+            'is_favorite' => $language->isFavorite(),
+        ];
+
+        return $data + parent::transform($language);
     }
 }

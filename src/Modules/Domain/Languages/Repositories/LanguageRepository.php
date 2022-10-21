@@ -11,14 +11,9 @@ use Modules\Domain\Languages\Structures\Language;
 
 interface LanguageRepository extends SqlRepository
 {
-    public function builder(): EloquentBuilder|NativeBuilder;
-
     public function save(Language $language): void;
-
-    public function all(UserLanguageFilter $filter): Languages;
 
     public function get(int $id): ?Language;
 
     public function delete(Language $language): void;
-
 }
