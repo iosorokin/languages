@@ -5,17 +5,15 @@ namespace Modules\Domain\Languages;
 use Illuminate\Support\ServiceProvider;
 use Modules\Domain\Languages\Actions\CreateLanguage;
 use Modules\Domain\Languages\Actions\DeleteLanguage;
-use Modules\Domain\Languages\Actions\IndexLanguages;
 use Modules\Domain\Languages\Actions\ShowLanguage;
 use Modules\Domain\Languages\Actions\UpdateLanguage;
 use Modules\Domain\Languages\Factories\EloquentLanguageStructureFactory;
 use Modules\Domain\Languages\Factories\EntityLanguageFactory;
 use Modules\Domain\Languages\Factories\LanguageFactory;
-use Modules\Domain\Languages\Factories\Structure\EntityLanguageStructureFactory;
-use Modules\Domain\Languages\Factories\Structure\LanguageStructureFactory;
-use Modules\Domain\Languages\Factories\Structure\ModelLanguageFactory;
+use Modules\Domain\Languages\Authorization\AuthorizeLanguage;
+use Modules\Domain\Languages\Authorization\AuthorizeLanguageImpl;
 use Modules\Domain\Languages\Policies\LanguagePolicy;
-use Modules\Domain\Languages\Policies\LaravelLanguagePolicy;
+use Modules\Domain\Languages\Policies\LanguagePolicyImpl;
 use Modules\Domain\Languages\Presenters\Admin\AdminCreateLanguage;
 use Modules\Domain\Languages\Presenters\Admin\AdminCreateLanguagePresenter;
 use Modules\Domain\Languages\Presenters\Admin\AdminDeleteLanguage;
@@ -87,13 +85,14 @@ class LanguageServiceProvider extends ServiceProvider
         $this->app->bind(UserAddLanguageToFavoritePresenter::class, UserAddLanguageToFavorite::class);
         $this->app->bind(UserRemoveLanguageFromFavoritePresenter::class, UserRemoveFromFavorite::class);
 
-        $this->app->bind(LanguagePolicy::class, LaravelLanguagePolicy::class);
+        $this->app->bind(AuthorizeLanguage::class, AuthorizeLanguageImpl::class);
+        $this->app->bind(LanguagePolicy::class, LanguagePolicyImpl::class);
 
         $this->app->bind(GetLanguagePresenter::class, GetLanguage::class);
 
     }
 
-    private function bindVariable()
+    private function bindVariable(): void
     {
         foreach ($this->write as $class) {
             $this->app->beforeResolving($class, function () {

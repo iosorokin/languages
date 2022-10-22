@@ -2,6 +2,7 @@
 
 namespace Core\Http;
 
+use Core\Http\Middleware\AuthorizeAdmin;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -43,6 +44,13 @@ class Kernel extends HttpKernel
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+        'admin' => [
+            'auth:sanctum',
+            AuthorizeAdmin::class
+        ],
+        'user' => [
+            'auth:sanctum',
+        ]
     ];
 
     /**

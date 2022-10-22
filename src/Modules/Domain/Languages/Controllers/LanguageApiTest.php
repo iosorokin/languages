@@ -58,7 +58,7 @@ final class LanguageApiTest extends EndpointCase
      */
     public function testAdminShow(int $languageId)
     {
-        BaseAuthApiHelper::new($this)->loginAsTestUser();
+        BaseAuthApiHelper::new($this)->loginAsTestSuperAdmin();
         $response = LanguageApiHelper::new($this)->adminShow($languageId);
         $response->assertOk();
     }
@@ -86,7 +86,7 @@ final class LanguageApiTest extends EndpointCase
     /**
      * @depends testAdminCreate
      */
-    public function testAddToFavorite(int $languageId)
+    public function testUserAddToFavorite(int $languageId)
     {
         BaseAuthApiHelper::new($this)->loginAsTestUser();
         $response = LanguageApiHelper::new($this)->userAddToFavorite($languageId);
@@ -97,9 +97,9 @@ final class LanguageApiTest extends EndpointCase
 
     /**
      * @depends testAdminCreate
-     * @depends testAddToFavorite
+     * @depends testUserAddToFavorite
      */
-    public function testRemoveFromFavorite(int $languageId, int $favoriteId)
+    public function testUserRemoveFromFavorite(int $languageId, int $favoriteId)
     {
         BaseAuthApiHelper::new($this)->loginAsTestUser();
         $response = LanguageApiHelper::new($this)->userRemoveFromFavorite($languageId, $favoriteId);

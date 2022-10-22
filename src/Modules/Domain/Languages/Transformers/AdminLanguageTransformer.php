@@ -11,7 +11,6 @@ final class AdminLanguageTransformer extends LanguageTransformer
     public function transform(Language $language): array
     {
         $data = [
-            'id' => $language->getId(),
             'user_id' => $language->getUser()->getName(),
             'is_active' => $language->isActive(),
             'created_at' => $language->getCreatedAt(),

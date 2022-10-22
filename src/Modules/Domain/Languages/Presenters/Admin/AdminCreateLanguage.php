@@ -4,14 +4,14 @@ namespace Modules\Domain\Languages\Presenters\Admin;
 
 use Modules\Domain\Languages\Actions\CreateLanguage;
 use Modules\Domain\Languages\Structures\Language;
-use Modules\Domain\Languages\Policies\LanguagePolicy;
+use Modules\Domain\Languages\Authorization\AuthorizeLanguage;
 use Modules\Personal\Auth\Presenters\GetClientPresenter;
 
 class AdminCreateLanguage implements AdminCreateLanguagePresenter
 {
     public function __construct(
         private GetClientPresenter $getClient,
-        private LanguagePolicy     $policy,
+        private AuthorizeLanguage  $policy,
         private CreateLanguage     $createLanguage,
     ) {}
 

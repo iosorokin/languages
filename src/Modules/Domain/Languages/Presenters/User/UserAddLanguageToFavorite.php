@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Presenters\User;
 
+use Modules\Domain\Languages\Authorization\AuthorizeLanguage;
 use Modules\Domain\Languages\Policies\LanguagePolicy;
 use Modules\Domain\Languages\Presenters\Internal\GetLanguagePresenter;
 use Modules\Internal\Favorites\Presenters\AddToFavoritePresenter;
@@ -14,7 +15,7 @@ final class UserAddLanguageToFavorite implements UserAddLanguageToFavoritePresen
 {
     public function __construct(
         private GetClientPresenter     $getClient,
-        private LanguagePolicy         $policy,
+        private LanguagePolicy      $policy,
         private GetLanguagePresenter   $getLanguage,
         private AddToFavoritePresenter $addToFavorite,
     ) {}

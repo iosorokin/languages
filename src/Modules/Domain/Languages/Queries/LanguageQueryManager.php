@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Modules\Domain\Languages\Services;
+namespace Modules\Domain\Languages\Queries;
 
 use Illuminate\Contracts\Database\Query\Builder;
 use Modules\Domain\Languages\Factories\Builder\LanguageQueryBuilder;
 use Modules\Domain\Languages\Repositories\Filters\LanguageFilter;
 use Modules\Personal\User\Structures\User;
 
-final class LanguageQueryManager
+final class anguageQueryManager
 {
     private LanguageQueryBuilder $queryBuilder;
 
@@ -18,6 +18,11 @@ final class LanguageQueryManager
         $this->queryBuilder = $queryBuilder;
 
         return $this;
+    }
+
+    public function admin(User $user, array $attributes): Builder
+    {
+        return $this->user($user, $attributes);
     }
 
     public function user(User $user, array $attributes): Builder

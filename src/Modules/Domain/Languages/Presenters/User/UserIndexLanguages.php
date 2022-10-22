@@ -7,7 +7,7 @@ namespace Modules\Domain\Languages\Presenters\User;
 use Modules\Domain\Languages\Actions\IndexLanguages;
 use Modules\Domain\Languages\Collections\Languages;
 use Modules\Domain\Languages\Factories\LanguageFactory;
-use Modules\Domain\Languages\Services\LanguageQueryManager;
+use Modules\Domain\Languages\Queries\LanguageQueryManager;
 use Modules\Personal\Auth\Presenters\GetClientPresenter;
 
 final class UserIndexLanguages implements UserIndexLanguagesPresenter

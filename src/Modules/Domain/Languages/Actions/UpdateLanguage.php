@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Actions;
 
+use Modules\Domain\Languages\Factories\LanguageFactory;
 use Modules\Domain\Languages\Factories\Structure\LanguageStructureFactory;
 use Modules\Domain\Languages\Presenters\Internal\GetLanguagePresenter;
 use Modules\Domain\Languages\Repositories\LanguageRepository;
@@ -18,8 +19,7 @@ final class UpdateLanguage
         private GetLanguagePresenter     $getLanguage,
         private GetUserPresenter         $getUser,
         private UpdateLanguageValidator  $validator,
-        private LanguageStructureFactory $factory,
-        private LanguageRepository       $repository,
+        private LanguageFactory         $languageFactory,
     ) {}
 
     public function __invoke(Client $client, Language|int $language, array $attributes): void
@@ -28,7 +28,11 @@ final class UpdateLanguage
         $attributes = $attributes + $language->fillableAttributes();
         $attributes = $this->validator->validate($attributes);
         $user = isset($attributes['user_id']) ? ($this->getUser)($attributes['user_id']) : null;
-        $this->factory->update($language, $attributes, $user);
-        $this->repository->save($language);
+        $this->languageFactory
+            ->structure()
+            ->update($language, $attributes, $user);
+        $this->languageFactory
+            ->repository()
+            ->save($language);
     }
 }

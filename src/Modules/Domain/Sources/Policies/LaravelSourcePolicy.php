@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sources\Policies;
 
+use Modules\Domain\Languages\Authorization\AuthorizeLanguage;
 use Modules\Domain\Languages\Policies\LanguagePolicy;
 use Modules\Domain\Languages\Structures\Language;
 use Modules\Domain\Sources\Structures\Source;
