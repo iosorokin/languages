@@ -6,12 +6,12 @@ use Core\Base\Helpers\ApiHelper;
 use Core\Base\Tests\EndpointCase;
 use Modules\Domain\Languages\Helpers\LanguageSeedHelper;
 use Modules\Domain\Languages\Structures\Language;
-use Modules\Domain\Sources\Tests\SourceApiHelper;
+use Modules\Domain\Sources\Helpers\SourceApiHelper;
 use Modules\Personal\Auth\Tests\BaseAuthApiHelper;
 
 class SourceApiTest extends EndpointCase
 {
-    public function testCreated()
+    public function testUserCreate()
     {
         $helper = LanguageSeedHelper::new();
         /** @var Language $language */
@@ -29,13 +29,38 @@ class SourceApiTest extends EndpointCase
     }
 
     /**
-     * @depends testCreated
+     * @depends testUserCreate
      */
-    public function testShowed(int $id)
+    public function testUserShow(int $id)
     {
         BaseAuthApiHelper::new($this)->loginAsTestUser();
 
         $response = SourceApiHelper::new($this)->show($id);
         $response->assertOk();
+    }
+
+    public function testGuestShow(int $id)
+    {
+
+    }
+
+    public function testUserIndex()
+    {
+
+    }
+
+    public function testGuestIndex()
+    {
+
+    }
+
+    public function testUserUpdate()
+    {
+
+    }
+
+    public function testUserDelete()
+    {
+
     }
 }

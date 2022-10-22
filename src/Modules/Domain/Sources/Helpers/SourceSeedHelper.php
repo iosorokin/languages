@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Domain\Sources\Tests;
+namespace Modules\Domain\Sources\Helpers;
 
 use Core\Base\Helpers\AppHelper;
 use Generator;
@@ -10,7 +10,7 @@ use Illuminate\Support\Arr;
 use Modules\Domain\Sources\Presenters\SeedSource;
 use Modules\Personal\User\Structures\User;
 
-final class SourceHelper extends AppHelper
+final class SourceSeedHelper extends AppHelper
 {
     public function generateAttributes(): array
     {

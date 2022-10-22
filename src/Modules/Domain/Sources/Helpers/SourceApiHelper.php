@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Domain\Sources\Tests;
+namespace Modules\Domain\Sources\Helpers;
 
 use Core\Base\Helpers\ApiHelper;
 use Illuminate\Testing\TestResponse;
@@ -12,7 +12,7 @@ final class SourceApiHelper extends ApiHelper
 {
     public function store(array $attributes = []): TestResponse
     {
-        $attributes = SourceHelper::new()->generateAttributes() + $attributes;
+        $attributes = SourceSeedHelper::new()->generateAttributes() + $attributes;
 
         return $this->testCase->postJson(route('api.user.sources.store', [
             'language_id' => $attributes['language_id']

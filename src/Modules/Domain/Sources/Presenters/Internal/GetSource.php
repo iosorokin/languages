@@ -8,6 +8,7 @@ use App\Extensions\Assert;
 use Core\Services\Morph\Morph;
 use Exception;
 use Illuminate\Validation\ValidationException;
+use Modules\Domain\Sources\Factories\SourceFactory;
 use Modules\Domain\Sources\Structures\Source;
 use Modules\Domain\Sources\Repositories\SourceRepository;
 use Modules\Internal\Container\Repositories\ContainerRepository;
@@ -15,13 +16,14 @@ use Modules\Internal\Container\Repositories\ContainerRepository;
 final class GetSource implements GetSourcePresenter
 {
     public function __construct(
-        private SourceRepository $repository,
+        private SourceFactory       $factory,
         private ContainerRepository $containerRepository,
     ) {}
 
     public function getOrThrowNotFound(int $id): Source
     {
-        $source = $this->repository->get($id);
+        $source = $this->factory->repository()
+            ->get($id);
         abort_if(! $source, 404);
         $this->setContainer($source);
 
@@ -30,7 +32,8 @@ final class GetSource implements GetSourcePresenter
 
     public function getOrThrowBadRequest(int $id): Source
     {
-        $source = $this->repository->get($id);
+        $source = $this->factory->repository()
+            ->get($id);
         if (! $source) {
             throw ValidationException::withMessages([
                 'source_id' => $this->getMessage($id),
@@ -43,7 +46,8 @@ final class GetSource implements GetSourcePresenter
 
     public function getOrThrowException(int $id): Source
     {
-        $source = $this->repository->get($id);
+        $source = $this->factory->repository()
+            ->get($id);
         if (! $source) {
             throw new Exception($this->getMessage($id));
         }

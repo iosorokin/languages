@@ -11,14 +11,14 @@ class AdminCreateLanguage implements AdminCreateLanguagePresenter
 {
     public function __construct(
         private GetClientPresenter $getClient,
-        private AuthorizeLanguage  $policy,
+        private AuthorizeLanguage  $authorize,
         private CreateLanguage     $createLanguage,
     ) {}
 
     public function __invoke(array $attributes): Language
     {
         $client = ($this->getClient)();
-        $this->policy->canCreate($client);
+        $this->authorize->canCreate($client);
         $language = ($this->createLanguage)($client->user(), $attributes);
 
         return $language;

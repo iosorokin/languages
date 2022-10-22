@@ -12,7 +12,7 @@ final class GuestShowSource implements GuestShowSourcePresenter
 {
     public function __construct(
         private GetClientPresenter $getClient,
-        private ShowSource     $showSource,
+        private ShowSource         $showSource,
     ) {}
 
     public function __invoke(int $sourceId): Source

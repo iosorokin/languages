@@ -9,7 +9,7 @@ use Modules\Domain\Languages\Helpers\LanguageSeedHelper;
 use Modules\Domain\Sentences\Structures\Sentence;
 use Modules\Domain\Sentences\Tests\SentenceHelper;
 use Modules\Domain\Sources\Structures\Source;
-use Modules\Domain\Sources\Tests\SourceHelper;
+use Modules\Domain\Sources\Helpers\SourceSeedHelper;
 use Modules\Personal\Permissions\Enums\PermissionType;
 use Modules\Personal\User\Structures\User;
 use Modules\Personal\User\Tests\UserHelper;
@@ -96,7 +96,7 @@ class DatabaseSeeder extends Seeder
 
     private function seedSources(User $user, int $languageId): void
     {
-        $sourceHelper = SourceHelper::new();
+        $sourceHelper = SourceSeedHelper::new();
         $count = random_int(
             config('seed.sources.count_for_user.min'),
             config('seed.sources.count_for_user.max')

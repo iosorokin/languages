@@ -6,11 +6,11 @@ namespace Modules\Domain\Languages\Policies;
 
 use Illuminate\Validation\ValidationException;
 use Modules\Domain\Languages\Structures\Language;
-use Modules\Personal\Auth\Contexts\Client;
+use Modules\Personal\User\Structures\User;
 
 final class LanguagePolicyImpl implements LanguagePolicy
 {
-    public function canTakeToLearn(Client $client, Language $language): void
+    public function canTakeToLearn(Language $language): void
     {
         if (! $language->isActive()) {
             throw ValidationException::withMessages([

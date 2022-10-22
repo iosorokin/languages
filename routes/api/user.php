@@ -19,10 +19,7 @@ Route::apiResource('languages.favorites', UserFavoriteLanguageController::class)
     ])
     ->only(['store', 'destroy']);
 
-Route::apiResource('sources', UserSourceController::class)
-    ->parameters([
-        'sources' => 'source_id',
-    ]);
+Route::apiResource('sources', UserSourceController::class);
 
 Route::post('sources/{source_id}/chapters', UserStoreChapterController::class)
     ->name('chapters.store');

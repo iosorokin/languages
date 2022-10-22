@@ -6,5 +6,5 @@ use Modules\Domain\Sources\Structures\Source;
 
 interface UserShowSourcePresenter
 {
-    public function __invoke(int $sourceId): Source;
+    public function __invoke(int $source): Source;
 }

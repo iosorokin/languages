@@ -2,11 +2,12 @@
 
 namespace Modules\Domain\Sources\Factories;
 
-use Modules\Domain\Languages\Structures\Language;
-use Modules\Domain\Sources\Structures\Source;
-use Modules\Personal\User\Structures\User;
+use Modules\Domain\Sources\Factories\Structure\SourceStructureFactory;
+use Modules\Domain\Sources\Repositories\SourceRepository;
 
 interface SourceFactory
 {
-    public function new(User $user, Language $language, array $attributes): Source;
+    public function structure(): SourceStructureFactory;
+
+    public function repository(): SourceRepository;
 }
