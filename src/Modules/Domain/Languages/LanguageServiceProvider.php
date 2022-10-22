@@ -3,15 +3,11 @@
 namespace Modules\Domain\Languages;
 
 use Illuminate\Support\ServiceProvider;
-use Modules\Domain\Languages\Actions\CreateLanguage;
-use Modules\Domain\Languages\Actions\DeleteLanguage;
-use Modules\Domain\Languages\Actions\ShowLanguage;
-use Modules\Domain\Languages\Actions\UpdateLanguage;
+use Modules\Domain\Languages\Authorization\LanguageAuthorizeAdmin;
+use Modules\Domain\Languages\Authorization\LanguageAuthorizeAdminImpl;
 use Modules\Domain\Languages\Factories\EloquentLanguageStructureFactory;
 use Modules\Domain\Languages\Factories\EntityLanguageFactory;
 use Modules\Domain\Languages\Factories\LanguageFactory;
-use Modules\Domain\Languages\Authorization\AuthorizeLanguage;
-use Modules\Domain\Languages\Authorization\AuthorizeLanguageImpl;
 use Modules\Domain\Languages\Policies\LanguagePolicy;
 use Modules\Domain\Languages\Policies\LanguagePolicyImpl;
 use Modules\Domain\Languages\Presenters\Admin\AdminCreateLanguage;
@@ -38,24 +34,23 @@ use Modules\Domain\Languages\Presenters\User\UserRemoveFromFavorite;
 use Modules\Domain\Languages\Presenters\User\UserRemoveLanguageFromFavoritePresenter;
 use Modules\Domain\Languages\Presenters\User\UserShowLanguage;
 use Modules\Domain\Languages\Presenters\User\UserShowLanguagePresenter;
-use Modules\Domain\Languages\Repositories\Eloquent\EloquentLanguageRepository;
-use Modules\Domain\Languages\Repositories\Entities\EntityLanguageRepository;
-use Modules\Domain\Languages\Repositories\LanguageRepository;
 use Modules\Domain\Sources\Presenters\User\UserCreateSourcePresenter;
 
 class LanguageServiceProvider extends ServiceProvider
 {
     private array $write = [
-        CreateLanguage::class,
-        UpdateLanguage::class,
-        DeleteLanguage::class,
+        AdminCreateLanguagePresenter::class,
+        AdminUpdateLanguagePresenter::class,
+        AdminDeleteLanguagePresenter::class,
         UserAddLanguageToFavoritePresenter::class,
         UserRemoveLanguageFromFavoritePresenter::class,
         UserCreateSourcePresenter::class,
     ];
 
     private array $read = [
-        ShowLanguage::class,
+        GuestShowLanguagePresenter::class,
+        UserShowLanguagePresenter::class,
+        AdminShowLanguagePresenter::class,
         GuestIndexLanguagesPresenter::class,
         UserIndexLanguagesPresenter::class,
         AdminIndexLanguagesPresenter::class,
@@ -85,7 +80,7 @@ class LanguageServiceProvider extends ServiceProvider
         $this->app->bind(UserAddLanguageToFavoritePresenter::class, UserAddLanguageToFavorite::class);
         $this->app->bind(UserRemoveLanguageFromFavoritePresenter::class, UserRemoveFromFavorite::class);
 
-        $this->app->bind(AuthorizeLanguage::class, AuthorizeLanguageImpl::class);
+        $this->app->bind(LanguageAuthorizeAdmin::class, LanguageAuthorizeAdminImpl::class);
         $this->app->bind(LanguagePolicy::class, LanguagePolicyImpl::class);
 
         $this->app->bind(GetLanguagePresenter::class, GetLanguage::class);

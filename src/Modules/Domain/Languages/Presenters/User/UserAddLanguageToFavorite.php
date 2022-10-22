@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Presenters\User;
 
-use Modules\Domain\Languages\Authorization\AuthorizeLanguage;
 use Modules\Domain\Languages\Policies\LanguagePolicy;
 use Modules\Domain\Languages\Presenters\Internal\GetLanguagePresenter;
 use Modules\Internal\Favorites\Presenters\AddToFavoritePresenter;
@@ -24,7 +23,7 @@ final class UserAddLanguageToFavorite implements UserAddLanguageToFavoritePresen
     {
         $client = ($this->getClient)();
         $language = $this->getLanguage->getOrThrowBadRequest($languageId);
-        $this->policy->canTakeToLearn($client, $language);
+        $this->policy->canTakeToLearn($language);
         $favorite = ($this->addToFavorite)($client->user(), $language);
 
         return $favorite;

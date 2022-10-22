@@ -5,7 +5,7 @@ namespace Modules\Domain\Languages\Authorization;
 use Modules\Domain\Languages\Structures\Language;
 use Modules\Personal\Auth\Contexts\Client;
 
-interface AuthorizeLanguage
+interface LanguageAuthorizeAdmin
 {
     public function canCreate(Client $client): void;
 

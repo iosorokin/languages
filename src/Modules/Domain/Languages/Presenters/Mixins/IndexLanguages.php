@@ -2,13 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Modules\Domain\Languages\Actions;
+namespace Modules\Domain\Languages\Presenters\Mixins;
 
 use Illuminate\Contracts\Database\Query\Builder;
 use Modules\Domain\Languages\Collections\Languages;
 use Modules\Domain\Languages\Factories\LanguageFactory;
-use Modules\Domain\Languages\Factories\Structure\LanguageStructureFactory;
-use Modules\Domain\Languages\Repositories\LanguageRepository;
 use Modules\Personal\Auth\Contexts\Client;
 
 final class IndexLanguages
@@ -17,7 +15,7 @@ final class IndexLanguages
         private LanguageFactory $factory,
     ) {}
 
-    public function __invoke(Client $client, Builder $query): Languages
+    public function __invoke(Builder $query): Languages
     {
         $laravelPaginator = $this->factory
             ->repository()

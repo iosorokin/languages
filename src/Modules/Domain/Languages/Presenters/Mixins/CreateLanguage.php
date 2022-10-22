@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Domain\Languages\Actions;
+namespace Modules\Domain\Languages\Presenters\Mixins;
 
 use Modules\Domain\Languages\Factories\LanguageFactory;
 use Modules\Domain\Languages\Structures\Language;

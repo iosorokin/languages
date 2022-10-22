@@ -8,47 +8,41 @@ use Illuminate\Validation\ValidationException;
 use Modules\Domain\Languages\Structures\Language;
 use Modules\Personal\Auth\Contexts\Client;
 
-final class AuthorizeLanguageImpl implements AuthorizeLanguage
+final class LanguageAuthorizeAdminImpl implements LanguageAuthorizeAdmin
 {
     public function canCreate(Client $client): void
     {
-        if (! $client->isAdmin()) {
-            abort(403);
-        }
+        $this->abortIfNotRoot($client);
     }
 
     public function canShow(Client $client, Language $language): void
     {
-        //
+        $this->abortIfNotAdmin($client);
     }
 
     public function canIndex(Client $client): void
     {
-        // TODO: Implement userCanIndex() method.
-    }
-
-    public function adminCanIndex(Client $client, Language $language): void
-    {
-        if (! $client->isAdmin()) {
-            abort(403);
-        }
-    }
-
-    public function adminCanShow(Client $client, Language $language): void
-    {
-        if (! $client->isAdmin()) {
-            abort(403);
-        }
+        $this->abortIfNotAdmin($client);
     }
 
     public function canUpdate(Client $client, Language $language): void
     {
+        $this->abortIfNotRoot($client);
+    }
+
+    public function canDelete(Client $client, Language $language): void
+    {
+        $this->abortIfNotRoot($client);
+    }
+
+    private function abortIfNotAdmin(Client $client): void
+    {
         if (! $client->isAdmin()) {
             abort(403);
         }
     }
 
-    public function canDelete(Client $client, Language $language): void
+    private function abortIfNotRoot(Client $client): void
     {
         if (! $client->isRoot()) {
             abort(403);

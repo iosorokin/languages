@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Presenters\User;
 
-use Modules\Domain\Languages\Actions\IndexLanguages;
 use Modules\Domain\Languages\Collections\Languages;
 use Modules\Domain\Languages\Factories\LanguageFactory;
+use Modules\Domain\Languages\Presenters\Mixins\IndexLanguages;
 use Modules\Domain\Languages\Queries\LanguageQueryManager;
 use Modules\Personal\Auth\Presenters\GetClientPresenter;
 
@@ -25,7 +25,7 @@ final class UserIndexLanguages implements UserIndexLanguagesPresenter
         $query = $this->queryManager
             ->setQueryBuilder($this->factory->builder())
             ->user($client->user(), $attributes);
-        $languages = ($this->indexLanguages)($client, $query);
+        $languages = ($this->indexLanguages)($query);
         // todo закешировать
 
         return $languages;

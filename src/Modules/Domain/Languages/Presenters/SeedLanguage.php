@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Modules\Domain\Languages\Presenters;
 
 use App\Extensions\Assert;
-use Modules\Domain\Languages\Actions\CreateLanguage;
-use Modules\Domain\Languages\Actions\UpdateLanguage;
+use Modules\Domain\Languages\Presenters\Mixins\CreateLanguage;
+use Modules\Domain\Languages\Presenters\Mixins\UpdateLanguage;
 use Modules\Domain\Languages\Structures\Language;
 use Modules\Personal\Auth\Tests\AuthHelper;
-use Modules\Personal\User\Structures\User;
 use Modules\Personal\User\Repositories\UserRepository;
+use Modules\Personal\User\Structures\User;
 
 final class SeedLanguage
 {

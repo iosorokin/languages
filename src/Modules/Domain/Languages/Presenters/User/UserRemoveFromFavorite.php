@@ -17,6 +17,7 @@ final class UserRemoveFromFavorite implements UserRemoveLanguageFromFavoritePres
     public function __invoke(array $attributes): void
     {
         $client = ($this->getClient)();
+        // todo проверить авторизацию !!!!
         ($this->removeFavorite)($client, (int) $attributes['favorite_id']);
     }
 }
