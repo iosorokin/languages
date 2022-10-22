@@ -7,7 +7,7 @@ namespace Modules\Internal\Favorites\Policies;
 use Modules\Internal\Favorites\Structures\Favorite;
 use Modules\Personal\Auth\Contexts\Client;
 
-final class LaravelFavoritePolicy implements FavoritePolicy
+final class FavoritePolicyImpl implements FavoritePolicy
 {
     public function canRemove(Client $client, Favorite $favorite)
     {
