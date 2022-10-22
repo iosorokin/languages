@@ -5,9 +5,7 @@ declare(strict_types=1);
 namespace Modules\Domain\Languages\Actions;
 
 use Modules\Domain\Languages\Factories\LanguageFactory;
-use Modules\Domain\Languages\Factories\Structure\LanguageStructureFactory;
 use Modules\Domain\Languages\Presenters\Internal\GetLanguagePresenter;
-use Modules\Domain\Languages\Repositories\LanguageRepository;
 use Modules\Domain\Languages\Structures\Language;
 use Modules\Domain\Languages\Validators\UpdateLanguageValidator;
 use Modules\Personal\Auth\Contexts\Client;
@@ -28,11 +26,9 @@ final class UpdateLanguage
         $attributes = $attributes + $language->fillableAttributes();
         $attributes = $this->validator->validate($attributes);
         $user = isset($attributes['user_id']) ? ($this->getUser)($attributes['user_id']) : null;
-        $this->languageFactory
-            ->structure()
+        $this->languageFactory->structure()
             ->update($language, $attributes, $user);
-        $this->languageFactory
-            ->repository()
+        $this->languageFactory->repository()
             ->save($language);
     }
 }

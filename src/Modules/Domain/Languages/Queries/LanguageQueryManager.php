@@ -9,7 +9,7 @@ use Modules\Domain\Languages\Factories\Builder\LanguageQueryBuilder;
 use Modules\Domain\Languages\Repositories\Filters\LanguageFilter;
 use Modules\Personal\User\Structures\User;
 
-final class anguageQueryManager
+final class LanguageQueryManager
 {
     private LanguageQueryBuilder $queryBuilder;
 
