@@ -12,5 +12,7 @@ interface AuthorizeSource
 
     public function canShow(Client $client, Source $source): void;
 
+    public function canIndex(Client $client): void;
+
     public function canTakeToWork(Client $client, Source $source): void;
 }
