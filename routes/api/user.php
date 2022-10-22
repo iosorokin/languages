@@ -7,6 +7,7 @@ use Modules\Domain\Languages\Controllers\UserFavoriteLanguageController;
 use Modules\Domain\Languages\Controllers\UserLanguageController;
 use Modules\Domain\Sentences\Controllers\StoreSentenceController;
 use Modules\Domain\Sentences\Controllers\UserDeleteSentenceController;
+use Modules\Domain\Sources\Controllers\Items\UserSourceItemsController;
 use Modules\Domain\Sources\Controllers\UserSourceController;
 use Modules\Personal\Auth\Controllers\LogoutController;
 
@@ -20,6 +21,8 @@ Route::apiResource('languages.favorites', UserFavoriteLanguageController::class)
     ->only(['store', 'destroy']);
 
 Route::apiResource('sources', UserSourceController::class);
+Route::apiResource('sources.items', UserSourceItemsController::class)
+    ->only(['index']);
 
 Route::post('sources/{source_id}/chapters', UserStoreChapterController::class)
     ->name('chapters.store');

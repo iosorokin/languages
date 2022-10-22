@@ -24,4 +24,9 @@ trait EloquentLanguageRelation
     {
         return $this->language;
     }
+
+    public function getLanguageId(): int
+    {
+        return $this->language_id;
+    }
 }
