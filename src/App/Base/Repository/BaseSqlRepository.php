@@ -19,4 +19,9 @@ abstract class BaseSqlRepository implements SqlRepository
     {
         return $query->cursorPaginate();
     }
+
+    public function count(Builder $query): int
+    {
+        return $query->count();
+    }
 }

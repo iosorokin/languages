@@ -9,7 +9,7 @@ use Modules\Domain\Languages\Factories\Builder\EntityLanguageQueryBuilder;
 use Modules\Domain\Languages\Factories\Builder\LanguageQueryBuilder;
 use Modules\Domain\Languages\Factories\Structure\EntityLanguageStructureFactory;
 use Modules\Domain\Languages\Factories\Structure\LanguageStructureFactory;
-use Modules\Domain\Languages\Repositories\Entities\EntityLanguageRepository;
+use Modules\Domain\Languages\Repositories\EntityLanguageRepository;
 use Modules\Domain\Languages\Repositories\LanguageRepository;
 
 final class EntityLanguageFactory implements LanguageFactory

@@ -6,31 +6,44 @@ namespace Modules\Domain\Sources;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
-use Modules\Domain\Sources\Actions\CreateSource;
-use Modules\Domain\Sources\Actions\IndexSource;
-use Modules\Domain\Sources\Actions\ShowSource;
+use Modules\Domain\Languages\Presenters\User\UserIndexLanguages;
+use Modules\Domain\Languages\Presenters\User\UserIndexLanguagesPresenter;
+use Modules\Domain\Sources\Authorization\SourceAuthorizeUser;
+use Modules\Domain\Sources\Authorization\SourceAuthorizeUserImpl;
 use Modules\Domain\Sources\Events\SourceCreated;
 use Modules\Domain\Sources\Factories\EloquentSourceFactory;
 use Modules\Domain\Sources\Factories\SourceFactory;
-use Modules\Domain\Sources\Factories\Structure\ModelSourceFactory;
-use Modules\Domain\Sources\Factories\Structure\SourceStructureFactory;
-use Modules\Domain\Sources\Authorization\AuthorizeSourceImpl;
-use Modules\Domain\Sources\Authorization\AuthorizeSource;
+use Modules\Domain\Sources\Presenters\Guest\GuestIndexSources;
+use Modules\Domain\Sources\Presenters\Guest\GuestIndexSourcesPresenter;
 use Modules\Domain\Sources\Presenters\Guest\GuestShowSource;
 use Modules\Domain\Sources\Presenters\Guest\GuestShowSourcePresenter;
+use Modules\Domain\Sources\Presenters\Guest\Items\GuestIndexSourceItems;
+use Modules\Domain\Sources\Presenters\Guest\Items\GuestIndexSourceItemsPresenter;
 use Modules\Domain\Sources\Presenters\Internal\GetSource;
 use Modules\Domain\Sources\Presenters\Internal\GetSourcePresenter;
+use Modules\Domain\Sources\Presenters\Mixins\CreateSource;
+use Modules\Domain\Sources\Presenters\Mixins\IndexSource;
+use Modules\Domain\Sources\Presenters\Mixins\ShowSource;
+use Modules\Domain\Sources\Presenters\Requests\IsFirstUserSourceForLanguage;
+use Modules\Domain\Sources\Presenters\Requests\IsFirstUserSourceForLanguagePresenter;
+use Modules\Domain\Sources\Presenters\SeedSource;
+use Modules\Domain\Sources\Presenters\User\Items\UserIndexSourceItems;
+use Modules\Domain\Sources\Presenters\User\Items\UserIndexSourceItemsPresenter;
 use Modules\Domain\Sources\Presenters\User\UserCreateSource;
 use Modules\Domain\Sources\Presenters\User\UserCreateSourcePresenter;
+use Modules\Domain\Sources\Presenters\User\UserDeleteSource;
+use Modules\Domain\Sources\Presenters\User\UserDeleteSourcePresenter;
 use Modules\Domain\Sources\Presenters\User\UserShowSource;
 use Modules\Domain\Sources\Presenters\User\UserShowSourcePresenter;
-use Modules\Domain\Sources\Repositories\EloquentSourceRepository;
-use Modules\Domain\Sources\Repositories\SourceRepository;
+use Modules\Domain\Sources\Presenters\User\UserUpdateSource;
+use Modules\Domain\Sources\Presenters\User\UserUpdateSourcePresenter;
 
 final class SourceServiceProvider extends ServiceProvider
 {
     private array $write = [
         CreateSource::class,
+
+        SeedSource::class,
     ];
 
     private array $read = [
@@ -40,18 +53,33 @@ final class SourceServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        $this->bindImplementations();
+        $this->bindPresenters();
         $this->registerEvents();
         $this->bindFactory();
+        $this->bindAuthorizations();
     }
 
-    private function bindImplementations()
+    private function bindAuthorizations()
     {
-        $this->app->bind(UserCreateSourcePresenter::class, UserCreateSource::class);
-        $this->app->bind(GetSourcePresenter::class, GetSource::class);
+        $this->app->bind(SourceAuthorizeUser::class, SourceAuthorizeUserImpl::class);
+    }
+
+    private function bindPresenters()
+    {
         $this->app->bind(GuestShowSourcePresenter::class, GuestShowSource::class);
-        $this->app->bind(AuthorizeSource::class, AuthorizeSourceImpl::class);
+        $this->app->bind(GuestIndexSourcesPresenter::class, GuestIndexSources::class);
+        $this->app->bind(GuestIndexSourceItemsPresenter::class, GuestIndexSourceItems::class);
+
+        $this->app->bind(UserCreateSourcePresenter::class, UserCreateSource::class);
         $this->app->bind(UserShowSourcePresenter::class, UserShowSource::class);
+        $this->app->bind(UserIndexLanguagesPresenter::class, UserIndexLanguages::class);
+        $this->app->bind(UserUpdateSourcePresenter::class, UserUpdateSource::class);
+        $this->app->bind(UserDeleteSourcePresenter::class, UserDeleteSource::class);
+        $this->app->bind(UserIndexSourceItemsPresenter::class, UserIndexSourceItems::class);
+
+        $this->app->bind(GetSourcePresenter::class, GetSource::class);
+
+        $this->app->bind(IsFirstUserSourceForLanguagePresenter::class, IsFirstUserSourceForLanguage::class);
     }
 
     private function registerEvents()

@@ -8,7 +8,7 @@ use Modules\Domain\Languages\Factories\Builder\EloquentLanguageQueryBuilder;
 use Modules\Domain\Languages\Factories\Builder\LanguageQueryBuilder;
 use Modules\Domain\Languages\Factories\Structure\LanguageStructureFactory;
 use Modules\Domain\Languages\Factories\Structure\ModelLanguageFactory;
-use Modules\Domain\Languages\Repositories\Eloquent\EloquentLanguageRepository;
+use Modules\Domain\Languages\Repositories\EloquentLanguageRepository;
 use Modules\Domain\Languages\Repositories\LanguageRepository;
 use Modules\Domain\Languages\Structures\LanguageModel;
 

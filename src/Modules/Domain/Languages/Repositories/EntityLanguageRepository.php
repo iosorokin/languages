@@ -2,16 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Modules\Domain\Languages\Repositories\Entities;
+namespace Modules\Domain\Languages\Repositories;
 
 use App\Base\Repository\BaseSqlRepository;
-use Illuminate\Contracts\Pagination\CursorPaginator as EloquentCursorPaginator;
-use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
-use Modules\Domain\Languages\Collections\Languages;
 use Modules\Domain\Languages\Factories\Structure\EntityLanguageStructureFactory;
-use Modules\Domain\Languages\Repositories\Filters\UserLanguageFilter;
-use Modules\Domain\Languages\Repositories\LanguageRepository;
 use Modules\Domain\Languages\Structures\Language;
 
 final class EntityLanguageRepository extends BaseSqlRepository implements LanguageRepository

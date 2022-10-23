@@ -50,6 +50,6 @@ final class LanguageSeedHelper extends AppHelper
 
     private function presenter(): SeedLanguage
     {
-        return app()->get(SeedLanguage::class);
+        return app()->make(SeedLanguage::class);
     }
 }

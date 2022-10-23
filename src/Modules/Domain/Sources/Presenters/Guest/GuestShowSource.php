@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sources\Presenters\Guest;
 
-use Modules\Domain\Sources\Actions\ShowSource;
+use Modules\Domain\Sources\Presenters\Mixins\ShowSource;
 use Modules\Domain\Sources\Structures\Source;
 use Modules\Personal\Auth\Presenters\GetClientPresenter;
 

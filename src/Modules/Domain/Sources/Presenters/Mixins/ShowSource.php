@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Modules\Domain\Sources\Actions;
+namespace Modules\Domain\Sources\Presenters\Mixins;
 
-use Modules\Domain\Sources\Authorization\AuthorizeSource;
+use Modules\Domain\Sources\Authorization\SourceAuthorizeUser;
 use Modules\Domain\Sources\Presenters\Internal\GetSourcePresenter;
 use Modules\Domain\Sources\Structures\Source;
 use Modules\Personal\Auth\Contexts\Client;
@@ -12,8 +12,8 @@ use Modules\Personal\Auth\Contexts\Client;
 final class ShowSource
 {
     public function __construct(
-        private GetSourcePresenter $getSource,
-        private AuthorizeSource    $authorize,
+        private GetSourcePresenter  $getSource,
+        private SourceAuthorizeUser $authorize,
     ) {}
 
     public function __invoke(Client $client, int $sourceId): Source

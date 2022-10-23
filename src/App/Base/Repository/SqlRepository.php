@@ -8,4 +8,6 @@ use Illuminate\Contracts\Pagination\CursorPaginator;
 interface SqlRepository
 {
     public function cursorPaginate(Builder $query): CursorPaginator;
+
+    public function count(Builder $query): int;
 }

@@ -3,6 +3,7 @@
 namespace Modules\Domain\Sources\Factories;
 
 use Modules\Domain\Sources\Factories\Structure\SourceStructureFactory;
+use Modules\Domain\Sources\Queries\Builder\SourceQueryBuilder;
 use Modules\Domain\Sources\Repositories\SourceRepository;
 
 interface SourceFactory
@@ -10,4 +11,6 @@ interface SourceFactory
     public function structure(): SourceStructureFactory;
 
     public function repository(): SourceRepository;
+
+    public function builder(): SourceQueryBuilder;
 }

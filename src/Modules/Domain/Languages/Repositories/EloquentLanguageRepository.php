@@ -1,15 +1,9 @@
 <?php
 
-namespace Modules\Domain\Languages\Repositories\Eloquent;
+namespace Modules\Domain\Languages\Repositories;
 
 use App\Base\Repository\BaseSqlRepository;
 use App\Extensions\Assert;
-use Core\Services\Pagination\CursorPaginator;
-use Illuminate\Contracts\Pagination\CursorPaginator as EloquentCursorPaginator;
-use Illuminate\Database\Query\Builder;
-use Modules\Domain\Languages\Collections\Languages;
-use Modules\Domain\Languages\Repositories\Filters\UserLanguageFilter;
-use Modules\Domain\Languages\Repositories\LanguageRepository;
 use Modules\Domain\Languages\Structures\Language;
 use Modules\Domain\Languages\Structures\LanguageModel;
 

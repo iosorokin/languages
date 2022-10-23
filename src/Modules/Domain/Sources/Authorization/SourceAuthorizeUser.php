@@ -6,13 +6,11 @@ use Modules\Domain\Languages\Structures\Language;
 use Modules\Domain\Sources\Structures\Source;
 use Modules\Personal\Auth\Contexts\Client;
 
-interface AuthorizeSource
+interface SourceAuthorizeUser
 {
     public function canCreate(Client $client, Language $language): void;
 
-    public function canShow(Client $client, Source $source): void;
+    public function canUpdate(Client $client, Source $source): void;
 
-    public function canIndex(Client $client): void;
-
-    public function canTakeToWork(Client $client, Source $source): void;
+    public function canDelete(Client $client, Source $source): void;
 }

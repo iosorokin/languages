@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Factories\Builder;
 
-use App\Base\QueryBuilder\SqlQueryBuilder;
+use App\Base\QueryBuilder\BaseSqlQueryBuilder;
+use App\Helpers\Cast;
 use Core\Services\Morph\Morph;
 use Illuminate\Contracts\Database\Query\Builder;
 use Modules\Domain\Languages\Structures\Language;
 use Modules\Personal\User\Structures\User;
 
-abstract class BaseLanguageQueryBuilder extends SqlQueryBuilder implements LanguageQueryBuilder
+abstract class BaseLanguageQueryBuilderBase extends BaseSqlQueryBuilder implements LanguageQueryBuilder
 {
     public function selectLanguage($fields = ['*']): self
     {
@@ -70,6 +71,17 @@ abstract class BaseLanguageQueryBuilder extends SqlQueryBuilder implements Langu
         return $this;
     }
 
+    public function whereUserFavorite(User|int $user): self
+    {
+        $this->query->rightJoin('favorites', function (Builder $query) use ($user) {
+            $query->where('favoriteable_type', Morph::getMorph(Language::class))
+                ->whereColumn('favoriteable_id', 'languages.id')
+                ->where('languages.user_id', $user->getId());
+        });
+
+        return $this;
+    }
+
     public function leftJoinUserFavorite(User|int $user): self
     {
         $this->query->leftJoin('favorites', function (Builder $query) use ($user) {
@@ -80,8 +92,4 @@ abstract class BaseLanguageQueryBuilder extends SqlQueryBuilder implements Langu
 
         return $this;
     }
-
-    abstract public function withUserFavorite(User|int $user): self;
-
-    abstract public function whereUserFavorite(User|int $user): self;
 }

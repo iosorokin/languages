@@ -2,13 +2,14 @@
 
 namespace Modules\Domain\Sources\Repositories;
 
+use App\Base\Repository\SqlRepository;
 use Modules\Domain\Sources\Structures\Source;
 
-interface SourceRepository
+interface SourceRepository extends SqlRepository
 {
     public function save(Source $source): void;
 
     public function get(int $id): ?Source;
 
-    public function ifUserFirstSourcesByLanguage(int $userId, int $languageId): bool;
+    public function isUserFirstSourcesByLanguage(int $userId, int $languageId): bool;
 }

@@ -2,23 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Modules\Domain\Sources\Actions;
+namespace Modules\Domain\Sources\Presenters\Mixins;
 
 use Modules\Domain\Languages\Policies\LanguagePolicy;
 use Modules\Domain\Languages\Presenters\Internal\GetLanguagePresenter;
-use Modules\Domain\Sources\Authorization\AuthorizeSource;
+use Modules\Domain\Sources\Authorization\SourceAuthorizeUser;
 use Modules\Domain\Sources\Events\SourceCreated;
 use Modules\Domain\Sources\Factories\SourceFactory;
 use Modules\Domain\Sources\Structures\Source;
 use Modules\Domain\Sources\Validators\CreateSourceValidator;
 use Modules\Personal\Auth\Contexts\Client;
-use Modules\Personal\User\Structures\User;
 
 final class CreateSource
 {
     public function __construct(
-        private AuthorizeSource $authorize,
-        private LanguagePolicy $languagePolicy,
+        private SourceAuthorizeUser   $authorize,
+        private LanguagePolicy        $languagePolicy,
         private CreateSourceValidator $validator,
         private GetLanguagePresenter  $getLanguage,
         private SourceFactory         $factory,

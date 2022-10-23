@@ -26,6 +26,7 @@ use Modules\Domain\Languages\Presenters\Guest\GuestShowLanguage;
 use Modules\Domain\Languages\Presenters\Guest\GuestShowLanguagePresenter;
 use Modules\Domain\Languages\Presenters\Internal\GetLanguage;
 use Modules\Domain\Languages\Presenters\Internal\GetLanguagePresenter;
+use Modules\Domain\Languages\Presenters\SeedLanguage;
 use Modules\Domain\Languages\Presenters\User\UserAddLanguageToFavorite;
 use Modules\Domain\Languages\Presenters\User\UserAddLanguageToFavoritePresenter;
 use Modules\Domain\Languages\Presenters\User\UserIndexLanguages;
@@ -45,6 +46,7 @@ class LanguageServiceProvider extends ServiceProvider
         UserAddLanguageToFavoritePresenter::class,
         UserRemoveLanguageFromFavoritePresenter::class,
         UserCreateSourcePresenter::class,
+        SeedLanguage::class,
     ];
 
     private array $read = [

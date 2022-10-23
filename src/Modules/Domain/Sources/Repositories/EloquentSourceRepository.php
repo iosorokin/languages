@@ -2,10 +2,11 @@
 
 namespace Modules\Domain\Sources\Repositories;
 
+use App\Base\Repository\BaseSqlRepository;
 use Modules\Domain\Sources\Structures\Source;
 use Modules\Domain\Sources\Structures\SourceModel;
 
-class EloquentSourceRepository implements SourceRepository
+class EloquentSourceRepository extends BaseSqlRepository implements SourceRepository
 {
     public function save(Source $source): void
     {
@@ -17,7 +18,7 @@ class EloquentSourceRepository implements SourceRepository
         return SourceModel::find($id);
     }
 
-    public function ifUserFirstSourcesByLanguage(int $userId, int $languageId): bool
+    public function isUserFirstSourcesByLanguage(int $userId, int $languageId): bool
     {
         $countUserSourcesByLanguage = SourceModel::query()
             ->where('user_id', $userId)

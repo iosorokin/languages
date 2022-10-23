@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Domain\Sources\Actions;
+namespace Modules\Domain\Sources\Presenters\Mixins;
 
 final class IndexSource
 {

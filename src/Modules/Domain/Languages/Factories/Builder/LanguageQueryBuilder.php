@@ -26,7 +26,5 @@ interface LanguageQueryBuilder
 
     public function leftJoinUserFavorite(User|int $user): self;
 
-    public function withUserFavorite(User|int $user): self;
-
     public function whereUserFavorite(User|int $user): self;
 }
