@@ -4,91 +4,41 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Queries;
 
-use App\Base\QueryBuilder\BaseSqlQueryBuilder;
-use Core\Services\Morph\Morph;
-use Illuminate\Contracts\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
+use Modules\Domain\Languages\Filters\LanguageFilter;
 use Modules\Domain\Languages\Model\Language;
 use Modules\Personal\User\Model\User;
 
-class LanguageQueryBuilder extends BaseSqlQueryBuilder
+final class LanguageQueryBuilder
 {
-    public function selectLanguage($fields = ['*']): self
+    public function admin(User $user, array $attributes): Builder
     {
-        foreach ($fields as $field) {
-            $this->query->addSelect('languages.' . $field);
-        }
-
-        return $this;
+        return $this->user($user, $attributes);
     }
 
-    public function selectFavoriteId(): self
+    public function user(User $user, array $attributes): Builder
     {
-        $this->query->addSelect('favorites.id as favorite_id');
+        $query = $this->guest($attributes)->selectFavoriteId()
+            ->leftJoinUserFavorite($user)
+            ->orderByUserFavorite();
 
-        return $this;
+        return $query;
     }
 
-    public function whereIsActive(bool $isActive = true): self
+    public function guest(array $attributes): Builder
     {
-        $this->query->where('is_active', $isActive);
+        $query = Language::query()
+            ->selectLanguage()
+            ->orderByName()
+            ->whereIsActive();
+        $this->commonFilters($query, $attributes);
 
-        return $this;
+        return $query;
     }
 
-    public function whereName(string $name): self
+    private function commonFilters(Builder $query, array $attributes): void
     {
-        $this->query->where('name', sprintf('%%s%', $name));
-
-        return $this;
-    }
-
-    public function whereNativeName(string $nativeName): self
-    {
-        $this->query->where('native_name', sprintf('%%s%', $nativeName));
-
-        return $this;
-    }
-
-    public function whereCode(string $code): self
-    {
-        $this->query->where('code', sprintf('%%s%', $code));
-
-        return $this;
-    }
-
-    public function orderByName(): self
-    {
-        $this->query->orderBy('name');
-
-        return $this;
-    }
-
-    public function orderByUserFavorite(): self
-    {
-        $this->query->orderBy('favorites.id');
-
-        return $this;
-    }
-
-    public function whereUserFavorite(User|int $user): self
-    {
-        $this->query->rightJoin('favorites', function (Builder $query) use ($user) {
-            $query->where('favoriteable_type', Morph::getMorph(Language::class))
-                ->whereColumn('favoriteable_id', 'languages.id')
-                ->where('languages.user_id', $user->getId());
-        });
-
-        return $this;
-    }
-
-    public function leftJoinUserFavorite(User|int $user): self
-    {
-        $this->query->leftJoin('favorites', function (Builder $query) use ($user) {
-            $query->where('favoriteable_type', Morph::getMorph(Language::class))
-                ->whereColumn('favoriteable_id', 'languages.id')
-                ->where('languages.user_id', $user->getId());
-        });
-
-        return $this;
+        $filter = LanguageFilter::new($attributes);
+        $filter->filter($query);
     }
 }

@@ -1,2 +1,4 @@
 sh bin/clear.sh
-php artisan test $@
+sh bin/seed.sh
+sh bin/test/api.sh
+sh bin/test/unit.sh

@@ -7,15 +7,14 @@ namespace Modules\Domain\Languages\Presenters\User;
 use Modules\Domain\Languages\Collections\Languages;
 use Modules\Domain\Languages\Presenters\Mixins\IndexLanguages;
 use Modules\Domain\Languages\Queries\LanguageQueryBuilder;
-use Modules\Domain\Languages\Queries\LanguageQueryManager;
 use Modules\Personal\Auth\Presenters\Internal\GetAuthUser;
 
 final class UserIndexLanguages
 {
     public function __construct(
-        private GetAuthUser $getAuthUser,
-        private LanguageQueryManager   $queryManager,
-        private IndexLanguages         $indexLanguages,
+        private GetAuthUser          $getAuthUser,
+        private LanguageQueryBuilder $queryManager,
+        private IndexLanguages       $indexLanguages,
     ) {}
 
     public function __invoke(array $attributes): Languages

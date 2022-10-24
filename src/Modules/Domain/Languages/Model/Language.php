@@ -19,4 +19,6 @@ final class Language extends Model implements Favoriteable
     use HasUser;
     use IsActiveAttributes;
     use Timestamps;
+
+    use LanguageQuery;
 }

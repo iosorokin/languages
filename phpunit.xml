@@ -5,8 +5,11 @@
          colors="true"
 >
     <testsuites>
-        <testsuite name="Common">
-            <directory suffix="Test.php">./src</directory>
+        <testsuite name="Api">
+            <directory suffix="ApiTest.php">./src/Modules</directory>
+        </testsuite>
+        <testsuite name="Unit">
+            <directory suffix="UnitTest.php">./src/Modules</directory>
         </testsuite>
     </testsuites>
     <coverage processUncoveredFiles="true">
@@ -15,12 +18,11 @@
         </include>
     </coverage>
     <php>
-        <env name="APP_ENV" value="testing"/>
-        <env name="BCRYPT_ROUNDS" value="4"/>
-        <env name="CACHE_DRIVER" value="array"/>
-        <env name="MAIL_MAILER" value="array"/>
-        <env name="QUEUE_CONNECTION" value="sync"/>
-        <env name="SESSION_DRIVER" value="array"/>
-        <env name="TELESCOPE_ENABLED" value="true"/>
+        <env name="BCRYPT_ROUNDS" value="4" force="true"/>
+        <env name="CACHE_DRIVER" value="array" force="true"/>
+        <env name="MAIL_MAILER" value="array" force="true"/>
+        <env name="QUEUE_CONNECTION" value="sync" force="true"/>
+        <env name="SESSION_DRIVER" value="array" force="true"/>
+        <env name="TELESCOPE_ENABLED" value="true" force="true"/>
     </php>
 </phpunit>

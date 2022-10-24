@@ -11,11 +11,13 @@ abstract class Collection
 {
     private ?Paginator $paginator;
 
-    private $lazywrapper;
+    private array $wrappers = [];
 
     public function __construct(
         protected LaravelCollection $collection,
-    ) {}
+    )
+    {
+    }
 
     public function setPaginator(Paginator $paginator): static
     {
@@ -47,9 +49,9 @@ abstract class Collection
         return $body;
     }
 
-    public function lazyWrapper(callable $callback): self
+    public function addWrapper(callable $callback): self
     {
-        $this->lazywrapper = $callback;
+        $this->wrappers[] = $callback;
 
         return $this;
     }
@@ -58,7 +60,7 @@ abstract class Collection
     {
         $data = $this->getData();
         $data->transform(function ($element) use ($transformers) {
-            $element = ($this->lazywrapper)($element);
+            $this->wrap($element);
             $attr = [];
             foreach ($transformers as $transformer) {
                 $transformer = app($transformer);
@@ -69,5 +71,12 @@ abstract class Collection
         });
 
         return $this;
+    }
+
+    private function wrap($element)
+    {
+        foreach ($this->wrappers as $wrapper) {
+            $wrapper($element);
+        }
     }
 }

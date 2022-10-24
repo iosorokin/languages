@@ -11,7 +11,7 @@ final class FavoriteUserAuthorize
 {
     public function canRemove(User $user, Favorite $favorite)
     {
-        if ($user->id !== $favorite->id) {
+        if ($user->id !== $favorite->user_id) {
             abort(403);
         }
     }

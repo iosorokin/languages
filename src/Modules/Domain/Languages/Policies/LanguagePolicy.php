@@ -13,7 +13,7 @@ final class LanguagePolicy
     {
         if (! $language->isActive()) {
             throw ValidationException::withMessages([
-                'language_id' => sprintf('Language %s not active', $language->getName())
+                'language_id' => sprintf('Language %s not active', $language->name)
             ]);
         }
     }

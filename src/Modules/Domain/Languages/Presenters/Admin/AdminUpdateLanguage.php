@@ -2,22 +2,22 @@
 
 namespace Modules\Domain\Languages\Presenters\Admin;
 
-use Modules\Domain\Languages\Presenters\Internal\GetLanguagePresenter;
+use Modules\Domain\Languages\Presenters\Internal\GetLanguage;
 use Modules\Domain\Languages\Presenters\Mixins\UpdateLanguage;
-use Modules\Personal\Auth\Presenters\GetClientPresenter;
+use Modules\Personal\Auth\Presenters\Internal\GetAuthUser;
 
-class AdminUpdateLanguage implements AdminUpdateLanguagePresenter
+class AdminUpdateLanguage
 {
     public function __construct(
-        private GetClientPresenter $getClient,
-        private GetLanguagePresenter $getLanguage,
+        private GetAuthUser    $getAuthUser,
+        private GetLanguage    $getLanguage,
         private UpdateLanguage $updateLanguage,
     ) {}
 
     public function __invoke(int $languageId, array $attributes): void
     {
-        $client = ($this->getClient)();
+        $auth = ($this->getAuthUser)();
         $language = $this->getLanguage->getOrThrowBadRequest($languageId);
-        ($this->updateLanguage)($client, $language, $attributes);
+        ($this->updateLanguage)($auth, $language, $attributes);
     }
 }
