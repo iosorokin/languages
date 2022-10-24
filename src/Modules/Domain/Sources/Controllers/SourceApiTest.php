@@ -5,9 +5,9 @@ namespace Modules\Domain\Sources\Controllers;
 use Core\Base\Helpers\ApiHelper;
 use Core\Base\Tests\EndpointCase;
 use Modules\Domain\Languages\Helpers\LanguageSeedHelper;
-use Modules\Domain\Languages\Structures\Language;
+use Modules\Domain\Languages\Model\Language;
 use Modules\Domain\Sources\Helpers\SourceApiHelper;
-use Modules\Personal\Auth\Tests\BaseAuthApiHelper;
+use Modules\Personal\Auth\Helpers\BaseAuthApiHelper;
 
 class SourceApiTest extends EndpointCase
 {

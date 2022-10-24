@@ -5,10 +5,9 @@ declare(strict_types=1);
 namespace Modules\Domain\Languages\Presenters\Guest;
 
 use Modules\Domain\Languages\Presenters\Mixins\ShowLanguage;
-use Modules\Domain\Languages\Structures\Language;
-use Modules\Personal\Auth\Presenters\GetClientPresenter;
+use Modules\Domain\Languages\Model\Language;
 
-final class GuestShowLanguage implements GuestShowLanguagePresenter
+final class GuestShowLanguage
 {
     public function __construct(
         private ShowLanguage $showLanguage,

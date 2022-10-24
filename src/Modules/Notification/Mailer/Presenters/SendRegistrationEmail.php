@@ -6,24 +6,17 @@ namespace Modules\Notification\Mailer\Presenters;
 
 use Illuminate\Bus\Dispatcher;
 use Modules\Notification\Mailer\Tasks\SendLearnerRegistrationEmailTask;
-use Modules\Personal\User\Structures\User;
+use Modules\Personal\User\Model\User;
 
-final class SendRegistrationEmail implements SendRegistrationEmailPresenter
+final class SendRegistrationEmail
 {
     public function __construct(
-        private Dispatcher $dispatcher
+        private Dispatcher $dispatcher,
     ) {}
 
     public function __invoke(User $user): void
     {
-        $task = $this->makeTask($user);
+        $task = new SendLearnerRegistrationEmailTask($user);
         $this->dispatcher->dispatch($task);
-    }
-
-    private function makeTask(User $user): SendLearnerRegistrationEmailTask
-    {
-        return SendLearnerRegistrationEmailTask::new([
-            'name' => $user->getName()
-        ]);
     }
 }

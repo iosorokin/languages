@@ -8,7 +8,7 @@ use Core\Base\Helpers\ApiHelper;
 use Core\Base\Tests\EndpointCase;
 use Modules\Domain\Languages\Helpers\LanguageApiHelper;
 use Modules\Domain\Languages\Helpers\LanguageSeedHelper;
-use Modules\Personal\Auth\Tests\BaseAuthApiHelper;
+use Modules\Personal\Auth\Helpers\BaseAuthApiHelper;
 
 final class LanguageApiTest extends EndpointCase
 {

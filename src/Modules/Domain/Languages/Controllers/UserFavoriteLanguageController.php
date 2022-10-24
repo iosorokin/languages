@@ -8,12 +8,12 @@ use Core\Http\Responses\Json\NoContentResponse;
 use Core\Http\Responses\Json\OkResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Modules\Domain\Languages\Presenters\User\UserAddLanguageToFavoritePresenter;
-use Modules\Domain\Languages\Presenters\User\UserRemoveLanguageFromFavoritePresenter;
+use Modules\Domain\Languages\Presenters\User\UserAddLanguageToFavorite;
+use Modules\Domain\Languages\Presenters\User\UserRemoveFromFavorite;
 
 final class UserFavoriteLanguageController
 {
-    public function store(Request $request, UserAddLanguageToFavoritePresenter $presenter): JsonResponse
+    public function store(Request $request, UserAddLanguageToFavorite $presenter): JsonResponse
     {
         $favorite = $presenter((int) $request->route('language_id'));
 
@@ -24,7 +24,7 @@ final class UserFavoriteLanguageController
         ]);
     }
 
-    public function destroy(Request $request, UserRemoveLanguageFromFavoritePresenter $removeFavorite): JsonResponse
+    public function destroy(Request $request, UserRemoveFromFavorite $removeFavorite): JsonResponse
     {
         ($removeFavorite)($request->route()->parameters());
 

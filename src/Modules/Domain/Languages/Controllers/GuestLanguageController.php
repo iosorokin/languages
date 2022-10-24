@@ -7,14 +7,13 @@ namespace Modules\Domain\Languages\Controllers;
 use Core\Http\Responses\Json\OkResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Modules\Domain\Languages\Presenters\Guest\GuestIndexLanguagesPresenter;
-use Modules\Domain\Languages\Presenters\Guest\GuestShowLanguagePresenter;
+use Modules\Domain\Languages\Presenters\Guest\GuestIndexLanguages;
+use Modules\Domain\Languages\Presenters\Guest\GuestShowLanguage;
 use Modules\Domain\Languages\Transformers\GuestLanguageTransformer;
-use Modules\Domain\Languages\Transformers\LanguageTransformer;
 
 final class GuestLanguageController
 {
-    public function index(Request $request, GuestIndexLanguagesPresenter $presenter): JsonResponse
+    public function index(Request $request, GuestIndexLanguages $presenter): JsonResponse
     {
         $languages = $presenter($request->all());
 
@@ -23,7 +22,7 @@ final class GuestLanguageController
         ])->toArray());
     }
 
-    public function show(Request $request, GuestShowLanguagePresenter $presenter): JsonResponse
+    public function show(Request $request, GuestShowLanguage $presenter): JsonResponse
     {
         $language = $presenter((int) $request->route('language_id'));
         $language = (new GuestLanguageTransformer())->transform($language);

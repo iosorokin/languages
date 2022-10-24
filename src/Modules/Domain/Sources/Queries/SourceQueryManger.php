@@ -9,19 +9,15 @@ use Modules\Domain\Sources\Queries\Builder\SourceQueryBuilder;
 
 final class SourceQueryManger
 {
-    private SourceQueryBuilder $queryBuilder;
-
-    public function setQueryBuilder(SourceQueryBuilder $queryBuilder): self
-    {
-        $this->queryBuilder = $queryBuilder;
-
-        return $this;
-    }
+    public function __construct(
+        private SourceQueryBuilder $queryBuilder,
+    ) {}
 
     public function isFirstUserSourceForLanguage(int $userId, int $languageId): Builder
     {
-        return $this->queryBuilder
+        return $this->queryBuilder->new()
             ->whereUserId($userId)
-            ->whereLanguageId($languageId);
+            ->whereLanguageId($languageId)
+            ->query();
     }
 }

@@ -2,11 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\Domain\Analysis\Controllers\UserStoreAnalysisController;
-use Modules\Domain\Chapters\Controllers\UserStoreChapterController;
+use Modules\Domain\Chapters\Controllers\UserChapterController;
 use Modules\Domain\Languages\Controllers\UserFavoriteLanguageController;
 use Modules\Domain\Languages\Controllers\UserLanguageController;
-use Modules\Domain\Sentences\Controllers\StoreSentenceController;
-use Modules\Domain\Sentences\Controllers\UserDeleteSentenceController;
+use Modules\Domain\Sentences\Controllers\UserSentenceController;
 use Modules\Domain\Sources\Controllers\Items\UserSourceItemsController;
 use Modules\Domain\Sources\Controllers\UserSourceController;
 use Modules\Personal\Auth\Controllers\LogoutController;
@@ -24,11 +23,12 @@ Route::apiResource('sources', UserSourceController::class);
 Route::apiResource('sources.items', UserSourceItemsController::class)
     ->only(['index']);
 
-Route::post('sources/{source_id}/chapters', UserStoreChapterController::class)
-    ->name('chapters.store');
-Route::post('sources/{source_id}/sentences', StoreSentenceController::class)
-    ->name('sentences.store');
-Route::delete('sentences/{sentence_id}', UserDeleteSentenceController::class);
+Route::apiResource('sources.chapters', UserChapterController::class)
+    ->only('store');
+Route::apiResource('chapters', UserChapterController::class)
+    ->except(['store']);
+
+Route::apiResource('sentences', UserSentenceController::class);
 
 Route::post('sentences/{sentence_id}/analysis', UserStoreAnalysisController::class)
     ->name('analysis.store');

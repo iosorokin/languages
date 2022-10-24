@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Modules\Internal\Container\Presenters\Internal;
 
 use Modules\Internal\Container\Contracts\Containerable;
-use Modules\Internal\Container\Structures\Container;
+use Modules\Internal\Container\Model\Container;
 use Modules\Internal\Container\Enums\ContainerType;
 
-final class InitWrapperContainer implements InitWrapperContainerPresenter
+final class InitWrapperContainer
 {
     public function __construct(
         private CreateContainer $createContainer,

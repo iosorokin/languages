@@ -5,25 +5,22 @@ declare(strict_types=1);
 namespace Modules\Domain\Analysis\Presenters;
 
 use Modules\Domain\Analysis\Actions\CreateAnalysis;
-use Modules\Domain\Analysis\Structures\Analysis;
-use Modules\Personal\Auth\Presenters\GetClientPresenter;
-use Modules\Personal\User\Structures\User;
-use Modules\Personal\User\Presenters\Internal\GetUserPresenter;
+use Modules\Domain\Analysis\Model\Analysis;
+use Modules\Personal\User\Model\User;
+use Modules\Personal\User\Presenters\Internal\GetUser;
 
 final class SeedAnalysis
 {
     public function __construct(
-        private GetUserPresenter $getUser,
-        private GetClientPresenter $getClient,
+        private GetUser $getUser,
         private CreateAnalysis $createAnalysis,
     ) {}
 
     public function __invoke(User|int $user, array $attributes): Analysis
     {
         $user = is_int($user) ? ($this->getUser)($user) : $user;
-        $client = ($this->getClient)($user);
         $attributes['user_id'] = $user->getId();
 
-        return ($this->createAnalysis)($client, $attributes);
+        return ($this->createAnalysis)($user, $attributes);
     }
 }

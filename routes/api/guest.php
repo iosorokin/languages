@@ -1,13 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Domain\Chapters\Controllers\UserShowChapterController;
 use Modules\Domain\Languages\Controllers\GuestLanguageController;
 use Modules\Domain\Sources\Controllers\GuestSourceController;
 use Modules\Domain\Sources\Controllers\Items\GuestSourceItemsController;
 use Modules\Personal\Auth\Controllers\BaseLoginController;
-use Modules\Personal\User\Controllers\Guest\RegistrationController;
-use Modules\Personal\User\Controllers\Guest\ShowUserController;
+use Modules\Personal\User\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,10 +21,8 @@ use Modules\Personal\User\Controllers\Guest\ShowUserController;
 Route::post('login', BaseLoginController::class)
     ->name('login');
 
-Route::post('users', RegistrationController::class)
-    ->name('users.store');
-Route::get('users/{user_id}', ShowUserController::class)
-    ->name('users.show');
+Route::apiResource('users', RegisterController::class)
+    ->only(['store', 'show']);
 
 Route::apiResource('languages', GuestLanguageController::class)
     ->parameter('languages', 'language_id');
@@ -35,6 +31,3 @@ Route::apiResource('sources', GuestSourceController::class)
     ->only(['show', 'index']);
 Route::apiResource('sources.items', GuestSourceItemsController::class)
     ->only(['index']);
-
-Route::get('chapters/{chapter_id}', UserShowChapterController::class)
-    ->name('chapters.show');

@@ -9,8 +9,8 @@ use Faker\Factory;
 use Generator;
 use Illuminate\Support\Str;
 use Modules\Domain\Languages\Presenters\SeedLanguage;
-use Modules\Domain\Languages\Structures\Language;
-use Modules\Personal\User\Structures\User;
+use Modules\Domain\Languages\Model\Language;
+use Modules\Personal\User\Model\User;
 
 final class LanguageSeedHelper extends AppHelper
 {
@@ -18,8 +18,8 @@ final class LanguageSeedHelper extends AppHelper
     {
         return [
             'name' => Str::random(),
-            'native_name' => Factory::create($this->faker()->languageCode())->title(),
-            'code' => $this->faker()->languageCode(),
+            'native_name' => $this->faker()->unique()->sentence(),
+            'code' => $this->faker()->unique()->languageCode(),
         ];
     }
 

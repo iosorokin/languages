@@ -5,26 +5,23 @@ declare(strict_types=1);
 namespace Modules\Domain\Languages\Presenters\User;
 
 use Modules\Domain\Languages\Collections\Languages;
-use Modules\Domain\Languages\Factories\LanguageFactory;
 use Modules\Domain\Languages\Presenters\Mixins\IndexLanguages;
+use Modules\Domain\Languages\Queries\LanguageQueryBuilder;
 use Modules\Domain\Languages\Queries\LanguageQueryManager;
-use Modules\Personal\Auth\Presenters\GetClientPresenter;
+use Modules\Personal\Auth\Presenters\Internal\GetAuthUser;
 
-final class UserIndexLanguages implements UserIndexLanguagesPresenter
+final class UserIndexLanguages
 {
     public function __construct(
-        private GetClientPresenter $getClient,
-        private LanguageFactory    $factory,
-        private LanguageQueryManager $queryManager,
-        private IndexLanguages     $indexLanguages,
+        private GetAuthUser $getAuthUser,
+        private LanguageQueryManager   $queryManager,
+        private IndexLanguages         $indexLanguages,
     ) {}
 
     public function __invoke(array $attributes): Languages
     {
-        $client = ($this->getClient)();
-        $query = $this->queryManager
-            ->setQueryBuilder($this->factory->builder())
-            ->user($client->user(), $attributes);
+        $auth = ($this->getAuthUser)();
+        $query = $this->queryManager->user($auth, $attributes);
         $languages = ($this->indexLanguages)($query);
         // todo закешировать
 

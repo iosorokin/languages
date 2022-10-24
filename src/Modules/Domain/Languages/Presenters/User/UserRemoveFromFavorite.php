@@ -4,19 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Presenters\User;
 
-use Modules\Internal\Favorites\Presenters\RemoveFavoritePresenter;
-use Modules\Personal\Auth\Presenters\GetClientPresenter;
+use Modules\Internal\Favorites\Presenters\RemoveFavorite;
+use Modules\Personal\Auth\Presenters\Internal\GetAuthUser;
 
-final class UserRemoveFromFavorite implements UserRemoveLanguageFromFavoritePresenter
+final class UserRemoveFromFavorite
 {
     public function __construct(
-        private GetClientPresenter $getClient,
-        private RemoveFavoritePresenter $removeFavorite,
+        private GetAuthUser    $getAuthUser,
+        private RemoveFavorite $removeFavorite,
     ) {}
 
     public function __invoke(array $attributes): void
     {
-        $client = ($this->getClient)();
-        ($this->removeFavorite)($client, (int) $attributes['favorite_id']);
+        $auth = ($this->getAuthUser)();
+        ($this->removeFavorite)($auth, (int) $attributes['favorite_id']);
     }
 }

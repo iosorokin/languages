@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sources\Presenters\User;
 
-use Modules\Domain\Sources\Presenters\Guest\GuestShowSourcePresenter;
+use Modules\Domain\Sources\Presenters\Guest\GuestShowSource;
 use Modules\Domain\Sources\Structures\Source;
 
-final class UserShowSource implements UserShowSourcePresenter
+final class UserShowSource
 {
     public function __construct(
-        private GuestShowSourcePresenter $guestShowSource,
+        private GuestShowSource $guestShowSource,
     ) {}
 
     public function __invoke(int $sourceId): Source

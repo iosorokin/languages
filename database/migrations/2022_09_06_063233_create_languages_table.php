@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('native_name');
+            $table->string('code', 4);
             $table->boolean('is_active');
             $table->timestamps();
 

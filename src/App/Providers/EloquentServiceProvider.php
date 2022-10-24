@@ -11,18 +11,12 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\ServiceProvider;
-use Modules\Domain\Languages\Structures\Language;
-use Modules\Domain\Languages\Structures\LanguageModel;
-use Modules\Domain\Sentences\Structures\Sentence;
-use Modules\Domain\Sentences\Structures\SentenceModel;
+use Modules\Domain\Languages\Model\Language;
+use Modules\Domain\Sentences\Model\Sentence;
 use Modules\Domain\Sources\Structures\Source;
-use Modules\Domain\Sources\Structures\SourceModel;
-use Modules\Internal\Container\Structures\Container;
-use Modules\Internal\Container\Structures\ContainerElement;
-use Modules\Internal\Container\Structures\ContainerElementModel;
-use Modules\Internal\Container\Structures\ContainerModel;
-use Modules\Personal\User\Structures\User;
-use Modules\Personal\User\Structures\UserModel;
+use Modules\Internal\Container\Model\Container;
+use Modules\Internal\Container\Model\ContainerElement;
+use Modules\Personal\User\Model\User;
 
 final class EloquentServiceProvider extends ServiceProvider
 {
@@ -43,12 +37,12 @@ final class EloquentServiceProvider extends ServiceProvider
 
         $morphs = config('morph');
         Relation::enforceMorphMap([
-            Arr::get($morphs, User::class) => UserModel::class,
-            Arr::get($morphs, Language::class) => LanguageModel::class,
-            Arr::get($morphs, Source::class) => SourceModel::class,
-            Arr::get($morphs, Container::class) => ContainerModel::class,
-            Arr::get($morphs, ContainerElement::class) => ContainerElementModel::class,
-            Arr::get($morphs, Sentence::class) => SentenceModel::class,
+            Arr::get($morphs, User::class) => User::class,
+            Arr::get($morphs, Language::class) => Language::class,
+            Arr::get($morphs, Source::class) => Source::class,
+            Arr::get($morphs, Container::class) => Container::class,
+            Arr::get($morphs, ContainerElement::class) => ContainerElement::class,
+            Arr::get($morphs, Sentence::class) => Sentence::class,
         ]);
     }
 }

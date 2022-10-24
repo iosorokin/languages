@@ -2,9 +2,9 @@
 
 namespace Modules\Internal\Container\Contracts;
 
-use Modules\Internal\Container\Structures\HasContainer;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
-interface Containerable extends HasContainer
+interface Containerable
 {
-
+    public function container(): MorphOne;
 }

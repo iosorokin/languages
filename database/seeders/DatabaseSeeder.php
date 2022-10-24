@@ -3,16 +3,16 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Modules\Domain\Analysis\Tests\AnalysisAppHelper;
-use Modules\Domain\Chapters\Tests\ChapterAppHelper;
+use Modules\Domain\Analysis\Helpers\AnalysisSeedHelper;
+use Modules\Domain\Chapters\Helpers\ChapterSeedHelper;
 use Modules\Domain\Languages\Helpers\LanguageSeedHelper;
-use Modules\Domain\Sentences\Structures\Sentence;
+use Modules\Domain\Sentences\Model\Sentence;
 use Modules\Domain\Sentences\Tests\SentenceHelper;
 use Modules\Domain\Sources\Structures\Source;
 use Modules\Domain\Sources\Helpers\SourceSeedHelper;
-use Modules\Personal\Permissions\Enums\PermissionType;
-use Modules\Personal\User\Structures\User;
-use Modules\Personal\User\Tests\UserHelper;
+use Modules\Personal\User\Enums\Role;
+use Modules\Personal\User\Model\User;
+use Modules\Personal\User\Helpers\UserSeedHelper;
 
 class DatabaseSeeder extends Seeder
 {
@@ -30,18 +30,18 @@ class DatabaseSeeder extends Seeder
         $this->seedContent($testUser, $languageIds);
 
         $attributes = [
-            'permissions' => [
-                PermissionType::User->value
+            'roles' => [
+                Role::User->value
             ]
         ];
-        foreach (UserHelper::new()->create(config('seed.users.count_random_users'), $attributes) as $user) {
+        foreach (UserSeedHelper::new()->create(config('seed.users.count_random_users'), $attributes) as $user) {
             $this->seedContent($user, $languageIds);
         }
     }
 
     private function createRoot(): User
     {
-        $helper = UserHelper::new();
+        $helper = UserSeedHelper::new();
         $user = $helper->createRoot();
 
         return $user;
@@ -49,13 +49,13 @@ class DatabaseSeeder extends Seeder
 
     private function createTestUser(): User
     {
-        $helper = UserHelper::new();
+        $helper = UserSeedHelper::new();
         $user = $helper->create(overwrite: [
             'name' => 'Пользователь для теста',
             'email' => config('seed.users.test_user.email'),
             'password' => config('seed.users.test_user.password'),
-            'permissions' => [
-                PermissionType::User->value
+            'roles' => [
+                Role::User->value
             ]
         ])->current();
 
@@ -110,7 +110,7 @@ class DatabaseSeeder extends Seeder
 
     private function seedChapters(User $user, Source $source): void
     {
-        $chapterAppHelper = ChapterAppHelper::new();
+        $chapterAppHelper = ChapterSeedHelper::new();
         $count = random_int(
             config('seed.chapters.count_for_source.min'),
             config('seed.chapters.count_for_source.max')
@@ -138,7 +138,7 @@ class DatabaseSeeder extends Seeder
 
     private function seedAnalysis(User $user, Sentence $sentence, array $overwrite = []): void
     {
-        $analysisHelper = AnalysisAppHelper::new();
+        $analysisHelper = AnalysisSeedHelper::new();
         $chance = random_int(1, 100);
         if ($chance < config('seed.analysis.chance')) {
             $analysisHelper->create($user, $sentence, $overwrite);

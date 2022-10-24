@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sources\Presenters\User\Items;
 
-final class UserIndexSourceItems implements UserIndexSourceItemsPresenter
+final class UserIndexSourceItems
 {
     public function __invoke()
     {

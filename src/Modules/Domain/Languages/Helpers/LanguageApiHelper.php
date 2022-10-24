@@ -6,7 +6,7 @@ namespace Modules\Domain\Languages\Helpers;
 
 use Core\Base\Helpers\ApiHelper;
 use Illuminate\Testing\TestResponse;
-use Modules\Domain\Languages\Structures\Language;
+use Modules\Domain\Languages\Model\Language;
 
 final class LanguageApiHelper extends ApiHelper
 {

@@ -4,25 +4,22 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sentences\Presenters;
 
-use Modules\Domain\Sentences\Actions\CreateSentence;
-use Modules\Domain\Sentences\Structures\Sentence;
-use Modules\Personal\Auth\Presenters\GetClientPresenter;
-use Modules\Personal\User\Structures\User;
-use Modules\Personal\User\Presenters\Internal\GetUserPresenter;
+use Modules\Domain\Sentences\Presenters\Mixins\CreateSentence;
+use Modules\Domain\Sentences\Model\Sentence;
+use Modules\Personal\User\Model\User;
+use Modules\Personal\User\Presenters\Internal\GetUser;
 
 final class SeedSentence
 {
     public function __construct(
-        private GetUserPresenter $getUser,
-        private GetClientPresenter $getClient,
+        private GetUser $getUser,
         private CreateSentence $createSentence,
     ) {}
 
     public function __invoke(User|int $user, array $attributes = []): Sentence
     {
         $user = is_int($user) ? ($this->getUser)($user) : $user;
-        $client = ($this->getClient)($user);
 
-        return ($this->createSentence)($client, $attributes);
+        return ($this->createSentence)($user, $attributes);
     }
 }

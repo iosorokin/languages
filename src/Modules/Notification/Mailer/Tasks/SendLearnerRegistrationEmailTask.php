@@ -2,36 +2,16 @@
 
 namespace Modules\Notification\Mailer\Tasks;
 
-use Illuminate\Support\Arr;
+use Modules\Personal\User\Model\User;
 
 class SendLearnerRegistrationEmailTask
 {
-    private ?string $email;
+    public function __construct(
+        public readonly User $user,
+    ) {}
 
     public function __invoke()
     {
 
     }
-
-    public static function new(array $attributes): self
-    {
-        $dto = new self();
-        $dto->setEmail(Arr::get($attributes, 'email'));
-
-        return $dto;
-    }
-
-    public function setEmail(?string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-
 }

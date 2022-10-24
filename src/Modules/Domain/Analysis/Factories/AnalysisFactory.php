@@ -1,12 +1,23 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Domain\Analysis\Factories;
 
-use Modules\Domain\Analysis\Structures\Analysis;
-use Modules\Domain\Sentences\Structures\Sentence;
-use Modules\Personal\User\Structures\User;
+use Modules\Domain\Analysis\Model\Analysis;
+use Modules\Domain\Sentences\Model\Sentence;
+use Modules\Personal\User\Model\User;
 
-interface AnalysisFactory
+final class AnalysisFactory
 {
-    public function create(Sentence $sentence, User $user, array $attributes): Analysis;
+    public function create(Sentence $sentence, User $user, array $attributes): Analysis
+    {
+        $analys = new Analysis();
+        $analys->sentence()->associate($sentence);
+        $analys->user()->associate($user);
+        $analys->translate = $attributes['translate'];
+        $analys->description = $attributes['description'];
+
+        return $analys;
+    }
 }

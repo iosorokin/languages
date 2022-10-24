@@ -4,23 +4,21 @@ declare(strict_types=1);
 
 namespace Modules\Internal\Favorites\Presenters;
 
-use Modules\Internal\Favorites\Entities\Favoriteable;
+use Modules\Internal\Favorites\Contracts\Favoriteable;
 use Modules\Internal\Favorites\Factories\FavoriteFactory;
-use Modules\Internal\Favorites\Repositories\FavoriteRepository;
-use Modules\Internal\Favorites\Structures\Favorite;
-use Modules\Personal\User\Structures\User;
+use Modules\Internal\Favorites\Model\Favorite;
+use Modules\Personal\User\Model\User;
 
-final class AddToFavorite implements AddToFavoritePresenter
+final class AddToFavorite
 {
     public function __construct(
         private FavoriteFactory    $factory,
-        private FavoriteRepository $repository,
     ) {}
 
     public function __invoke(User $user, Favoriteable $favoriteable): Favorite
     {
         $favorite = $this->factory->create($user, $favoriteable);
-        $this->repository->save($favorite);
+        $favorite->save();
 
         return $favorite;
     }

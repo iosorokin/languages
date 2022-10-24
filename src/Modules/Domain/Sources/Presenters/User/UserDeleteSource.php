@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sources\Presenters\User;
 
-final class UserDeleteSource implements UserDeleteSourcePresenter
+final class UserDeleteSource
 {
     public function __invoke(int $source)
     {

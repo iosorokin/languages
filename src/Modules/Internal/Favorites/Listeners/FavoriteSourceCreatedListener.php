@@ -5,29 +5,27 @@ declare(strict_types=1);
 namespace Modules\Internal\Favorites\Listeners;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Modules\Domain\Languages\Presenters\Internal\GetLanguagePresenter;
 use Modules\Domain\Sources\Events\SourceCreated;
-use Modules\Domain\Sources\Presenters\Requests\IsFirstUserSourceForLanguagePresenter;
-use Modules\Internal\Favorites\Presenters\AddToFavoritePresenter;
-use Modules\Personal\User\Presenters\Internal\GetUserPresenter;
+use Modules\Domain\Sources\Presenters\Requests\IsFirstUserSourceForLanguage;
+use Modules\Internal\Favorites\Presenters\AddToFavorite;
 
 final class FavoriteSourceCreatedListener implements ShouldQueue
 {
     public function __construct(
-        private GetUserPresenter                      $getUser,
-        private GetLanguagePresenter                  $getLanguage,
-        private IsFirstUserSourceForLanguagePresenter $isFirstUserSourceForLanguage,
-        private AddToFavoritePresenter                $addToFavorite,
+        private IsFirstUserSourceForLanguage $isFirstUserSourceForLanguage,
+        private AddToFavorite                $addToFavorite,
     ) {}
 
     public function __invoke(SourceCreated $event): void
     {
-        $isFirstSource = ($this->isFirstUserSourceForLanguage)($event->userId, $event->languageId);
+        $source = $event->source;
+        $isFirstSource = ($this->isFirstUserSourceForLanguage)(
+            $event->source->user_id,
+            $event->source->language_id
+        );
 
         if ($isFirstSource) {
-            $user = $this->getUser->getOrThrowException($event->userId);
-            $language = $this->getLanguage->getOrThrowException($event->languageId);
-            ($this->addToFavorite)($user, $language);
+            ($this->addToFavorite)($source->user, $source->language);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Modules\Domain\Languages\Presenters\Admin;
 use Modules\Domain\Languages\Authorization\LanguageAuthorizeAdmin;
 use Modules\Domain\Languages\Presenters\Internal\GetLanguagePresenter;
 use Modules\Domain\Languages\Presenters\Mixins\ShowLanguage;
-use Modules\Domain\Languages\Structures\Language;
+use Modules\Domain\Languages\Model\Language;
 use Modules\Personal\Auth\Presenters\GetClientPresenter;
 
 class AdminShowLanguage implements AdminShowLanguagePresenter

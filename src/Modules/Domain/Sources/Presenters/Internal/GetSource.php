@@ -4,68 +4,53 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sources\Presenters\Internal;
 
-use App\Extensions\Assert;
-use Core\Services\Morph\Morph;
 use Exception;
 use Illuminate\Validation\ValidationException;
-use Modules\Domain\Sources\Factories\SourceFactory;
 use Modules\Domain\Sources\Structures\Source;
-use Modules\Domain\Sources\Repositories\SourceRepository;
-use Modules\Internal\Container\Repositories\ContainerRepository;
 
-final class GetSource implements GetSourcePresenter
+final class GetSource
 {
-    public function __construct(
-        private SourceFactory       $factory,
-        private ContainerRepository $containerRepository,
-    ) {}
+    public function get(int $id): ?Source
+    {
+        return Source::find($id);
+    }
 
     public function getOrThrowNotFound(int $id): Source
     {
-        $source = $this->factory->repository()
-            ->get($id);
+        $source = $this->get($id);
         abort_if(! $source, 404);
-        $this->setContainer($source);
+        $this->withContainer($source);
 
         return $source;
     }
 
     public function getOrThrowBadRequest(int $id): Source
     {
-        $source = $this->factory->repository()
-            ->get($id);
+        $source = $this->get($id);
         if (! $source) {
             throw ValidationException::withMessages([
                 'source_id' => $this->getMessage($id),
             ]);
         }
-        $this->setContainer($source);
+        $this->withContainer($source);
 
         return $source;
     }
 
     public function getOrThrowException(int $id): Source
     {
-        $source = $this->factory->repository()
-            ->get($id);
+        $source = $this->get($id);
         if (! $source) {
             throw new Exception($this->getMessage($id));
         }
-        $this->setContainer($source);
+        $this->withContainer($source);
 
         return $source;
     }
 
-    private function setContainer(Source $source): void
+    private function withContainer(Source $source): void
     {
-        $containerable = $this->containerRepository->getByContainerable(
-            Morph::getMorph($source),
-            $source->getId(),
-        );
-
-        if ($containerable) {
-            $source->setContainer($containerable);
-        }
+        $source->load('container');
     }
 
     private function getMessage(int $id): string

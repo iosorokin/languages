@@ -4,23 +4,21 @@ declare(strict_types=1);
 
 namespace Modules\Internal\Favorites\Presenters;
 
-use Modules\Internal\Favorites\Policies\FavoritePolicy;
-use Modules\Internal\Favorites\Repositories\FavoriteRepository;
-use Modules\Personal\Auth\Contexts\Client;
+use Modules\Internal\Favorites\Authorization\FavoriteUserAuthorize;
+use Modules\Internal\Favorites\Presenters\Internal\GetFavorite;
+use Modules\Personal\User\Model\User;
 
-final class RemoveFavorite implements RemoveFavoritePresenter
+final class RemoveFavorite
 {
     public function __construct(
-        private FavoriteRepository $repository,
-        private FavoritePolicy $favoritePolicy,
-    )
-    {
-    }
+        private GetFavorite           $getFavorite,
+        private FavoriteUserAuthorize $authorize,
+    ) {}
 
-    public function __invoke(Client $client, int $favoriteId): void
+    public function __invoke(User $user, int $favoriteId): void
     {
-        $favorite = $this->repository->get($favoriteId);
-        $this->favoritePolicy->canRemove($client, $favorite);
-        $this->repository->delete($favorite);
+        $favorite = $this->getFavorite->getOrThrowNotFound($favoriteId);
+        $this->authorize->canRemove($user, $favorite);
+        $favorite->delete();
     }
 }

@@ -11,22 +11,22 @@ use Core\Base\Tests\UnitCase;
 use Core\Services\Morph\Exceptions\MorphNotFound;
 use Core\Services\Morph\Exceptions\NotUniqueMorph;
 use Illuminate\Support\Carbon;
-use Modules\Domain\Languages\Structures\Language;
-use Modules\Domain\Sentences\Structures\Sentence;
+use Modules\Domain\Languages\Model\Language;
+use Modules\Domain\Sentences\Model\Sentence;
 use Modules\Domain\Sources\Structures\HasSource;
 use Modules\Domain\Sources\Structures\Source;
 use Modules\Domain\Sources\Enums\SourceType;
-use Modules\Internal\Container\Structures\Container;
-use Modules\Internal\Container\Structures\HasContainer;
-use Modules\Personal\User\Structures\HasUser;
-use Modules\Personal\User\Structures\User;
-use Modules\Personal\User\Structures\UserModel;
+use Modules\Internal\Container\Model\Container;
+use Modules\Internal\Container\Model\HasContainer;
+use Modules\Personal\User\Model\HasUser;
+use Modules\Personal\User\Model\User;
+use Modules\Personal\User\Model\User;
 
 final class MorphTest extends UnitCase
 {
     public function testMorphFound()
     {
-        $class = new UserModel();
+        $class = new User();
 
         $morph = Morph::getMorph($class);
         $this->assertSame('user', $morph);

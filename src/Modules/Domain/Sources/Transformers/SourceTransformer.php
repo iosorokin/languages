@@ -11,13 +11,13 @@ abstract class SourceTransformer
     public function detail(Source $source): array
     {
         return [
-            'id' => $source->getId(),
-            'language_id' => $source->getLanguageId(),
-            'user_id' => $source->getUserId(),
-            'type' => $source->getType(),
-            'title' => $source->getTitle(),
-            'description' => $source->getDescription(),
-            'container_id' => $source->getContainer()->getId(),
+            'id' => $source->id,
+            'language_id' => $source->lanaguage_id,
+            'user_id' => $source->user_id,
+            'type' => $source->type,
+            'title' => $source->title,
+            'description' => $source->description,
+            'container_id' => $source->container_id,
         ];
     }
 }

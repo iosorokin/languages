@@ -6,8 +6,7 @@ use Illuminate\Auth\AuthManager;
 use Laravel\Sanctum\HasApiTokens;
 use Modules\Personal\Auth\Services\AuthService;
 use Modules\Personal\Auth\Services\Sanctum\Actions\CreateSanctumToken;
-use Modules\Personal\Auth\Services\Sanctum\Dto\CreateSanctumTokenDto;
-use Modules\Personal\User\Structures\User;
+use Modules\Personal\User\Model\User;
 
 class SanctumAuth implements AuthService
 {
@@ -19,8 +18,7 @@ class SanctumAuth implements AuthService
     {
         /** @var CreateSanctumToken $createSanctumToken */
         $createSanctumToken = app()->make(CreateSanctumToken::class);
-        $createTokenDto = CreateSanctumTokenDto::new($user);
-        $token = $createSanctumToken($createTokenDto);
+        $token = $createSanctumToken($user, []);
 
         return $token->plainTextToken;
     }

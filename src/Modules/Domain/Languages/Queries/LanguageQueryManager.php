@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace Modules\Domain\Languages\Queries;
 
 use Illuminate\Contracts\Database\Query\Builder;
-use Modules\Domain\Languages\Factories\Builder\LanguageQueryBuilder;
-use Modules\Domain\Languages\Repositories\Filters\LanguageFilter;
-use Modules\Personal\User\Structures\User;
+use Modules\Domain\Languages\Filters\LanguageFilter;
+use Modules\Personal\User\Model\User;
 
 final class LanguageQueryManager
 {
-    private LanguageQueryBuilder $queryBuilder;
+    public function __construct(
+        private LanguageQueryBuilder $queryBuilder,
+    ) {}
 
     public function setQueryBuilder(LanguageQueryBuilder $queryBuilder): self
     {

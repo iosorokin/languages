@@ -6,12 +6,12 @@ namespace Modules\Domain\Sources\Presenters\User;
 
 use Modules\Domain\Sources\Presenters\Mixins\CreateSource;
 use Modules\Domain\Sources\Structures\Source;
-use Modules\Personal\Auth\Presenters\GetClientPresenter;
+use Modules\Personal\Auth\Presenters\Internal\GetAuthUser;
 
-final class UserCreateSource implements UserCreateSourcePresenter
+final class UserCreateSource
 {
     public function __construct(
-        private GetClientPresenter $getClient,
+        private GetAuthUser $getAuthUser,
         private CreateSource $createSource,
     ) {}
 
@@ -20,8 +20,8 @@ final class UserCreateSource implements UserCreateSourcePresenter
      */
     public function __invoke(array $attributes): Source
     {
-        $client = ($this->getClient)();
-        $source = ($this->createSource)($client, $attributes);
+        $user = ($this->getAuthUser)();
+        $source = ($this->createSource)($user, $attributes);
 
         return $source;
     }

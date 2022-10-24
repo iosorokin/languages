@@ -4,19 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sentences\Presenters\User;
 
-use Modules\Domain\Sentences\Actions\DeleteSentence;
-use Modules\Personal\Auth\Presenters\GetClientPresenter;
+use Modules\Domain\Sentences\Presenters\Mixins\DeleteSentence;
+use Modules\Personal\Auth\Presenters\Internal\GetAuthUser;
 
-final class UserDeleteSentence implements UserDeleteSentencePresenter
+final class UserDeleteSentence
 {
     public function __construct(
-        private GetClientPresenter $getClient,
+        private GetAuthUser    $getAuthUser,
         private DeleteSentence $deleteSentence,
     ) {}
 
     public function __invoke(array $attributes): void
     {
-        $client = ($this->getClient)();
-        ($this->deleteSentence)($client, $attributes);
+        $auth = ($this->getAuthUser)();
+        ($this->deleteSentence)($auth, $attributes);
     }
 }

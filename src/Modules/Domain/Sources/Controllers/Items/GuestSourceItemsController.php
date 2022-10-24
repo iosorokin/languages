@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Domain\Sources\Controllers\Items;
 
 use Illuminate\Http\Request;
-use Modules\Domain\Sources\Presenters\Guest\GuestIndexSourcesPresenter;
+use Modules\Domain\Sources\Presenters\Guest\GuestIndexSources;
 
 final class GuestSourceItemsController
 {
@@ -13,7 +13,7 @@ final class GuestSourceItemsController
     {
     }
 
-    public function index(Request $request, GuestIndexSourcesPresenter $presenter)
+    public function index(Request $request, GuestIndexSources $presenter)
     {
         $items = $presenter($request->all());
 

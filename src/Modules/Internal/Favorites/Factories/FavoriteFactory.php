@@ -1,12 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Internal\Favorites\Factories;
 
-use Modules\Internal\Favorites\Entities\Favoriteable;
-use Modules\Internal\Favorites\Structures\Favorite;
-use Modules\Personal\User\Structures\User;
+use Modules\Internal\Favorites\Contracts\Favoriteable;
+use Modules\Internal\Favorites\Model\Favorite;
+use Modules\Personal\User\Model\User;
 
-interface FavoriteFactory
+final class FavoriteFactory
 {
-    public function create(User $user, Favoriteable $favoriteable): Favorite;
+    public function create(User $user, Favoriteable $favoriteable): Favorite
+    {
+        $favorite = new Favorite();
+        $favorite->user()->associate($user);
+        $favorite->favoriteable()->associate($favoriteable);
+
+        return $favorite;
+    }
 }

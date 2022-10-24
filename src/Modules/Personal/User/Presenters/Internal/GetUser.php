@@ -5,30 +5,51 @@ declare(strict_types=1);
 namespace Modules\Personal\User\Presenters\Internal;
 
 use Exception;
-use Modules\Personal\Auth\Presenters\GetClientPresenter;
-use Modules\Personal\User\Structures\User;
-use Modules\Personal\User\Repositories\UserRepository;
+use Illuminate\Validation\ValidationException;
+use Modules\Personal\Auth\Presenters\Internal\GetAuthUser;
+use Modules\Personal\User\Model\User;
 
-final class GetUser implements GetUserPresenter
+final class GetUser
 {
     public function __construct(
-        private GetClientPresenter $getClient,
-        private UserRepository $repository,
+        private GetAuthUser $getAuthUser,
     ) {}
 
-    public function __invoke(int $id): ?User
+    public function get(int $id): ?User
     {
-        $client = ($this->getClient)();
-        $user = $client->id() === $id ? $client->user() : $this->repository->get($id);
+        $auth = ($this->getAuthUser)();
+        $user = $auth->id === $id ? $auth : User::find($id);
+
+        return $user;
+    }
+
+    public function getOrThrowNotFound(int $id): User
+    {
+        $user = $this->get($id);
+        abort_if(! $user, 404);
+
+        return $user;
+    }
+
+    public function getOrThrowBadRequest(int $id): User
+    {
+        $user = $this->get($id);
+        if (! $user) {
+            throw ValidationException::withMessages([
+                'user_id' => sprintf('User with id %d not found', $id),
+            ]);
+        }
 
         return $user;
     }
 
     public function getOrThrowException(int $id): User
     {
-        $user = $this->repository->get($id);
+        $user = $this->get($id);
         if (! $user) {
-            throw new Exception(sprintf('User with id %d not found', $id));
+            throw new Exception(
+                sprintf('User with id %d not found', $id)
+            );
         }
 
         return $user;

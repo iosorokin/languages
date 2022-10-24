@@ -5,26 +5,27 @@ declare(strict_types=1);
 namespace Modules\Domain\Languages\Presenters\User;
 
 use Modules\Domain\Languages\Policies\LanguagePolicy;
-use Modules\Domain\Languages\Presenters\Internal\GetLanguagePresenter;
+use Modules\Domain\Languages\Presenters\Internal\GetLanguage;
+use Modules\Internal\Favorites\Presenters\AddToFavorite;
 use Modules\Internal\Favorites\Presenters\AddToFavoritePresenter;
-use Modules\Internal\Favorites\Structures\Favorite;
-use Modules\Personal\Auth\Presenters\GetClientPresenter;
+use Modules\Internal\Favorites\Model\Favorite;
+use Modules\Personal\Auth\Presenters\Internal\GetAuthUser;
 
-final class UserAddLanguageToFavorite implements UserAddLanguageToFavoritePresenter
+final class UserAddLanguageToFavorite
 {
     public function __construct(
-        private GetClientPresenter     $getClient,
-        private LanguagePolicy      $policy,
-        private GetLanguagePresenter   $getLanguage,
-        private AddToFavoritePresenter $addToFavorite,
+        private GetAuthUser            $getAuthUser,
+        private LanguagePolicy         $policy,
+        private GetLanguage   $getLanguage,
+        private AddToFavorite $addToFavorite,
     ) {}
 
     public function __invoke(int $languageId): Favorite
     {
-        $client = ($this->getClient)();
+        $auth = ($this->getAuthUser)();
         $language = $this->getLanguage->getOrThrowBadRequest($languageId);
         $this->policy->canTakeToLearn($language);
-        $favorite = ($this->addToFavorite)($client->user(), $language);
+        $favorite = ($this->addToFavorite)($auth, $language);
 
         return $favorite;
     }

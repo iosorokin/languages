@@ -7,8 +7,8 @@ namespace Modules\Domain\Sources\Controllers;
 use Core\Http\Responses\Json\OkResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Modules\Domain\Sources\Presenters\Guest\GuestIndexSourcesPresenter;
-use Modules\Domain\Sources\Presenters\Guest\GuestShowSourcePresenter;
+use Modules\Domain\Sources\Presenters\Guest\GuestIndexSources;
+use Modules\Domain\Sources\Presenters\Guest\GuestShowSource;
 use Modules\Domain\Sources\Transformers\GuestSourceTransformer;
 
 final class GuestSourceController
@@ -17,14 +17,14 @@ final class GuestSourceController
         private GuestSourceTransformer $transformer,
     ) {}
 
-    public function show(Request $request, GuestShowSourcePresenter $presenter): JsonResponse
+    public function show(Request $request, GuestShowSource $presenter): JsonResponse
     {
         $source = $presenter((int) $request->route('source'));
         $body = $this->transformer->detail($source);
         return new OkResponse($body);
     }
 
-    public function index(Request $request, GuestIndexSourcesPresenter $presenter): JsonResponse
+    public function index(Request $request, GuestIndexSources $presenter): JsonResponse
     {
         $sources = $presenter($request->all());
 

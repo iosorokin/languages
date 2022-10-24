@@ -2,28 +2,39 @@
 
 namespace Modules\Domain\Sources\Structures;
 
-use App\Base\Structure\HasDescription;
-use App\Base\Structure\HasTitle;
-use App\Base\Structure\Identify\HasIntId;
-use App\Base\Structure\Timestamps\HasTimestamps;
-use Modules\Domain\Languages\Structures\HasLanguage;
+use App\Base\Structure\EloquentHasDescription;
+use App\Base\Structure\EloquentHasTitle;
+use App\Base\Structure\Identify\IntId;
+use App\Base\Structure\Timestamps\Timestamps;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Queue\SerializesModels;
+use Modules\Domain\Languages\Model\HasLanguage;
 use Modules\Domain\Sources\Enums\SourceType;
 use Modules\Internal\Container\Contracts\Containerable;
-use Modules\Internal\Container\Structures\HasContainer;
-use Modules\Personal\User\Structures\HasUser;
+use Modules\Internal\Container\Model\HasContainer;
+use Modules\Personal\User\Model\HasUser;
 
-interface Source extends
-    HasIntId,
-    HasUser,
-    HasLanguage,
-    HasDescription,
-    HasTitle,
-    HasTimestamps,
-    HasContainer,
-
-    Containerable
+final class Source extends Model implements Containerable
 {
-    public function setType(SourceType $type): self;
+    use SerializesModels;
 
-    public function getType(): SourceType;
+    use IntId;
+    use HasUser;
+    use HasLanguage;
+    use Timestamps;
+    use EloquentHasTitle;
+    use EloquentHasDescription;
+    use HasContainer;
+
+    public function setType(SourceType $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    public function getType(): SourceType
+    {
+        return is_string($this->type) ? SourceType::tryFrom($this->type) : $this->type;
+    }
 }

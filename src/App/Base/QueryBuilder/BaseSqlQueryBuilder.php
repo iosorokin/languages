@@ -8,12 +8,5 @@ use Illuminate\Contracts\Database\Query\Builder;
 
 abstract class BaseSqlQueryBuilder
 {
-    public function __construct(
-        protected Builder $query
-    ){}
 
-    public function query(): Builder
-    {
-        return $this->query;
-    }
 }

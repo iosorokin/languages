@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Authorization;
 
-use Modules\Personal\Auth\Contexts\Client;
+use Modules\Personal\User\Model\User;
 
 final class AdminAuthorization
 {
-    public function authorize(Client $client): void
+    public function authorize(User $user): void
     {
-        if (! $client->isAdmin()) {
+        if (! $user->roles->isAdmin()) {
             abort(403);
         }
     }

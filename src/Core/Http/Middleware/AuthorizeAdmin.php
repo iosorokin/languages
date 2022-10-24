@@ -7,19 +7,19 @@ namespace Core\Http\Middleware;
 use App\Authorization\AdminAuthorization;
 use Closure;
 use Illuminate\Http\Request;
-use Modules\Personal\Auth\Presenters\GetClientPresenter;
+use Modules\Personal\Auth\Presenters\Internal\GetAuthUser;
 
 final class AuthorizeAdmin
 {
     public function __construct(
-        private GetClientPresenter $getClient,
+        private GetAuthUser        $getAuthUser,
         private AdminAuthorization $authorization,
     ) {}
 
     public function handle(Request $request, Closure $next)
     {
-        $client = ($this->getClient)();
-        $this->authorization->authorize($client);
+        $auth = ($this->getAuthUser)();
+        $this->authorization->authorize($auth);
 
         return $next($request);
     }

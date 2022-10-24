@@ -6,12 +6,10 @@ namespace Modules\Internal\Container\Services\Dispatcher;
 
 use Exception;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Log;
 use Modules\Internal\Container\Contracts\ContainerableElement;
-use Modules\Internal\Container\Structures\Container;
-use Modules\Internal\Container\Structures\ContainerElement;
+use Modules\Internal\Container\Model\Container;
+use Modules\Internal\Container\Model\ContainerElement;
 use Modules\Internal\Container\Factories\ContainerElementFactory;
-use Modules\Internal\Container\Repositories\ContainerRepository;
 
 final class ContainerManipulator
 {
@@ -20,7 +18,6 @@ final class ContainerManipulator
     public function __construct(
         private ContainerElementFactory $elementFactory,
         private ElementPositionCalculator $calculator,
-        private ContainerRepository $repository,
     ) {}
 
     public function setContainer(Container $container): self
@@ -34,13 +31,13 @@ final class ContainerManipulator
     {
         $containerElement = $this->elementFactory->create($this->container, $element);
         $nextPosition = $this->calculator->setContainer($this->container)->next();
-        $containerElement->setPosition($nextPosition);
+        $containerElement->position = $nextPosition;
 
         static $tries = 0;
         try {
-            $this->repository->saveElement($containerElement);
-            $this->container->addElement($containerElement);
-            $lastPosition = max($containerElement->getPosition(), $this->container->getLastPosition());
+            $containerElement->save();
+            $this->container->refresh();
+            $lastPosition = max($containerElement->position, $this->container->getLastPosition());
             $this->container->setLastPosition($lastPosition);
             $this->container->setCount($this->container->getCount() + 1); //todo переписать на внутренний метод-инкремент
         } catch (Exception $e) {
@@ -79,7 +76,7 @@ final class ContainerManipulator
             if ($hasEmptySpace) {
                 // 1.2.1. свободное место есть, всё хорошо. ЗАВЕРШЕНИЕ
                 $newPos = (int) floor(($nextElementPos + $markedElementPos) / 2);
-                $newElement->setPosition($newPos);
+                $newElement->position = $newPos;
             } else {
                 // 1.2.2. свободного места нет, придётся двигать элементы
                 // контейнер должен поддерживать принцип самовыравнивания, поэтому толкаем только вправо
@@ -115,7 +112,7 @@ final class ContainerManipulator
                         //1.2.2.1.1 если последний элемент получилось сдвинуть на его ожидаемую  позицию то всех можно двигать на -10
                         $pos = $expectedPos;
                         $slice->transform(function (ContainerElement $containerElement) use (&$pos) {
-                            $containerElement->setPosition($pos);
+                            $containerElement->position = $pos;
                             $pos -= 10;
 
                             return $containerElement;
@@ -132,7 +129,7 @@ final class ContainerManipulator
                     $pos = $slice->first()->getPosition() + 10;
 
                     $slice->transform(function (ContainerElement $containerElement) use (&$pos) {
-                        $containerElement->setPosition($pos);
+                        $containerElement->position = $pos;
                         $pos -= 10;
 
                         return $containerElement;
@@ -141,7 +138,7 @@ final class ContainerManipulator
             }
         }
 
-        $this->repository->saveElement($newElement);
+        $newElement->save();
 
         return $newElement;
     }
