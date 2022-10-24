@@ -11,7 +11,7 @@ final class ContainerSeedHelper extends AppHelper
     public function generateAttributes(): array
     {
         return [
-            'title' => $this->faker()->title(),
+            'title' => $this->faker()->sentence(),
             'description' => $this->faker()->text(),
         ];
     }

@@ -24,7 +24,6 @@ final class CreateChapter
     public function __invoke(array $attributes): Container
     {
         $attributes = $this->validator->validate($attributes);
-
         $source = $this->getSource->getOrThrowBadRequest((int) Arr::get($attributes, 'source_id'));
         $wrapper = $source->container;
         $attributes['type'] = ContainerType::Chapter->value;

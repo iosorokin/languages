@@ -13,7 +13,7 @@ final class ContainerFactory
 {
     public function create(Containerable $containerable, array $attributes): Container
     {
-        if ($attributes['type'] = ContainerType::Wrapper->value) {
+        if ($attributes['type'] === ContainerType::Wrapper->value) {
             $attributes['title'] = null;
             $attributes['description'] = null;
         }
