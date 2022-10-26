@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Presenters\User;
 
+use App\Controllers\Auth\Internal\GetAuthUser;
 use Modules\Domain\Languages\Policies\LanguagePolicy;
 use Modules\Domain\Languages\Presenters\Internal\GetLanguage;
+use Modules\Internal\Favorites\Model\Favorite;
 use Modules\Internal\Favorites\Presenters\AddToFavorite;
 use Modules\Internal\Favorites\Presenters\AddToFavoritePresenter;
-use Modules\Internal\Favorites\Model\Favorite;
-use Modules\Personal\Auth\Presenters\Internal\GetAuthUser;
 
 final class UserAddLanguageToFavorite
 {

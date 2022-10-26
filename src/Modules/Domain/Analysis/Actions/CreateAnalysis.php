@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Analysis\Actions;
 
-use Modules\Domain\Analysis\Model\Analysis;
+use App\Database\Personal\EloquentUserModel;
 use Modules\Domain\Analysis\Factories\AnalysisFactory;
+use Modules\Domain\Analysis\Model\Analysis;
 use Modules\Domain\Analysis\Policies\AnalysisPolicy;
 use Modules\Domain\Analysis\Validators\CreateAnalysisValidator;
 use Modules\Domain\Sentences\Presenters\Internal\GetSentence;
 use Modules\Domain\Sources\Presenters\Internal\GetSource;
-use Modules\Personal\User\Model\User;
 
 final class CreateAnalysis
 {
@@ -22,7 +22,7 @@ final class CreateAnalysis
         private AnalysisFactory         $factory,
     ) {}
 
-    public function __invoke(User $user, array $attributes): Analysis
+    public function __invoke(EloquentUserModel $user, array $attributes): Analysis
     {
         $attributes = $this->validator->validate($attributes);
         $sentence = $this->getSentence->getOrThrowBadRequest((int) $attributes['sentence_id']);

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Presenters\Mixins;
 
+use App\Database\Personal\EloquentUserModel;
 use Modules\Domain\Languages\Factories\LanguageFactory;
 use Modules\Domain\Languages\Model\Language;
 use Modules\Domain\Languages\Validators\CreateLanguageValidator;
-use Modules\Personal\User\Model\User;
 
 final class CreateLanguage
 {
@@ -16,7 +16,7 @@ final class CreateLanguage
         private CreateLanguageValidator $validator,
     ) {}
 
-    public function __invoke(User $user, array $attributes): Language
+    public function __invoke(EloquentUserModel $user, array $attributes): Language
     {
         $attributes = $this->validator->validate($attributes);
         $language = $this->factory->create($user, $attributes);

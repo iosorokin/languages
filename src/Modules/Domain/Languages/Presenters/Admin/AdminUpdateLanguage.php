@@ -2,9 +2,9 @@
 
 namespace Modules\Domain\Languages\Presenters\Admin;
 
+use App\Controllers\Auth\Internal\GetAuthUser;
 use Modules\Domain\Languages\Presenters\Internal\GetLanguage;
 use Modules\Domain\Languages\Presenters\Mixins\UpdateLanguage;
-use Modules\Personal\Auth\Presenters\Internal\GetAuthUser;
 
 class AdminUpdateLanguage
 {

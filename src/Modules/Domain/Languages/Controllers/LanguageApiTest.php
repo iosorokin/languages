@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Controllers;
 
-use Core\Base\Helpers\ApiHelper;
+use App\Helpers\Test\BaseAuthApiHelper;
 use Core\Base\Tests\EndpointCase;
 use Modules\Domain\Languages\Helpers\LanguageApiHelper;
-use Modules\Domain\Languages\Helpers\LanguageSeedHelper;
-use Modules\Personal\Auth\Helpers\BaseAuthApiHelper;
 
 final class LanguageApiTest extends EndpointCase
 {

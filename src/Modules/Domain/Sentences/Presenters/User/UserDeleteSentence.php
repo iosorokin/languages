@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sentences\Presenters\User;
 
+use App\Controllers\Auth\Internal\GetAuthUser;
 use Modules\Domain\Sentences\Presenters\Mixins\DeleteSentence;
-use Modules\Personal\Auth\Presenters\Internal\GetAuthUser;
 
 final class UserDeleteSentence
 {

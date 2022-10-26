@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Database\Personal\EloquentUserModel;
 use Exception;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -16,14 +17,12 @@ use Modules\Domain\Sentences\Model\Sentence;
 use Modules\Domain\Sources\Structures\Source;
 use Modules\Internal\Container\Model\Container;
 use Modules\Internal\Container\Model\ContainerElement;
-use Modules\Personal\User\Model\User;
 
 final class EloquentServiceProvider extends ServiceProvider
 {
     public function boot()
     {
         Model::preventLazyLoading(! $this->app->isProduction());
-        Model::preventSilentlyDiscardingAttributes(! $this->app->isProduction());
 
         DB::whenQueryingForLongerThan(500, function () {
             if ($this->app->isProduction()) {
@@ -37,7 +36,7 @@ final class EloquentServiceProvider extends ServiceProvider
 
         $morphs = config('morph');
         Relation::enforceMorphMap([
-            Arr::get($morphs, User::class) => User::class,
+            Arr::get($morphs, EloquentUserModel::class) => EloquentUserModel::class,
             Arr::get($morphs, Language::class) => Language::class,
             Arr::get($morphs, Source::class) => Source::class,
             Arr::get($morphs, Container::class) => Container::class,

@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Analysis\Factories;
 
+use App\Database\Personal\EloquentUserModel;
 use Modules\Domain\Analysis\Model\Analysis;
 use Modules\Domain\Sentences\Model\Sentence;
-use Modules\Personal\User\Model\User;
 
 final class AnalysisFactory
 {
-    public function create(Sentence $sentence, User $user, array $attributes): Analysis
+    public function create(Sentence $sentence, EloquentUserModel $user, array $attributes): Analysis
     {
         $analys = new Analysis();
         $analys->sentence()->associate($sentence);

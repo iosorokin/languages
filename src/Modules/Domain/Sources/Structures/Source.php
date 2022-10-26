@@ -12,7 +12,7 @@ use Modules\Domain\Languages\Model\HasLanguage;
 use Modules\Domain\Sources\Enums\SourceType;
 use Modules\Internal\Container\Contracts\Containerable;
 use Modules\Internal\Container\Model\HasContainer;
-use Modules\Personal\User\Model\HasUser;
+use Modules\Personal\User\Database\Eloquent\Model\HasUser;
 
 final class Source extends Model implements Containerable
 {

@@ -2,10 +2,10 @@
 
 namespace Modules\Domain\Languages\Presenters\Admin;
 
+use App\Controllers\Auth\Internal\GetAuthUser;
 use Modules\Domain\Languages\Authorization\LanguageAuthorizeAdmin;
 use Modules\Domain\Languages\Presenters\Internal\GetLanguage;
 use Modules\Domain\Languages\Presenters\Mixins\DeleteLanguage;
-use Modules\Personal\Auth\Presenters\Internal\GetAuthUser;
 
 class AdminDeleteLanguage
 {

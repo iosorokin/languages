@@ -10,7 +10,7 @@ use App\Base\Structure\Timestamps\Timestamps;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Internal\Favorites\Contracts\Favoriteable;
 use Modules\Internal\Favorites\Model\HasFavorite;
-use Modules\Personal\User\Model\HasUser;
+use Modules\Personal\User\Database\Eloquent\Model\HasUser;
 
 final class Language extends Model implements Favoriteable
 {

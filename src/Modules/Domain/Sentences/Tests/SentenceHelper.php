@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sentences\Tests;
 
+use App\Database\Personal\EloquentUserModel;
 use Core\Base\Helpers\AppHelper;
 use Generator;
 use Modules\Domain\Sentences\Presenters\SeedSentence;
 use Modules\Domain\Sources\Structures\Source;
-use Modules\Internal\Container\Model\Container;
-use Modules\Personal\User\Model\User;
 
 final class SentenceHelper extends AppHelper
 {
@@ -20,7 +19,7 @@ final class SentenceHelper extends AppHelper
         ];
     }
 
-    public function create(User|int $user, Source|int $source, int $count = 1, array $overwrite = []): Generator
+    public function create(EloquentUserModel|int $user, Source|int $source, int $count = 1, array $overwrite = []): Generator
     {
         /** @var SeedSentence $presenter */
         $presenter = app()->make(SeedSentence::class);

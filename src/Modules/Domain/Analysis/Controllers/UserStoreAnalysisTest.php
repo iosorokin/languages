@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Analysis\Controllers;
 
+use App\Helpers\Test\BaseAuthApiHelper;
 use Core\Base\Tests\EndpointCase;
 use Modules\Domain\Analysis\Helpers\AnalysisApiHelper;
-use Modules\Personal\Auth\Helpers\BaseAuthApiHelper;
 
 final class UserStoreAnalysisTest extends EndpointCase
 {

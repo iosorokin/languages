@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Presenters\User;
 
+use App\Controllers\Auth\Internal\GetAuthUser;
 use Modules\Domain\Languages\Collections\Languages;
 use Modules\Domain\Languages\Presenters\Mixins\IndexLanguages;
 use Modules\Domain\Languages\Queries\LanguageQueryBuilder;
-use Modules\Personal\Auth\Presenters\Internal\GetAuthUser;
 
 final class UserIndexLanguages
 {

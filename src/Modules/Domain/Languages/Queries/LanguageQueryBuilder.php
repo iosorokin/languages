@@ -4,19 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Queries;
 
+use App\Database\Personal\EloquentUserModel;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Domain\Languages\Filters\LanguageFilter;
 use Modules\Domain\Languages\Model\Language;
-use Modules\Personal\User\Model\User;
 
 final class LanguageQueryBuilder
 {
-    public function admin(User $user, array $attributes): Builder
+    public function admin(EloquentUserModel $user, array $attributes): Builder
     {
         return $this->user($user, $attributes);
     }
 
-    public function user(User $user, array $attributes): Builder
+    public function user(EloquentUserModel $user, array $attributes): Builder
     {
         $query = $this->guest($attributes)->selectFavoriteId()
             ->leftJoinUserFavorite($user)

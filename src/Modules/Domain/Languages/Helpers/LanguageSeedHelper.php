@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Helpers;
 
+use App\Database\Personal\EloquentUserModel;
 use Core\Base\Helpers\AppHelper;
-use Faker\Factory;
 use Generator;
 use Illuminate\Support\Str;
-use Modules\Domain\Languages\Presenters\SeedLanguage;
 use Modules\Domain\Languages\Model\Language;
-use Modules\Personal\User\Model\User;
+use Modules\Domain\Languages\Presenters\SeedLanguage;
 
 final class LanguageSeedHelper extends AppHelper
 {
@@ -23,7 +22,7 @@ final class LanguageSeedHelper extends AppHelper
         ];
     }
 
-    public function create(User|int $user, int $count = 1, array $overwrite = []): Generator
+    public function create(EloquentUserModel|int $user, int $count = 1, array $overwrite = []): Generator
     {
         $presenter = $this->presenter();
 
@@ -34,14 +33,14 @@ final class LanguageSeedHelper extends AppHelper
         }
     }
 
-    public function update(User|int $user, Language|int $language, array $attributes): void
+    public function update(EloquentUserModel|int $user, Language|int $language, array $attributes): void
     {
         $presenter = $this->presenter();
 
         $presenter->update($user, $language, $attributes);
     }
 
-    public function activate(User|int $user, Language|int $language): void
+    public function activate(EloquentUserModel|int $user, Language|int $language): void
     {
         $this->update($user, $language, [
             'is_active' => true

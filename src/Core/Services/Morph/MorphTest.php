@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Core\Services\Morph;
 
+use App\Database\Personal\EloquentUserModel;
 use Core\Base\Tests\UnitCase;
 use Core\Services\Morph\Exceptions\MorphNotFound;
-use Modules\Personal\User\Model\User;
 
 final class MorphTest extends UnitCase
 {
     public function testMorphFound()
     {
-        $class = new User();
+        $class = new EloquentUserModel();
 
         $morph = Morph::getAlias($class);
         $this->assertSame('user', $morph);

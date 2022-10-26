@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sentences\Presenters\Mixins;
 
+use App\Database\Personal\EloquentUserModel;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Modules\Domain\Chapters\Presenters\Internal\GetChapter;
 use Modules\Domain\Sentences\Factories\SentenceFactory;
-use Modules\Domain\Sentences\Policies\SentencePolicy;
 use Modules\Domain\Sentences\Model\Sentence;
+use Modules\Domain\Sentences\Policies\SentencePolicy;
 use Modules\Domain\Sentences\Validators\CreateSentenceValidator;
 use Modules\Domain\Sources\Presenters\Internal\GetSource;
 use Modules\Internal\Container\Presenters\Internal\InitWrapperContainer;
 use Modules\Internal\Container\Presenters\Internal\PushElement;
-use Modules\Personal\User\Model\User;
 
 final class CreateSentence
 {
@@ -28,7 +28,7 @@ final class CreateSentence
         private InitWrapperContainer $initWrapperContainer,
     ) {}
 
-    public function __invoke(User $user, array $attributes): Sentence
+    public function __invoke(EloquentUserModel $user, array $attributes): Sentence
     {
         $attributes = $this->validator->validate($attributes);
         $source = $this->getSource->getOrThrowBadRequest($attributes['source_id']);

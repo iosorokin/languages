@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sources\Helpers;
 
+use App\Database\Personal\EloquentUserModel;
 use Core\Base\Helpers\AppHelper;
 use Generator;
 use Illuminate\Support\Arr;
 use Modules\Domain\Sources\Presenters\SeedSource;
-use Modules\Personal\User\Model\User;
 
 final class SourceSeedHelper extends AppHelper
 {
@@ -21,7 +21,7 @@ final class SourceSeedHelper extends AppHelper
         ];
     }
 
-    public function create(User|int $user, int $languageId, int $count = 1, array $overwrite = []): Generator
+    public function create(EloquentUserModel|int $user, int $languageId, int $count = 1, array $overwrite = []): Generator
     {
         /** @var SeedSource $seedSource */
         $seedSource = app()->make(SeedSource::class);

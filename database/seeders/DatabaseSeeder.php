@@ -2,17 +2,18 @@
 
 namespace Database\Seeders;
 
+use App\Database\Personal\EloquentUserModel;
+use App\Helpers\Test\UserSeedHelper;
 use Illuminate\Database\Seeder;
 use Modules\Domain\Analysis\Helpers\AnalysisSeedHelper;
 use Modules\Domain\Chapters\Helpers\ChapterSeedHelper;
 use Modules\Domain\Languages\Helpers\LanguageSeedHelper;
 use Modules\Domain\Sentences\Model\Sentence;
 use Modules\Domain\Sentences\Tests\SentenceHelper;
-use Modules\Domain\Sources\Structures\Source;
 use Modules\Domain\Sources\Helpers\SourceSeedHelper;
-use Modules\Personal\User\Enums\Role;
-use Modules\Personal\User\Model\User;
-use Modules\Personal\User\Helpers\UserSeedHelper;
+use Modules\Domain\Sources\Structures\Source;
+use Modules\Personal\Entity\User;
+use Modules\Personal\Enums\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -25,18 +26,18 @@ class DatabaseSeeder extends Seeder
     {
         $root = $this->createRoot();
         $testUser = $this->createTestUser();
-        $languageIds = $this->createLanguages($root);
-
-        $this->seedContent($testUser, $languageIds);
-
-        $attributes = [
-            'roles' => [
-                Role::User->value
-            ]
-        ];
-        foreach (UserSeedHelper::new()->create(config('seed.users.count_random_users'), $attributes) as $user) {
-            $this->seedContent($user, $languageIds);
-        }
+//        $languageIds = $this->createLanguages($root);
+//
+//        $this->seedContent($testUser, $languageIds);
+//
+//        $attributes = [
+//            'roles' => [
+//                Role::User->value
+//            ]
+//        ];
+//        foreach (UserSeedHelper::new()->create(config('seed.users.count_random_users'), $attributes) as $user) {
+//            $this->seedContent($user, $languageIds);
+//        }
     }
 
     private function createRoot(): User
@@ -62,7 +63,7 @@ class DatabaseSeeder extends Seeder
         return $user;
     }
 
-    private function createLanguages(User $user): array
+    private function createLanguages(EloquentUserModel $user): array
     {
         $helper = LanguageSeedHelper::new();
         $generator = $helper->create(
@@ -84,7 +85,7 @@ class DatabaseSeeder extends Seeder
         return $activeIds;
     }
 
-    private function seedContent(User $user, array $languageIds)
+    private function seedContent(EloquentUserModel $user, array $languageIds)
     {
         foreach ($languageIds as $languageId) {
             $chance = (float) random_int(1, 100000) / 100;
@@ -94,7 +95,7 @@ class DatabaseSeeder extends Seeder
         }
     }
 
-    private function seedSources(User $user, int $languageId): void
+    private function seedSources(EloquentUserModel $user, int $languageId): void
     {
         $sourceHelper = SourceSeedHelper::new();
         $count = random_int(
@@ -108,7 +109,7 @@ class DatabaseSeeder extends Seeder
         }
     }
 
-    private function seedChapters(User $user, Source $source): void
+    private function seedChapters(EloquentUserModel $user, Source $source): void
     {
         $chapterAppHelper = ChapterSeedHelper::new();
         $count = random_int(
@@ -123,7 +124,7 @@ class DatabaseSeeder extends Seeder
         }
     }
 
-    private function seedSentences(User $user, Source $source, array $attributes = []): void
+    private function seedSentences(EloquentUserModel $user, Source $source, array $attributes = []): void
     {
         $sentenceHelper = SentenceHelper::new();
         $count = random_int(
@@ -136,7 +137,7 @@ class DatabaseSeeder extends Seeder
         }
     }
 
-    private function seedAnalysis(User $user, Sentence $sentence, array $overwrite = []): void
+    private function seedAnalysis(EloquentUserModel $user, Sentence $sentence, array $overwrite = []): void
     {
         $analysisHelper = AnalysisSeedHelper::new();
         $chance = random_int(1, 100);

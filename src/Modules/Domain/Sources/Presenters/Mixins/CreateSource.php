@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sources\Presenters\Mixins;
 
+use App\Database\Personal\EloquentUserModel;
 use Illuminate\Events\Dispatcher;
 use Modules\Domain\Languages\Policies\LanguagePolicy;
 use Modules\Domain\Languages\Presenters\Internal\GetLanguage;
@@ -13,7 +14,6 @@ use Modules\Domain\Sources\Factories\SourceFactory;
 use Modules\Domain\Sources\Repositories\SourceRepository;
 use Modules\Domain\Sources\Structures\Source;
 use Modules\Domain\Sources\Validators\CreateSourceValidator;
-use Modules\Personal\User\Model\User;
 
 final class CreateSource
 {
@@ -26,7 +26,7 @@ final class CreateSource
         private Dispatcher            $dispatcher
     ) {}
 
-    public function __invoke(User $user, array $attributes): Source
+    public function __invoke(EloquentUserModel $user, array $attributes): Source
     {
         $attributes = $this->validator->validate($attributes);
         $language = $this->getLanguage->getOrThrowBadRequest($attributes['language_id']);

@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Analysis\Policies;
 
+use App\Database\Personal\EloquentUserModel;
 use Modules\Domain\Sentences\Model\Sentence;
-use Modules\Personal\User\Model\User;
 
 final class AnalysisPolicy
 {
-    public function canCreate(User $user, Sentence $sentence): void
+    public function canCreate(EloquentUserModel $user, Sentence $sentence): void
     {
         //
     }

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Presenters\User;
 
+use App\Controllers\Auth\Internal\GetAuthUser;
 use Modules\Internal\Favorites\Presenters\RemoveFavorite;
-use Modules\Personal\Auth\Presenters\Internal\GetAuthUser;
 
 final class UserRemoveFromFavorite
 {

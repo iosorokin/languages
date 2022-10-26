@@ -2,11 +2,11 @@
 
 namespace Modules\Domain\Languages\Presenters\Admin;
 
+use App\Controllers\Auth\Internal\GetAuthUser;
 use Modules\Domain\Languages\Authorization\LanguageAuthorizeAdmin;
 use Modules\Domain\Languages\Collections\Languages;
 use Modules\Domain\Languages\Presenters\Mixins\IndexLanguages;
 use Modules\Domain\Languages\Queries\LanguageQueryBuilder;
-use Modules\Personal\Auth\Presenters\Internal\GetAuthUser;
 
 class AdminIndexLanguages
 {

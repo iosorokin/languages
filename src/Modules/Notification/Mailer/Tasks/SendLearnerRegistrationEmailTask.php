@@ -2,12 +2,10 @@
 
 namespace Modules\Notification\Mailer\Tasks;
 
-use Modules\Personal\User\Model\User;
-
 class SendLearnerRegistrationEmailTask
 {
     public function __construct(
-        public readonly User $user,
+        public string $email,
     ) {}
 
     public function __invoke()

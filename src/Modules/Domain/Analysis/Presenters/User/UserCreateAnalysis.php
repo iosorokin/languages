@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Analysis\Presenters\User;
 
+use App\Controllers\Auth\Internal\GetAuthUser;
 use Modules\Domain\Analysis\Actions\CreateAnalysis;
 use Modules\Domain\Analysis\Model\Analysis;
-use Modules\Personal\Auth\Presenters\Internal\GetAuthUser;
 
 final class UserCreateAnalysis
 {

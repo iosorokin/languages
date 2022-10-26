@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Core\Http\Middleware;
 
 use App\Authorization\AdminAuthorization;
+use App\Controllers\Auth\Internal\GetAuthUser;
 use Closure;
 use Illuminate\Http\Request;
-use Modules\Personal\Auth\Presenters\Internal\GetAuthUser;
 
 final class AuthorizeAdmin
 {

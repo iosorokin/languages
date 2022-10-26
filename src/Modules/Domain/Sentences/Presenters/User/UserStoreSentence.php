@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sentences\Presenters\User;
 
-use Modules\Domain\Sentences\Presenters\Mixins\CreateSentence;
+use App\Controllers\Auth\Internal\GetAuthUser;
 use Modules\Domain\Sentences\Model\Sentence;
-use Modules\Personal\Auth\Presenters\Internal\GetAuthUser;
+use Modules\Domain\Sentences\Presenters\Mixins\CreateSentence;
 
 final class UserStoreSentence
 {

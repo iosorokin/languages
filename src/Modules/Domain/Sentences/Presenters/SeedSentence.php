@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sentences\Presenters;
 
-use Modules\Domain\Sentences\Presenters\Mixins\CreateSentence;
+use App\Controll\Personal\Internal\GetUser;
+use App\Database\Personal\EloquentUserModel;
 use Modules\Domain\Sentences\Model\Sentence;
-use Modules\Personal\User\Model\User;
-use Modules\Personal\User\Presenters\Internal\GetUser;
+use Modules\Domain\Sentences\Presenters\Mixins\CreateSentence;
 
 final class SeedSentence
 {
@@ -16,7 +16,7 @@ final class SeedSentence
         private CreateSentence $createSentence,
     ) {}
 
-    public function __invoke(User|int $user, array $attributes = []): Sentence
+    public function __invoke(EloquentUserModel|int $user, array $attributes = []): Sentence
     {
         $user = is_int($user) ? ($this->getUser)($user) : $user;
 

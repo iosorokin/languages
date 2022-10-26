@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Model;
 
+use App\Database\Personal\EloquentUserModel;
 use Core\Services\Morph\Morph;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Query\JoinClause;
-use Modules\Personal\User\Model\User;
 
 trait LanguageQuery
 {
@@ -53,7 +53,7 @@ trait LanguageQuery
         $query->orderBy('favorites.id');
     }
 
-    public function scopeWhereUserFavorite(Builder $query, User|int $user): void
+    public function scopeWhereUserFavorite(Builder $query, EloquentUserModel|int $user): void
     {
         $userId = is_int($user) ? $user : $user->id;
         $query->rightJoin('favorites', function (JoinClause $query) use ($userId) {
@@ -63,7 +63,7 @@ trait LanguageQuery
         });
     }
 
-    public function scopeLeftJoinUserFavorite(Builder $query, User|int $user): void
+    public function scopeLeftJoinUserFavorite(Builder $query, EloquentUserModel|int $user): void
     {
         $userId = is_int($user) ? $user : $user->id;
         $query->leftJoin('favorites', function (JoinClause $query) use ($userId) {

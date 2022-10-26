@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Database\Personal\EloquentUserRepository;
+use App\Database\Personal\UserRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
+        $this->app->bind(UserRepository::class, EloquentUserRepository::class);
     }
 }

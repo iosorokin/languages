@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Internal\Favorites\Presenters;
 
+use App\Database\Personal\EloquentUserModel;
 use Modules\Internal\Favorites\Authorization\FavoriteUserAuthorize;
 use Modules\Internal\Favorites\Presenters\Internal\GetFavorite;
-use Modules\Personal\User\Model\User;
 
 final class RemoveFavorite
 {
@@ -15,7 +15,7 @@ final class RemoveFavorite
         private FavoriteUserAuthorize $authorize,
     ) {}
 
-    public function __invoke(User $user, int $favoriteId): void
+    public function __invoke(EloquentUserModel $user, int $favoriteId): void
     {
         $favorite = $this->getFavorite->getOrThrowNotFound($favoriteId);
         $this->authorize->canRemove($user, $favorite);

@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Notification\Mailer\Presenters;
 
+use App\Database\Personal\EloquentUserModel;
 use Illuminate\Bus\Dispatcher;
 use Modules\Notification\Mailer\Tasks\SendLearnerRegistrationEmailTask;
-use Modules\Personal\User\Model\User;
+use Modules\Personal\Entity\User;
 
 final class SendRegistrationEmail
 {
@@ -16,7 +17,9 @@ final class SendRegistrationEmail
 
     public function __invoke(User $user): void
     {
-        $task = new SendLearnerRegistrationEmailTask($user);
+        $task = new SendLearnerRegistrationEmailTask(
+            $user->baseAuth()->email()->value(),
+        );
         $this->dispatcher->dispatch($task);
     }
 }

@@ -2,15 +2,15 @@
 
 namespace Modules\Domain\Languages\Factories;
 
+use App\Database\Personal\EloquentUserModel;
 use Core\Services\Pagination\CursorPaginator;
 use Illuminate\Contracts\Pagination\CursorPaginator as LaravelCursorPaginator;
 use Modules\Domain\Languages\Collections\Languages;
 use Modules\Domain\Languages\Model\Language;
-use Modules\Personal\User\Model\User;
 
 class LanguageFactory
 {
-    public function create(User $user, array $attributes): Language
+    public function create(EloquentUserModel $user, array $attributes): Language
     {
         $language = new Language();
         $language->user()->associate($user);

@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sentences\Presenters\Mixins;
 
+use App\Database\Personal\EloquentUserModel;
 use App\Rules\BigIntId;
 use Illuminate\Support\Facades\Validator;
 use Modules\Domain\Sentences\Policies\SentencePolicy;
 use Modules\Domain\Sentences\Presenters\Internal\GetSentence;
 use Modules\Domain\Sentences\Repositories\SentenceRepository;
-use Modules\Personal\User\Model\User;
 
 final class DeleteSentence
 {
@@ -19,7 +19,7 @@ final class DeleteSentence
         private SentenceRepository $sentenceRepository,
     ) {}
 
-    public function __invoke(User $user, array $attributes): void
+    public function __invoke(EloquentUserModel $user, array $attributes): void
     {
         $attributes = Validator::validate($attributes, ['sentence_id' => ['required', new BigIntId()]]);
         $sentence = ($this->getSentence)($attributes['sentence_id']);
