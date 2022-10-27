@@ -5,7 +5,7 @@ namespace Modules\Notification\Mailer;
 
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\ServiceProvider;
-use Modules\Notification\Mailer\Tasks\SendLearnerRegistrationEmailTask;
+use Modules\Notification\Mailer\Application\Tasks\SendLearnerRegistrationEmailTask;
 
 class MailerServiceProvider extends ServiceProvider
 {

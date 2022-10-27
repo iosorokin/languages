@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Personal\App\Presenters\Personal\Guest;
 
-use Modules\Notification\Mailer\Presenters\SendRegistrationEmail;
+use Modules\Notification\Mailer\Application\Presenters\SendRegistrationEmail;
 use Modules\Personal\App\Validators\RegistrationCombinedValidator;
 use Modules\Personal\Domain\Entity\User;
 use Modules\Personal\Domain\UserRepository;

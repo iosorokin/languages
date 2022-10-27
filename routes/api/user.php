@@ -1,13 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Domain\Analysis\Controllers\UserStoreAnalysisController;
-use Modules\Domain\Chapters\Controllers\UserChapterController;
-use Modules\Domain\Languages\Controllers\UserFavoriteLanguageController;
-use Modules\Domain\Languages\Controllers\UserLanguageController;
-use Modules\Domain\Sentences\Controllers\UserSentenceController;
-use Modules\Domain\Sources\Controllers\Items\UserSourceItemsController;
-use Modules\Domain\Sources\Controllers\UserSourceController;
+use Modules\Core\Analysis\Controllers\UserStoreAnalysisController;
+use Modules\Core\Chapters\Controllers\UserChapterController;
+use Modules\Core\Languages\Application\Controllers\UserFavoriteLanguageController;
+use Modules\Core\Languages\Application\Controllers\UserLanguageController;
+use Modules\Core\Sentences\Controllers\UserSentenceController;
+use Modules\Core\Sources\Controllers\Items\UserSourceItemsController;
+use Modules\Core\Sources\Controllers\UserSourceController;
 use Modules\Personal\App\Controllers\Auth\LogoutController;
 
 Route::apiResource('languages', UserLanguageController::class)

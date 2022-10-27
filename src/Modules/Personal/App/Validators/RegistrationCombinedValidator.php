@@ -6,7 +6,6 @@ namespace Modules\Personal\App\Validators;
 
 use Core\Base\Validation\BaseCombinedValidator;
 use Modules\Personal\App\Validators\Single\CreateUserValidator;
-use Modules\Personal\Domain\Contexts\BaseAuth\Validators\CreateBaseAuthValidator;
 
 final class RegistrationCombinedValidator extends BaseCombinedValidator
 {

@@ -6,7 +6,7 @@ namespace Modules\Personal\Domain\Entity;
 
 use App\Values\Datetime\Timestamps;
 use App\Values\Identificatiors\BigIntId;
-use Modules\Personal\Domain\Contexts\BaseAuth\Values\BaseAuth;
+use Modules\Personal\Domain\Values\BaseAuth;
 use Modules\Personal\Domain\Values\Email;
 use Modules\Personal\Domain\Values\Name;
 use Modules\Personal\Domain\Values\Password;

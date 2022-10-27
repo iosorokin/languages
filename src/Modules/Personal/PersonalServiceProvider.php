@@ -3,8 +3,8 @@
 namespace Modules\Personal;
 
 use Illuminate\Support\ServiceProvider;
-use Modules\Personal\Domain\Contexts\BaseAuth\Services\AuthService;
-use Modules\Personal\Domain\Contexts\BaseAuth\Services\Sanctum\SanctumAuth;
+use Modules\Personal\App\Services\AuthService;
+use Modules\Personal\App\Services\Sanctum\SanctumAuth;
 
 class PersonalServiceProvider extends ServiceProvider
 {

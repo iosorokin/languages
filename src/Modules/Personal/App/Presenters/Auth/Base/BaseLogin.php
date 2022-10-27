@@ -6,8 +6,8 @@ namespace Modules\Personal\App\Presenters\Auth\Base;
 
 use Exception;
 use Illuminate\Support\Facades\Hash;
-use Modules\Personal\Domain\Contexts\BaseAuth\Services\AuthService;
-use Modules\Personal\Domain\Contexts\BaseAuth\Validators\LoginValidator;
+use Modules\Personal\App\Services\AuthService;
+use Modules\Personal\App\Validators\LoginValidator;
 use Modules\Personal\Domain\UserRepository;
 
 final class BaseLogin

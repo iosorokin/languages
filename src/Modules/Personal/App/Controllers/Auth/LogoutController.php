@@ -6,7 +6,7 @@ use Core\Http\Responses\Json\NoContentResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Modules\Personal\App\Presenters\Auth\User\Logout;
-use Modules\Personal\Domain\Contexts\BaseAuth\Services\AuthService;
+use Modules\Personal\App\Services\AuthService;
 
 class LogoutController
 {
