@@ -8,7 +8,7 @@ use Core\Base\Helpers\AppHelper;
 use Generator;
 use Modules\Core\Sentences\Presenters\SeedSentence;
 use Modules\Core\Sources\Structures\Source;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 final class SentenceHelper extends AppHelper
 {

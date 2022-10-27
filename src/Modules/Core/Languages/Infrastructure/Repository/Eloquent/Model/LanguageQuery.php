@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Modules\Core\Languages\Infrastructure\Model;
+namespace Modules\Core\Languages\Infrastructure\Repository\Eloquent\Model;
 
 use Core\Services\Morph\Morph;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Query\JoinClause;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 trait LanguageQuery
 {
@@ -57,7 +57,7 @@ trait LanguageQuery
     {
         $userId = is_int($user) ? $user : $user->id;
         $query->rightJoin('favorites', function (JoinClause $query) use ($userId) {
-            $query->where('favoriteable_type', Morph::getAlias(Language::class))
+            $query->where('favoriteable_type', Morph::getAlias(LanguageModel::class))
                 ->whereColumn('favoriteable_id', 'languages.id')
                 ->where('languages.user_id', $userId);
         });
@@ -67,7 +67,7 @@ trait LanguageQuery
     {
         $userId = is_int($user) ? $user : $user->id;
         $query->leftJoin('favorites', function (JoinClause $query) use ($userId) {
-            $query->where('favoriteable_type', Morph::getAlias(Language::class))
+            $query->where('favoriteable_type', Morph::getAlias(LanguageModel::class))
                 ->whereColumn('favoriteable_id', 'languages.id')
                 ->where('languages.user_id', $userId);
         });

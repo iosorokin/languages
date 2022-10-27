@@ -203,7 +203,7 @@ return [
         /*
          * Module Service Providers
          */
-        Modules\Personal\PersonalServiceProvider::class,
+        \Modules\Personal\PersonalServiceProvider::class,
         Modules\Core\Languages\LanguageServiceProvider::class,
         Modules\Notification\Mailer\MailerServiceProvider::class,
         Modules\Internal\Container\ContainerServiceProvider::class,

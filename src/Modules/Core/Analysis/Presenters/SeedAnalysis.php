@@ -7,7 +7,7 @@ namespace Modules\Core\Analysis\Presenters;
 use Modules\Core\Analysis\Actions\CreateAnalysis;
 use Modules\Core\Analysis\Model\Analysis;
 use Modules\Personal\App\Presenters\Personal\Internal\GetUser;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 final class SeedAnalysis
 {

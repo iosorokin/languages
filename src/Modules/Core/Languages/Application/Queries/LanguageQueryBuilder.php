@@ -6,8 +6,8 @@ namespace Modules\Core\Languages\Application\Queries;
 
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Core\Languages\Application\Filters\LanguageFilter;
-use Modules\Core\Languages\Infrastructure\Model\Language;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Core\Languages\Infrastructure\Repository\Eloquent\Model\LanguageModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 final class LanguageQueryBuilder
 {
@@ -27,7 +27,7 @@ final class LanguageQueryBuilder
 
     public function guest(array $attributes): Builder
     {
-        $query = Language::query()
+        $query = LanguageModel::query()
             ->selectLanguage()
             ->orderByName()
             ->whereIsActive();

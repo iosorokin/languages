@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Core\Analysis\Policies;
 
 use Modules\Core\Sentences\Model\Sentence;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 final class AnalysisPolicy
 {

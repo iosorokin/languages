@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Modules\Core\Sentences\Policies\SentencePolicy;
 use Modules\Core\Sentences\Presenters\Internal\GetSentence;
 use Modules\Core\Sentences\Repositories\SentenceRepository;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 final class DeleteSentence
 {

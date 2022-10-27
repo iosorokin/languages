@@ -6,7 +6,7 @@ namespace Modules\Personal\Infrastructure\Repository\Providers;
 
 use App\Extensions\Assert;
 use Illuminate\Support\Carbon;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 final class UserModelDataProvider implements UserDataProvider
 {

@@ -6,7 +6,7 @@ namespace App\Values\Datetime;
 
 use Illuminate\Support\Carbon;
 
-final class UpdatedAt
+final class PresetTimestamp implements Timestamp
 {
     private Carbon $updatedAt;
 
@@ -17,7 +17,7 @@ final class UpdatedAt
         $this->updatedAt = $updatedAt;
     }
 
-    public function value(): Carbon|string
+    public function value(): Carbon
     {
         return $this->updatedAt;
     }

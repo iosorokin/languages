@@ -6,7 +6,7 @@ namespace Modules\Core\Languages\Application\Presenters\Admin;
 
 use Modules\Core\Languages\Application\Authorization\LanguageAuthorizeAdmin;
 use Modules\Core\Languages\Application\Presenters\Mixins\ShowLanguage;
-use Modules\Core\Languages\Infrastructure\Model\Language;
+use Modules\Core\Languages\Infrastructure\Repository\Eloquent\Model\LanguageModel;
 use Modules\Core\Languages\Presenters\Admin\AdminShowLanguagePresenter;
 use Modules\Core\Languages\Presenters\Internal\GetLanguagePresenter;
 use Modules\Personal\Auth\Presenters\GetClientPresenter;
@@ -20,7 +20,7 @@ class AdminShowLanguage implements AdminShowLanguagePresenter
         private ShowLanguage $showLanguage,
     ) {}
 
-    public function __invoke(int $id): Language
+    public function __invoke(int $id): LanguageModel
     {
         $client = ($this->getClient)();
         $language = $this->getLanguage->getOrThrowNotFound($id);

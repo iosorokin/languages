@@ -10,7 +10,7 @@ use Modules\Core\Analysis\Policies\AnalysisPolicy;
 use Modules\Core\Analysis\Validators\CreateAnalysisValidator;
 use Modules\Core\Sentences\Presenters\Internal\GetSentence;
 use Modules\Core\Sources\Presenters\Internal\GetSource;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 final class CreateAnalysis
 {

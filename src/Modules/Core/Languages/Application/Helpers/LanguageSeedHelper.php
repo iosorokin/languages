@@ -8,8 +8,8 @@ use Core\Base\Helpers\AppHelper;
 use Generator;
 use Illuminate\Support\Str;
 use Modules\Core\Languages\Application\Presenters\SeedLanguage;
-use Modules\Core\Languages\Infrastructure\Model\Language;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Core\Languages\Infrastructure\Repository\Eloquent\Model\LanguageModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 final class LanguageSeedHelper extends AppHelper
 {
@@ -33,14 +33,14 @@ final class LanguageSeedHelper extends AppHelper
         }
     }
 
-    public function update(EloquentUserModel|int $user, Language|int $language, array $attributes): void
+    public function update(EloquentUserModel|int $user, LanguageModel|int $language, array $attributes): void
     {
         $presenter = $this->presenter();
 
         $presenter->update($user, $language, $attributes);
     }
 
-    public function activate(EloquentUserModel|int $user, Language|int $language): void
+    public function activate(EloquentUserModel|int $user, LanguageModel|int $language): void
     {
         $this->update($user, $language, [
             'is_active' => true

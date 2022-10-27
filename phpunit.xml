@@ -8,7 +8,7 @@
         <testsuite name="Api">
             <directory suffix="ApiTest.php">./src/Modules</directory>
         </testsuite>
-        <testsuite name="Feture">
+        <testsuite name="Feature">
             <directory suffix="FeatureTest.php">./src/Modules</directory>
         </testsuite>
         <testsuite name="Unit">

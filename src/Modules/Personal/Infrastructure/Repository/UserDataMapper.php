@@ -4,29 +4,32 @@ declare(strict_types=1);
 
 namespace Modules\Personal\Infrastructure\Repository;
 
-use App\Values\Datetime\CreatedAt;
-use App\Values\Datetime\Timestamps;
-use App\Values\Datetime\UpdatedAt;
-use App\Values\Identificatiors\BigIntId;
-use Modules\Personal\Domain\Entity\User;
+use App\Values\Datetime\PresetCreatedAt;
+use App\Values\Datetime\PresetTimestamp;
+use App\Values\Identificatiors\BigIntIntId;
+use Modules\Personal\Domain\Contexts\User;
 use Modules\Personal\Domain\Values\BaseAuth;
 use Modules\Personal\Domain\Values\Email;
 use Modules\Personal\Domain\Values\Name;
 use Modules\Personal\Domain\Values\Password;
 use Modules\Personal\Domain\Values\Roles;
 use Modules\Personal\Infrastructure\Repository\Providers\UserDataProvider;
+use ReflectionClass;
 
 final class UserDataMapper
 {
-    public static function restore(UserDataProvider $provider): User
+    private ReflectionClass $user;
+
+    public function restore(UserDataProvider $provider): User
     {
-        $user = new User();
-        $user->setId(new BigIntId($provider->getId()));
+        $this->user = new ReflectionClass(User::class);
+        $this->restoreId($provider->getId());
+
         $user->setName(new Name($provider->getName()));
         $user->setRoles(new Roles($provider->getRoles()));
-        $user->setTimestamps(new Timestamps(
-                new CreatedAt($provider->getCreatedAt()),
-                new UpdatedAt($provider->getUpdatedAt()),
+        $user->setTimestamps(new PresetTimestamps(
+                new PresetCreatedAt($provider->getCreatedAt()),
+                new PresetTimestamp($provider->getUpdatedAt()),
             )
         );
         if ($provider->hasBaseAuth()) {
@@ -36,7 +39,16 @@ final class UserDataMapper
         return $user;
     }
 
-    private static function restoreBaseAuth(UserDataProvider $provider): BaseAuth
+    private function restoreId(int $id)
+    {
+        $ref = (new ReflectionClass(BigIntIntId::class));
+        $ref->getProperty('id')
+            ->setValue($id);
+        $this->user->getProperty('id')
+            ->setValue($ref->newInstance());
+    }
+
+    private function restoreBaseAuth(UserDataProvider $provider): BaseAuth
     {
         $baseAuth = new BaseAuth(
             new Email($provider->getEmail()),

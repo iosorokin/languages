@@ -8,7 +8,7 @@ use Core\Base\Helpers\AppHelper;
 use Generator;
 use Modules\Personal\App\Presenters\Personal\SeedUser;
 use Modules\Personal\App\Presenters\Personal\Special\InitRootUser;
-use Modules\Personal\Domain\Entity\User;
+use Modules\Personal\Domain\Contexts\User;
 
 final class UserSeedHelper extends AppHelper
 {

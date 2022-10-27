@@ -6,7 +6,7 @@ namespace Modules\Core\Sentences\Policies;
 
 use Modules\Core\Sentences\Model\Sentence;
 use Modules\Core\Sources\Structures\Source;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 final class SentencePolicy
 {

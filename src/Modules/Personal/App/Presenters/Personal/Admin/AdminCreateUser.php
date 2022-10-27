@@ -6,7 +6,7 @@ namespace Modules\Personal\App\Presenters\Personal\Admin;
 
 use Modules\Personal\App\Validators\RegistrationCombinedValidator;
 use Modules\Personal\App\Validators\Single\RolesValidator;
-use Modules\Personal\Domain\Entity\User;
+use Modules\Personal\Domain\Contexts\User;
 use Modules\Personal\Domain\UserRepository;
 
 final class AdminCreateUser

@@ -7,7 +7,7 @@ namespace Modules\Internal\Favorites\Presenters;
 use Modules\Internal\Favorites\Contracts\Favoriteable;
 use Modules\Internal\Favorites\Factories\FavoriteFactory;
 use Modules\Internal\Favorites\Model\Favorite;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 final class AddToFavorite
 {

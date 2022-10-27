@@ -6,7 +6,7 @@ namespace Modules\Core\Analysis\Factories;
 
 use Modules\Core\Analysis\Model\Analysis;
 use Modules\Core\Sentences\Model\Sentence;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 final class AnalysisFactory
 {

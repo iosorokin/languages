@@ -5,8 +5,8 @@ namespace Modules\Personal\App\Services\Sanctum;
 use Illuminate\Auth\AuthManager;
 use Modules\Personal\App\Services\AuthService;
 use Modules\Personal\App\Services\Sanctum\Actions\CreateSanctumToken;
-use Modules\Personal\Domain\Entity\User;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Personal\Domain\Contexts\User;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 use Modules\Personal\Infrastructure\Repository\Providers\UserModelDataProvider;
 use Modules\Personal\Infrastructure\Repository\UserDataMapper;
 

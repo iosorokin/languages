@@ -6,7 +6,7 @@ namespace Modules\Core\Languages\Application\Helpers;
 
 use Core\Base\Helpers\ApiHelper;
 use Illuminate\Testing\TestResponse;
-use Modules\Core\Languages\Infrastructure\Model\Language;
+use Modules\Core\Languages\Infrastructure\Repository\Eloquent\Model\LanguageModel;
 
 final class LanguageApiHelper extends ApiHelper
 {
@@ -32,49 +32,49 @@ final class LanguageApiHelper extends ApiHelper
         return $this->testCase->getJson(route('api.admin.languages.index'));
     }
 
-    public function adminShow(Language|int $language, array $attributes = []): TestResponse
+    public function adminShow(LanguageModel|int $language, array $attributes = []): TestResponse
     {
         $attributes['language_id'] = is_int($language) ? $language : $language->getId();
 
         return $this->testCase->getJson(route('api.admin.languages.show', $attributes));
     }
 
-    public function userShow(Language|int $language, array $attributes = []): TestResponse
+    public function userShow(LanguageModel|int $language, array $attributes = []): TestResponse
     {
         $attributes['language_id'] = is_int($language) ? $language : $language->getId();
 
         return $this->testCase->getJson(route('api.user.languages.show', $attributes));
     }
 
-    public function guestShow(Language|int $language, array $attributes = []): TestResponse
+    public function guestShow(LanguageModel|int $language, array $attributes = []): TestResponse
     {
         $attributes['language_id'] = is_int($language) ? $language : $language->getId();
 
         return $this->testCase->getJson(route('api.languages.show', $attributes));
     }
 
-    public function adminUpdate(Language|int $language, array $attributes = []): TestResponse
+    public function adminUpdate(LanguageModel|int $language, array $attributes = []): TestResponse
     {
         $attributes['language_id'] = is_int($language) ? $language : $language->getId();
 
         return $this->testCase->putJson(route('api.admin.languages.update', $attributes));
     }
 
-    public function adminDelete(Language|int $language): TestResponse
+    public function adminDelete(LanguageModel|int $language): TestResponse
     {
         $attributes['language_id'] = is_int($language) ? $language : $language->getId();
 
         return $this->testCase->deleteJson(route('api.admin.languages.destroy', $attributes));
     }
 
-    public function userAddToFavorite(Language|int $language): TestResponse
+    public function userAddToFavorite(LanguageModel|int $language): TestResponse
     {
         $attributes['language_id'] = is_int($language) ? $language : $language->getId();
 
         return $this->testCase->postJson(route('api.user.languages.favorites.store', $attributes));
     }
 
-    public function userRemoveFromFavorite(Language|int $language, int $favoriteId): TestResponse
+    public function userRemoveFromFavorite(LanguageModel|int $language, int $favoriteId): TestResponse
     {
         $attributes['language_id'] = is_int($language) ? $language : $language->getId();
         $attributes['favorite_id'] = $favoriteId;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Personal\Infrastructure\Repository;
+namespace Modules\Personal\Infrastructure\Repository\Eloquent;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

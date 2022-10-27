@@ -6,7 +6,7 @@ namespace Modules\Internal\Favorites\Factories;
 
 use Modules\Internal\Favorites\Contracts\Favoriteable;
 use Modules\Internal\Favorites\Model\Favorite;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 final class FavoriteFactory
 {

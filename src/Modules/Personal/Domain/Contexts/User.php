@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Modules\Personal\Domain\Entity;
+namespace Modules\Personal\Domain\Contexts;
 
-use App\Values\Datetime\Timestamps;
-use App\Values\Identificatiors\BigIntId;
+use App\Values\Identificatiors\BigIntIntId;
+use App\Values\Identificatiors\IntId;
+use App\Values\Identificatiors\StrictNullId;
 use Modules\Personal\Domain\Values\BaseAuth;
 use Modules\Personal\Domain\Values\Email;
 use Modules\Personal\Domain\Values\Name;
@@ -14,38 +15,38 @@ use Modules\Personal\Domain\Values\Roles;
 
 class User
 {
-    private BigIntId $id;
-
-    private Name $name;
-
-    private Roles $roles;
-
-    private BaseAuth $baseAuth;
-
-    private Timestamps $timestamps;
+    public function __construct(
+        private IntId            $id,
+        private Name             $name,
+        private Roles            $roles,
+        private BaseAuth         $baseAuth,
+        private Timestamps $timestamps,
+    ) {}
 
     public static function register(array $attributes): self
     {
-        $student = new static();
-        $student->setName(new Name($attributes['name']));
-        $student->setRoles(new Roles());
-        $student->setBaseAuth(new BaseAuth(
+        $student = new static(
+            id: new StrictNullId(),
+            name: new Name($attributes['name']),
+            roles: new Roles(),
+            baseAuth: new BaseAuth(
                 new Email($attributes['email']),
                 new Password($attributes['password']),
-            )
+            ),
+            timestamps: new NullTimestamps(),
         );
 
         return $student;
     }
 
-    public function setId(BigIntId $id): static
+    public function setId(BigIntIntId $id): static
     {
         $this->id = $id;
 
         return $this;
     }
 
-    public function getId(): BigIntId
+    public function getId(): IntId
     {
         return $this->id;
     }
@@ -86,7 +87,7 @@ class User
         return $this->baseAuth;
     }
 
-    public function setTimestamps(Timestamps $timestamps): static
+    public function setTimestamps(PresetTimestamps $timestamps): static
     {
         $this->timestamps = $timestamps;
 

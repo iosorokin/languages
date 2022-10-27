@@ -14,7 +14,7 @@ use Modules\Core\Sentences\Validators\CreateSentenceValidator;
 use Modules\Core\Sources\Presenters\Internal\GetSource;
 use Modules\Internal\Container\Presenters\Internal\InitWrapperContainer;
 use Modules\Internal\Container\Presenters\Internal\PushElement;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 final class CreateSentence
 {

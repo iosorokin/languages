@@ -2,14 +2,14 @@
 
 namespace Modules\Core\Sources\Factories;
 
-use Modules\Core\Languages\Infrastructure\Model\Language;
+use Modules\Core\Languages\Infrastructure\Repository\Eloquent\Model\LanguageModel;
 use Modules\Core\Sources\Enums\SourceType;
 use Modules\Core\Sources\Structures\Source;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 class SourceFactory
 {
-    public function create(EloquentUserModel $user, Language $language, array $attributes): Source
+    public function create(EloquentUserModel $user, LanguageModel $language, array $attributes): Source
     {
         $source = new Source();
         $source->user()->associate($user);

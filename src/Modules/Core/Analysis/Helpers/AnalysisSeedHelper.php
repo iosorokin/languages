@@ -8,7 +8,7 @@ use Core\Base\Helpers\AppHelper;
 use Modules\Core\Analysis\Model\Analysis;
 use Modules\Core\Analysis\Presenters\SeedAnalysis;
 use Modules\Core\Sentences\Model\Sentence;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 final class AnalysisSeedHelper extends AppHelper
 {

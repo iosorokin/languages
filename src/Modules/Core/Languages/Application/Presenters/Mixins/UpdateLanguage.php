@@ -7,8 +7,8 @@ namespace Modules\Core\Languages\Application\Presenters\Mixins;
 use Modules\Core\Languages\Application\Presenters\Internal\GetLanguage;
 use Modules\Core\Languages\Application\Validators\UpdateLanguageValidator;
 use Modules\Core\Languages\Domain\Factories\LanguageFactory;
-use Modules\Core\Languages\Infrastructure\Model\Language;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Core\Languages\Infrastructure\Repository\Eloquent\Model\LanguageModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 final class UpdateLanguage
 {
@@ -18,7 +18,7 @@ final class UpdateLanguage
         private LanguageFactory  $languageFactory,
     ) {}
 
-    public function __invoke(EloquentUserModel $user, Language|int $language, array $attributes): void
+    public function __invoke(EloquentUserModel $user, LanguageModel|int $language, array $attributes): void
     {
         $language = is_int($language) ? $this->getLanguage->getOrThrowNotFound($language) : $language;
         $attributes = $attributes + $language->toArray();

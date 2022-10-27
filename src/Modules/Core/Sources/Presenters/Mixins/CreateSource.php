@@ -13,7 +13,7 @@ use Modules\Core\Sources\Factories\SourceFactory;
 use Modules\Core\Sources\Repositories\SourceRepository;
 use Modules\Core\Sources\Structures\Source;
 use Modules\Core\Sources\Validators\CreateSourceValidator;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 final class CreateSource
 {

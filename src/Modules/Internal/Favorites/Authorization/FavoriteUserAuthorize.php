@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Internal\Favorites\Authorization;
 
 use Modules\Internal\Favorites\Model\Favorite;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 final class FavoriteUserAuthorize
 {

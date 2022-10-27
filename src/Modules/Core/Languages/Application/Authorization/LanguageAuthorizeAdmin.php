@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Core\Languages\Application\Authorization;
 
-use Modules\Core\Languages\Infrastructure\Model\Language;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Core\Languages\Infrastructure\Repository\Eloquent\Model\LanguageModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 final class LanguageAuthorizeAdmin
 {
@@ -14,7 +14,7 @@ final class LanguageAuthorizeAdmin
         $this->abortIfNotRoot($user);
     }
 
-    public function canShow(EloquentUserModel $user, Language $language): void
+    public function canShow(EloquentUserModel $user, LanguageModel $language): void
     {
         $this->abortIfNotAdmin($user);
     }
@@ -24,12 +24,12 @@ final class LanguageAuthorizeAdmin
         $this->abortIfNotAdmin($user);
     }
 
-    public function canUpdate(EloquentUserModel $user, Language $language): void
+    public function canUpdate(EloquentUserModel $user, LanguageModel $language): void
     {
         $this->abortIfNotRoot($user);
     }
 
-    public function canDelete(EloquentUserModel $user, Language $language): void
+    public function canDelete(EloquentUserModel $user, LanguageModel $language): void
     {
         $this->abortIfNotRoot($user);
     }

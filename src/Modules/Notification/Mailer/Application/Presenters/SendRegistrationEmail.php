@@ -6,7 +6,7 @@ namespace Modules\Notification\Mailer\Application\Presenters;
 
 use Illuminate\Bus\Dispatcher;
 use Modules\Notification\Mailer\Application\Tasks\SendLearnerRegistrationEmailTask;
-use Modules\Personal\Domain\Entity\User;
+use Modules\Personal\Domain\Contexts\User;
 
 final class SendRegistrationEmail
 {

@@ -7,7 +7,7 @@ namespace Modules\Core\Sentences\Presenters;
 use Modules\Core\Sentences\Model\Sentence;
 use Modules\Core\Sentences\Presenters\Mixins\CreateSentence;
 use Modules\Personal\App\Presenters\Personal\Internal\GetUser;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 final class SeedSentence
 {

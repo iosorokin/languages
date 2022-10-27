@@ -3,8 +3,8 @@
 namespace Modules\Personal\App\Services\Sanctum\Actions;
 
 use Laravel\Sanctum\NewAccessToken;
-use Modules\Personal\Domain\Entity\User;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Personal\Domain\Contexts\User;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 class CreateSanctumToken
 {

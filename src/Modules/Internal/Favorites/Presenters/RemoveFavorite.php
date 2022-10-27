@@ -6,7 +6,7 @@ namespace Modules\Internal\Favorites\Presenters;
 
 use Modules\Internal\Favorites\Authorization\FavoriteUserAuthorize;
 use Modules\Internal\Favorites\Presenters\Internal\GetFavorite;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 final class RemoveFavorite
 {

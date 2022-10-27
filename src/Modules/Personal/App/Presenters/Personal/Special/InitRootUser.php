@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Personal\App\Presenters\Personal\Special;
 
 use Modules\Personal\App\Validators\RegistrationCombinedValidator;
-use Modules\Personal\Domain\Entity\User;
+use Modules\Personal\Domain\Contexts\User;
 use Modules\Personal\Domain\UserRepository;
 use Modules\Personal\Domain\Values\Roles;
 

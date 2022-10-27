@@ -5,7 +5,7 @@ namespace Modules\Core\Sources\Controllers;
 use App\Helpers\Test\BaseAuthApiHelper;
 use Core\Base\Tests\EndpointCase;
 use Modules\Core\Languages\Application\Helpers\LanguageSeedHelper;
-use Modules\Core\Languages\Infrastructure\Model\Language;
+use Modules\Core\Languages\Infrastructure\Repository\Eloquent\Model\LanguageModel;
 use Modules\Core\Sources\Helpers\SourceApiHelper;
 
 class SourceApiTest extends EndpointCase
@@ -13,7 +13,7 @@ class SourceApiTest extends EndpointCase
     public function testUserCreate()
     {
         $helper = LanguageSeedHelper::new();
-        /** @var Language $language */
+        /** @var LanguageModel $language */
         $language = $helper->create(1)
             ->current();
         $helper->activate(1, $language);

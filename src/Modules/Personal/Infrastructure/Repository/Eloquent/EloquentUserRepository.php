@@ -2,13 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Modules\Personal\Infrastructure\Repository;
+namespace Modules\Personal\Infrastructure\Repository\Eloquent;
 
-use App\Values\Identificatiors\BigIntId;
+use App\Values\Identificatiors\BigIntIntId;
 use Illuminate\Support\Facades\DB;
-use Modules\Personal\Domain\Entity\User;
+use Modules\Personal\Domain\Contexts\User;
 use Modules\Personal\Domain\UserRepository;
 use Modules\Personal\Infrastructure\Repository\Providers\UserRawDataProvider;
+use Modules\Personal\Infrastructure\Repository\UserDataMapper;
 
 final class EloquentUserRepository implements UserRepository
 {
@@ -23,7 +24,7 @@ final class EloquentUserRepository implements UserRepository
             $authModel->save();
         });
 
-        $user->setId(new BigIntId($userModel->id));
+        $user->setId(new BigIntIntId($userModel->id));
     }
 
     public function getByEmail(string $email): ?User

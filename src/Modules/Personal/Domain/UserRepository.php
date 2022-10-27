@@ -2,7 +2,7 @@
 
 namespace Modules\Personal\Domain;
 
-use Modules\Personal\Domain\Entity\User;
+use Modules\Personal\Domain\Contexts\User;
 
 interface UserRepository
 {

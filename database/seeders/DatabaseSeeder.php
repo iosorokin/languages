@@ -11,9 +11,9 @@ use Modules\Core\Sentences\Model\Sentence;
 use Modules\Core\Sentences\Tests\SentenceHelper;
 use Modules\Core\Sources\Helpers\SourceSeedHelper;
 use Modules\Core\Sources\Structures\Source;
-use Modules\Personal\Domain\Entity\User;
+use Modules\Personal\Domain\Contexts\User;
 use Modules\Personal\Domain\Enums\Role;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 class DatabaseSeeder extends Seeder
 {

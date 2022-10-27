@@ -6,7 +6,7 @@ namespace Core\Services\Morph;
 
 use Core\Base\Tests\UnitCase;
 use Core\Services\Morph\Exceptions\MorphNotFound;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 final class MorphTest extends UnitCase
 {

@@ -7,7 +7,7 @@ namespace Modules\Personal\App\Presenters\Personal\Internal;
 use App\Controllers\Auth\Internal\GetAuthUser;
 use Exception;
 use Illuminate\Validation\ValidationException;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 final class GetUser
 {

@@ -11,12 +11,12 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\ServiceProvider;
-use Modules\Core\Languages\Infrastructure\Model\Language;
+use Modules\Core\Languages\Infrastructure\Repository\Eloquent\Model\LanguageModel;
 use Modules\Core\Sentences\Model\Sentence;
 use Modules\Core\Sources\Structures\Source;
 use Modules\Internal\Container\Model\Container;
 use Modules\Internal\Container\Model\ContainerElement;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 final class EloquentServiceProvider extends ServiceProvider
 {
@@ -37,7 +37,7 @@ final class EloquentServiceProvider extends ServiceProvider
         $morphs = config('morph');
         Relation::enforceMorphMap([
             Arr::get($morphs, EloquentUserModel::class) => EloquentUserModel::class,
-            Arr::get($morphs, Language::class) => Language::class,
+            Arr::get($morphs, LanguageModel::class) => LanguageModel::class,
             Arr::get($morphs, Source::class) => Source::class,
             Arr::get($morphs, Container::class) => Container::class,
             Arr::get($morphs, ContainerElement::class) => ContainerElement::class,

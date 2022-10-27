@@ -6,16 +6,16 @@ namespace Modules\Core\Languages\Application\Presenters\Internal;
 
 use Exception;
 use Illuminate\Validation\ValidationException;
-use Modules\Core\Languages\Infrastructure\Model\Language;
+use Modules\Core\Languages\Infrastructure\Repository\Eloquent\Model\LanguageModel;
 
 final class GetLanguage
 {
-    public function get(int $id): Language
+    public function get(int $id): LanguageModel
     {
-        return Language::find($id);
+        return LanguageModel::find($id);
     }
 
-    public function getOrThrowNotFound(int $id): Language
+    public function getOrThrowNotFound(int $id): LanguageModel
     {
         $language = $this->get($id);
         abort_if(! $language, 404);
@@ -23,7 +23,7 @@ final class GetLanguage
         return $language;
     }
 
-    public function getOrThrowBadRequest(int $id): Language
+    public function getOrThrowBadRequest(int $id): LanguageModel
     {
         $language = $this->get($id);
         if (! $language) {
@@ -35,7 +35,7 @@ final class GetLanguage
         return $language;
     }
 
-    public function getOrThrowException(int $id): Language
+    public function getOrThrowException(int $id): LanguageModel
     {
         $language = $this->get($id);
         if (! $language) {

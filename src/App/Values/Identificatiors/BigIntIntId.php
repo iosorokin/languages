@@ -4,11 +4,14 @@ declare(strict_types=1);
 
 namespace App\Values\Identificatiors;
 
-final class BigIntId
+final class BigIntIntId implements IntId
 {
-    public function __construct(
-        private int $id
-    ) {}
+    private int $id;
+
+    public function __construct(mixed $id)
+    {
+        $this->id = $id;
+    }
 
     public function value(): int
     {

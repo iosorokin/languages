@@ -5,14 +5,14 @@ namespace Modules\Core\Languages\Domain\Factories;
 use Core\Services\Pagination\CursorPaginator;
 use Illuminate\Contracts\Pagination\CursorPaginator as LaravelCursorPaginator;
 use Modules\Core\Languages\Domain\Collections\Languages;
-use Modules\Core\Languages\Infrastructure\Model\Language;
-use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
+use Modules\Core\Languages\Infrastructure\Repository\Eloquent\Model\LanguageModel;
+use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
 
 class LanguageFactory
 {
-    public function create(EloquentUserModel $user, array $attributes): Language
+    public function create(EloquentUserModel $user, array $attributes): LanguageModel
     {
-        $language = new Language();
+        $language = new LanguageModel();
         $language->user()->associate($user);
         $language->is_active = false;
         $this->fillAttributes($language, $attributes);
@@ -20,7 +20,7 @@ class LanguageFactory
         return $language;
     }
 
-    public function update(Language $language, array $attributes): Language
+    public function update(LanguageModel $language, array $attributes): LanguageModel
     {
         $language->is_active = $attributes['is_active'];
         $this->fillAttributes($language, $attributes);
@@ -37,14 +37,14 @@ class LanguageFactory
         return $languages;
     }
 
-    private function fillAttributes(Language $language, array $attributes): void
+    private function fillAttributes(LanguageModel $language, array $attributes): void
     {
         $language->name = $attributes['name'];
         $language->native_name = $attributes['native_name'];
         $language->code = $attributes['code'];
     }
 
-    private function calculateVariables(Language $language, array $attributes): void
+    private function calculateVariables(LanguageModel $language, array $attributes): void
     {
         $language->setIsFavorite((bool)($attributes['favorite_id'] ?? false));
     }

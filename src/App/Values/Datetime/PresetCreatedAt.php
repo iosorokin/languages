@@ -6,7 +6,7 @@ namespace App\Values\Datetime;
 
 use Illuminate\Support\Carbon;
 
-final class CreatedAt
+final class PresetCreatedAt implements Timestamp
 {
     private Carbon $createdAt;
 
@@ -17,7 +17,7 @@ final class CreatedAt
         $this->createdAt = $createdAt;
     }
 
-    public function value(): Carbon|string
+    public function value(): Carbon
     {
         return $this->createdAt;
     }
