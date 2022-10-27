@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Internal\Favorites\Presenters;
 
-use App\Database\Personal\EloquentUserModel;
 use Modules\Internal\Favorites\Authorization\FavoriteUserAuthorize;
 use Modules\Internal\Favorites\Presenters\Internal\GetFavorite;
+use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
 
 final class RemoveFavorite
 {

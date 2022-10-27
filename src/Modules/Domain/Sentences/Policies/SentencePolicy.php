@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sentences\Policies;
 
-use App\Database\Personal\EloquentUserModel;
 use Modules\Domain\Sentences\Model\Sentence;
 use Modules\Domain\Sources\Structures\Source;
+use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
 
 final class SentencePolicy
 {

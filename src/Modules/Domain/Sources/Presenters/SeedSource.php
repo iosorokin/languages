@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sources\Presenters;
 
-use App\Controll\Personal\Internal\GetUser;
-use App\Database\Personal\EloquentUserModel;
 use Modules\Domain\Languages\Model\Language;
 use Modules\Domain\Sources\Presenters\Mixins\CreateSource;
 use Modules\Domain\Sources\Structures\Source;
+use Modules\Personal\App\Presenters\Personal\Internal\GetUser;
+use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
 
 final class SeedSource
 {

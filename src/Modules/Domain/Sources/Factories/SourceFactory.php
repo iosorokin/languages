@@ -2,10 +2,10 @@
 
 namespace Modules\Domain\Sources\Factories;
 
-use App\Database\Personal\EloquentUserModel;
 use Modules\Domain\Languages\Model\Language;
 use Modules\Domain\Sources\Enums\SourceType;
 use Modules\Domain\Sources\Structures\Source;
+use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
 
 class SourceFactory
 {

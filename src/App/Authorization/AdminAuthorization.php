@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Authorization;
 
-use App\Database\Personal\EloquentUserModel;
+use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
 
 final class AdminAuthorization
 {

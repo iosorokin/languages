@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Helpers;
 
-use App\Database\Personal\EloquentUserModel;
 use Core\Base\Helpers\AppHelper;
 use Generator;
 use Illuminate\Support\Str;
 use Modules\Domain\Languages\Model\Language;
 use Modules\Domain\Languages\Presenters\SeedLanguage;
+use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
 
 final class LanguageSeedHelper extends AppHelper
 {

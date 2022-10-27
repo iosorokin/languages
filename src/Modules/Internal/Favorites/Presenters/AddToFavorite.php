@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Internal\Favorites\Presenters;
 
-use App\Database\Personal\EloquentUserModel;
 use Modules\Internal\Favorites\Contracts\Favoriteable;
 use Modules\Internal\Favorites\Factories\FavoriteFactory;
 use Modules\Internal\Favorites\Model\Favorite;
+use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
 
 final class AddToFavorite
 {

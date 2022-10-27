@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Internal\Container\Authorization;
 
 
-use App\Database\Personal\EloquentUserModel;
+use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
 
 final class ContainerAuthorizeUser
 {

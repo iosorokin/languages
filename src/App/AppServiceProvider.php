@@ -2,9 +2,9 @@
 
 namespace App;
 
-use App\Database\Personal\EloquentUserRepository;
-use App\Database\Personal\UserRepository;
 use Illuminate\Support\ServiceProvider;
+use Modules\Personal\Domain\UserRepository;
+use Modules\Personal\Infrastructure\Repository\EloquentUserRepository;
 
 class AppServiceProvider extends ServiceProvider
 {

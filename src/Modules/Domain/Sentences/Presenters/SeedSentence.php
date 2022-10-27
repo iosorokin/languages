@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sentences\Presenters;
 
-use App\Controll\Personal\Internal\GetUser;
-use App\Database\Personal\EloquentUserModel;
 use Modules\Domain\Sentences\Model\Sentence;
 use Modules\Domain\Sentences\Presenters\Mixins\CreateSentence;
+use Modules\Personal\App\Presenters\Personal\Internal\GetUser;
+use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
 
 final class SeedSentence
 {

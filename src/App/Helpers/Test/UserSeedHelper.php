@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Helpers\Test;
 
-use App\Controllers\Personal\SeedUser;
-use App\Controllers\Personal\Special\InitRootUser;
 use Core\Base\Helpers\AppHelper;
 use Generator;
-use Modules\Personal\Entity\User;
+use Modules\Personal\App\Presenters\Personal\SeedUser;
+use Modules\Personal\App\Presenters\Personal\Special\InitRootUser;
+use Modules\Personal\Domain\Entity\User;
 
 final class UserSeedHelper extends AppHelper
 {

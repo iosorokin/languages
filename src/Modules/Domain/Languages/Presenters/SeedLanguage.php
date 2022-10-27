@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Presenters;
 
-use App\Controll\Personal\Internal\GetUser;
-use App\Database\Personal\EloquentUserModel;
 use App\Extensions\Assert;
 use Modules\Domain\Languages\Model\Language;
 use Modules\Domain\Languages\Presenters\Mixins\CreateLanguage;
 use Modules\Domain\Languages\Presenters\Mixins\UpdateLanguage;
+use Modules\Personal\App\Presenters\Personal\Internal\GetUser;
+use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
 
 final class SeedLanguage
 {

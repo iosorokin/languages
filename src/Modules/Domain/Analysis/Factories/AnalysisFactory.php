@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Analysis\Factories;
 
-use App\Database\Personal\EloquentUserModel;
 use Modules\Domain\Analysis\Model\Analysis;
 use Modules\Domain\Sentences\Model\Sentence;
+use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
 
 final class AnalysisFactory
 {

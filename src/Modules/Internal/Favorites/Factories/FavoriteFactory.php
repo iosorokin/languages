@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Internal\Favorites\Factories;
 
-use App\Database\Personal\EloquentUserModel;
 use Modules\Internal\Favorites\Contracts\Favoriteable;
 use Modules\Internal\Favorites\Model\Favorite;
+use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
 
 final class FavoriteFactory
 {

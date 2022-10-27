@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sentences\Tests;
 
-use App\Database\Personal\EloquentUserModel;
 use Core\Base\Helpers\AppHelper;
 use Generator;
 use Modules\Domain\Sentences\Presenters\SeedSentence;
 use Modules\Domain\Sources\Structures\Source;
+use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
 
 final class SentenceHelper extends AppHelper
 {

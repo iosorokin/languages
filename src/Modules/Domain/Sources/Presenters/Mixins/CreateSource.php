@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sources\Presenters\Mixins;
 
-use App\Database\Personal\EloquentUserModel;
 use Illuminate\Events\Dispatcher;
 use Modules\Domain\Languages\Policies\LanguagePolicy;
 use Modules\Domain\Languages\Presenters\Internal\GetLanguage;
@@ -14,6 +13,7 @@ use Modules\Domain\Sources\Factories\SourceFactory;
 use Modules\Domain\Sources\Repositories\SourceRepository;
 use Modules\Domain\Sources\Structures\Source;
 use Modules\Domain\Sources\Validators\CreateSourceValidator;
+use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
 
 final class CreateSource
 {

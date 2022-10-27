@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Presenters\Mixins;
 
-use App\Database\Personal\EloquentUserModel;
 use Modules\Domain\Languages\Factories\LanguageFactory;
 use Modules\Domain\Languages\Model\Language;
 use Modules\Domain\Languages\Validators\CreateLanguageValidator;
+use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
 
 final class CreateLanguage
 {

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Authorization;
 
-use App\Database\Personal\EloquentUserModel;
 use Modules\Domain\Languages\Model\Language;
+use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
 
 final class LanguageAuthorizeAdmin
 {

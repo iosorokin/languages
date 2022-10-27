@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Queries;
 
-use App\Database\Personal\EloquentUserModel;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Domain\Languages\Filters\LanguageFilter;
 use Modules\Domain\Languages\Model\Language;
+use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
 
 final class LanguageQueryBuilder
 {

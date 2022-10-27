@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sentences\Presenters\Mixins;
 
-use App\Database\Personal\EloquentUserModel;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Modules\Domain\Chapters\Presenters\Internal\GetChapter;
@@ -15,6 +14,7 @@ use Modules\Domain\Sentences\Validators\CreateSentenceValidator;
 use Modules\Domain\Sources\Presenters\Internal\GetSource;
 use Modules\Internal\Container\Presenters\Internal\InitWrapperContainer;
 use Modules\Internal\Container\Presenters\Internal\PushElement;
+use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
 
 final class CreateSentence
 {

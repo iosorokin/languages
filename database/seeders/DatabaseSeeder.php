@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Database\Personal\EloquentUserModel;
 use App\Helpers\Test\UserSeedHelper;
 use Illuminate\Database\Seeder;
 use Modules\Domain\Analysis\Helpers\AnalysisSeedHelper;
@@ -12,8 +11,9 @@ use Modules\Domain\Sentences\Model\Sentence;
 use Modules\Domain\Sentences\Tests\SentenceHelper;
 use Modules\Domain\Sources\Helpers\SourceSeedHelper;
 use Modules\Domain\Sources\Structures\Source;
-use Modules\Personal\Entity\User;
-use Modules\Personal\Enums\Role;
+use Modules\Personal\Domain\Entity\User;
+use Modules\Personal\Domain\Enums\Role;
+use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
 
 class DatabaseSeeder extends Seeder
 {

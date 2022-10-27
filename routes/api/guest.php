@@ -1,11 +1,11 @@
 <?php
 
-use App\Controllers\Auth\BaseLoginController;
-use App\Controllers\Personal\Guest\RegisterController;
 use Illuminate\Support\Facades\Route;
 use Modules\Domain\Languages\Controllers\GuestLanguageController;
 use Modules\Domain\Sources\Controllers\GuestSourceController;
 use Modules\Domain\Sources\Controllers\Items\GuestSourceItemsController;
+use Modules\Personal\App\Controllers\Auth\BaseLoginController;
+use Modules\Personal\App\Controllers\Personal\RegisterController;
 
 /*
 |--------------------------------------------------------------------------

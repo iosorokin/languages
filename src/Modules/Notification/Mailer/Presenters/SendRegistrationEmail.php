@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Notification\Mailer\Presenters;
 
-use App\Database\Personal\EloquentUserModel;
 use Illuminate\Bus\Dispatcher;
 use Modules\Notification\Mailer\Tasks\SendLearnerRegistrationEmailTask;
-use Modules\Personal\Entity\User;
+use Modules\Personal\Domain\Entity\User;
 
 final class SendRegistrationEmail
 {

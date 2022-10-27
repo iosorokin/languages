@@ -2,11 +2,11 @@
 
 namespace Modules\Domain\Languages\Factories;
 
-use App\Database\Personal\EloquentUserModel;
 use Core\Services\Pagination\CursorPaginator;
 use Illuminate\Contracts\Pagination\CursorPaginator as LaravelCursorPaginator;
 use Modules\Domain\Languages\Collections\Languages;
 use Modules\Domain\Languages\Model\Language;
+use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
 
 class LanguageFactory
 {

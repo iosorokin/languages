@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Analysis\Actions;
 
-use App\Database\Personal\EloquentUserModel;
 use Modules\Domain\Analysis\Factories\AnalysisFactory;
 use Modules\Domain\Analysis\Model\Analysis;
 use Modules\Domain\Analysis\Policies\AnalysisPolicy;
 use Modules\Domain\Analysis\Validators\CreateAnalysisValidator;
 use Modules\Domain\Sentences\Presenters\Internal\GetSentence;
 use Modules\Domain\Sources\Presenters\Internal\GetSource;
+use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
 
 final class CreateAnalysis
 {

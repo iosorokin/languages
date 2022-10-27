@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Analysis\Helpers;
 
-use App\Database\Personal\EloquentUserModel;
 use Core\Base\Helpers\AppHelper;
 use Modules\Domain\Analysis\Model\Analysis;
 use Modules\Domain\Analysis\Presenters\SeedAnalysis;
 use Modules\Domain\Sentences\Model\Sentence;
+use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
 
 final class AnalysisSeedHelper extends AppHelper
 {

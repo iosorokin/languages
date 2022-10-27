@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Languages\Model;
 
-use App\Database\Personal\EloquentUserModel;
 use Core\Services\Morph\Morph;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Query\JoinClause;
+use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
 
 trait LanguageQuery
 {

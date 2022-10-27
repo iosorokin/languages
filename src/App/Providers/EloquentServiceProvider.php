@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use App\Database\Personal\EloquentUserModel;
 use Exception;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -17,6 +16,7 @@ use Modules\Domain\Sentences\Model\Sentence;
 use Modules\Domain\Sources\Structures\Source;
 use Modules\Internal\Container\Model\Container;
 use Modules\Internal\Container\Model\ContainerElement;
+use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
 
 final class EloquentServiceProvider extends ServiceProvider
 {

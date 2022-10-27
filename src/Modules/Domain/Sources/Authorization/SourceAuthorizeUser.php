@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Domain\Sources\Authorization;
 
-use App\Database\Personal\EloquentUserModel;
 use Modules\Domain\Languages\Model\Language;
 use Modules\Domain\Sources\Structures\Source;
+use Modules\Personal\Infrastructure\Repository\EloquentUserModel;
 
 final class SourceAuthorizeUser
 {
