@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Modules\Internal\Container\Listeners;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Modules\Core\Sources\Events\SourceCreated;
-use Modules\Core\Sources\Presenters\Internal\GetSource;
+use Modules\Domain\Sources\Events\SourceCreated;
+use Modules\Domain\Sources\Presenters\Internal\GetSource;
 use Modules\Internal\Container\Presenters\Internal\InitWrapperContainer;
 
 final class ContainerSourceCreatedListener implements ShouldQueue

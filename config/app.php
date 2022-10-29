@@ -204,14 +204,14 @@ return [
          * Module Service Providers
          */
         \Modules\Personal\PersonalServiceProvider::class,
-        Modules\Core\Languages\LanguageServiceProvider::class,
+        Modules\Domain\Languages\LanguageServiceProvider::class,
         Modules\Notification\Mailer\MailerServiceProvider::class,
         Modules\Internal\Container\ContainerServiceProvider::class,
-        Modules\Core\Sources\SourceServiceProvider::class,
-        Modules\Core\Sentences\SentenceServiceProvider::class,
+        Modules\Domain\Sources\SourceServiceProvider::class,
+        Modules\Domain\Sentences\SentenceServiceProvider::class,
         Modules\Internal\Favorites\FavoriteServiceProvider::class,
-        Modules\Core\Chapters\ChapterServiceProvider::class,
-        Modules\Core\Analysis\AnalysisServiceProvider::class,
+        Modules\Domain\Chapters\ChapterServiceProvider::class,
+        Modules\Domain\Analysis\AnalysisServiceProvider::class,
     ],
 
     /*

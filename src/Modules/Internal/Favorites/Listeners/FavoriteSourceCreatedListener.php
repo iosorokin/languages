@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Modules\Internal\Favorites\Listeners;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Modules\Core\Sources\Events\SourceCreated;
-use Modules\Core\Sources\Presenters\Requests\IsFirstUserSourceForLanguage;
+use Modules\Domain\Sources\Events\SourceCreated;
+use Modules\Domain\Sources\Presenters\Requests\IsFirstUserSourceForLanguage;
 use Modules\Internal\Favorites\Presenters\AddToFavorite;
 
 final class FavoriteSourceCreatedListener implements ShouldQueue

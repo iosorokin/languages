@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Core\Languages\Application\Controllers\GuestLanguageController;
-use Modules\Core\Sources\Controllers\GuestSourceController;
-use Modules\Core\Sources\Controllers\Items\GuestSourceItemsController;
+use Modules\Domain\Languages\Application\Controllers\GuestLanguageController;
+use Modules\Domain\Sources\Controllers\GuestSourceController;
+use Modules\Domain\Sources\Controllers\Items\GuestSourceItemsController;
 use Modules\Personal\App\Controllers\Auth\BaseLoginController;
 use Modules\Personal\App\Controllers\Personal\RegisterController;
 

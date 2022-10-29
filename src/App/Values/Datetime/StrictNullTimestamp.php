@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Values\Datetime;
 
 use Exception;
-use Illuminate\Support\Carbon;
 
 final class StrictNullTimestamp implements Timestamp
 {
