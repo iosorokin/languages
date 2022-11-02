@@ -11,12 +11,12 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\ServiceProvider;
-use Modules\Domain\Languages\Infrastructure\Repository\Eloquent\Model\LanguageModel;
-use Modules\Domain\Sentences\Model\Sentence;
-use Modules\Domain\Sources\Structures\Source;
-use Modules\Internal\Container\Model\Container;
-use Modules\Internal\Container\Model\ContainerElement;
-use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
+use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
+use Domain\Languages\Infrastructure\Repository\Eloquent\Model\LanguageModel;
+use Domain\Sentences\Model\Sentence;
+use Domain\Sources\Structures\Source;
+use Domain\Internal\Container\Model\Container;
+use Domain\Internal\Container\Model\ContainerElement;
 
 final class EloquentServiceProvider extends ServiceProvider
 {

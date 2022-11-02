@@ -2,18 +2,18 @@
 
 namespace Database\Seeders;
 
-use App\Helpers\Test\UserSeedHelper;
+use App\Helpers\Test\PersonalSeedHelper;
+use Domain\Analysis\Helpers\AnalysisSeedHelper;
+use Domain\Chapters\Helpers\ChapterSeedHelper;
+use Domain\Languages\Application\Helpers\LanguageSeedHelper;
+use Domain\Personal\Entities\User;
+use Domain\Personal\Values\Accesses\Access;
+use Domain\Sentences\Model\Sentence;
+use Domain\Sentences\Tests\SentenceHelper;
+use Domain\Sources\Helpers\SourceSeedHelper;
+use Domain\Sources\Structures\Source;
 use Illuminate\Database\Seeder;
-use Modules\Domain\Analysis\Helpers\AnalysisSeedHelper;
-use Modules\Domain\Chapters\Helpers\ChapterSeedHelper;
-use Modules\Domain\Languages\Application\Helpers\LanguageSeedHelper;
-use Modules\Domain\Sentences\Model\Sentence;
-use Modules\Domain\Sentences\Tests\SentenceHelper;
-use Modules\Domain\Sources\Helpers\SourceSeedHelper;
-use Modules\Domain\Sources\Structures\Source;
-use Modules\Personal\Domain\Contexts\User;
-use Modules\Personal\Domain\Enums\Role;
-use Modules\Personal\Infrastructure\Repository\Eloquent\EloquentUserModel;
+use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 
 class DatabaseSeeder extends Seeder
 {
@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
 
     private function createRoot(): User
     {
-        $helper = UserSeedHelper::new();
+        $helper = PersonalSeedHelper::new();
         $user = $helper->createRoot();
 
         return $user;
@@ -50,13 +50,13 @@ class DatabaseSeeder extends Seeder
 
     private function createTestUser(): User
     {
-        $helper = UserSeedHelper::new();
+        $helper = PersonalSeedHelper::new();
         $user = $helper->create(overwrite: [
             'name' => 'Пользователь для теста',
             'email' => config('seed.users.test_user.email'),
             'password' => config('seed.users.test_user.password'),
             'roles' => [
-                Role::User->value
+                Access::User->value
             ]
         ])->current();
 

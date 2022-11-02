@@ -2,9 +2,10 @@
 
 namespace App\Values\Datetime;
 
+use App\Values\ValueObject;
 use Illuminate\Support\Carbon;
 
-interface Timestamp
+interface Timestamp extends ValueObject
 {
-    public function value(): Carbon;
+    public function get(): Carbon;
 }

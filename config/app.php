@@ -189,7 +189,7 @@ return [
         /*
          * Core Service Providers...
          */
-        Core\CoreServiceProvider::class,
+        \Core\Providers\CoreServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         Core\Providers\EventServiceProvider::class,
         Core\Providers\RouteServiceProvider::class,
@@ -197,21 +197,20 @@ return [
         /*
          * Application Service Providers
          */
-        App\AppServiceProvider::class,
         App\Providers\EloquentServiceProvider::class,
 
         /*
          * Module Service Providers
          */
-        \Modules\Personal\PersonalServiceProvider::class,
-        Modules\Domain\Languages\LanguageServiceProvider::class,
-        Modules\Notification\Mailer\MailerServiceProvider::class,
-        Modules\Internal\Container\ContainerServiceProvider::class,
-        Modules\Domain\Sources\SourceServiceProvider::class,
-        Modules\Domain\Sentences\SentenceServiceProvider::class,
-        Modules\Internal\Favorites\FavoriteServiceProvider::class,
-        Modules\Domain\Chapters\ChapterServiceProvider::class,
-        Modules\Domain\Analysis\AnalysisServiceProvider::class,
+        Core\Providers\Domain\PersonalServiceProvider::class,
+        Domain\Languages\LanguageServiceProvider::class,
+        Domain\Notification\Mailer\MailerServiceProvider::class,
+        Domain\Internal\Container\ContainerServiceProvider::class,
+        Domain\Sources\SourceServiceProvider::class,
+        Domain\Sentences\SentenceServiceProvider::class,
+        Domain\Internal\Favorites\FavoriteServiceProvider::class,
+        Domain\Chapters\ChapterServiceProvider::class,
+        Domain\Analysis\AnalysisServiceProvider::class,
     ],
 
     /*

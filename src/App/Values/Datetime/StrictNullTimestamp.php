@@ -8,7 +8,14 @@ use Exception;
 
 final class StrictNullTimestamp implements Timestamp
 {
-    public function value(): never
+    private function __construct() {}
+
+    public static function new(): self
+    {
+        return new self();
+    }
+
+    public function get(): never
     {
         throw new Exception('The null timestamp cannot be called. First, set a specific timestamp');
     }

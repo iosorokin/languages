@@ -1,0 +1,20 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Domain\Languages\Infrastructure\Repository\Eloquent\Model;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
+use Domain\Internal\Favorites\Contracts\Favoriteable;
+
+final class LanguageModel extends Model implements Favoriteable
+{
+    protected $table = 'languages';
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(EloquentUserModel::class, 'user_id');
+    }
+}

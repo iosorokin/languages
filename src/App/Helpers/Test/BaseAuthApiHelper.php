@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Helpers\Test;
 
-use Core\Base\Helpers\ApiHelper;
+use App\Base\Helpers\ApiHelper;
 use Illuminate\Testing\TestResponse;
 
 final class BaseAuthApiHelper extends ApiHelper
