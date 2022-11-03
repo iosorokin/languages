@@ -4,22 +4,21 @@ declare(strict_types=1);
 
 namespace Domain\Personal\Actions;
 
-use Domain\Personal\Domain\UserRepository;
+use Domain\Personal\Dto\NewUserDto;
 use Domain\Personal\Entities\User;
-use Domain\Personal\Values\Accesses\UnconfirmUser;
+use Domain\Personal\Entities\UserFactory;
+use Domain\Personal\Repositories\PersonalRepository;
 
 final class SeedUser
 {
     public function __construct(
-        private UserRepository $repository,
+        private UserFactory $factory,
+        private PersonalRepository $repository,
     ) {}
 
-    public function __invoke(array $attributes): User
+    public function __invoke(NewUserDto $dto): User
     {
-        $user = User::make($attributes);
-        if ($attributes['roles']) {
-            $user->setAccesses(new UnconfirmUser($attributes['roles']));
-        }
+        $user = $this->factory->register($dto);
         $this->repository->add($user);
 
         return $user;

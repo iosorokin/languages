@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Domain\Analysis\Presenters;
 
-use Domain\Personal\Actions\Common\GetUser;
-use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 use Domain\Analysis\Actions\CreateAnalysis;
 use Domain\Analysis\Model\Analysis;
+use Domain\Personal\Queries\GetUser;
+use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 
 final class SeedAnalysis
 {

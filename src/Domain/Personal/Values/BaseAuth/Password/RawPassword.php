@@ -51,6 +51,11 @@ final class RawPassword implements Password
         return $this->value;
     }
 
+    public function check(string $value): bool
+    {
+        return $this->value === $value;
+    }
+
     public function compare(Password $password): bool
     {
         return $this->get() === $password->get();

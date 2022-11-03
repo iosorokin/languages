@@ -19,7 +19,14 @@ final class BcryptHashedPassword implements Password
     {
         $hasher = new BcryptHasher();
         $hashedPassword = $hasher->make($password);
-        $password = new static($hashedPassword);
+        $password = new self($hashedPassword);
+
+        return $password;
+    }
+
+    public static function restore(string $password): self
+    {
+        $password = new self($password);
 
         return $password;
     }

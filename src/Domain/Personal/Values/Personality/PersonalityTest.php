@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Domain\Personal\Values\Personality;
 
 use App\Base\Tests\UnitCase;
-use Domain\Personal\Values\Personality\Name\UserName;
+use App\Values\Personality\Name\NameImp;
 
 final class PersonalityTest extends UnitCase
 {
@@ -13,10 +13,10 @@ final class PersonalityTest extends UnitCase
     {
         $name = $this->faker->name;
         $onePersonality = PersonalityImp::new(
-            UserName::new($name)
+            NameImp::new($name)
         );
         $twoPersonality = PersonalityImp::new(
-            UserName::new($name)
+            NameImp::new($name)
         );
 
         $this->assertTrue($onePersonality->compare($twoPersonality));

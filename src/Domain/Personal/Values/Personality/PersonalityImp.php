@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Personal\Values\Personality;
 
-use Domain\Personal\Values\Personality\Name\Name;
+use App\Values\Personality\Name\Name;
 
 final class PersonalityImp implements Personality
 {

@@ -3,7 +3,7 @@
 namespace App\Controllers\Auth;
 
 use App\Responses\Json\NoContentResponse;
-use Domain\Personal\Actions\Common\Logout;
+use Domain\Personal\Actions\Auth\Logout;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Infrastructure\Services\Auth\AuthService;

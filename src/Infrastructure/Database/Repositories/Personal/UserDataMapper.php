@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace Infrastructure\Database\Repositories\Personal;
 
+use App\Values\Contacts\Email\UserEmail;
 use App\Values\Datetime\PresetCreatedAt;
-use App\Values\Datetime\PresetTimestamp;
+use App\Values\Datetime\TimestampImp;
 use App\Values\Identificatiors\Id\BigIntIntId;
+use App\Values\Personality\Name\NameImp;
 use Domain\Personal\Entities\User;
 use Domain\Personal\Infrastructure\Repository\PresetTimestamps;
 use Domain\Personal\Values\Accesses\UnconfirmUser;
-use Domain\Personal\Values\BaseAuth\Email\UserEmail;
-use Domain\Personal\Values\BaseAuth\NewBaseAuth;
+use Domain\Personal\Values\BaseAuth\BaseAuthImp;
 use Domain\Personal\Values\BaseAuth\Password\RawPassword;
-use Domain\Personal\Values\Personality\Name\UserName;
 use Infrastructure\Database\Repositories\Personal\Providers\UserDataProvider;
 use ReflectionClass;
 
@@ -26,11 +26,11 @@ final class UserDataMapper
         $this->user = new ReflectionClass(User::class);
         $this->restoreId($provider->getId());
 
-        $user->setName(new UserName($provider->getName()));
+        $user->setName(new NameImp($provider->getName()));
         $user->setRoles(new UnconfirmUser($provider->getRoles()));
         $user->setTimestamps(new PresetTimestamps(
                 new PresetCreatedAt($provider->getCreatedAt()),
-                new PresetTimestamp($provider->getUpdatedAt()),
+                new TimestampImp($provider->getUpdatedAt()),
             )
         );
         if ($provider->hasBaseAuth()) {
@@ -49,9 +49,9 @@ final class UserDataMapper
             ->setValue($ref->newInstance());
     }
 
-    private function restoreBaseAuth(UserDataProvider $provider): NewBaseAuth
+    private function restoreBaseAuth(UserDataProvider $provider): BaseAuthImp
     {
-        $baseAuth = new NewBaseAuth(
+        $baseAuth = new BaseAuthImp(
             new UserEmail($provider->getEmail()),
             new RawPassword($provider->getPassword()),
         );

@@ -31,4 +31,9 @@ final class BigIntIntId implements IntId
     {
         return $this->id;
     }
+
+    public function toInt(): int
+    {
+        return (int) $this->get();
+    }
 }

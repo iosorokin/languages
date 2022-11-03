@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace Domain\Languages\Application\Presenters;
 
 use App\Extensions\Assert;
-use Domain\Personal\Actions\Common\GetUser;
-use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 use Domain\Languages\Application\Presenters\Mixins\CreateLanguage;
 use Domain\Languages\Application\Presenters\Mixins\UpdateLanguage;
 use Domain\Languages\Infrastructure\Repository\Eloquent\Model\LanguageModel;
+use Domain\Personal\Queries\GetUser;
+use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 
 final class SeedLanguage
 {

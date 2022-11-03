@@ -8,7 +8,7 @@ use App\Exceptions\InvalidArgumentException;
 
 abstract class BaseInvalidValueObject
 {
-    private function __construct(
+    public function __construct(
         private array $errors,
     ) {}
 
@@ -33,6 +33,11 @@ abstract class BaseInvalidValueObject
     }
 
     public function toArray(): array
+    {
+        $this->get();
+    }
+
+    public function toInt(): int
     {
         $this->get();
     }

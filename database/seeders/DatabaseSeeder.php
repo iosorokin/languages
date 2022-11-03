@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Helpers\Test\PersonalSeedHelper;
 use Domain\Analysis\Helpers\AnalysisSeedHelper;
 use Domain\Chapters\Helpers\ChapterSeedHelper;
 use Domain\Languages\Application\Helpers\LanguageSeedHelper;
 use Domain\Personal\Entities\User;
+use Domain\Personal\Helpers\UserSeedHelper;
 use Domain\Personal\Values\Accesses\Access;
 use Domain\Sentences\Model\Sentence;
 use Domain\Sentences\Tests\SentenceHelper;
@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
 
     private function createRoot(): User
     {
-        $helper = PersonalSeedHelper::new();
+        $helper = UserSeedHelper::new();
         $user = $helper->createRoot();
 
         return $user;
@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
 
     private function createTestUser(): User
     {
-        $helper = PersonalSeedHelper::new();
+        $helper = UserSeedHelper::new();
         $user = $helper->create(overwrite: [
             'name' => 'Пользователь для теста',
             'email' => config('seed.users.test_user.email'),

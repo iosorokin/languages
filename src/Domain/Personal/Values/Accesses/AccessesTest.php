@@ -11,7 +11,7 @@ final class AccessesTest extends UnitCase
 {
     public function testAssignAsUser()
     {
-        $roles = NewAccesses::make();
+        $roles = AccessesImp::new();
         Assert::false($roles->isUser());
         $roles->addAccess(Access::User);
         $this->assertTrue($roles->isUser());
@@ -22,7 +22,7 @@ final class AccessesTest extends UnitCase
     /**
      * @depends testAssignAsUser
      */
-    public function testDemoteUser(NewAccesses $roles)
+    public function testDemoteUser(AccessesImp $roles)
     {
         $roles->deleteAccess(Access::User);
         $this->assertFalse($roles->isUser());
@@ -30,7 +30,7 @@ final class AccessesTest extends UnitCase
 
     public function testAssignAsAdmin()
     {
-        $roles = NewAccesses::make();
+        $roles = AccessesImp::new();
         Assert::false($roles->isAdmin());
         $roles->addAccess(Access::Admin);
         $this->assertTrue($roles->isAdmin());
@@ -41,7 +41,7 @@ final class AccessesTest extends UnitCase
     /**
      * @depends testAssignAsAdmin
      */
-    public function testDemoteAdmin(NewAccesses $roles)
+    public function testDemoteAdmin(AccessesImp $roles)
     {
         $roles->deleteAccess(Access::Admin);
         $this->assertFalse($roles->isAdmin());
@@ -49,21 +49,21 @@ final class AccessesTest extends UnitCase
 
     public function testAssignAsRoot()
     {
-        $roles = NewAccesses::make();
+        $roles = AccessesImp::new();
         $roles->addAccess(Access::Root);
         $this->assertTrue($roles->isRoot());
     }
 
     public function testCanNotAssignAsRoot()
     {
-        $roles = NewAccesses::make();
+        $roles = AccessesImp::new();
         $roles->addAccess(Access::Root);
         $this->assertTrue($roles->isRoot());
     }
 
     public function testAssignMultipleRoles()
     {
-        $roles = NewAccesses::make();
+        $roles = AccessesImp::new();
         $roles->addAccess(Access::User);
         $roles->addAccess(Access::Admin);
         $roles->addAccess(Access::Root);
@@ -77,7 +77,7 @@ final class AccessesTest extends UnitCase
     /**
      * @depends testAssignMultipleRoles
      */
-    public function testDemoteMultipleRoles(NewAccesses $roles)
+    public function testDemoteMultipleRoles(AccessesImp $roles)
     {
         $roles->deleteAccess(Access::User);
         $roles->deleteAccess(Access::Admin);

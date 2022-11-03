@@ -2,7 +2,7 @@
 
 namespace Domain\Personal\Values\Personality;
 
-use Domain\Personal\Values\Personality\Name\Name;
+use App\Values\Personality\Name\Name;
 
 interface Personality
 {

@@ -19,4 +19,9 @@ final class StrictNullId implements IntId
     {
         throw new Exception('The null identifier cannot be called. First, set a specific identifier');
     }
+
+    public function toInt(): int
+    {
+        return (int) $this->get();
+    }
 }
