@@ -2,13 +2,11 @@
 
 namespace Infrastructure\Services\Auth;
 
-use Domain\Personal\Entities\User;
-
 interface AuthService
 {
-    public function login(User $user): ?string;
+    public function login(AuthUser $user): ?string;
 
-    public function logout(User $user): void;
+    public function logout(AuthUser $user): void;
 
-    public function getAuth(): ?User;
+    public function getAuth(): ?AuthUser;
 }

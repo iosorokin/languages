@@ -8,6 +8,7 @@ use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 use Infrastructure\Database\Repositories\Personal\Providers\UserModelDataProvider;
 use Infrastructure\Database\Repositories\Personal\UserDataMapper;
 use Infrastructure\Services\Auth\AuthService;
+use Infrastructure\Services\Auth\AuthUser;
 use Infrastructure\Services\Auth\Sanctum\Actions\CreateSanctumToken;
 
 class SanctumAuth implements AuthService
@@ -16,7 +17,7 @@ class SanctumAuth implements AuthService
         private AuthManager $authManager,
     ) {}
 
-    public function login(User $user): ?string
+    public function login(AuthUser $user): ?string
     {
         /** @var CreateSanctumToken $createSanctumToken */
         $createSanctumToken = app()->make(CreateSanctumToken::class);
@@ -25,13 +26,13 @@ class SanctumAuth implements AuthService
         return $token->plainTextToken;
     }
 
-    public function logout(User $user): void
+    public function logout(AuthUser $user): void
     {
         $userModel = EloquentUserModel::query()->find($user->getId()->value());
         $userModel->currentAccessToken()?->delete();
     }
 
-    public function getAuth(): ?User
+    public function getAuth(): ?AuthUser
     {
         /** @var EloquentUserModel $userModel */
         $userModel = $this->authManager
