@@ -2,21 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Domain\Personal\Values\Accesses;
+namespace Domain\Personal\Policies;
 
 use App\Exceptions\DomainException;
-use Domain\Personal\PersonalRepository;
+use Domain\Personal\Repositories\PersonalRepository;
 
-final class CanAssignAsRoot
+final class UserAccessPolicy
 {
     public function __construct(
         private PersonalRepository $repository,
     ) {}
 
-    public function __invoke()
+    public function canAssignAsRoot()
     {
-        $countUsers = $this->repository->countUsers();
-        if ($countUsers > 0) {
+        if ($this->repository->hasRoot()) {
             // todo вынести в конфиг
             throw new DomainException('personal.can_not_assign_as_root');
         }

@@ -9,11 +9,11 @@ use App\Values\Datetime\PresetTimestamp;
 use App\Values\Identificatiors\Id\BigIntIntId;
 use Domain\Personal\Entities\User;
 use Domain\Personal\Infrastructure\Repository\PresetTimestamps;
+use Domain\Personal\Values\Accesses\UnconfirmUser;
 use Domain\Personal\Values\BaseAuth\Email\UserEmail;
 use Domain\Personal\Values\BaseAuth\NewBaseAuth;
 use Domain\Personal\Values\BaseAuth\Password\RawPassword;
 use Domain\Personal\Values\Personality\Name\UserName;
-use Domain\Personal\Values\Accesses\UnconfirmUser;
 use Infrastructure\Database\Repositories\Personal\Providers\UserDataProvider;
 use ReflectionClass;
 

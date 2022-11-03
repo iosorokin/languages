@@ -10,14 +10,14 @@ use App\Values\Identificatiors\Id\IntId;
 use App\Values\Identificatiors\Id\StrictNullId;
 use Domain\Personal\Dto\PersonalDto;
 use Domain\Personal\Values\Accesses\Access;
-use Domain\Personal\Values\Accesses\AccessesImp;
+use Domain\Personal\Values\Accesses\Accesses;
+use Domain\Personal\Values\Accesses\NewAccesses;
 use Domain\Personal\Values\BaseAuth\Email\UserEmail;
 use Domain\Personal\Values\BaseAuth\NewBaseAuth;
 use Domain\Personal\Values\BaseAuth\Password\RawPassword;
 use Domain\Personal\Values\Personality\Name\UserName;
 use Domain\Personal\Values\Personality\Personality;
 use Domain\Personal\Values\Personality\PersonalityImp;
-use Domain\Personal\Values\Accesses\Accesses;
 
 final class User implements Personal
 {
@@ -39,7 +39,7 @@ final class User implements Personal
             personality: PersonalityImp::new(
                 UserName::new($dto->getName())
             ),
-            accesses: AccessesImp::new(),
+            accesses: NewAccesses::make([]),
             baseAuth: NewBaseAuth::new(
                 UserEmail::new($dto->getEmail()),
                 RawPassword::newHashed($dto->getPassword())
@@ -78,7 +78,12 @@ final class User implements Personal
 
     public function accesses(): Accesses
     {
-        return $this->accesses;
+        return clone $this->accesses;
+    }
+
+    public function setAccesses(Accesses $accesses): self
+    {
+        return $this;
     }
 
     public function confirm(): self

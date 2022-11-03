@@ -8,10 +8,37 @@ use Illuminate\Support\Collection;
 
 abstract class BaseAccesses
 {
-    protected Collection $roles;
+    protected function __construct(
+        protected Collection $collection,
+    ) { }
 
-    protected function __construct(array $roles = [])
+    public function isUser(): bool
     {
-        $this->roles = collect($roles);
+        return (bool) $this->collection->first(
+            fn (Access $item) => $item->isUser()
+        );
+    }
+
+    public function isRoot(): bool
+    {
+        return (bool) $this->collection->first(
+            fn (Access $item) => $item->isRoot()
+        );
+    }
+
+    public function isAdmin(): bool
+    {
+        return (bool) $this->collection->first(
+            fn (Access $item) => $item->isAdmin()
+        );
+    }
+
+    public function toArray(): array
+    {
+        $this->collection->transform(function (Access $role) {
+            return $role->value;
+        });
+
+        return $this->collection->toArray();
     }
 }

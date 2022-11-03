@@ -11,4 +11,6 @@ interface PersonalRepository
     public function countUsers(): int;
 
     public function hasEmail(string $email);
+
+    public function hasRoot(): bool;
 }
