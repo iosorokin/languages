@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Domain\Internal\Container\Listeners;
 
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Domain\Sources\Events\SourceCreated;
-use Domain\Sources\Presenters\Internal\GetSource;
+use Domain\Core\Sources\Events\SourceCreated;
+use Domain\Core\Sources\Presenters\Internal\GetSource;
 use Domain\Internal\Container\Presenters\Internal\InitWrapperContainer;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 final class ContainerSourceCreatedListener implements ShouldQueue
 {

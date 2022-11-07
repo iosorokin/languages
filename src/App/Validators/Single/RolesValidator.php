@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Validators\Single;
 
 use App\Base\Validation\BaseValidator;
-use Domain\Personal\Values\Accesses\Access;
+use Domain\Account\Model\Entities\Accesses\Access;
 use Illuminate\Validation\Rules\Enum;
 
 final class RolesValidator extends BaseValidator

@@ -2,7 +2,7 @@
 
 namespace App\Controllers\Auth;
 
-use Domain\Personal\Actions\Auth\BaseLogin;
+use Domain\Account\Actions\Auth\BaseLogin;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 

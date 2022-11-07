@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Domain\Internal\Container\Services\Dispatcher;
 
 use App\Base\Tests\FeatureCase;
-use Domain\Sentences\Model\Sentence;
+use Domain\Core\Sentences\Model\Sentence;
 use Domain\Internal\Container\Model\Container;
 use Domain\Internal\Container\Presenters\Internal\InitWrapperContainer;
 

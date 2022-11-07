@@ -2,16 +2,16 @@
 
 namespace Database\Seeders;
 
-use Domain\Analysis\Helpers\AnalysisSeedHelper;
-use Domain\Chapters\Helpers\ChapterSeedHelper;
-use Domain\Languages\Application\Helpers\LanguageSeedHelper;
-use Domain\Personal\Entities\User;
-use Domain\Personal\Helpers\UserSeedHelper;
-use Domain\Personal\Values\Accesses\Access;
-use Domain\Sentences\Model\Sentence;
-use Domain\Sentences\Tests\SentenceHelper;
-use Domain\Sources\Helpers\SourceSeedHelper;
-use Domain\Sources\Structures\Source;
+use Domain\Account\Helpers\Test\AccountSeedHelper;
+use Domain\Account\Model\Aggregates\Account;
+use Domain\Account\Model\Entities\Accesses\Access;
+use Domain\Core\Analysis\Helpers\AnalysisSeedHelper;
+use Domain\Core\Chapters\Helpers\ChapterSeedHelper;
+use Domain\Core\Languages\Application\Helpers\LanguageSeedHelper;
+use Domain\Core\Sentences\Model\Sentence;
+use Domain\Core\Sentences\Tests\SentenceHelper;
+use Domain\Core\Sources\Helpers\SourceSeedHelper;
+use Domain\Core\Sources\Structures\Source;
 use Illuminate\Database\Seeder;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 
@@ -40,17 +40,17 @@ class DatabaseSeeder extends Seeder
 //        }
     }
 
-    private function createRoot(): User
+    private function createRoot(): Account
     {
-        $helper = UserSeedHelper::new();
+        $helper = AccountSeedHelper::new();
         $user = $helper->createRoot();
 
         return $user;
     }
 
-    private function createTestUser(): User
+    private function createTestUser(): Account
     {
-        $helper = UserSeedHelper::new();
+        $helper = AccountSeedHelper::new();
         $user = $helper->create(overwrite: [
             'name' => 'Пользователь для теста',
             'email' => config('seed.users.test_user.email'),

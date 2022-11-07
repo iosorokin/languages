@@ -2,15 +2,15 @@
 
 namespace Infrastructure\Services\Auth\Sanctum\Actions;
 
-use Domain\Personal\Entities\User;
+use Domain\Account\Model\Aggregates\Account;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 use Laravel\Sanctum\NewAccessToken;
 
 class CreateSanctumToken
 {
-    public function __invoke(User $user, array $attributes): NewAccessToken
+    public function __invoke(Account $account, array $attributes): NewAccessToken
     {
-        $userModel = new EloquentUserModel($user->toArray());
+        $userModel = new EloquentUserModel();
 
         return $userModel->createToken(
             name: $attributes['name'] ?? 'default',

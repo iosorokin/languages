@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Domain\Internal\Favorites\Listeners;
 
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Domain\Sources\Events\SourceCreated;
-use Domain\Sources\Presenters\Requests\IsFirstUserSourceForLanguage;
+use Domain\Core\Sources\Events\SourceCreated;
+use Domain\Core\Sources\Presenters\Requests\IsFirstUserSourceForLanguage;
 use Domain\Internal\Favorites\Presenters\AddToFavorite;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 final class FavoriteSourceCreatedListener implements ShouldQueue
 {

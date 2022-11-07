@@ -7,5 +7,5 @@ use Stringable;
 
 interface Email extends ValueObject, Stringable
 {
-
+    public function compare(Email $email);
 }

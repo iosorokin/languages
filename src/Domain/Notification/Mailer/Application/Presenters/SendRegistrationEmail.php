@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Domain\Notification\Mailer\Application\Presenters;
 
 use Domain\Notification\Mailer\Application\Tasks\SendLearnerRegistrationEmailTask;
-use Domain\Personal\Entities\User;
+use Domain\Account\Model\Aggregates\Account;
 use Illuminate\Bus\Dispatcher;
 
 final class SendRegistrationEmail
@@ -14,7 +14,7 @@ final class SendRegistrationEmail
         private Dispatcher $dispatcher,
     ) {}
 
-    public function __invoke(User $user): void
+    public function __invoke(Account $user): void
     {
         $task = new SendLearnerRegistrationEmailTask(
             $user->baseAuth()->email()->get(),

@@ -2,7 +2,7 @@
 
 namespace Infrastructure\Services\Auth\Sanctum;
 
-use Domain\Personal\Entities\User;
+use Domain\Account\Model\Aggregates\Account;
 use Illuminate\Auth\AuthManager;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 use Infrastructure\Database\Repositories\Personal\Providers\UserModelDataProvider;
@@ -17,11 +17,11 @@ class SanctumAuth implements AuthService
         private AuthManager $authManager,
     ) {}
 
-    public function login(AuthUser $user): ?string
+    public function login(Account $account): ?string
     {
         /** @var CreateSanctumToken $createSanctumToken */
         $createSanctumToken = app()->make(CreateSanctumToken::class);
-        $token = $createSanctumToken($user, []);
+        $token = $createSanctumToken($account, []);
 
         return $token->plainTextToken;
     }

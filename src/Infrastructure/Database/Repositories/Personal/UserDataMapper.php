@@ -9,11 +9,11 @@ use App\Values\Datetime\PresetCreatedAt;
 use App\Values\Datetime\TimestampImp;
 use App\Values\Identificatiors\Id\BigIntIntId;
 use App\Values\Personality\Name\NameImp;
-use Domain\Personal\Entities\User;
-use Domain\Personal\Infrastructure\Repository\PresetTimestamps;
-use Domain\Personal\Values\Accesses\UnconfirmUser;
-use Domain\Personal\Values\BaseAuth\BaseAuthImp;
-use Domain\Personal\Values\BaseAuth\Password\RawPassword;
+use Domain\Account\Infrastructure\Repository\PresetTimestamps;
+use Domain\Account\Model\Aggregates\Account;
+use Domain\Account\Model\Entities\BaseAuth\BaseAuth;
+use Domain\Account\Model\Values\Password\RawPassword;
+use Domain\Account\Values\Accesses\UnconfirmUser;
 use Infrastructure\Database\Repositories\Personal\Providers\UserDataProvider;
 use ReflectionClass;
 
@@ -21,9 +21,9 @@ final class UserDataMapper
 {
     private ReflectionClass $user;
 
-    public function restore(UserDataProvider $provider): User
+    public function restore(UserDataProvider $provider): Account
     {
-        $this->user = new ReflectionClass(User::class);
+        $this->user = new ReflectionClass(Account::class);
         $this->restoreId($provider->getId());
 
         $user->setName(new NameImp($provider->getName()));
@@ -49,9 +49,9 @@ final class UserDataMapper
             ->setValue($ref->newInstance());
     }
 
-    private function restoreBaseAuth(UserDataProvider $provider): BaseAuthImp
+    private function restoreBaseAuth(UserDataProvider $provider): BaseAuth
     {
-        $baseAuth = new BaseAuthImp(
+        $baseAuth = new BaseAuth(
             new UserEmail($provider->getEmail()),
             new RawPassword($provider->getPassword()),
         );

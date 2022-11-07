@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use Domain\Core\Languages\Infrastructure\Repository\Eloquent\Model\LanguageModel;
+use Domain\Core\Sentences\Model\Sentence;
+use Domain\Core\Sources\Structures\Source;
+use Domain\Internal\Container\Model\Container;
+use Domain\Internal\Container\Model\ContainerElement;
 use Exception;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -12,11 +17,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\ServiceProvider;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
-use Domain\Languages\Infrastructure\Repository\Eloquent\Model\LanguageModel;
-use Domain\Sentences\Model\Sentence;
-use Domain\Sources\Structures\Source;
-use Domain\Internal\Container\Model\Container;
-use Domain\Internal\Container\Model\ContainerElement;
 
 final class EloquentServiceProvider extends ServiceProvider
 {

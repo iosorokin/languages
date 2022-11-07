@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Values\Contacts\Email;
 
-use App\Values\ValueObject;
-
 final class UserEmail implements Email
 {
     private function __construct(
@@ -25,9 +23,9 @@ final class UserEmail implements Email
         return [];
     }
 
-    public function compare(ValueObject $ov): bool
+    public function compare(Email $email): bool
     {
-        return $this->get() === $ov->get();
+        return $this->get() === $email->get();
     }
 
     public function get(): string

@@ -1,14 +1,14 @@
 <?php
 
 use App\Controllers\Auth\LogoutController;
+use Domain\Core\Analysis\Controllers\UserStoreAnalysisController;
+use Domain\Core\Chapters\Controllers\UserChapterController;
+use Domain\Core\Languages\Application\Controllers\UserFavoriteLanguageController;
+use Domain\Core\Languages\Application\Controllers\UserLanguageController;
+use Domain\Core\Sentences\Controllers\UserSentenceController;
+use Domain\Core\Sources\Controllers\Items\UserSourceItemsController;
+use Domain\Core\Sources\Controllers\UserSourceController;
 use Illuminate\Support\Facades\Route;
-use Domain\Analysis\Controllers\UserStoreAnalysisController;
-use Domain\Chapters\Controllers\UserChapterController;
-use Domain\Languages\Application\Controllers\UserFavoriteLanguageController;
-use Domain\Languages\Application\Controllers\UserLanguageController;
-use Domain\Sentences\Controllers\UserSentenceController;
-use Domain\Sources\Controllers\Items\UserSourceItemsController;
-use Domain\Sources\Controllers\UserSourceController;
 
 Route::apiResource('languages', UserLanguageController::class)
     ->parameter('languages', 'language_id');

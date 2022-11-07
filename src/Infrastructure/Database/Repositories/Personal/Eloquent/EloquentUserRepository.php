@@ -5,15 +5,15 @@ declare(strict_types=1);
 namespace Infrastructure\Database\Repositories\Personal\Eloquent;
 
 use App\Values\Identificatiors\Id\BigIntIntId;
-use Domain\Personal\Domain\UserRepository;
-use Domain\Personal\Entities\User;
+use Domain\Account\Domain\UserRepository;
+use Domain\Account\Model\Aggregates\Account;
 use Illuminate\Support\Facades\DB;
 use Infrastructure\Database\Repositories\Personal\Providers\UserRawDataProvider;
 use Infrastructure\Database\Repositories\Personal\UserDataMapper;
 
 final class EloquentUserRepository implements UserRepository
 {
-    public function add(User $user): void
+    public function add(Account $user): void
     {
         $userModel = new EloquentUserModel($user->selfToArray());
         $authModel = new EloquentBaseAuthModel($user->baseAuth()->toArray());
@@ -24,10 +24,10 @@ final class EloquentUserRepository implements UserRepository
             $authModel->save();
         });
 
-        $user->setId(new BigIntIntId($userModel->id));
+        $user->commit(new BigIntIntId($userModel->id));
     }
 
-    public function getByEmail(string $email): ?User
+    public function getByEmail(string $email): ?Account
     {
         $data = DB::table('users')
             ->rightJoin('base_auths', 'users.id', 'base_auths.user_id')
