@@ -9,4 +9,6 @@ interface LanguageRepository
     public function add(Language $language): int;
 
     public function find(int $id): ?Language;
+
+    public function delete(Language $language): void;
 }

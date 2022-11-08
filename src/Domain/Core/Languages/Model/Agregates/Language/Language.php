@@ -16,6 +16,7 @@ use Domain\Core\Languages\Model\Entities\LanguageOwner;
 use Domain\Core\Languages\Model\Values\Name\Code;
 use Domain\Core\Languages\Model\Values\Name\Name;
 use Domain\Core\Languages\Model\Values\Name\NativeName;
+use Domain\Support\Authorization\Manager;
 use Illuminate\Contracts\Support\Arrayable;
 
 final class Language implements Arrayable
@@ -84,6 +85,11 @@ final class Language implements Arrayable
     public function name(): Name
     {
         return $this->name;
+    }
+
+    public function delete(LanguageRepository $repository): void
+    {
+        $repository->delete($this);
     }
 
     public function toArray(): array

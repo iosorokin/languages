@@ -2,17 +2,22 @@
 
 namespace Domain\Core\Languages\Actions\Admin;
 
-use Domain\Core\Languages\Actions\Mixins\DeleteLanguage;
+use App\Repositories\Eloquent\Language\LanguageRepository;
+use App\Values\Identificatiors\Id\BigIntId;
+use Domain\Core\Languages\Queries\GetLanguage;
 use Domain\Support\Authorization\Manager;
 
 class AdminDeleteLanguage
 {
     public function __construct(
-        private DeleteLanguage $deleteLanguage,
+        private GetLanguage $getLanguage,
+        private LanguageRepository $repository,
     ) {}
 
     public function __invoke(Manager $manager, int $languageId): void
     {
-        ($this->deleteLanguage)($manager, $language);
+        $languageId = BigIntId::new($languageId);
+        $language = $this->getLanguage->getOrThrowBadRequest($languageId);
+        $language->delete($this->repository);
     }
 }

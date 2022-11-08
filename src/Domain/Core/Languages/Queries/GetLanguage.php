@@ -19,7 +19,7 @@ final class GetLanguage
 
     public function get(IntId $id): Language
     {
-        return $this->repository->find($id);
+        return $this->repository->find($id->toInt());
     }
 
     public function getOrThrowNotFound(IntId $id): Language
