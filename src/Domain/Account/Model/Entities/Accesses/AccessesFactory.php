@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Account\Model\Entities\Accesses;
 
-use App\Values\Identificatiors\Id\BigIntIntId;
+use App\Values\Identificatiors\Id\BigIntId;
 use App\Values\Identificatiors\Id\StrictNullId;
 use Domain\Account\Dto\RestoreAccountDto;
 use Domain\Account\Model\Values\Access\DisableAccess;
@@ -23,7 +23,7 @@ final class AccessesFactory
     public function restore(RestoreAccountDto $dto): Accesses
     {
         return new Accesses(
-            accountId: BigIntIntId::new($dto->getId()),
+            accountId: BigIntId::new($dto->getId()),
             student: DisableAccess::new(),
             root: DisableAccess::new(),
         );

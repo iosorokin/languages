@@ -6,7 +6,7 @@ namespace Domain\Account\Model\Aggregates;
 
 use App\Values\Datetime\Now;
 use App\Values\Datetime\TimestampImp;
-use App\Values\Identificatiors\Id\BigIntIntId;
+use App\Values\Identificatiors\Id\BigIntId;
 use App\Values\Identificatiors\Id\StrictNullId;
 use Domain\Account\Dto\NewAccountDto;
 use Domain\Account\Dto\RestoreAccountDto;
@@ -38,7 +38,7 @@ final class AccountFactory
     public function restore(RestoreAccountDto $dto): Account
     {
         $user = new Account(
-            id: BigIntIntId::new($dto->getId()),
+            id: BigIntId::new($dto->getId()),
             personality: $this->personalityFactory->restore($dto),
             baseAuth: $this->baseAuthFactory->restore($dto),
             accesses: $this->accessesFactory->restore($dto),

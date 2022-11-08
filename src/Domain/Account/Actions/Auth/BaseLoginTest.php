@@ -8,8 +8,8 @@ use App\Base\Tests\UnitCase;
 use Domain\Account\Helpers\Test\AccountSeedHelper;
 use Domain\Account\Helpers\Test\BaseAuthSeedHelper;
 use Domain\Account\Repositories\AccountRepository;
+use Domain\Account\Services\Auth\AuthService;
 use Illuminate\Support\Str;
-use Infrastructure\Services\Auth\AuthService;
 
 final class BaseLoginTest extends UnitCase
 {

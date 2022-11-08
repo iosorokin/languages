@@ -9,10 +9,15 @@ use Illuminate\Validation\ValidationException;
 
 final class InvalidArgumentException extends Exception
 {
-    public function __construct(string $argument, string $message)
+    private string $argument;
+
+    private string $error;
+
+    public function __construct(string $argument, string $error)
     {
-        throw ValidationException::withMessages([
-            $argument => $message,
-        ]);
+        $this->argument = $argument;
+        $this->error = $error;
+
+        parent::__construct($error);
     }
 }

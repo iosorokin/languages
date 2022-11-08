@@ -7,7 +7,7 @@ namespace Domain\Account\Actions\Auth;
 use App\Base\Tests\UnitCase;
 use Domain\Account\Helpers\Test\AccountSeedHelper;
 use Domain\Account\Repositories\AccountRepository;
-use Infrastructure\Services\Auth\AuthService;
+use Domain\Account\Services\Auth\AuthService;
 use Mockery\MockInterface;
 
 final class LogoutTest extends UnitCase

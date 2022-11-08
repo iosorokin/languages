@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Infrastructure\Database\Repositories\Personal\Eloquent;
 
-use App\Values\Identificatiors\Id\BigIntIntId;
+use App\Values\Identificatiors\Id\BigIntId;
 use Domain\Account\Domain\UserRepository;
 use Domain\Account\Model\Aggregates\Account;
 use Illuminate\Support\Facades\DB;
@@ -24,7 +24,7 @@ final class EloquentUserRepository implements UserRepository
             $authModel->save();
         });
 
-        $user->commit(new BigIntIntId($userModel->id));
+        $user->commit(new BigIntId($userModel->id));
     }
 
     public function getByEmail(string $email): ?Account

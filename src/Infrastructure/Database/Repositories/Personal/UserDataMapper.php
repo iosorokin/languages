@@ -7,7 +7,7 @@ namespace Infrastructure\Database\Repositories\Personal;
 use App\Values\Contacts\Email\UserEmail;
 use App\Values\Datetime\PresetCreatedAt;
 use App\Values\Datetime\TimestampImp;
-use App\Values\Identificatiors\Id\BigIntIntId;
+use App\Values\Identificatiors\Id\BigIntId;
 use App\Values\Personality\Name\NameImp;
 use Domain\Account\Infrastructure\Repository\PresetTimestamps;
 use Domain\Account\Model\Aggregates\Account;
@@ -42,7 +42,7 @@ final class UserDataMapper
 
     private function restoreId(int $id)
     {
-        $ref = (new ReflectionClass(BigIntIntId::class));
+        $ref = (new ReflectionClass(BigIntId::class));
         $ref->getProperty('id')
             ->setValue($id);
         $this->user->getProperty('id')

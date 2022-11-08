@@ -24,4 +24,9 @@ final class StrictNullId implements IntId
     {
         return (int) $this->get();
     }
+
+    public function compare(IntId $id): bool
+    {
+        $this->get();
+    }
 }

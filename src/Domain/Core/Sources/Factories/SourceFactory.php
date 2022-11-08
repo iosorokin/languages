@@ -2,7 +2,7 @@
 
 namespace Domain\Core\Sources\Factories;
 
-use Domain\Core\Languages\Infrastructure\Repository\Eloquent\Model\LanguageModel;
+use App\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
 use Domain\Core\Sources\Enums\SourceType;
 use Domain\Core\Sources\Structures\Source;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;

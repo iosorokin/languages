@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Domain\Account\Actions\Auth;
 
 use Domain\Account\Model\Aggregates\Account;
-use Infrastructure\Services\Auth\AuthService;
+use Domain\Account\Services\Auth\AuthService;
 
 final class Logout
 {

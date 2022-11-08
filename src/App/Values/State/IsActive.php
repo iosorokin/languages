@@ -1,20 +1,18 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\Values\State;
 
-final class IsActive
+use App\Values\ValueObject;
+
+interface IsActive extends ValueObject
 {
-    private bool $isActive;
+    public function get(): bool;
 
-    public function __construct(mixed $isActive)
-    {
-        $this->isActive = $isActive;
-    }
+    public function compare(IsActive $isActive): bool;
 
-    public function value(): bool
-    {
-        return $this->isActive;
-    }
+    public function toBool(): bool;
+
+    public function activate(): self;
+
+    public function deactivate(): self;
 }

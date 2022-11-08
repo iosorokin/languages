@@ -1,10 +1,10 @@
 <?php
 
 use App\Controllers\Auth\LogoutController;
+use App\Controllers\Language\UserFavoriteLanguageController;
+use App\Controllers\Language\UserLanguageController;
 use Domain\Core\Analysis\Controllers\UserStoreAnalysisController;
 use Domain\Core\Chapters\Controllers\UserChapterController;
-use Domain\Core\Languages\Application\Controllers\UserFavoriteLanguageController;
-use Domain\Core\Languages\Application\Controllers\UserLanguageController;
 use Domain\Core\Sentences\Controllers\UserSentenceController;
 use Domain\Core\Sources\Controllers\Items\UserSourceItemsController;
 use Domain\Core\Sources\Controllers\UserSourceController;

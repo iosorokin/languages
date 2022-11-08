@@ -6,11 +6,10 @@ namespace Domain\Account\Actions\Auth;
 
 use App\Values\Contacts\Email\UserEmail;
 use Domain\Account\Dto\BaseLoginDto;
-use Domain\Account\Model\Entities\BaseAuth\BaseAuth;
 use Domain\Account\Model\Values\Password\RawPassword;
 use Domain\Account\Repositories\AccountRepository;
+use Domain\Account\Services\Auth\AuthService;
 use Exception;
-use Infrastructure\Services\Auth\AuthService;
 
 final class BaseLogin
 {

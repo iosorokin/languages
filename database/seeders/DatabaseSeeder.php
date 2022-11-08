@@ -7,7 +7,7 @@ use Domain\Account\Model\Aggregates\Account;
 use Domain\Account\Model\Entities\Accesses\Access;
 use Domain\Core\Analysis\Helpers\AnalysisSeedHelper;
 use Domain\Core\Chapters\Helpers\ChapterSeedHelper;
-use Domain\Core\Languages\Application\Helpers\LanguageSeedHelper;
+use Domain\Core\Languages\Helpers\Test\LanguageSeedHelper;
 use Domain\Core\Sentences\Model\Sentence;
 use Domain\Core\Sentences\Tests\SentenceHelper;
 use Domain\Core\Sources\Helpers\SourceSeedHelper;
@@ -66,7 +66,7 @@ class DatabaseSeeder extends Seeder
     private function createLanguages(EloquentUserModel $user): array
     {
         $helper = LanguageSeedHelper::new();
-        $generator = $helper->create(
+        $generator = $helper->createFromAction(
             user: $user,
             count: config('seed.languages.count')
         );
@@ -75,7 +75,7 @@ class DatabaseSeeder extends Seeder
         foreach ($generator as $language) {
             $chance = random_int(1, 100);
             if ($chance < 80) {
-                $helper->update($user, $language, [
+                $helper->updateFromAction($user, $language, [
                     'is_active' => true,
                 ]);
                 $activeIds[] = $language->getId();

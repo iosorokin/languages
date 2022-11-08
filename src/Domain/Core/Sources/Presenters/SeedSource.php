@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Domain\Core\Sources\Presenters;
 
-use Domain\Core\Languages\Infrastructure\Repository\Eloquent\Model\LanguageModel;
+use App\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
+use Domain\Account\Queries\GetUser;
 use Domain\Core\Sources\Presenters\Mixins\CreateSource;
 use Domain\Core\Sources\Structures\Source;
-use Domain\Account\Queries\GetUser;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 
 final class SeedSource

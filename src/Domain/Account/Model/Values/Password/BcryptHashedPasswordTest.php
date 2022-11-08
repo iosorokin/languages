@@ -14,7 +14,7 @@ final class BcryptHashedPasswordTest extends UnitCase
     {
         $value = Str::random(random_int(8, 255));
         $password = RawPassword::newBcryptHashed($value);
-        $this->assertTrue($password->check($value));
+        $this->assertTrue($password->check(RawPassword::new($value)));
     }
 
     public function testInvalidHashPassword()

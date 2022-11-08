@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Core\Sources\Authorization;
 
-use Domain\Core\Languages\Infrastructure\Repository\Eloquent\Model\LanguageModel;
+use App\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
 use Domain\Core\Sources\Structures\Source;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 

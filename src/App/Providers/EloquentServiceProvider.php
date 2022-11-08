@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use Domain\Core\Languages\Infrastructure\Repository\Eloquent\Model\LanguageModel;
+use App\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
 use Domain\Core\Sentences\Model\Sentence;
 use Domain\Core\Sources\Structures\Source;
 use Domain\Internal\Container\Model\Container;

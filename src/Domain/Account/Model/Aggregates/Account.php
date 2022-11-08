@@ -9,7 +9,7 @@ use App\Contracts\EventDispatcher;
 use App\Rules\BigIntId;
 use App\Values\Contacts\Email\Email;
 use App\Values\Datetime\Timestamp;
-use App\Values\Identificatiors\Id\BigIntIntId;
+use App\Values\Identificatiors\Id\BigIntId;
 use App\Values\Identificatiors\Id\IntId;
 use App\Values\Identificatiors\Id\StrictNullId;
 use App\Values\Security\Password;
@@ -51,7 +51,7 @@ final class Account extends Entity
     public function commit(AccountRepository $repository, EventDispatcher $dispatcher): self
     {
         $id = $repository->add($this);
-        $this->id = BigIntIntId::new($id);
+        $this->id = BigIntId::new($id);
         $this->pushEvent(new AccountCreated($this->id));
         $dispatcher->dispatchAll($this->events());
 
@@ -66,6 +66,11 @@ final class Account extends Entity
     }
 
     public function isRoot(): bool
+    {
+        return $this->accesses->isEnable(AccessValue::Root);
+    }
+
+    public function isStudent(): bool
     {
         return $this->accesses->isEnable(AccessValue::Root);
     }
