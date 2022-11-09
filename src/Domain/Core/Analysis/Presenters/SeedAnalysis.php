@@ -6,7 +6,7 @@ namespace Domain\Core\Analysis\Presenters;
 
 use Domain\Core\Analysis\Actions\CreateAnalysis;
 use Domain\Core\Analysis\Model\Analysis;
-use Domain\Account\Queries\GetUser;
+use Domain\Personal\Account\Queries\GetUser;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 
 final class SeedAnalysis

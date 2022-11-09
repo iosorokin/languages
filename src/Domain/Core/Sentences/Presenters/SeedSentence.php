@@ -6,7 +6,7 @@ namespace Domain\Core\Sentences\Presenters;
 
 use Domain\Core\Sentences\Model\Sentence;
 use Domain\Core\Sentences\Presenters\Mixins\CreateSentence;
-use Domain\Account\Queries\GetUser;
+use Domain\Personal\Account\Queries\GetUser;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 
 final class SeedSentence

@@ -6,7 +6,7 @@ namespace App\Controllers\Language;
 
 use App\Base\Tests\EndpointCase;
 use App\Helpers\Test\BaseAuthApiHelper;
-use Domain\Core\Languages\Helpers\Test\LanguageApiHelper;
+use Domain\Core\Languages\Tests\LanguageApiHelper;
 
 final class LanguageApiTest extends EndpointCase
 {

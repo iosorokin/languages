@@ -4,19 +4,16 @@ declare(strict_types=1);
 
 namespace Domain\Core\Languages\Model\Agregates\Language;
 
-use App\Repositories\Eloquent\Language\LanguageRepository;
 use App\Values\Datetime\Timestamp;
 use App\Values\Identificatiors\Id\BigIntId;
 use App\Values\Identificatiors\Id\IntId;
 use App\Values\State\IsActive;
 use App\Values\State\IsActiveImp;
-use Domain\Core\Languages\Authorization\LanguageAuthorization;
-use Domain\Core\Languages\Model\Agregates\Language\Policies\CanAssignOwner;
 use Domain\Core\Languages\Model\Entities\LanguageOwner;
 use Domain\Core\Languages\Model\Values\Name\Code;
 use Domain\Core\Languages\Model\Values\Name\Name;
 use Domain\Core\Languages\Model\Values\Name\NativeName;
-use Domain\Support\Authorization\Manager;
+use Domain\Core\Languages\Repositories\LanguageRepository;
 use Illuminate\Contracts\Support\Arrayable;
 
 final class Language implements Arrayable
@@ -36,23 +33,8 @@ final class Language implements Arrayable
         return $this->id;
     }
 
-    public function assignOwner(LanguageOwner $owner): self
+    public function commit(LanguageRepository $repository): self
     {
-        $this->owner = $owner;
-
-        return $this;
-    }
-
-    public function checkOwner(LanguageAuthorization $languageAuthorization): self
-    {
-        (new CanAssignOwner($languageAuthorization))($this->owner);
-
-        return $this;
-    }
-
-    public function commit(LanguageRepository $repository, LanguageAuthorization $authorization): self
-    {
-        $this->checkOwner($authorization);
         $this->id = BigIntId::new($repository->add($this));
 
         return $this;
@@ -85,6 +67,33 @@ final class Language implements Arrayable
     public function name(): Name
     {
         return $this->name;
+    }
+
+    public function changeName(Name $name): self
+    {
+        if ($this->name->compare($name)) {
+            $this->name = $name;
+        }
+
+        return $this;
+    }
+
+    public function changeNativeName(NativeName $name): self
+    {
+        if ($this->nativeName->compare($name)) {
+            $this->nativeName = $name;
+        }
+
+        return $this;
+    }
+
+    public function changeCode(Code $code): self
+    {
+        if ($this->code->compare($code)) {
+            $this->code = $code;
+        }
+
+        return $this;
     }
 
     public function delete(LanguageRepository $repository): void

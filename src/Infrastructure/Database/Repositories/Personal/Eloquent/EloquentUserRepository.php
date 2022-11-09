@@ -6,7 +6,7 @@ namespace Infrastructure\Database\Repositories\Personal\Eloquent;
 
 use App\Values\Identificatiors\Id\BigIntId;
 use Domain\Account\Domain\UserRepository;
-use Domain\Account\Model\Aggregates\Account;
+use Domain\Personal\Account\Model\Aggregates\Account;
 use Illuminate\Support\Facades\DB;
 use Infrastructure\Database\Repositories\Personal\Providers\UserRawDataProvider;
 use Infrastructure\Database\Repositories\Personal\UserDataMapper;

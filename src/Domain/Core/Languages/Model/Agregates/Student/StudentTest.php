@@ -7,8 +7,8 @@ namespace Domain\Core\Languages\Model\Agregates\Student;
 use App\Base\Tests\UnitCase;
 use App\Exceptions\InvalidArgumentException;
 use App\Values\Identificatiors\Id\BigIntId;
-use Domain\Core\Languages\Helpers\Test\LanguageSeedHelper;
 use Domain\Core\Languages\Model\Collections\Favorites;
+use Domain\Core\Languages\Tests\LanguageSeedHelper;
 
 final class StudentTest extends UnitCase
 {

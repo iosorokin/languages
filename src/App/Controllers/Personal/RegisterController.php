@@ -3,7 +3,7 @@
 namespace App\Controllers\Personal;
 
 use App\Responses\Json\IdResponse;
-use Domain\Account\Actions\Guest\Register;
+use Domain\Personal\Account\Actions\Guest\Register;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 

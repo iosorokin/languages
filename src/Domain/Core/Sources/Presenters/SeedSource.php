@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Domain\Core\Sources\Presenters;
 
 use App\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
-use Domain\Account\Queries\GetUser;
 use Domain\Core\Sources\Presenters\Mixins\CreateSource;
 use Domain\Core\Sources\Structures\Source;
+use Domain\Personal\Account\Queries\GetUser;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 
 final class SeedSource

@@ -2,16 +2,16 @@
 
 namespace Database\Seeders;
 
-use Domain\Account\Helpers\Test\AccountSeedHelper;
-use Domain\Account\Model\Aggregates\Account;
 use Domain\Account\Model\Entities\Accesses\Access;
 use Domain\Core\Analysis\Helpers\AnalysisSeedHelper;
 use Domain\Core\Chapters\Helpers\ChapterSeedHelper;
-use Domain\Core\Languages\Helpers\Test\LanguageSeedHelper;
+use Domain\Core\Languages\Tests\LanguageSeedHelper;
 use Domain\Core\Sentences\Model\Sentence;
 use Domain\Core\Sentences\Tests\SentenceHelper;
 use Domain\Core\Sources\Helpers\SourceSeedHelper;
 use Domain\Core\Sources\Structures\Source;
+use Domain\Personal\Account\Helpers\Test\AccountSeedHelper;
+use Domain\Personal\Account\Model\Aggregates\Account;
 use Illuminate\Database\Seeder;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 

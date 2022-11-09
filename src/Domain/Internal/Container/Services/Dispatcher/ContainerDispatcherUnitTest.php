@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Domain\Internal\Container\Services\Dispatcher;
 
-use App\Base\Tests\FeatureCase;
+use App\Base\Tests\ModuleCase;
 use Domain\Core\Sentences\Model\Sentence;
 use Domain\Internal\Container\Model\Container;
 use Domain\Internal\Container\Presenters\Internal\InitWrapperContainer;
 
-final class ContainerDispatcherUnitTest extends FeatureCase
+final class ContainerDispatcherUnitTest extends ModuleCase
 {
     private ContainerManipulator $manipulator;
 

@@ -6,9 +6,9 @@ namespace Domain\Core\Languages\Actions;
 
 use App\Extensions\Assert;
 use App\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
-use Domain\Account\Queries\GetUser;
 use Domain\Core\Languages\Actions\Mixins\CreateLanguage;
 use Domain\Core\Languages\Actions\Mixins\UpdateLanguage;
+use Domain\Personal\Account\Queries\GetUser;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 
 final class SeedLanguage

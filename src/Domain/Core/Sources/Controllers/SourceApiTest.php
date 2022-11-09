@@ -5,7 +5,7 @@ namespace Domain\Core\Sources\Controllers;
 use App\Base\Tests\EndpointCase;
 use App\Helpers\Test\BaseAuthApiHelper;
 use App\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
-use Domain\Core\Languages\Helpers\Test\LanguageSeedHelper;
+use Domain\Core\Languages\Tests\LanguageSeedHelper;
 use Domain\Core\Sources\Helpers\SourceApiHelper;
 
 class SourceApiTest extends EndpointCase

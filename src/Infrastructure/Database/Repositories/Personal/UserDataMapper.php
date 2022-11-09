@@ -10,10 +10,10 @@ use App\Values\Datetime\TimestampImp;
 use App\Values\Identificatiors\Id\BigIntId;
 use App\Values\Personality\Name\NameImp;
 use Domain\Account\Infrastructure\Repository\PresetTimestamps;
-use Domain\Account\Model\Aggregates\Account;
-use Domain\Account\Model\Entities\BaseAuth\BaseAuth;
-use Domain\Account\Model\Values\Password\RawPassword;
 use Domain\Account\Values\Accesses\UnconfirmUser;
+use Domain\Personal\Account\Model\Aggregates\Account;
+use Domain\Personal\Account\Model\Entities\BaseAuth\BaseAuth;
+use Domain\Personal\Account\Model\Values\Password\RawPassword;
 use Infrastructure\Database\Repositories\Personal\Providers\UserDataProvider;
 use ReflectionClass;
 

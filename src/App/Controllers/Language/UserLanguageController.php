@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Controllers\Language;
 
 use App\Responses\Json\OkResponse;
-use Domain\Core\Languages\Actions\User\UserIndexLanguages;
-use Domain\Core\Languages\Actions\User\UserShowLanguage;
-use Domain\Core\Languages\Transformers\UserLanguageTransformer;
+use App\Transformers\UserLanguageTransformer;
+use Domain\Core\Languages\Queries\User\UserIndexLanguages;
+use Domain\Core\Languages\Queries\User\UserShowLanguage;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 

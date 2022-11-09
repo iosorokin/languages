@@ -6,7 +6,7 @@ namespace Domain\Core\Languages\Actions\User;
 
 use App\Controllers\Auth\Internal\GetAuthUser;
 use Domain\Core\Languages\Model\Agregates\Language\Policies\CanTakeToLearn;
-use Domain\Core\Languages\Queries\GetLanguage;
+use Domain\Core\Languages\Queries\Mixins\GetLanguage;
 use Domain\Internal\Favorites\Model\Favorite;
 use Domain\Internal\Favorites\Presenters\AddToFavorite;
 use Domain\Internal\Favorites\Presenters\AddToFavoritePresenter;

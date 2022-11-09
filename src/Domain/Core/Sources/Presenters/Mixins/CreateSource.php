@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Domain\Core\Sources\Presenters\Mixins;
 
 use Domain\Core\Languages\Model\Agregates\Language\Policies\CanTakeToLearn;
-use Domain\Core\Languages\Queries\GetLanguage;
+use Domain\Core\Languages\Queries\Mixins\GetLanguage;
 use Domain\Core\Sources\Authorization\SourceAuthorizeUser;
 use Domain\Core\Sources\Events\SourceCreated;
 use Domain\Core\Sources\Factories\SourceFactory;

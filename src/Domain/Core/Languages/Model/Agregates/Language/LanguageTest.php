@@ -7,8 +7,7 @@ namespace Domain\Core\Languages\Model\Agregates\Language;
 use App\Base\Tests\UnitCase;
 use App\Exceptions\DomainAuthorizationException;
 use Domain\Core\Languages\Authorization\LanguageAuthorization;
-use Domain\Core\Languages\Helpers\Test\LanguageSeedHelper;
-use Illuminate\Auth\Access\AuthorizationException;
+use Domain\Core\Languages\Tests\LanguageSeedHelper;
 
 final class LanguageTest extends UnitCase
 {
@@ -16,7 +15,7 @@ final class LanguageTest extends UnitCase
     {
         $helper = LanguageSeedHelper::new();
         $factory = $helper->factory();
-        $language = $factory->new($helper->createDto());
+        $language = $factory->new($helper->getCreateLanguageDto());
         $this->assertInstanceOf(Language::class, $language);
     }
 
@@ -27,7 +26,7 @@ final class LanguageTest extends UnitCase
             ->andReturnNull();
         $helper = LanguageSeedHelper::new();
         $factory = $helper->factory();
-        $language = $factory->new($helper->createDto());
+        $language = $factory->new($helper->getCreateLanguageDto());
         $language->checkOwner(app(LanguageAuthorization::class));
         $this->assertTrue(true);
     }
@@ -42,7 +41,7 @@ final class LanguageTest extends UnitCase
         $helper = LanguageSeedHelper::new();
 
         $factory = $helper->factory();
-        $language = $factory->new($helper->createDto());
+        $language = $factory->new($helper->getCreateLanguageDto());
         $language->checkOwner(app(LanguageAuthorization::class));
     }
 }
