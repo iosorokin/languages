@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Domain\Core\Analysis\Helpers;
 
-use App\Base\Helpers\AppHelper;
+use App\Base\Helpers\ModuleHelper;
 use Domain\Core\Analysis\Model\Analysis;
 use Domain\Core\Analysis\Presenters\SeedAnalysis;
 use Domain\Core\Sentences\Model\Sentence;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 
-final class AnalysisSeedHelper extends AppHelper
+final class AnalysisSeedHelper extends ModuleHelper
 {
     public function generateAttributes(): array
     {

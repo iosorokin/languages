@@ -1,8 +1,8 @@
 <?php
 
-use App\Controllers\Auth\BaseLoginController;
-use App\Controllers\Language\GuestLanguageController;
-use App\Controllers\Personal\RegisterController;
+use App\Controll\Controllers\Auth\BaseLoginController;
+use App\Controll\Controllers\Language\GuestLanguageController;
+use App\Controll\Controllers\Personal\RegisterController;
 use Domain\Core\Sources\Controllers\GuestSourceController;
 use Domain\Core\Sources\Controllers\Items\GuestSourceItemsController;
 use Illuminate\Support\Facades\Route;

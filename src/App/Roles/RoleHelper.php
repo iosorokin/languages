@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Roles;
 
-use App\Base\Helpers\AppHelper;
+use App\Base\Helpers\ModuleHelper;
 use App\Values\Identificatiors\Id\BigIntId;
 
-final class RoleHelper extends AppHelper
+final class RoleHelper extends ModuleHelper
 {
     public static function createManager(): ContentManager
     {

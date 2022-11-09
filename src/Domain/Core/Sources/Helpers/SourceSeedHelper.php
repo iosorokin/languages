@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Domain\Core\Sources\Helpers;
 
-use App\Base\Helpers\AppHelper;
+use App\Base\Helpers\ModuleHelper;
 use Domain\Core\Sources\Presenters\SeedSource;
 use Generator;
 use Illuminate\Support\Arr;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 
-final class SourceSeedHelper extends AppHelper
+final class SourceSeedHelper extends ModuleHelper
 {
     public function generateAttributes(): array
     {

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Domain\Internal\Container\Helpers;
 
-use App\Base\Helpers\AppHelper;
+use App\Base\Helpers\ModuleHelper;
 
-final class ContainerSeedHelper extends AppHelper
+final class ContainerSeedHelper extends ModuleHelper
 {
     public function generateAttributes(): array
     {

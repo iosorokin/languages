@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Domain\Personal\Account\Helpers\Test;
 
-use App\Base\Helpers\AppHelper;
+use App\Base\Helpers\ModuleHelper;
 use Domain\Personal\Account\Dto\BaseLoginDto;
 
-final class BaseAuthSeedHelper extends AppHelper
+final class BaseAuthSeedHelper extends ModuleHelper
 {
     public function generateAttributes(): array
     {

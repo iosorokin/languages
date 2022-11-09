@@ -5,11 +5,11 @@ namespace Database\Seeders;
 use Domain\Account\Model\Entities\Accesses\Access;
 use Domain\Core\Analysis\Helpers\AnalysisSeedHelper;
 use Domain\Core\Chapters\Helpers\ChapterSeedHelper;
-use Domain\Core\Languages\Tests\LanguageSeedHelper;
 use Domain\Core\Sentences\Model\Sentence;
 use Domain\Core\Sentences\Tests\SentenceHelper;
 use Domain\Core\Sources\Helpers\SourceSeedHelper;
 use Domain\Core\Sources\Structures\Source;
+use Domain\Manager\Languages\Tests\LanguageManagerModuleHelper;
 use Domain\Personal\Account\Helpers\Test\AccountSeedHelper;
 use Domain\Personal\Account\Model\Aggregates\Account;
 use Illuminate\Database\Seeder;
@@ -65,7 +65,7 @@ class DatabaseSeeder extends Seeder
 
     private function createLanguages(EloquentUserModel $user): array
     {
-        $helper = LanguageSeedHelper::new();
+        $helper = LanguageManagerModuleHelper::new();
         $generator = $helper->createFromAction(
             user: $user,
             count: config('seed.languages.count')

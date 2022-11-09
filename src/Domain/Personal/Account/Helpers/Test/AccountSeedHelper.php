@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Personal\Account\Helpers\Test;
 
-use App\Base\Helpers\AppHelper;
+use App\Base\Helpers\ModuleHelper;
 use Domain\Personal\Account\Actions\Console\InitRootAccount;
 use Domain\Personal\Account\Actions\SeedUser;
 use Domain\Personal\Account\Dto\NewAccountDto;
@@ -13,7 +13,7 @@ use Domain\Personal\Account\Model\Aggregates\Account;
 use Domain\Personal\Account\Model\Aggregates\AccountFactory;
 use Generator;
 
-final class AccountSeedHelper extends AppHelper
+final class AccountSeedHelper extends ModuleHelper
 {
     public function generateStoreAttributes(): array
     {

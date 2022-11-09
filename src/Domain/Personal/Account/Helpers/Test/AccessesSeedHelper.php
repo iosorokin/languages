@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Domain\Personal\Account\Helpers\Test;
 
-use App\Base\Helpers\AppHelper;
+use App\Base\Helpers\ModuleHelper;
 
-final class AccessesSeedHelper extends AppHelper
+final class AccessesSeedHelper extends ModuleHelper
 {
     public function generateAttributes(): array
     {

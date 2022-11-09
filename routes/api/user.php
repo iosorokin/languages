@@ -1,8 +1,8 @@
 <?php
 
-use App\Controllers\Auth\LogoutController;
-use App\Controllers\Language\UserFavoriteLanguageController;
-use App\Controllers\Language\UserLanguageController;
+use App\Controll\Controllers\Auth\LogoutController;
+use App\Controll\Controllers\Language\UserFavoriteLanguageController;
+use App\Controll\Controllers\Language\UserLanguageController;
 use Domain\Core\Analysis\Controllers\UserStoreAnalysisController;
 use Domain\Core\Chapters\Controllers\UserChapterController;
 use Domain\Core\Sentences\Controllers\UserSentenceController;

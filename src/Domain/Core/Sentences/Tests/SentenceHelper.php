@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Domain\Core\Sentences\Tests;
 
-use App\Base\Helpers\AppHelper;
+use App\Base\Helpers\ModuleHelper;
 use Domain\Core\Sentences\Presenters\SeedSentence;
 use Domain\Core\Sources\Structures\Source;
 use Generator;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 
-final class SentenceHelper extends AppHelper
+final class SentenceHelper extends ModuleHelper
 {
     public function generateAttributes(): array
     {

@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Domain\Core\Chapters\Helpers;
 
-use App\Base\Helpers\AppHelper;
+use App\Base\Helpers\ModuleHelper;
 use Domain\Core\Chapters\Presenters\SeedChapter;
 use Domain\Core\Sources\Structures\Source;
 use Domain\Internal\Container\Helpers\ContainerSeedHelper;
 use Generator;
 
-final class ChapterSeedHelper extends AppHelper
+final class ChapterSeedHelper extends ModuleHelper
 {
     public function create(Source|int $source, int $count, array $overwrite = []): Generator
     {

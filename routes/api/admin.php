@@ -1,6 +1,6 @@
 <?php
 
-use App\Controllers\Language\AdminLanguageController;
+use App\Controll\Controllers\Language\AdminLanguageController;
 use Illuminate\Support\Facades\Route;
 
 Route::apiResource('languages', AdminLanguageController::class)
