@@ -11,6 +11,7 @@ use App\Model\Values\Language\Code\Code;
 use App\Model\Values\Language\Name\Name;
 use App\Model\Values\Language\NativeName\NativeName;
 use App\Model\Values\State\IsActive;
+use App\Model\Values\State\IsActiveImp;
 use Domain\Core\Language\Root\Repositories\LanguageRepository;
 
 final class Language
@@ -82,6 +83,26 @@ final class Language
     {
         if ($this->code->compare($code)) {
             $this->code = $code;
+        }
+
+        return $this;
+    }
+
+    public function activate(): self
+    {
+        $isActive = IsActiveImp::new(true);
+        if ($this->isActive->compare($isActive)) {
+            $this->isActive = $isActive;
+        }
+
+        return $this;
+    }
+
+    public function deactivate(): self
+    {
+        $isActive = IsActiveImp::new(false);
+        if ($this->isActive->compare($isActive)) {
+            $this->isActive = $isActive;
         }
 
         return $this;

@@ -2,6 +2,8 @@
 
 namespace Domain\Core\Language\Root\Repositories;
 
+use Domain\Core\Language\Root\Control\Queries\FindLanguage;
+use Domain\Core\Language\Root\Control\Queries\GetLanguages;
 use Domain\Core\Language\Root\Model\Aggregates\Language;
 use Domain\Core\Language\Root\Model\Collections\Languages;
 
@@ -11,9 +13,9 @@ interface LanguageRepository
 
     public function update(Language $language): void;
 
-    public function find(int $id, array $attributes = []): ?Language;
+    public function find(FindLanguage $query): ?Language;
 
-    public function get(array $attributes = []): Languages;
+    public function get(GetLanguages $query): Languages;
 
     public function delete(int $id): void;
 }
