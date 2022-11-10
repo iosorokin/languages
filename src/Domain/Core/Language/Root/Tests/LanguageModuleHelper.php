@@ -13,8 +13,6 @@ use Domain\Core\Language\Root\Control\Commands\RootDeleteLanguage;
 use Domain\Core\Language\Root\Control\Commands\RootUpdateLanguage;
 use Domain\Core\Language\Root\Control\Commands\SeedLanguage;
 use Domain\Core\Language\Root\Control\Queries\RootFindLanguage;
-use Domain\Core\Language\Root\Control\Queries\RootFindLanguage;
-use Domain\Core\Language\Root\Control\Queries\RootGetLanguages;
 use Domain\Core\Language\Root\Control\Queries\RootGetLanguages;
 use Domain\Core\Language\Root\Model\Aggregates\RootLanguage;
 use Domain\Core\Language\Root\Model\Aggregates\RootLanguageFactory;
