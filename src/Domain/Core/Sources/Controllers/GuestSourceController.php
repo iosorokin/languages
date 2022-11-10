@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Domain\Core\Sources\Controllers;
 
-use App\Support\Responses\Json\OkResponse;
 use Domain\Core\Sources\Presenters\Guest\GuestIndexSources;
 use Domain\Core\Sources\Presenters\Guest\GuestShowSource;
 use Domain\Core\Sources\Transformers\GuestSourceTransformer;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Infrastructure\Support\Responses\Json\OkResponse;
 
 final class GuestSourceController
 {

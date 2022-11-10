@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Core\Sentences\Validators;
 
-use App\Support\Validation\Rules\BigIntId;
+use Infrastructure\Support\Validation\Rules\BigIntId;
 
 final class CreateSentenceValidator extends SentenceValidator
 {

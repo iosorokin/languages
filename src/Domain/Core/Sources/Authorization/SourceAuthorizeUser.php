@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Domain\Core\Sources\Authorization;
 
-use App\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
 use Domain\Core\Sources\Structures\Source;
+use Infrastructure\Database\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 
 final class SourceAuthorizeUser

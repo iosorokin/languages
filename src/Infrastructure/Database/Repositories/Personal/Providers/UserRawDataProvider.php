@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Infrastructure\Database\Repositories\Personal\Providers;
 
-use App\Support\Assert;
 use Illuminate\Support\Carbon;
+use Infrastructure\Support\Assert;
 use stdClass;
 
 final class UserRawDataProvider implements UserDataProvider

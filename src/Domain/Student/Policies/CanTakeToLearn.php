@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Domain\Core\Languages\Model\Manager\Aggregates\Student\Policies;
 
-use App\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
 use Illuminate\Validation\ValidationException;
+use Infrastructure\Database\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
 
 final class CanTakeToLearn
 {

@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace Domain\Core\Sources\Controllers;
 
-use App\Support\Responses\Json\IdResponse;
-use App\Support\Responses\Json\NoContentResponse;
-use App\Support\Responses\Json\OkResponse;
 use Domain\Core\Sources\Presenters\User\UserCreateSource;
 use Domain\Core\Sources\Presenters\User\UserDeleteSource;
 use Domain\Core\Sources\Presenters\User\UserIndexSources;
@@ -14,6 +11,9 @@ use Domain\Core\Sources\Presenters\User\UserShowSource;
 use Domain\Core\Sources\Presenters\User\UserUpdateSource;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Infrastructure\Support\Responses\Json\IdResponse;
+use Infrastructure\Support\Responses\Json\NoContentResponse;
+use Infrastructure\Support\Responses\Json\OkResponse;
 
 final class UserSourceController
 {

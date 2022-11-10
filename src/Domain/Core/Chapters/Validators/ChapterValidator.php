@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Domain\Core\Chapters\Validators;
 
-use App\Base\Validation\BaseValidator;
-use App\Support\Validation\Rules\Description;
-use App\Support\Validation\Rules\Title;
+use Infrastructure\Support\Validation\BaseValidator;
+use Infrastructure\Support\Validation\Rules\Description;
+use Infrastructure\Support\Validation\Rules\Title;
 
 abstract class ChapterValidator extends BaseValidator
 {

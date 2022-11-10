@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Core\Sentences\Validators;
 
-use App\Base\Validation\BaseValidator;
+use Infrastructure\Support\Validation\BaseValidator;
 
 abstract class SentenceValidator extends BaseValidator
 {

@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Domain\Core\Sources\Validators;
 
-use App\Base\Validation\BaseValidator;
-use App\Support\Validation\Rules\Description;
-use App\Support\Validation\Rules\Title;
 use Domain\Core\Sources\Enums\SourceType;
 use Illuminate\Validation\Rules\Enum;
+use Infrastructure\Support\Validation\BaseValidator;
+use Infrastructure\Support\Validation\Rules\Description;
+use Infrastructure\Support\Validation\Rules\Title;
 
 abstract class SourceValidator extends BaseValidator
 {

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Domain\Core\Languages\Model\Manager\Queries\User;
 
-use App\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
 use Domain\Core\Languages\Commands\Mixins\ShowLanguage;
+use Infrastructure\Database\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
 
 final class UserShowLanguage
 {

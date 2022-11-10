@@ -13,13 +13,15 @@ use App\Model\Values\State\IsActive;
 
 abstract class Language
 {
-    protected IntId              $id;
-    protected IntId              $owner;
-    protected Name               $name;
-    protected NativeName         $nativeName;
-    protected Code               $code;
-    protected IsActive           $isActive;
-    protected Timestamp $createdAt;
+    public function __construct(
+        protected IntId      $id,
+        protected IntId      $owner,
+        protected Name       $name,
+        protected NativeName $nativeName,
+        protected Code       $code,
+        protected IsActive   $isActive,
+        protected Timestamp  $createdAt,
+    ) {}
 
     public function id(): IntId
     {

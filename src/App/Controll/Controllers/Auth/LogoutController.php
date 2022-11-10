@@ -2,11 +2,11 @@
 
 namespace App\Controll\Controllers\Auth;
 
-use App\Support\Responses\Json\NoContentResponse;
 use Domain\Personal\Account\Actions\Auth\Logout;
 use Domain\Personal\Account\Services\Auth\AuthService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Infrastructure\Support\Responses\Json\NoContentResponse;
 
 class LogoutController
 {

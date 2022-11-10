@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Core\Chapters\Validators;
 
-use App\Support\Validation\Rules\BigIntId;
+use Infrastructure\Support\Validation\Rules\BigIntId;
 
 final class CreateChapterValidator extends ChapterValidator
 {

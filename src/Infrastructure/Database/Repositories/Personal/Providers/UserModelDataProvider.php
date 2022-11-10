@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Infrastructure\Database\Repositories\Personal\Providers;
 
-use App\Support\Assert;
 use Illuminate\Support\Carbon;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
+use Infrastructure\Support\Assert;
 
 final class UserModelDataProvider implements UserDataProvider
 {

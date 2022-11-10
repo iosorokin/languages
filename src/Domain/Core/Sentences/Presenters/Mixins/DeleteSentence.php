@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Domain\Core\Sentences\Presenters\Mixins;
 
-use App\Support\Validation\Rules\BigIntId;
 use Domain\Core\Sentences\Policies\SentencePolicy;
 use Domain\Core\Sentences\Presenters\Internal\GetSentence;
 use Domain\Sentences\Repositories\SentenceRepository;
 use Illuminate\Support\Facades\Validator;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
+use Infrastructure\Support\Validation\Rules\BigIntId;
 
 final class DeleteSentence
 {

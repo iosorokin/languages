@@ -16,9 +16,4 @@ final class ContentManagerImp implements ContentManager
     {
         return $this->id;
     }
-
-    public function isRoot(): bool
-    {
-        return false;
-    }
 }

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Core\Providers;
 
-use App\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
 use Domain\Core\Sentences\Model\Sentence;
 use Domain\Core\Sources\Structures\Source;
 use Domain\Internal\Container\Model\Container;
@@ -16,6 +15,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\ServiceProvider;
+use Infrastructure\Database\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 
 final class EloquentServiceProvider extends ServiceProvider

@@ -2,9 +2,9 @@
 
 namespace Domain\Core\Sources\Factories;
 
-use App\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
 use Domain\Core\Sources\Enums\SourceType;
 use Domain\Core\Sources\Structures\Source;
+use Infrastructure\Database\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 
 class SourceFactory

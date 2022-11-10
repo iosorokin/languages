@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace Domain\Core\Language\Root\Control\Commands;
 
-use App\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
-use App\Support\Assert;
 use Domain\Personal\Account\Queries\GetUser;
+use Infrastructure\Database\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
+use Infrastructure\Support\Assert;
 
 final class SeedLanguage
 {
     public function __construct(
-        private CreateLanguageHandler $createLanguage,
-        private UpdateLanguageHandler $updateLanguage,
-        private GetUser        $getUser
+        private RootCreateLanguageHandler $createLanguage,
+        private RootUpdateLanguageHandler $updateLanguage,
+        private GetUser                   $getUser
     ) {}
 
     public function create(EloquentUserModel|int $user, array $attributes): LanguageModel

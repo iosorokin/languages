@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Domain\Core\Chapters\Validators;
 
-use App\Base\Validation\BaseValidator;
-use App\Support\Validation\Rules\BigIntId;
+use Infrastructure\Support\Validation\BaseValidator;
+use Infrastructure\Support\Validation\Rules\BigIntId;
 
 final class ShowChapterValidator extends BaseValidator
 {

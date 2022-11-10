@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Controll\Controllers\Language;
 
-use App\Support\Responses\Json\OkResponse;
-use App\Support\Transformers\UserLanguageTransformer;
 use Domain\Core\Languages\Model\Manager\Queries\User\UserIndexLanguages;
 use Domain\Core\Languages\Model\Manager\Queries\User\UserShowLanguage;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Infrastructure\Support\Responses\Json\OkResponse;
+use Infrastructure\Support\Transformers\UserLanguageTransformer;
 
 final class UserLanguageController
 {
