@@ -9,14 +9,14 @@ use App\Model\Roles\ContentManager;
 use App\Model\Roles\RoleHelper;
 use App\Model\Roles\Root;
 use Domain\Core\Language\Root\Control\Commands\RootUpdateLanguage;
-use Domain\Core\Language\Root\RootLanguageModuleProd;
-use Domain\Core\Language\Root\Repositories\RootLanguageRepository;
+use Domain\Core\Language\Root\LanguageModuleProd;
+use Domain\Core\Language\Root\Repositories\LanguageRepository;
 use Domain\Core\Language\Root\Tests\LanguageModuleHelper;
 use Mockery\MockInterface;
 
 final class RootLanguageModuleUpdateTest extends ModuleCase
 {
-    private RootLanguageModuleProd $languageModule;
+    private LanguageModuleProd $languageModule;
 
     private Root $root;
 
@@ -40,7 +40,7 @@ final class RootLanguageModuleUpdateTest extends ModuleCase
         $this->command = $helper->getUpdateLanguageCommand([
             'id' => $language->id()->toInt(),
         ]);
-        $this->mock(RootLanguageRepository::class, function (MockInterface $mock) use ($language) {
+        $this->mock(LanguageRepository::class, function (MockInterface $mock) use ($language) {
             $mock->shouldReceive('update')
                 ->andReturnNull();
             $mock->shouldReceive('find')

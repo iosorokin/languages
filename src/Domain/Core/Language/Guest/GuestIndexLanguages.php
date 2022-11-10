@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Core\Languages\Model\Manager\Queries\Guest;
 
-use Domain\Core\Language\Root\Model\Collections\RootLanguages;
+use Domain\Core\Language\Root\Model\Collections\Languages;
 use Domain\Core\Languages\Commands\Mixins\IndexLanguages;
 use Domain\Core\Languages\Queries\LanguageQueryBuilder;
 
@@ -15,7 +15,7 @@ final class GuestIndexLanguages
         private IndexLanguages       $indexLanguages,
     ) {}
 
-    public function __invoke(array $attributes): RootLanguages
+    public function __invoke(array $attributes): Languages
     {
         $query = $this->queryManager
             ->guest($attributes);

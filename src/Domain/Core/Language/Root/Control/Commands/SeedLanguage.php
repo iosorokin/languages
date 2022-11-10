@@ -12,9 +12,9 @@ use Infrastructure\Support\Assert;
 final class SeedLanguage
 {
     public function __construct(
-        private RootCreateLanguageHandler $createLanguage,
-        private RootUpdateLanguageHandler $updateLanguage,
-        private GetUser                   $getUser
+        private CreateLanguageHandler $createLanguage,
+        private UpdateLanguageHandler $updateLanguage,
+        private GetUser               $getUser
     ) {}
 
     public function create(EloquentUserModel|int $user, array $attributes): LanguageModel

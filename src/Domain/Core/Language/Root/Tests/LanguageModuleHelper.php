@@ -5,19 +5,19 @@ declare(strict_types=1);
 namespace Domain\Core\Language\Root\Tests;
 
 use App\Base\Helpers\ModuleHelper;
-use Domain\Core\Language\Base\Controll\Commands\Language\CreateLanguageCommand;
-use Domain\Core\Language\Base\Controll\Commands\Language\DeleteLanguageCommand;
-use Domain\Core\Language\Base\Controll\Commands\Language\UpdateLanguageCommand;
-use Domain\Core\Language\Root\Control\Commands\RootCreateLanguage;
-use Domain\Core\Language\Root\Control\Commands\RootDeleteLanguage;
+use Domain\Core\Language\Root\Control\Commands\CreateLanguage;
+use Domain\Core\Language\Root\Control\Commands\CreateLanguage;
+use Domain\Core\Language\Root\Control\Commands\DeleteLanguage;
+use Domain\Core\Language\Root\Control\Commands\DeleteLanguage;
 use Domain\Core\Language\Root\Control\Commands\RootUpdateLanguage;
 use Domain\Core\Language\Root\Control\Commands\SeedLanguage;
-use Domain\Core\Language\Root\Control\Queries\RootFindLanguage;
-use Domain\Core\Language\Root\Control\Queries\RootGetLanguages;
-use Domain\Core\Language\Root\Model\Aggregates\RootLanguage;
-use Domain\Core\Language\Root\Model\Aggregates\RootLanguageFactory;
-use Domain\Core\Language\Root\RootLanguageModule;
-use Domain\Core\Language\Root\RootLanguageModuleProd;
+use Domain\Core\Language\Root\Control\Commands\UpdateLanguage;
+use Domain\Core\Language\Root\Control\Queries\FindLanguage;
+use Domain\Core\Language\Root\Control\Queries\GetLanguages;
+use Domain\Core\Language\Root\LanguageModule;
+use Domain\Core\Language\Root\LanguageModuleProd;
+use Domain\Core\Language\Root\Model\Aggregates\Language;
+use Domain\Core\Language\Root\Model\Aggregates\LanguageFactory;
 use Generator;
 use Illuminate\Support\Str;
 use Infrastructure\Database\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
@@ -46,10 +46,10 @@ final class LanguageModuleHelper extends ModuleHelper
         return $attributes + $this->generateAttributes();
     }
 
-    public function getCreateLanguageCommand(array $overwrite = []): RootCreateLanguage
+    public function getCreateLanguageCommand(array $overwrite = []): CreateLanguage
     {
         $attributes = $overwrite + $this->generateAttributes();
-        $command = new CreateLanguageCommand($attributes);
+        $command = new CreateLanguage($attributes);
 
         return $command;
     }
@@ -57,33 +57,33 @@ final class LanguageModuleHelper extends ModuleHelper
     public function getUpdateLanguageCommand(array $overwrite = []): RootUpdateLanguage
     {
         $attributes = $overwrite + $this->generateAttributes();
-        $command = new UpdateLanguageCommand($attributes);
+        $command = new UpdateLanguage($attributes);
 
         return $command;
     }
 
-    public function getDeleteLanguageCommand(array $attributes): RootDeleteLanguage
+    public function getDeleteLanguageCommand(array $attributes): DeleteLanguage
     {
-        $command = new DeleteLanguageCommand($attributes);
+        $command = new DeleteLanguage($attributes);
 
         return $command;
     }
 
-    public function getFindLanguageQuery(array $attributes): RootFindLanguage
+    public function getFindLanguageQuery(array $attributes): FindLanguage
     {
-        $query = new RootFindLanguage($attributes);
+        $query = new FindLanguage($attributes);
 
         return $query;
     }
 
-    public function getLanguagesQuery(array $attributes = []): RootGetLanguages
+    public function getLanguagesQuery(array $attributes = []): GetLanguages
     {
-        $query = new RootGetLanguages($attributes);
+        $query = new GetLanguages($attributes);
 
         return $query;
     }
 
-    public function create(array $overwrite = []): RootLanguage
+    public function create(array $overwrite = []): Language
     {
         $attributes = $overwrite + $this->generateFullAttributes();
         $language = $this->factory()->restoreFromArray($attributes);
@@ -109,9 +109,9 @@ final class LanguageModuleHelper extends ModuleHelper
         $presenter->update($user, $language, $attributes);
     }
 
-    public function factory(): RootLanguageFactory
+    public function factory(): LanguageFactory
     {
-        return app()->make(RootLanguageFactory::class);
+        return app()->make(LanguageFactory::class);
     }
 
     private function seedHandler(): SeedLanguage
@@ -119,8 +119,8 @@ final class LanguageModuleHelper extends ModuleHelper
         return app()->make(SeedLanguage::class);
     }
 
-    public function module(): RootLanguageModule
+    public function module(): LanguageModule
     {
-        return app()->make(RootLanguageModuleProd::class);
+        return app()->make(LanguageModuleProd::class);
     }
 }

@@ -7,4 +7,6 @@ use App\Model\Values\ValueObject;
 interface IsFavorite extends ValueObject
 {
     public function get(): bool;
+
+    public function compare(IsFavorite $isFavorite): bool;
 }

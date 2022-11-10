@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Core\Language\Root\Control\Commands;
 
-interface RootUpdateLanguage extends BaseLanguageCommand
+final class CreateLanguage extends BaseLanguageCommand
 {
-    public function id(): int;
+
 }

@@ -21,4 +21,9 @@ final class IsFavoriteImp implements IsFavorite
     {
         return $this->isFavorite;
     }
+
+    public function compare(IsFavorite $isFavorite): bool
+    {
+        return $this->get() === $isFavorite->get();
+    }
 }

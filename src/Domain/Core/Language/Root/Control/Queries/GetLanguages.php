@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Core\Language\Root\Control\Queries;
 
-final class RootGetLanguages
+final class GetLanguages
 {
     private ?string $name;
 

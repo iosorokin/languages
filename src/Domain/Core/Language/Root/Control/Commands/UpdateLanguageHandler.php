@@ -6,25 +6,25 @@ use App\Model\Roles\Root;
 use App\Model\Values\Language\Code\CodeImp;
 use App\Model\Values\Language\Name\NameImp;
 use App\Model\Values\Language\NativeName\NativeNameImp;
-use Domain\Core\Language\Root\Model\Aggregates\RootLanguage;
-use Domain\Core\Language\Root\Repositories\RootLanguageRepository;
-use Domain\Core\Language\Root\Support\RootGetLanguageOrFail;
+use Domain\Core\Language\Root\Model\Aggregates\Language;
+use Domain\Core\Language\Root\Repositories\LanguageRepository;
+use Domain\Core\Language\Root\Support\GetLanguageOrFail;
 
-class RootUpdateLanguageHandler
+class UpdateLanguageHandler
 {
     public function __construct(
-        private RootGetLanguageOrFail  $getLanguageOrFail,
-        private RootLanguageRepository $repository,
+        private GetLanguageOrFail  $getLanguageOrFail,
+        private LanguageRepository $repository,
     ) {}
 
-    public function __invoke(Root $root, RootUpdateLanguage $command): void
+    public function __invoke(Root $root, UpdateLanguage $command): void
     {
         $language = ($this->getLanguageOrFail)($command->id());
         $this->updateLanguage($language, $command);
         $this->repository->update($language);
     }
 
-    private function updateLanguage(RootLanguage $language, RootUpdateLanguage $dto): void
+    private function updateLanguage(Language $language, UpdateLanguage $dto): void
     {
         $language->changeName(NameImp::new($dto->name()));
         $language->changeNativeName(NativeNameImp::new($dto->nativeName()));

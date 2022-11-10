@@ -7,19 +7,19 @@ namespace Domain\Core\Language\Root\Tests\Module;
 use App\Base\Tests\ModuleCase;
 use App\Model\Roles\RoleHelper;
 use App\Model\Roles\Root;
-use Domain\Core\Language\Root\Control\Commands\RootDeleteLanguage;
-use Domain\Core\Language\Root\RootLanguageModuleProd;
-use Domain\Core\Language\Root\Repositories\RootLanguageRepository;
+use Domain\Core\Language\Root\Control\Commands\DeleteLanguage;
+use Domain\Core\Language\Root\LanguageModuleProd;
+use Domain\Core\Language\Root\Repositories\LanguageRepository;
 use Domain\Core\Language\Root\Tests\LanguageModuleHelper;
 use Mockery\MockInterface;
 
 final class RootLanguageModuleDeleteTest extends ModuleCase
 {
-    private RootLanguageModuleProd $languageModule;
+    private LanguageModuleProd $languageModule;
 
     private Root $root;
 
-    private RootDeleteLanguage $command;
+    private DeleteLanguage $command;
 
     /** @test */
     public function __invoke()
@@ -41,7 +41,7 @@ final class RootLanguageModuleDeleteTest extends ModuleCase
         $this->command = $helper->getDeleteLanguageCommand([
             'id' => $language->id()->toInt(),
         ]);
-        $this->mock(RootLanguageRepository::class, function (MockInterface $mock) use ($language) {
+        $this->mock(LanguageRepository::class, function (MockInterface $mock) use ($language) {
             $mock->shouldReceive('delete')
                 ->andReturnNull();
             $mock->shouldReceive('find')

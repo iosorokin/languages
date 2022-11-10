@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Domain\Core\Language\Root\Model\Aggregates;
 
 use App\Model\Roles\Root;
+use App\Model\Roles\Student;
 use App\Model\Values\Datetime\Now;
 use App\Model\Values\Datetime\TimestampImp;
 use App\Model\Values\Identificatiors\Id\BigIntId;
@@ -13,13 +14,13 @@ use App\Model\Values\Language\Code\CodeImp;
 use App\Model\Values\Language\Name\NameImp;
 use App\Model\Values\Language\NativeName\NativeNameImp;
 use App\Model\Values\State\IsActiveImp;
-use Domain\Core\Language\Root\Control\Commands\RootCreateLanguage;
+use Domain\Core\Language\Root\Control\Commands\CreateLanguage;
 
-final class RootLanguageFactory
+final class LanguageFactory
 {
-    public function new(Root $root, RootCreateLanguage $command): RootLanguage
+    public function new(Root $root, CreateLanguage $command): Language
     {
-        $language = new RootLanguage(
+        $language = new Language(
             id: StrictNullId::new(),
             owner: $root->id(),
             name: NameImp::new($command->name()),
@@ -32,9 +33,9 @@ final class RootLanguageFactory
         return $language;
     }
 
-    public function restoreFromArray(array $data): RootLanguage
+    public function restoreFromArray(array $data): Language
     {
-        $language = new RootLanguage(
+        $language = new Language(
             id: BigIntId::new($data['id']),
             owner: BigIntId::new($data['owner']),
             name: NameImp::new($data['name']),

@@ -2,11 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Domain\Core\Language\Base\Controll\Commands\Language;
+namespace Domain\Core\Language\Root\Control\Commands;
 
-use Domain\Core\Language\Root\Control\Commands\RootDeleteLanguage;
-
-final class DeleteLanguageCommand implements RootDeleteLanguage
+final class DeleteLanguage
 {
     private int $id;
 

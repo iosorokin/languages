@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Domain\Core\Languages\Model\Manager\Queries\User;
 
 use App\Controllers\Auth\Internal\GetAuthUser;
-use Domain\Core\Language\Root\Model\Collections\RootLanguages;
+use Domain\Core\Language\Root\Model\Collections\Languages;
 use Domain\Core\Languages\Commands\Mixins\IndexLanguages;
 use Domain\Core\Languages\Queries\LanguageQueryBuilder;
 
@@ -17,7 +17,7 @@ final class UserIndexLanguages
         private IndexLanguages       $indexLanguages,
     ) {}
 
-    public function __invoke(array $attributes): RootLanguages
+    public function __invoke(array $attributes): Languages
     {
         $auth = ($this->getAuthUser)();
         $query = $this->queryManager->user($auth, $attributes);
