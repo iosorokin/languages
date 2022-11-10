@@ -1,14 +1,40 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Base\Filter;
 
-interface Filter
+abstract class Filter
 {
-    public function add(Filter $filter): static;
+    private array $filters = [];
 
-    public function get(string|Filter $filter): Filter;
+    public function add(Filter $filter): static
+    {
+        $this->filters[$filter::class] = $filter;
 
-    public function has(string|Filter $filter): bool;
+        return $this;
+    }
 
-    public function delete(string|Filter $filter): void;
+    public function get(string|Filter $filter): Filter
+    {
+        $filter = is_string($filter) ? $filter : $filter::class;
+
+        return $this->filters[$filter];
+    }
+
+    public function has(string|Filter $filter): bool
+    {
+        $filter = is_string($filter) ? $filter : $filter::class;
+
+        return isset($this->filters[$filter]);
+    }
+
+    public function delete(string|Filter $filter): void
+    {
+        $filter = is_string($filter) ? $filter : $filter::class;
+
+        unset($this->filters[$filter]);
+    }
+
+    abstract public function value(): mixed;
 }

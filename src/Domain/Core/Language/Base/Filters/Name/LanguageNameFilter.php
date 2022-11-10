@@ -4,7 +4,13 @@ declare(strict_types=1);
 
 namespace Domain\Core\Language\Base\Filters\Name;
 
-final class LanguageNameFilter
+use App\Base\Filter\Filter;
+
+final class LanguageNameFilter extends Filter
 {
 
+
+    public function __construct()
+    {
+    }
 }
