@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Core\Analysis\Validators;
 
-use App\Rules\BigIntId;
+use App\Support\Validation\Rules\BigIntId;
 
 final class CreateAnalysisValidator extends AnalysisValidator
 {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Infrastructure\Database\Repositories\Personal\Providers;
 
-use App\Extensions\Assert;
+use App\Support\Assert;
 use Illuminate\Support\Carbon;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 

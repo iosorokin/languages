@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Domain\Core\Sentences\Controllers;
 
-use App\Responses\Json\IdResponse;
-use App\Responses\Json\NoContentResponse;
+use App\Support\Responses\Json\IdResponse;
+use App\Support\Responses\Json\NoContentResponse;
 use Core\Http\Controller;
 use Domain\Core\Sentences\Presenters\User\UserStoreSentence;
 use Domain\Core\Sources\Presenters\User\UserDeleteSource;

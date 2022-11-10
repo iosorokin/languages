@@ -197,7 +197,7 @@ return [
         /*
          * Application Service Providers
          */
-        App\Providers\EloquentServiceProvider::class,
+        \Core\Providers\EloquentServiceProvider::class,
 
         /*
          * Module Service Providers

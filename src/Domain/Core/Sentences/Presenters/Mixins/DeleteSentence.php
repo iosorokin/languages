@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Core\Sentences\Presenters\Mixins;
 
-use App\Rules\BigIntId;
+use App\Support\Validation\Rules\BigIntId;
 use Domain\Core\Sentences\Policies\SentencePolicy;
 use Domain\Core\Sentences\Presenters\Internal\GetSentence;
 use Domain\Sentences\Repositories\SentenceRepository;

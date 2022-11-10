@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Personal\Account\Model\Aggregates;
 
-use App\Values\Identificatiors\Id\IntId;
+use App\Model\Values\Identificatiors\Id\IntId;
 use Domain\Personal\Account\Model\Entities\Accesses\Accesses;
 use Domain\Personal\Account\Model\Entities\Accesses\AccessValue;
 

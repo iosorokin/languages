@@ -2,7 +2,7 @@
 
 namespace Domain\Core\Language\Root\Control\Commands;
 
-use App\Roles\ContentManager;
+use App\Model\Roles\ContentManager;
 use Domain\Core\Language\Root\Repositories\ManagerLanguageRepository;
 use Domain\Core\Languages\Model\Manager\Queries\Mixins\GetLanguage;
 

@@ -2,7 +2,7 @@
 
 namespace App\Controll\Controllers\Auth;
 
-use App\Responses\Json\NoContentResponse;
+use App\Support\Responses\Json\NoContentResponse;
 use Domain\Personal\Account\Actions\Auth\Logout;
 use Domain\Personal\Account\Services\Auth\AuthService;
 use Illuminate\Http\JsonResponse;

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Core\Chapters\Controllers;
 
-use App\Responses\Json\CreatedResponse;
+use App\Support\Responses\Json\CreatedResponse;
 use Domain\Chapters\Controllers\ShowChapterResource;
 use Domain\Core\Chapters\Presenters\User\UserShowChapter;
 use Domain\Core\Chapters\Presenters\User\UserStoreChapter;

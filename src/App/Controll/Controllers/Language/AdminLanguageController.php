@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Controll\Controllers\Language;
 
-use App\Responses\Json\IdResponse;
-use App\Responses\Json\NoContentResponse;
-use App\Responses\Json\OkResponse;
+use App\Support\Responses\Json\IdResponse;
+use App\Support\Responses\Json\NoContentResponse;
+use App\Support\Responses\Json\OkResponse;
 use Domain\Core\Languages\Model\Manager\Commands\Manager\CreateLanguageHandler;
 use Domain\Core\Languages\Model\Manager\Commands\Manager\DeleteLanguageHandler;
 use Domain\Core\Languages\Model\Manager\Commands\Manager\UpdateLanguageHandler;

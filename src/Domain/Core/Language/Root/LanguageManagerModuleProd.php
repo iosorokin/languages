@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Core\Language\Root;
 
-use App\Roles\ContentManager;
+use App\Model\Roles\ContentManager;
 use Domain\Core\Language\Root\Control\Commands\CreateLanguageHandler;
 use Domain\Core\Language\Root\Control\Commands\DeleteLanguageHandler;
 use Domain\Core\Language\Root\Control\Commands\RootCreateLanguage;

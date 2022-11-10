@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Domain\Core\Sources\Controllers;
 
-use App\Responses\Json\IdResponse;
-use App\Responses\Json\NoContentResponse;
-use App\Responses\Json\OkResponse;
+use App\Support\Responses\Json\IdResponse;
+use App\Support\Responses\Json\NoContentResponse;
+use App\Support\Responses\Json\OkResponse;
 use Domain\Core\Sources\Presenters\User\UserCreateSource;
 use Domain\Core\Sources\Presenters\User\UserDeleteSource;
 use Domain\Core\Sources\Presenters\User\UserIndexSources;

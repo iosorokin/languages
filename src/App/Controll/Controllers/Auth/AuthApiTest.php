@@ -3,7 +3,7 @@
 namespace App\Controll\Controllers\Auth;
 
 use App\Base\Tests\EndpointCase;
-use App\Helpers\Test\BaseAuthApiHelper;
+use App\Tests\Helpers\BaseAuthApiHelper;
 
 class AuthApiTest extends EndpointCase
 {

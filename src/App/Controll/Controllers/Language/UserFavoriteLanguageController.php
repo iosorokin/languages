@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Controll\Controllers\Language;
 
-use App\Responses\Json\NoContentResponse;
-use App\Responses\Json\OkResponse;
+use App\Support\Responses\Json\NoContentResponse;
+use App\Support\Responses\Json\OkResponse;
 use Domain\Core\Languages\Model\Manager\Commands\User\UserAddLanguageToFavorite;
 use Domain\Core\Languages\Model\Manager\Commands\User\UserRemoveFromFavorite;
 use Illuminate\Http\JsonResponse;

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Core\Sources\Controllers;
 
-use App\Responses\Json\OkResponse;
+use App\Support\Responses\Json\OkResponse;
 use Domain\Core\Sources\Presenters\Guest\GuestIndexSources;
 use Domain\Core\Sources\Presenters\Guest\GuestShowSource;
 use Domain\Core\Sources\Transformers\GuestSourceTransformer;

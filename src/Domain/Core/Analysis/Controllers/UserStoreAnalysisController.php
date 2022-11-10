@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Core\Analysis\Controllers;
 
-use App\Responses\Json\CreatedResponse;
+use App\Support\Responses\Json\CreatedResponse;
 use Domain\Core\Analysis\Presenters\User\UserCreateAnalysis;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;

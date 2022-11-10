@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Domain\Personal\Account\Model\Entities\Accesses;
 
-use App\Base\Entity;
-use App\Values\Identificatiors\Id\IntId;
+use App\Base\Model\Entity;
+use App\Model\Values\Identificatiors\Id\IntId;
 use Domain\Personal\Account\Model\Entities\Accesses\Policies\DisableAccessPolicy;
 use Domain\Personal\Account\Model\Entities\Accesses\Policies\EnableAccessPolicy;
 use Domain\Personal\Account\Model\Values\Access\Access;

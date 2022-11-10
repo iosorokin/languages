@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Core\Sources\Validators;
 
-use App\Rules\BigIntId;
+use App\Support\Validation\Rules\BigIntId;
 
 final class CreateSourceValidator extends SourceValidator
 {

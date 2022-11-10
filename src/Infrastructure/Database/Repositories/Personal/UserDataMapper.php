@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Infrastructure\Database\Repositories\Personal;
 
-use App\Values\Contacts\Email\UserEmail;
-use App\Values\Datetime\PresetCreatedAt;
-use App\Values\Datetime\TimestampImp;
-use App\Values\Identificatiors\Id\BigIntId;
-use App\Values\Personality\Name\NameImp;
+use App\Model\Values\Contacts\Email\UserEmail;
+use App\Model\Values\Datetime\PresetCreatedAt;
+use App\Model\Values\Datetime\TimestampImp;
+use App\Model\Values\Identificatiors\Id\BigIntId;
+use App\Model\Values\Personality\Name\NameImp;
 use Domain\Account\Infrastructure\Repository\PresetTimestamps;
 use Domain\Account\Values\Accesses\UnconfirmUser;
 use Domain\Personal\Account\Model\Aggregates\Account;

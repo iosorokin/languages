@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Domain\Personal\Account\Model\Events;
 
 use App\Contracts\Event;
-use App\Values\Identificatiors\Id\IntId;
+use App\Model\Values\Identificatiors\Id\IntId;
 
 final class AccountCreated implements Event
 {

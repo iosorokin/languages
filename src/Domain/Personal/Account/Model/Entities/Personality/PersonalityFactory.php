@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Domain\Personal\Account\Model\Entities\Personality;
 
-use App\Values\Identificatiors\Id\BigIntId;
-use App\Values\Identificatiors\Id\StrictNullId;
-use App\Values\Personality\Name\NameImp;
+use App\Model\Values\Identificatiors\Id\BigIntId;
+use App\Model\Values\Identificatiors\Id\StrictNullId;
+use App\Model\Values\Personality\Name\NameImp;
 use Domain\Personal\Account\Dto\NewAccountDto;
 use Domain\Personal\Account\Dto\RestoreAccountDto;
 

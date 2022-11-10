@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Domain\Core\Language\Root\Control\Commands;
 
-use App\Extensions\Assert;
 use App\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
+use App\Support\Assert;
 use Domain\Personal\Account\Queries\GetUser;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 

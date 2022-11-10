@@ -2,7 +2,7 @@
 
 namespace Domain\Core\Language\Root;
 
-use App\Roles\ContentManager;
+use App\Model\Roles\ContentManager;
 use Domain\Core\Language\Root\Control\Commands\RootCreateLanguage;
 use Domain\Core\Language\Root\Control\Commands\RootDeleteLanguage;
 use Domain\Core\Language\Root\Control\Commands\RootUpdateLanguage;

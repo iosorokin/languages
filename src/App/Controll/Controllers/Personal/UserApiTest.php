@@ -3,7 +3,7 @@
 namespace App\Controll\Controllers\Personal;
 
 use App\Base\Tests\EndpointCase;
-use App\Helpers\Test\PersonalApiHelper;
+use App\Tests\Helpers\PersonalApiHelper;
 
 class UserApiTest extends EndpointCase
 {

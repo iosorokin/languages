@@ -2,7 +2,7 @@
 
 namespace App\Controll\Controllers\Personal;
 
-use App\Responses\Json\IdResponse;
+use App\Support\Responses\Json\IdResponse;
 use Domain\Personal\Account\Actions\Guest\Register;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;

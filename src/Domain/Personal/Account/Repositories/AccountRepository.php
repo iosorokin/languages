@@ -2,7 +2,7 @@
 
 namespace Domain\Personal\Account\Repositories;
 
-use App\Values\Contacts\Email\Email;
+use App\Model\Values\Contacts\Email\Email;
 use Domain\Personal\Account\Model\Aggregates\Account;
 
 interface AccountRepository

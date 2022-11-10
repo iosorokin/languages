@@ -3,8 +3,8 @@
 namespace Domain\Core\Sources\Controllers;
 
 use App\Base\Tests\EndpointCase;
-use App\Helpers\Test\BaseAuthApiHelper;
 use App\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
+use App\Tests\Helpers\BaseAuthApiHelper;
 use Domain\Core\Language\Root\Tests\LanguageModuleHelper;
 use Domain\Core\Sources\Helpers\SourceApiHelper;
 

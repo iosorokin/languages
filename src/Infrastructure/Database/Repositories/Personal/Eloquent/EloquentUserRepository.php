@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Infrastructure\Database\Repositories\Personal\Eloquent;
 
-use App\Values\Identificatiors\Id\BigIntId;
+use App\Model\Values\Identificatiors\Id\BigIntId;
 use Domain\Account\Domain\UserRepository;
 use Domain\Personal\Account\Model\Aggregates\Account;
 use Illuminate\Support\Facades\DB;

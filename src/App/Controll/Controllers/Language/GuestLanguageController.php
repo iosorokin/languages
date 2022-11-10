@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Controll\Controllers\Language;
 
-use App\Responses\Json\OkResponse;
-use App\Transformers\GuestLanguageTransformer;
+use App\Support\Responses\Json\OkResponse;
+use App\Support\Transformers\GuestLanguageTransformer;
 use Domain\Core\Languages\Model\Manager\Queries\Guest\GuestIndexLanguages;
 use Domain\Core\Languages\Model\Manager\Queries\Guest\GuestShowLanguage;
 use Illuminate\Http\JsonResponse;

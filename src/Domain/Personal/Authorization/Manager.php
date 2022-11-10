@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Personal\Authorization;
 
-use App\Values\Identificatiors\Id\IntId;
+use App\Model\Values\Identificatiors\Id\IntId;
 
 final class Manager
 {

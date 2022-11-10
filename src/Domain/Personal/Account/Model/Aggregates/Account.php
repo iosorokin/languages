@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Domain\Personal\Account\Model\Aggregates;
 
-use App\Base\Entity;
+use App\Base\Model\Entity;
 use App\Contracts\EventDispatcher;
-use App\Values\Contacts\Email\Email;
-use App\Values\Datetime\Timestamp;
-use App\Values\Identificatiors\Id\IntId;
-use App\Values\Security\Password;
+use App\Model\Values\Contacts\Email\Email;
+use App\Model\Values\Datetime\Timestamp;
+use App\Model\Values\Identificatiors\Id\IntId;
+use App\Model\Values\Security\Password;
 use Domain\Personal\Account\Model\Entities\Accesses\Accesses;
 use Domain\Personal\Account\Model\Entities\Accesses\AccessValue;
 use Domain\Personal\Account\Model\Entities\Accesses\Policies\EnableRootPolicy;

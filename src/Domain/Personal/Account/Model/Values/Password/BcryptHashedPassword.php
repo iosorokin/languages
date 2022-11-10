@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Domain\Personal\Account\Model\Values\Password;
 
-use App\Values\InvalidValueObject;
-use App\Values\Security\Password;
+use App\Model\Values\InvalidValueObject;
+use App\Model\Values\Security\Password;
 use Illuminate\Hashing\BcryptHasher;
 
 final class BcryptHashedPassword implements Password

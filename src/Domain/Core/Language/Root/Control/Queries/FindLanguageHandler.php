@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Core\Language\Root\Control\Queries;
 
-use App\Roles\ContentManager;
+use App\Model\Roles\ContentManager;
 use Domain\Core\Languages\Model\Manager\Queries\Mixins\GetLanguage;
 use Domain\Manager\Languages\Responses\ManagerLanguageStructure;
 

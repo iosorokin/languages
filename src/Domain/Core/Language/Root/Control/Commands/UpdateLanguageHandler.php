@@ -2,10 +2,10 @@
 
 namespace Domain\Core\Language\Root\Control\Commands;
 
-use App\Roles\ContentManager;
-use App\Values\Language\Code\CodeImp;
-use App\Values\Language\Name\NameImp;
-use App\Values\Language\NativeName\NativeNameImp;
+use App\Model\Roles\ContentManager;
+use App\Model\Values\Language\Code\CodeImp;
+use App\Model\Values\Language\Name\NameImp;
+use App\Model\Values\Language\NativeName\NativeNameImp;
 use Domain\Core\Languages\Model\Manager\Aggregates\Manager\ManagerLanguage;
 use Domain\Core\Languages\Model\Manager\ManagerLanguageRepository;
 use Domain\Core\Languages\Model\Manager\Queries\Mixins\GetLanguage;

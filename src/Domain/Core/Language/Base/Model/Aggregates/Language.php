@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Domain\Core\Language\Base\Model\Aggregates;
 
-use App\Values\Datetime\Timestamp;
-use App\Values\Identificatiors\Id\IntId;
-use App\Values\Language\Code\Code;
-use App\Values\Language\Name\Name;
-use App\Values\Language\NativeName\NativeName;
-use App\Values\State\IsActive;
+use App\Model\Values\Datetime\Timestamp;
+use App\Model\Values\Identificatiors\Id\IntId;
+use App\Model\Values\Language\Code\Code;
+use App\Model\Values\Language\Name\Name;
+use App\Model\Values\Language\NativeName\NativeName;
+use App\Model\Values\State\IsActive;
 
 abstract class Language
 {
