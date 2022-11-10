@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Controll\Commands\Language;
+namespace App\Controll\Queries\Languages;
 
-use Domain\Core\Language\Root\Control\Commands\RootDeleteLanguage;
+use Domain\Core\Language\Root\Control\Queries\RootFindLanguage;
 
-final class DeleteLanguageCommand implements RootDeleteLanguage
+final class RootFindLanguageQuery implements RootFindLanguage
 {
     private int $id;
 

@@ -5,14 +5,14 @@ namespace Domain\Core\Sources\Controllers;
 use App\Base\Tests\EndpointCase;
 use App\Helpers\Test\BaseAuthApiHelper;
 use App\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
+use Domain\Core\Language\Root\Tests\LanguageModuleHelper;
 use Domain\Core\Sources\Helpers\SourceApiHelper;
-use Domain\Manager\Languages\Tests\LanguageManagerModuleHelper;
 
 class SourceApiTest extends EndpointCase
 {
     public function testUserCreate()
     {
-        $helper = LanguageManagerModuleHelper::new();
+        $helper = LanguageModuleHelper::new();
         /** @var LanguageModel $language */
         $language = $helper->createFromAction(1)
             ->current();

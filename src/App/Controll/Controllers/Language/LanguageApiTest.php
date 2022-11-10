@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Controll\Controllers\Language;
 
 use App\Base\Tests\EndpointCase;
+use App\Helpers\LanguageManagerApiHelper;
 use App\Helpers\Test\BaseAuthApiHelper;
-use Domain\Manager\Languages\Tests\LanguageManagerApiHelper;
 
 final class LanguageApiTest extends EndpointCase
 {

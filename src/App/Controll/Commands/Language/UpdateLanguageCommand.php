@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace App\Controll\Commands\Language;
 
-use Domain\Core\Languages\Model\Manager\Commands\Manager\UpdateLanguage;
 
-final class UpdateLanguageCommand extends BaseLanguageCommand implements UpdateLanguage
+use Domain\Core\Language\Root\Control\Commands\RootUpdateLanguage;
+
+final class UpdateLanguageCommand extends BaseLanguageCommand implements RootUpdateLanguage
 {
     protected int $id;
 
