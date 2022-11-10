@@ -5,21 +5,21 @@ declare(strict_types=1);
 namespace Domain\Core\Language\Root\Tests;
 
 use App\Base\Helpers\ModuleHelper;
-use App\Controll\Commands\Language\CreateLanguageCommand;
-use App\Controll\Commands\Language\DeleteLanguageCommand;
-use App\Controll\Commands\Language\UpdateLanguageCommand;
-use App\Controll\Queries\Languages\RootFindLanguageQuery;
-use App\Controll\Queries\Languages\RootGetLanguagesQuery;
+use Domain\Core\Language\Base\Controll\Commands\Language\CreateLanguageCommand;
+use Domain\Core\Language\Base\Controll\Commands\Language\DeleteLanguageCommand;
+use Domain\Core\Language\Base\Controll\Commands\Language\UpdateLanguageCommand;
 use Domain\Core\Language\Root\Control\Commands\RootCreateLanguage;
 use Domain\Core\Language\Root\Control\Commands\RootDeleteLanguage;
 use Domain\Core\Language\Root\Control\Commands\RootUpdateLanguage;
 use Domain\Core\Language\Root\Control\Commands\SeedLanguage;
 use Domain\Core\Language\Root\Control\Queries\RootFindLanguage;
+use Domain\Core\Language\Root\Control\Queries\RootFindLanguage;
 use Domain\Core\Language\Root\Control\Queries\RootGetLanguages;
-use Domain\Core\Language\Root\RootLanguageModule;
-use Domain\Core\Language\Root\RootLanguageModuleProd;
+use Domain\Core\Language\Root\Control\Queries\RootGetLanguages;
 use Domain\Core\Language\Root\Model\Aggregates\RootLanguage;
 use Domain\Core\Language\Root\Model\Aggregates\RootLanguageFactory;
+use Domain\Core\Language\Root\RootLanguageModule;
+use Domain\Core\Language\Root\RootLanguageModuleProd;
 use Generator;
 use Illuminate\Support\Str;
 use Infrastructure\Database\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
@@ -73,14 +73,14 @@ final class LanguageModuleHelper extends ModuleHelper
 
     public function getFindLanguageQuery(array $attributes): RootFindLanguage
     {
-        $query = new RootFindLanguageQuery($attributes);
+        $query = new RootFindLanguage($attributes);
 
         return $query;
     }
 
     public function getLanguagesQuery(array $attributes = []): RootGetLanguages
     {
-        $query = new RootGetLanguagesQuery($attributes);
+        $query = new RootGetLanguages($attributes);
 
         return $query;
     }

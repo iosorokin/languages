@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controll\Commands\Language;
+namespace Domain\Core\Language\Base\Controll\Commands\Language;
 
 abstract class BaseLanguageCommand
 {

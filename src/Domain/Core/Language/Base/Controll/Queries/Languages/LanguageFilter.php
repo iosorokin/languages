@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace Domain\Core\Language\Root\Filters;
+namespace Domain\Core\Language\Base\Controll\Queries\Languages;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Arr;
 
 final class LanguageFilter
@@ -14,17 +13,11 @@ final class LanguageFilter
         public readonly ?string $nativeName,
     ) {}
 
-    public function filter(Builder $query): void
-    {
-        if ($this->name) $query->whereName($this->name);
-        if ($this->nativeName) $query->whereNativeName($this->nativeName);
-    }
-
     public static function new(array $attributes): self
     {
         return new static(
             name: Arr::get($attributes, 'name'),
-            nativeName: Arr::get($attributes, 'nativeName'),
+            nativeName: Arr::get($attributes, 'native_name'),
         );
     }
 }
