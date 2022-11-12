@@ -3,17 +3,17 @@
 namespace Database\Seeders;
 
 use Domain\Account\Model\Entities\Accesses\Access;
-use Domain\Core\Analysis\Helpers\AnalysisSeedHelper;
-use Domain\Core\Chapters\Helpers\ChapterSeedHelper;
-use Domain\Core\Language\Root\Tests\LanguageModuleHelper;
-use Domain\Core\Sentences\Model\Sentence;
-use Domain\Core\Sentences\Tests\SentenceHelper;
-use Domain\Core\Sources\Helpers\SourceSeedHelper;
-use Domain\Core\Sources\Structures\Source;
-use Domain\Personal\Account\Helpers\Test\AccountSeedHelper;
-use Domain\Personal\Account\Model\Aggregates\Account;
+use Domain\Core\Language\Root\Test\LanguageModuleHelper;
 use Illuminate\Database\Seeder;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
+use WIP\Core\Analysis\Helpers\AnalysisSeedHelper;
+use WIP\Core\Chapters\Helpers\ChapterSeedHelper;
+use WIP\Core\Sentences\Model\Sentence;
+use WIP\Core\Sentences\Tests\SentenceHelper;
+use WIP\Core\Sources\Helpers\SourceSeedHelper;
+use WIP\Core\Sources\Structures\Source;
+use WIP\Personal\Account\Helpers\Test\AccountSeedHelper;
+use WIP\Personal\Account\Model\Aggregates\Account;
 
 class DatabaseSeeder extends Seeder
 {

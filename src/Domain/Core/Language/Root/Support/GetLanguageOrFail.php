@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Domain\Core\Language\Root\Support;
 
 use App\Exceptions\EntityNotFound;
-use App\Model\Values\Identificatiors\Id\IntId;
-use Domain\Core\Language\Root\Model\Aggregates\Language;
-use Domain\Core\Language\Root\Repositories\LanguageRepository;
+use Domain\Core\Language\Guest\Control\Queries\FindLanguage;
+use Domain\Core\Language\Guest\Model\Aggregate\Language;
+use Domain\Core\Language\Guest\Repository\LanguageRepository;
 
 final class GetLanguageOrFail
 {
@@ -15,12 +15,11 @@ final class GetLanguageOrFail
         private LanguageRepository $repository,
     ){}
 
-    public function __invoke(IntId|int $id): Language
+    public function __invoke(FindLanguage $query): Language
     {
-        $id = is_int($id) ? $id : $id->toInt();
-        $language = $this->repository->find($id);
+        $language = $this->repository->find($query);
         if (! $language) {
-            throw new EntityNotFound('language_id', $id);
+            throw new EntityNotFound('language_id', $query->id());
         }
 
         return $language;

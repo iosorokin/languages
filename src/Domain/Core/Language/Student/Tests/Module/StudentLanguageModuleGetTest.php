@@ -9,9 +9,9 @@ use App\Model\Roles\RoleHelper;
 use App\Model\Roles\Root;
 use Domain\Core\Language\Root\Control\Queries\FindLanguage;
 use Domain\Core\Language\Root\Control\Queries\GetLanguages;
-use Domain\Core\Language\Root\Repositories\LanguageRepository;
+use Domain\Core\Language\Root\Repository\LanguageRepository;
 use Domain\Core\Language\Root\LanguageModuleProd;
-use Domain\Core\Language\Root\Tests\LanguageModuleHelper;
+use Domain\Core\Language\Root\Test\LanguageModuleHelper;
 use Mockery\MockInterface;
 
 final class StudentLanguageModuleGetTest extends ModuleCase

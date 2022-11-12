@@ -6,10 +6,10 @@ namespace Infrastructure\Database\Repositories\Personal\Eloquent;
 
 use App\Model\Values\Identificatiors\Id\BigIntId;
 use Domain\Account\Domain\UserRepository;
-use Domain\Personal\Account\Model\Aggregates\Account;
 use Illuminate\Support\Facades\DB;
 use Infrastructure\Database\Repositories\Personal\Providers\UserRawDataProvider;
 use Infrastructure\Database\Repositories\Personal\UserDataMapper;
+use WIP\Personal\Account\Model\Aggregates\Account;
 
 final class EloquentUserRepository implements UserRepository
 {

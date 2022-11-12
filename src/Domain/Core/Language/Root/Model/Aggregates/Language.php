@@ -12,7 +12,7 @@ use App\Model\Values\Language\Name\Name;
 use App\Model\Values\Language\NativeName\NativeName;
 use App\Model\Values\State\IsActive;
 use App\Model\Values\State\IsActiveImp;
-use Domain\Core\Language\Root\Repositories\LanguageRepository;
+use Domain\Core\Language\Root\Repository\LanguageRepository;
 
 final class Language
 {

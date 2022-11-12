@@ -11,11 +11,11 @@ use App\Model\Values\Identificatiors\Id\BigIntId;
 use App\Model\Values\Personality\Name\NameImp;
 use Domain\Account\Infrastructure\Repository\PresetTimestamps;
 use Domain\Account\Values\Accesses\UnconfirmUser;
-use Domain\Personal\Account\Model\Aggregates\Account;
-use Domain\Personal\Account\Model\Entities\BaseAuth\BaseAuth;
-use Domain\Personal\Account\Model\Values\Password\RawPassword;
 use Infrastructure\Database\Repositories\Personal\Providers\UserDataProvider;
 use ReflectionClass;
+use WIP\Personal\Account\Model\Aggregates\Account;
+use WIP\Personal\Account\Model\Entities\BaseAuth\BaseAuth;
+use WIP\Personal\Account\Model\Values\Password\RawPassword;
 
 final class UserDataMapper
 {

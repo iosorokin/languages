@@ -4,7 +4,7 @@ namespace Domain\Core\Language\Root\Control\Commands;
 
 use App\Model\Roles\Root;
 use Domain\Core\Language\Root\Model\Aggregates\LanguageFactory;
-use Domain\Core\Language\Root\Repositories\LanguageRepository;
+use Domain\Core\Language\Root\Repository\LanguageRepository;
 
 class CreateLanguageHandler
 {

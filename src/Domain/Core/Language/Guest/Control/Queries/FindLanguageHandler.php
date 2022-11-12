@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Core\Language\Guest\Control\Queries;
 
-use App\Model\Roles\ContentManager;
-use App\Model\Roles\Root;
-use Domain\Core\Language\Root\Model\Aggregates\Language;
+use Domain\Core\Language\Guest\Model\Aggregate\Language;
 use Domain\Core\Language\Root\Support\GetLanguageOrFail;
 
 class FindLanguageHandler
@@ -15,9 +13,9 @@ class FindLanguageHandler
         private GetLanguageOrFail $getLanguageOrFail,
     ) {}
 
-    public function __invoke(Root $root, FindLanguage $query): Language
+    public function __invoke(FindLanguage $query): Language
     {
-        $language = ($this->getLanguageOrFail)($query->id());
+        $language = ($this->getLanguageOrFail)($query);
 
         return $language;
     }

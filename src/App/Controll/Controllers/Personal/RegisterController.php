@@ -2,10 +2,10 @@
 
 namespace App\Controll\Controllers\Personal;
 
-use Domain\Personal\Account\Actions\Guest\Register;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Infrastructure\Support\Responses\Json\IdResponse;
+use WIP\Personal\Account\Actions\Guest\Register;
 
 final class RegisterController
 {

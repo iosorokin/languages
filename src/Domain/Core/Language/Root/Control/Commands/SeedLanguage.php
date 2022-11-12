@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Domain\Core\Language\Root\Control\Commands;
 
-use Domain\Personal\Account\Queries\GetUser;
 use Infrastructure\Database\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 use Infrastructure\Support\Assert;
+use WIP\Personal\Account\Queries\GetUser;
 
 final class SeedLanguage
 {

@@ -2,9 +2,9 @@
 
 namespace App\Controll\Controllers\Auth;
 
-use Domain\Personal\Account\Actions\Auth\BaseLogin;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use WIP\Personal\Account\Actions\Auth\BaseLogin;
 
 class BaseLoginController
 {

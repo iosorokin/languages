@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Tests\Helpers;
 
 use App\Base\Helpers\ApiHelper;
-use Domain\Personal\Account\Helpers\Test\AccountSeedHelper;
-use Domain\Personal\Account\Helpers\Test\BaseAuthSeedHelper;
 use Illuminate\Testing\TestResponse;
+use WIP\Personal\Account\Helpers\Test\AccountSeedHelper;
+use WIP\Personal\Account\Helpers\Test\BaseAuthSeedHelper;
 
 final class PersonalApiHelper extends ApiHelper
 {

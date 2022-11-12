@@ -3,9 +3,9 @@
 use App\Controll\Controllers\Auth\BaseLoginController;
 use App\Controll\Controllers\Language\GuestLanguageController;
 use App\Controll\Controllers\Personal\RegisterController;
-use Domain\Core\Sources\Controllers\GuestSourceController;
-use Domain\Core\Sources\Controllers\Items\GuestSourceItemsController;
 use Illuminate\Support\Facades\Route;
+use WIP\Core\Sources\Controllers\GuestSourceController;
+use WIP\Core\Sources\Controllers\Items\GuestSourceItemsController;
 
 /*
 |--------------------------------------------------------------------------

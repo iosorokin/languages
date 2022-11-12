@@ -3,7 +3,7 @@
 namespace Domain\Core\Language\Root\Control\Commands;
 
 use App\Model\Roles\Root;
-use Domain\Core\Language\Root\Repositories\LanguageRepository;
+use Domain\Core\Language\Root\Repository\LanguageRepository;
 use Domain\Core\Language\Root\Support\GetLanguageOrFail;
 
 class DeleteLanguageHandler

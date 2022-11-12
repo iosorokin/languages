@@ -5,7 +5,7 @@ namespace Domain\Core\Language\Root\Control\Queries;
 use App\Model\Roles\ContentManager;
 use App\Model\Roles\Root;
 use Domain\Core\Language\Root\Model\Collections\Languages;
-use Domain\Core\Language\Root\Repositories\LanguageRepository;
+use Domain\Core\Language\Root\Repository\LanguageRepository;
 
 class GetLanguagesHandler
 {

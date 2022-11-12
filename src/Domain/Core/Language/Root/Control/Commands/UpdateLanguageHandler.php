@@ -7,7 +7,7 @@ use App\Model\Values\Language\Code\CodeImp;
 use App\Model\Values\Language\Name\NameImp;
 use App\Model\Values\Language\NativeName\NativeNameImp;
 use Domain\Core\Language\Root\Model\Aggregates\Language;
-use Domain\Core\Language\Root\Repositories\LanguageRepository;
+use Domain\Core\Language\Root\Repository\LanguageRepository;
 use Domain\Core\Language\Root\Support\GetLanguageOrFail;
 
 class UpdateLanguageHandler

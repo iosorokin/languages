@@ -2,9 +2,8 @@
 
 namespace Domain\Core\Language\Guest\Control\Queries;
 
-use App\Model\Roles\Root;
+use Domain\Core\Language\Guest\Model\Collection\Languages;
 use Domain\Core\Language\Guest\Repository\LanguageRepository;
-use Domain\Core\Language\Root\Model\Collections\Languages;
 
 class GetLanguagesHandler
 {
@@ -12,7 +11,7 @@ class GetLanguagesHandler
         private LanguageRepository $repository,
     ) {}
 
-    public function __invoke(Root $root, GetLanguages $query): Languages
+    public function __invoke(GetLanguages $query): Languages
     {
 
 

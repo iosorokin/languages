@@ -3,8 +3,8 @@
 return [
     \Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel::class => 'user',
     \Infrastructure\Database\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel::class => 'language',
-    \Domain\Core\Sources\Structures\Source::class => 'source',
-    \Domain\Internal\Container\Model\Container::class => 'container',
-    \Domain\Internal\Container\Model\ContainerElement::class => 'container_element',
-    \Domain\Core\Sentences\Model\Sentence::class => 'sentence',
+    \WIP\Core\Sources\Structures\Source::class => 'source',
+    \WIP\Internal\Container\Model\Container::class => 'container',
+    \WIP\Internal\Container\Model\ContainerElement::class => 'container_element',
+    \WIP\Core\Sentences\Model\Sentence::class => 'sentence',
 ];

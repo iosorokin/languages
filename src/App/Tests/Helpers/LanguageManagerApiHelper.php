@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Tests\Helpers;
 
 use App\Base\Helpers\ApiHelper;
-use Domain\Core\Language\Root\Tests\LanguageModuleHelper;
+use Domain\Core\Language\Root\Test\LanguageModuleHelper;
 use Illuminate\Testing\TestResponse;
 use Infrastructure\Database\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
 

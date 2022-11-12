@@ -2,9 +2,9 @@
 
 namespace Core\Providers\Domain;
 
-use Domain\Personal\Account\Services\Auth\AuthService;
-use Domain\Personal\Account\Services\Auth\Sanctum\SanctumAuth;
 use Illuminate\Support\ServiceProvider;
+use WIP\Personal\Account\Services\Auth\AuthService;
+use WIP\Personal\Account\Services\Auth\Sanctum\SanctumAuth;
 
 class PersonalServiceProvider extends ServiceProvider
 {

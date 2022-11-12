@@ -204,13 +204,13 @@ return [
          */
         Core\Providers\Domain\PersonalServiceProvider::class,
         \Core\Providers\Domain\LanguageServiceProvider::class,
-        Domain\Notification\Mailer\MailerServiceProvider::class,
-        Domain\Internal\Container\ContainerServiceProvider::class,
-        \Domain\Core\Sources\SourceServiceProvider::class,
-        \Domain\Core\Sentences\SentenceServiceProvider::class,
-        Domain\Internal\Favorites\FavoriteServiceProvider::class,
-        \Domain\Core\Chapters\ChapterServiceProvider::class,
-        \Domain\Core\Analysis\AnalysisServiceProvider::class,
+        \WIP\Notification\Mailer\MailerServiceProvider::class,
+        \WIP\Internal\Container\ContainerServiceProvider::class,
+        \WIP\Core\Sources\SourceServiceProvider::class,
+        \WIP\Core\Sentences\SentenceServiceProvider::class,
+        \WIP\Internal\Favorites\FavoriteServiceProvider::class,
+        \WIP\Core\Chapters\ChapterServiceProvider::class,
+        \WIP\Core\Analysis\AnalysisServiceProvider::class,
     ],
 
     /*
