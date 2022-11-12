@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Core\Sources\Presenters\Mixins;
 
-use Domain\Core\Languages\Model\Manager\Aggregates\Student\Policies\CanTakeToLearn;
+use Domain\Core\Languages\Model\Manager\Aggregates\Student\Policies\StudentCanTakeToLearn;
 use Domain\Core\Languages\Model\Manager\Queries\Mixins\GetLanguage;
 use Domain\Sources\Repositories\SourceRepository;
 use Illuminate\Events\Dispatcher;
@@ -19,7 +19,7 @@ final class CreateSource
 {
     public function __construct(
         private SourceAuthorizeUser   $authorize,
-        private CanTakeToLearn        $languagePolicy,
+        private StudentCanTakeToLearn $languagePolicy,
         private CreateSourceValidator $validator,
         private GetLanguage           $getLanguage,
         private SourceFactory         $factory,

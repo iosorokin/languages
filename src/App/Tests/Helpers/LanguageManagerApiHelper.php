@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Tests\Helpers;
 
 use App\Base\Helpers\ApiHelper;
-use Domain\Core\Language\Root\Test\LanguageModuleHelper;
+use Domain\Core\Language\Base\Test\BaseLanguageModuleHelper;
 use Illuminate\Testing\TestResponse;
 use Infrastructure\Database\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
 
@@ -13,7 +13,7 @@ final class LanguageManagerApiHelper extends ApiHelper
 {
     public function adminCreate(array $attributes = []): TestResponse
     {
-        $attributes = LanguageModuleHelper::new()->generateAttributes() + $attributes;
+        $attributes = BaseLanguageModuleHelper::new()->generateAttributes() + $attributes;
 
         return $this->testCase->postJson(route('api.admin.languages.store'), $attributes);
     }

@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Domain\Account\Model\Entities\Accesses\Access;
-use Domain\Core\Language\Root\Test\LanguageModuleHelper;
+use Domain\Core\Language\Base\Test\BaseLanguageModuleHelper;
 use Illuminate\Database\Seeder;
 use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
 use WIP\Core\Analysis\Helpers\AnalysisSeedHelper;
@@ -65,7 +65,7 @@ class DatabaseSeeder extends Seeder
 
     private function createLanguages(EloquentUserModel $user): array
     {
-        $helper = LanguageModuleHelper::new();
+        $helper = BaseLanguageModuleHelper::new();
         $generator = $helper->createFromAction(
             user: $user,
             count: config('seed.languages.count')

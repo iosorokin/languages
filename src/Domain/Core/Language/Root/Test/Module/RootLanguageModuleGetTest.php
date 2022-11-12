@@ -7,20 +7,19 @@ namespace Domain\Core\Language\Root\Test\Module;
 use App\Base\Tests\ModuleCase;
 use App\Model\Roles\RoleHelper;
 use App\Model\Roles\Root;
-use Domain\Core\Language\Root\Control\Queries\FindLanguage;
-use Domain\Core\Language\Root\Control\Queries\GetLanguages;
-use Domain\Core\Language\Root\Repository\LanguageRepository;
-use Domain\Core\Language\Root\LanguageModuleProd;
-use Domain\Core\Language\Root\Test\LanguageModuleHelper;
+use Domain\Core\Language\Root\Control\Queries\RootGetLanguages;
+use Domain\Core\Language\Root\RootLanguageModuleProd;
+use Domain\Core\Language\Root\Repository\RootLanguageRepository;
+use Domain\Core\Language\Root\Test\RootLanguageModuleHelper;
 use Mockery\MockInterface;
 
 final class RootLanguageModuleGetTest extends ModuleCase
 {
-    private LanguageModuleProd $languageModule;
+    private RootLanguageModuleProd $languageModule;
 
     private Root $root;
 
-    private GetLanguages $query;
+    private RootGetLanguages $query;
 
     /** @test */
     public function __invoke()
@@ -33,16 +32,15 @@ final class RootLanguageModuleGetTest extends ModuleCase
     {
         parent::setUp();
 
-        $helper = LanguageModuleHelper::new();
+        $helper = RootLanguageModuleHelper::new();
 
         $this->languageModule = $helper->module();
         $this->root = RoleHelper::createRoot();
-
-        $language = $helper->create();
+        $languages = $helper->createCollection(100);
         $this->query = $helper->getLanguagesQuery();
-        $this->mock(LanguageRepository::class, function (MockInterface $mock) use ($language) {
-            $mock->shouldReceive('find')
-                ->andReturn($language);
+        $this->mock(RootLanguageRepository::class, function (MockInterface $mock) use ($languages) {
+            $mock->shouldReceive('get')
+                ->andReturn($languages);
         });
     }
 }

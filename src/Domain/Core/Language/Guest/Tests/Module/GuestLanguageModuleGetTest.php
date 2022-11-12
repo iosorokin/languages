@@ -2,29 +2,29 @@
 
 declare(strict_types=1);
 
-namespace Domain\Core\Language\Student\Tests\Module;
+namespace Domain\Core\Language\Guest\Tests\Module;
 
-use App\Base\Tests\TestCase;
+use App\Base\Tests\ModuleCase;
 use App\Model\Roles\RoleHelper;
 use App\Model\Roles\Student;
-use Domain\Core\Language\Student\Control\Queries\StudentFindLanguage;
+use Domain\Core\Language\Student\Control\Queries\StudentGetStudentLanguages;
 use Domain\Core\Language\Student\StudentLanguageModuleProd;
 use Domain\Core\Language\Student\Repositories\StudentLanguageRepository;
 use Domain\Core\Language\Student\Tests\StudentLanguageModuleHelper;
 use Mockery\MockInterface;
 
-final class StudentLanguageModuleFindTest extends TestCase
+final class GuestLanguageModuleGetTest extends ModuleCase
 {
     private StudentLanguageModuleProd $languageModule;
 
     private Student $student;
 
-    private StudentFindLanguage $query;
+    private StudentGetStudentLanguages $query;
 
     /** @test */
     public function __invoke()
     {
-        $this->languageModule->find($this->student, $this->query);
+        $this->languageModule->get($this->student, $this->query);
         $this->assertTrue(true);
     }
 
@@ -37,13 +37,11 @@ final class StudentLanguageModuleFindTest extends TestCase
         $this->languageModule = $helper->module();
         $this->student = RoleHelper::createStudent();
 
-        $language = $helper->createAggregate($this->student);
-        $this->query = $helper->getFindLanguageQuery([
-            'code' => $language->code()->get(),
-        ]);
-        $this->mock(StudentLanguageRepository::class, function (MockInterface $mock) use ($language) {
-            $mock->shouldReceive('find')
-                ->andReturn($language);
+        $languages = $helper->createCollection($this->student,100);
+        $this->query = $helper->getLanguagesQuery();
+        $this->mock(StudentLanguageRepository::class, function (MockInterface $mock) use ($languages) {
+            $mock->shouldReceive('get')
+                ->andReturn($languages);
         });
     }
 }

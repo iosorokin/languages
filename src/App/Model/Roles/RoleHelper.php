@@ -21,6 +21,6 @@ final class RoleHelper extends ModuleHelper
 
     public static function createStudent(): Student
     {
-        return new StudentImp();
+        return new StudentImp(BigIntId::new(1));
     }
 }

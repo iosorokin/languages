@@ -7,10 +7,10 @@ namespace Domain\Core\Language\Root\Test\Module;
 use App\Base\Tests\ModuleCase;
 use App\Model\Roles\RoleHelper;
 use App\Model\Roles\Root;
-use Domain\Core\Language\Root\Control\Commands\CreateLanguage;
-use Domain\Core\Language\Root\LanguageModuleProd;
-use Domain\Core\Language\Root\Repository\LanguageRepository;
-use Domain\Core\Language\Root\Test\LanguageModuleHelper;
+use Domain\Core\Language\Root\Control\Commands\RootCreateLanguage;
+use Domain\Core\Language\Root\RootLanguageModuleProd;
+use Domain\Core\Language\Root\Repository\RootLanguageRepository;
+use Domain\Core\Language\Root\Test\RootLanguageModuleHelper;
 
 /**
  * Стандартный кейс создания языка
@@ -19,11 +19,11 @@ final class RootLanguageModuleCreateTest extends ModuleCase
 {
     private const EXPECTING_LANGUAGE_ID = 1;
 
-    private LanguageModuleProd $languageModule;
+    private RootLanguageModuleProd $languageModule;
 
     private Root $root;
 
-    private CreateLanguage $command;
+    private RootCreateLanguage $command;
 
     /** @test */
     public function __invoke()
@@ -36,11 +36,11 @@ final class RootLanguageModuleCreateTest extends ModuleCase
     {
         parent::setUp();
 
-        $this->languageModule = $this->app->make(LanguageModuleProd::class);
-        $this->command = LanguageModuleHelper::new()->getCreateLanguageCommand();
+        $this->languageModule = $this->app->make(RootLanguageModuleProd::class);
+        $this->command = RootLanguageModuleHelper::new()->getCreateLanguageCommand();
         $this->root = RoleHelper::createRoot();
 
-        $this->mock(LanguageRepository::class)
+        $this->mock(RootLanguageRepository::class)
             ->shouldReceive('add')
             ->andReturn(self::EXPECTING_LANGUAGE_ID);
     }

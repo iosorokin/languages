@@ -5,18 +5,17 @@ declare(strict_types=1);
 namespace Domain\Core\Language\Root\Test\Module;
 
 use App\Base\Tests\ModuleCase;
-use App\Model\Roles\ContentManager;
 use App\Model\Roles\RoleHelper;
 use App\Model\Roles\Root;
 use Domain\Core\Language\Root\Control\Commands\RootUpdateLanguage;
-use Domain\Core\Language\Root\LanguageModuleProd;
-use Domain\Core\Language\Root\Repository\LanguageRepository;
-use Domain\Core\Language\Root\Test\LanguageModuleHelper;
+use Domain\Core\Language\Root\RootLanguageModuleProd;
+use Domain\Core\Language\Root\Repository\RootLanguageRepository;
+use Domain\Core\Language\Root\Test\RootLanguageModuleHelper;
 use Mockery\MockInterface;
 
 final class RootLanguageModuleUpdateTest extends ModuleCase
 {
-    private LanguageModuleProd $languageModule;
+    private RootLanguageModuleProd $languageModule;
 
     private Root $root;
 
@@ -33,14 +32,14 @@ final class RootLanguageModuleUpdateTest extends ModuleCase
     {
         parent::setUp();
 
-        $helper = LanguageModuleHelper::new();
+        $helper = RootLanguageModuleHelper::new();
         $this->languageModule = $helper->module();
         $this->root = RoleHelper::createRoot();
-        $language = $helper->create();
+        $language = $helper->createAggregate();
         $this->command = $helper->getUpdateLanguageCommand([
             'id' => $language->id()->toInt(),
         ]);
-        $this->mock(LanguageRepository::class, function (MockInterface $mock) use ($language) {
+        $this->mock(RootLanguageRepository::class, function (MockInterface $mock) use ($language) {
             $mock->shouldReceive('update')
                 ->andReturnNull();
             $mock->shouldReceive('find')

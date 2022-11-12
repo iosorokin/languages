@@ -6,26 +6,25 @@ namespace Domain\Core\Language\Student\Tests\Module;
 
 use App\Base\Tests\ModuleCase;
 use App\Model\Roles\RoleHelper;
-use App\Model\Roles\Root;
-use Domain\Core\Language\Root\Control\Queries\FindLanguage;
-use Domain\Core\Language\Root\Control\Queries\GetLanguages;
-use Domain\Core\Language\Root\Repository\LanguageRepository;
-use Domain\Core\Language\Root\LanguageModuleProd;
-use Domain\Core\Language\Root\Test\LanguageModuleHelper;
+use App\Model\Roles\Student;
+use Domain\Core\Language\Student\Control\Queries\StudentGetStudentLanguages;
+use Domain\Core\Language\Student\StudentLanguageModuleProd;
+use Domain\Core\Language\Student\Repositories\StudentLanguageRepository;
+use Domain\Core\Language\Student\Tests\StudentLanguageModuleHelper;
 use Mockery\MockInterface;
 
 final class StudentLanguageModuleGetTest extends ModuleCase
 {
-    private LanguageModuleProd $languageModule;
+    private StudentLanguageModuleProd $languageModule;
 
-    private Root $root;
+    private Student $student;
 
-    private GetLanguages $query;
+    private StudentGetStudentLanguages $query;
 
     /** @test */
     public function __invoke()
     {
-        $this->languageModule->get($this->root, $this->query);
+        $this->languageModule->get($this->student, $this->query);
         $this->assertTrue(true);
     }
 
@@ -33,16 +32,16 @@ final class StudentLanguageModuleGetTest extends ModuleCase
     {
         parent::setUp();
 
-        $helper = LanguageModuleHelper::new();
+        $helper = StudentLanguageModuleHelper::new();
 
         $this->languageModule = $helper->module();
-        $this->root = RoleHelper::createRoot();
+        $this->student = RoleHelper::createStudent();
 
-        $language = $helper->create();
+        $languages = $helper->createCollection($this->student,100);
         $this->query = $helper->getLanguagesQuery();
-        $this->mock(LanguageRepository::class, function (MockInterface $mock) use ($language) {
-            $mock->shouldReceive('find')
-                ->andReturn($language);
+        $this->mock(StudentLanguageRepository::class, function (MockInterface $mock) use ($languages) {
+            $mock->shouldReceive('get')
+                ->andReturn($languages);
         });
     }
 }

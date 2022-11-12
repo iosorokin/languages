@@ -18,16 +18,16 @@ use WIP\Core\Sources\Controllers\Items\GuestSourceItemsController;
 |
 */
 
-Route::post('login', BaseLoginController::class)
-    ->name('login');
-
-Route::apiResource('users', RegisterController::class)
-    ->only(['store', 'show']);
-
-Route::apiResource('languages', GuestLanguageController::class)
-    ->parameter('languages', 'language_id');
-
-Route::apiResource('sources', GuestSourceController::class)
-    ->only(['show', 'index']);
-Route::apiResource('sources.items', GuestSourceItemsController::class)
-    ->only(['index']);
+//Route::post('login', BaseLoginController::class)
+//    ->name('login');
+//
+//Route::apiResource('users', RegisterController::class)
+//    ->only(['store', 'show']);
+//
+//Route::apiResource('languages', GuestLanguageController::class)
+//    ->parameter('languages', 'language_id');
+//
+//Route::apiResource('sources', GuestSourceController::class)
+//    ->only(['show', 'index']);
+//Route::apiResource('sources.items', GuestSourceItemsController::class)
+//    ->only(['index']);
