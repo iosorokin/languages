@@ -24,23 +24,4 @@ final class IsActiveImp implements IsActive
     {
         return $this->get() === $isActive->get();
     }
-
-    public function toBool(): bool
-    {
-        return $this->get();
-    }
-
-    public function activate(): self
-    {
-        $this->isActive = true;
-
-        return $this;
-    }
-
-    public function deactivate(): self
-    {
-        $this->isActive = false;
-
-        return $this;
-    }
 }

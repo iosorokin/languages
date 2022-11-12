@@ -12,7 +12,7 @@ final class CanShowToPublic
 {
     public function __invoke(StudentLanguage|GuestLanguage $language)
     {
-        if (! $language->isActive()->toBool()) {
+        if (! $language->isActive()->get()) {
             throw new PolicyException();
         }
     }

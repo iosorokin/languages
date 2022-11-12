@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Core\Language\Root\Model\Aggregates;
 
+use App\Base\Model\Entity;
 use App\Model\Values\Datetime\Timestamp;
 use App\Model\Values\Identificatiors\Id\BigIntId;
 use App\Model\Values\Identificatiors\Id\IntId;
@@ -14,16 +15,16 @@ use App\Model\Values\State\IsActive;
 use App\Model\Values\State\IsActiveImp;
 use Domain\Core\Language\Root\Repository\RootLanguageRepository;
 
-final class RootLanguage
+final class RootLanguage extends Entity
 {
     public function __construct(
-        private IntId      $id,
-        private IntId      $owner,
-        private Name       $name,
-        private NativeName $nativeName,
-        private Code       $code,
-        private IsActive   $isActive,
-        private Timestamp  $createdAt,
+        protected IntId      $id,
+        protected IntId      $owner,
+        protected Name       $name,
+        protected NativeName $nativeName,
+        protected Code       $code,
+        protected IsActive   $isActive,
+        protected Timestamp  $createdAt,
     ) {}
 
     public function id(): IntId
@@ -38,7 +39,7 @@ final class RootLanguage
 
     public function isActive(): IsActive
     {
-        return $this->isActive;
+        return clone $this->isActive;
     }
 
     public function name(): Name
@@ -63,7 +64,7 @@ final class RootLanguage
 
     public function changeName(Name $name): self
     {
-        if ($this->name->compare($name)) {
+        if (! $this->name->compare($name)) {
             $this->name = $name;
         }
 
@@ -72,7 +73,7 @@ final class RootLanguage
 
     public function changeNativeName(NativeName $name): self
     {
-        if ($this->nativeName->compare($name)) {
+        if (! $this->nativeName->compare($name)) {
             $this->nativeName = $name;
         }
 
@@ -81,7 +82,7 @@ final class RootLanguage
 
     public function changeCode(Code $code): self
     {
-        if ($this->code->compare($code)) {
+        if (! $this->code->compare($code)) {
             $this->code = $code;
         }
 
@@ -91,7 +92,7 @@ final class RootLanguage
     public function activate(): self
     {
         $isActive = IsActiveImp::new(true);
-        if ($this->isActive->compare($isActive)) {
+        if (! $this->isActive->compare($isActive)) {
             $this->isActive = $isActive;
         }
 
@@ -101,7 +102,7 @@ final class RootLanguage
     public function deactivate(): self
     {
         $isActive = IsActiveImp::new(false);
-        if ($this->isActive->compare($isActive)) {
+        if (! $this->isActive->compare($isActive)) {
             $this->isActive = $isActive;
         }
 

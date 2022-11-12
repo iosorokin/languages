@@ -6,7 +6,7 @@ namespace App\Model\Values;
 
 use App\Exceptions\InvalidArgumentException;
 
-abstract class BaseInvalidValueObject
+abstract class BaseInvalidValueObject implements InvalidValueObject
 {
     public function __construct(
         private array $errors,

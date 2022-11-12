@@ -10,13 +10,16 @@ abstract class BaseTimestamp implements Timestamp
 {
     protected function __construct(
         protected Carbon $timestamp
-    ) {
-        $this->timestamp = now();
-    }
+    ) {}
 
     public function get(): Carbon
     {
         return $this->timestamp;
+    }
+
+    public function compare(Timestamp $timestamp): bool
+    {
+        return $this->toISOString() === $timestamp->toISOString();
     }
 
     public function toISOString(): string
