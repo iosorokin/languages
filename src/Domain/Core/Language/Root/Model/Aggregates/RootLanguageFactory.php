@@ -26,7 +26,7 @@ final class RootLanguageFactory
             name: NameImp::new($command->name()),
             nativeName: NativeNameImp::new($command->nativeName()),
             code: CodeImp::new($command->name()),
-            isActive: IsActiveImp::new(false),
+            isActive: false,
             createdAt: Now::new(),
         );
 
@@ -41,7 +41,7 @@ final class RootLanguageFactory
             name: NameImp::new($data['name']),
             nativeName: NativeNameImp::new($data['native_name']),
             code: CodeImp::new($data['code']),
-            isActive: IsActiveImp::new($data['is_active']),
+            isActive: $data['is_active'],
             createdAt: TimestampImp::new($data['created_at']),
         );
 

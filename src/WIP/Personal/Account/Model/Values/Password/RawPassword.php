@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace WIP\Personal\Account\Model\Values\Password;
 use App\Model\Values\InvalidValueObject;
 use App\Model\Values\Security\Password;
-use Infrastructure\Packages\StrAssert;
+use Infrastructure\Packages\AssertStr;
 
 final class RawPassword implements Password
 {
@@ -15,11 +15,11 @@ final class RawPassword implements Password
 
     private static function validate(string $value): array
     {
-        if (StrAssert::min($value, 8)) {
+        if (AssertStr::min($value, 8)) {
             $errors = ['str.min.8'];
         }
 
-        if (StrAssert::max($value, 255)) {
+        if (AssertStr::max($value, 255)) {
             $errors = ['str.max.8'];
         }
 

@@ -10,11 +10,19 @@ use App\Model\Values\Identificatiors\Id\BigIntId;
 use App\Model\Values\Language\Code\CodeImp;
 use App\Model\Values\Language\Name\NameImp;
 use App\Model\Values\Language\NativeName\NativeNameImp;
-use App\Model\Values\State\IsActiveImp;
 use Domain\Core\Language\Root\Model\Aggregates\RootLanguage;
 
 final class RootLanguageValidationTest extends TestCase
 {
+    private const EXPECTED_ERRORS = [
+        'id',
+        'owner',
+        'name',
+        'native_name',
+        'code',
+        'created_at',
+    ];
+
     private RootLanguage $language;
 
     public function setUp(): void
@@ -27,14 +35,17 @@ final class RootLanguageValidationTest extends TestCase
             name: NameImp::new('d'),
             nativeName: NativeNameImp::new('f'),
             code: CodeImp::new('ddsfdsf'),
-            isActive: IsActiveImp::new(true),
+            isActive: true,
             createdAt: TimestampImp::new('fdfg'),
         );
     }
 
+    /**
+     * Проверяем факт наличия ошибок
+     */
     public function testGetErrors()
     {
         $errors = $this->language->validate();
-        dd($errors);
+        $this->assertSame(array_keys($errors), self::EXPECTED_ERRORS);
     }
 }

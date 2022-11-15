@@ -16,7 +16,7 @@ use Domain\Core\Language\Root\Control\Queries\RootGetLanguagesHandler;
 use Domain\Core\Language\Root\Control\Queries\RootFindLanguage;
 use Domain\Core\Language\Root\Control\Queries\RootGetLanguages;
 use Domain\Core\Language\Root\Model\Aggregates\RootLanguage;
-use Domain\Core\Language\Root\Model\Collections\Languages;
+use Domain\Core\Language\Root\Model\Collections\RootLanguages;
 
 final class RootLanguageModuleProd implements RootLanguageModule
 {
@@ -50,7 +50,7 @@ final class RootLanguageModuleProd implements RootLanguageModule
         return $action($root, $query);
     }
 
-    public function get(Root $root, RootGetLanguages $query): Languages
+    public function get(Root $root, RootGetLanguages $query): RootLanguages
     {
         /** @var RootGetLanguagesHandler $action */
         $action = app()->make(RootGetLanguagesHandler::class);

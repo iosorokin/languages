@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Model\Values\Personality\Name;
 
-use Infrastructure\Packages\StrAssert;
+use Infrastructure\Packages\AssertStr;
 
 final class NameImp implements Name
 {
@@ -27,11 +27,11 @@ final class NameImp implements Name
 
     public function validate(): array
     {
-        if (StrAssert::min($this->value, 2)) {
+        if (AssertStr::min($this->value, 2)) {
             $errors = ['error'];
         }
 
-        if (StrAssert::max($this->value, 255)) {
+        if (AssertStr::max($this->value, 255)) {
             $errors = ['error'];
         }
 

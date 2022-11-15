@@ -8,32 +8,30 @@ use App\Model\Values\Identificatiors\Id\IntId;
 use App\Model\Values\Language\Code\Code;
 use App\Model\Values\Language\Name\Name;
 use App\Model\Values\Language\NativeName\NativeName;
-use App\Model\Values\State\IsActive;
-use Domain\Core\Language\Student\Model\Values\Learning\IsLearning;
 
 final class StudentLanguage
 {
     public function __construct(
         private IntId      $student,
         private IntId      $id,
-        private IsLearning $isLearning,
+        private bool       $isLearning,
         private Name       $name,
         private NativeName $nativeName,
         private Code       $code,
-        private IsActive   $isActive,
+        private bool       $isActive,
     ) {}
 
     public function student(): IntId
     {
-        return $this->student;
+        return clone $this->student;
     }
 
     public function id(): IntId
     {
-        return $this->id;
+        return clone $this->id;
     }
 
-    public function isLearning(): IsLearning
+    public function isLearning(): bool
     {
         return $this->isLearning;
     }
@@ -53,8 +51,8 @@ final class StudentLanguage
         return clone $this->code;
     }
 
-    public function isActive(): IsActive
+    public function isActive(): bool
     {
-        return clone $this->isActive;
+        return $this->isActive;
     }
 }

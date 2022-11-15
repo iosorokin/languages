@@ -23,7 +23,7 @@ final class RootLanguage extends Entity
         protected Name       $name,
         protected NativeName $nativeName,
         protected Code       $code,
-        protected IsActive   $isActive,
+        protected bool       $isActive,
         protected Timestamp  $createdAt,
     ) {}
 
@@ -37,9 +37,9 @@ final class RootLanguage extends Entity
         return clone $this->owner;
     }
 
-    public function isActive(): IsActive
+    public function isActive(): bool
     {
-        return clone $this->isActive;
+        return $this->isActive;
     }
 
     public function name(): Name
@@ -91,20 +91,14 @@ final class RootLanguage extends Entity
 
     public function activate(): self
     {
-        $isActive = IsActiveImp::new(true);
-        if (! $this->isActive->compare($isActive)) {
-            $this->isActive = $isActive;
-        }
+        $this->isActive = true;
 
         return $this;
     }
 
     public function deactivate(): self
     {
-        $isActive = IsActiveImp::new(false);
-        if (! $this->isActive->compare($isActive)) {
-            $this->isActive = $isActive;
-        }
+        $this->isActive = false;
 
         return $this;
     }

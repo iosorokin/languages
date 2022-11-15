@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Model\Values\Identificatiors\Id;
 
-use App\Model\Values\InvalidValueObject;
+use Infrastructure\Packages\AssertInt;
 
 final class BigIntId implements IntId
 {
@@ -12,29 +12,40 @@ final class BigIntId implements IntId
         private int $id
     ) {}
 
-    public static function new(int $id): self|InvalidValueObject
+    public static function new(int $id): IntId
     {
-        $errors = static::validate();
+        $vo = new self($id);
+        $errors = $vo->validate();
         if ($errors) {
             return InvalidObjectIntId::new($errors);
         }
 
-        return new self($id);
+        return $vo;
     }
 
-    private static function validate(): array
+    private function validate(): array
     {
-        return [];
+        $value = $this->get();
+        //todo вынести в конфиги
+        if (AssertInt::min($value, 1)) {
+            $errors[] = 'int.min.1';
+        }
+        //fixme убрать это
+        if (AssertInt::max($value, 10000000000000)) {
+            $errors[] = 'int.max.много';
+        }
+
+        return $errors ?? [];
     }
 
-    public function get(): mixed
+    public function get(): int
     {
         return $this->id;
     }
 
     public function toInt(): int
     {
-        return (int) $this->get();
+        return $this->get();
     }
 
     public function compare(IntId $id): bool

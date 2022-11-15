@@ -5,7 +5,7 @@ namespace Domain\Core\Language\Root\Repository;
 use Domain\Core\Language\Root\Control\Queries\RootFindLanguage;
 use Domain\Core\Language\Root\Control\Queries\RootGetLanguages;
 use Domain\Core\Language\Root\Model\Aggregates\RootLanguage;
-use Domain\Core\Language\Root\Model\Collections\Languages;
+use Domain\Core\Language\Root\Model\Collections\RootLanguages;
 
 interface RootLanguageRepository
 {
@@ -15,7 +15,7 @@ interface RootLanguageRepository
 
     public function find(RootFindLanguage $query): ?RootLanguage;
 
-    public function get(RootGetLanguages $query): Languages;
+    public function get(RootGetLanguages $query): RootLanguages;
 
     public function delete(int $id): void;
 }

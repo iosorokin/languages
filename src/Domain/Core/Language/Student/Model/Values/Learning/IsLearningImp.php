@@ -10,7 +10,7 @@ final class IsLearningImp implements IsLearning
         private bool $isLearning,
     ) {}
 
-    public static function new(bool $isLearning): self
+    public static function new(bool $isLearning): IsLearning
     {
         return new self($isLearning);
     }

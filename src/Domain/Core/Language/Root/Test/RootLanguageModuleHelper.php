@@ -16,7 +16,7 @@ use Domain\Core\Language\Root\RootLanguageModule;
 use Domain\Core\Language\Root\RootLanguageModuleProd;
 use Domain\Core\Language\Root\Model\Aggregates\RootLanguage;
 use Domain\Core\Language\Root\Model\Aggregates\RootLanguageFactory;
-use Domain\Core\Language\Root\Model\Collections\Languages;
+use Domain\Core\Language\Root\Model\Collections\RootLanguages;
 use Generator;
 use Illuminate\Support\Str;
 
@@ -25,9 +25,9 @@ final class RootLanguageModuleHelper extends ModuleHelper
     public function generateAttributes(): array
     {
         return [
-            'name' => Str::random(),
-            'native_name' => $this->faker()->unique()->sentence(),
-            'code' => $this->faker()->unique()->languageCode(),
+            'name' => Str::random(random_int(2, 32)),
+            'native_name' => Str::random(random_int(2, 32)),
+            'code' => Str::random(random_int(2, 4)),
         ];
     }
 
@@ -88,7 +88,7 @@ final class RootLanguageModuleHelper extends ModuleHelper
         return $language;
     }
 
-    public function createCollection(int $count, array $overwrite = []): Languages
+    public function createCollection(int $count, array $overwrite = []): RootLanguages
     {
         $languages = collect();
         for ($i = 0; $i < 100; $i++) {
@@ -96,7 +96,7 @@ final class RootLanguageModuleHelper extends ModuleHelper
             $languages->push($language);
         }
 
-        return new Languages($languages);
+        return new RootLanguages($languages);
     }
 
     public function createFromAction(Root $root, int $count = 1, array $overwrite = []): Generator

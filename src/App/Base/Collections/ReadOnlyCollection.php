@@ -2,7 +2,7 @@
 
 namespace App\Base\Collections;
 
-interface Collection
+interface ReadOnlyCollection
 {
 
 }

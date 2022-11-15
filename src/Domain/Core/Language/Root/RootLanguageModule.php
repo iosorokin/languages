@@ -9,7 +9,7 @@ use Domain\Core\Language\Root\Control\Commands\RootUpdateLanguage;
 use Domain\Core\Language\Root\Control\Queries\RootFindLanguage;
 use Domain\Core\Language\Root\Control\Queries\RootGetLanguages;
 use Domain\Core\Language\Root\Model\Aggregates\RootLanguage;
-use Domain\Core\Language\Root\Model\Collections\Languages;
+use Domain\Core\Language\Root\Model\Collections\RootLanguages;
 
 interface RootLanguageModule
 {
@@ -21,5 +21,5 @@ interface RootLanguageModule
 
     public function find(Root $root, RootFindLanguage $query): RootLanguage;
 
-    public function get(Root $root, RootGetLanguages $query): Languages;
+    public function get(Root $root, RootGetLanguages $query): RootLanguages;
 }

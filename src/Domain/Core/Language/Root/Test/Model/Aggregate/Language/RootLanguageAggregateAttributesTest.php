@@ -27,34 +27,33 @@ final class RootLanguageAggregateAttributesTest extends UnitCase
         $this->language = $helper->createAggregate($this->attributes);
     }
 
-    public function testReadOnlyAttributes()
+    public function testReadOnlyValueObjectAttributes()
     {
         $this->assertNotSame($this->language->id(), $this->language->id());
         $this->assertNotSame($this->language->owner(), $this->language->owner());
         $this->assertNotSame($this->language->name(), $this->language->name());
         $this->assertNotSame($this->language->nativeName(), $this->language->nativeName());
         $this->assertNotSame($this->language->code(), $this->language->code());
-        $this->assertNotSame($this->language->isActive(), $this->language->isActive());
         $this->assertNotSame($this->language->createdAt(), $this->language->createdAt());
     }
 
     public function testChangeName()
     {
-        $name = NameImp::new($this->faker->name());
+        $name = NameImp::new($this->faker->name(Str::random(random_int(2, 32))));
         $this->language->changeName($name);
         $this->assertTrue($this->language->name()->compare($name));
     }
 
     public function testChangeNativeName()
     {
-        $nativeName = NativeNameImp::new(Str::random());
+        $nativeName = NativeNameImp::new(Str::random(random_int(2, 32)));
         $this->language->changeNativeName($nativeName);
         $this->assertTrue($this->language->nativeName()->compare($nativeName));
     }
 
     public function testChangeCode()
     {
-        $code = CodeImp::new(Str::random(3));
+        $code = CodeImp::new(Str::random(random_int(2, 4)));
         $this->language->changeCode($code);
         $this->assertTrue($this->language->code()->compare($code));
     }
@@ -62,8 +61,8 @@ final class RootLanguageAggregateAttributesTest extends UnitCase
     public function testActive()
     {
         $this->language->deactivate();
-        $this->assertFalse($this->language->isActive()->get());
+        $this->assertFalse($this->language->isActive());
         $this->language->activate();
-        $this->assertTrue($this->language->isActive()->get());
+        $this->assertTrue($this->language->isActive());
     }
 }

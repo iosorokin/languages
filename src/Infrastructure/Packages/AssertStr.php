@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Infrastructure\Packages;
 
-final class StrAssert
+final class AssertStr
 {
     public static function min(string $value, int $min): bool
     {
