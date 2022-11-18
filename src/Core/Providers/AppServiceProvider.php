@@ -2,6 +2,8 @@
 
 namespace Core\Providers;
 
+use App\Base\Collections\CollectionDriver;
+use App\Base\Collections\Laravel\LaravelCollectionDriver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -18,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot()
     {
-
+        $this->app->when(CollectionDriver::class)
+            ->give(LaravelCollectionDriver::class);
     }
 }

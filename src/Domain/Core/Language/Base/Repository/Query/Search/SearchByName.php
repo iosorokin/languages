@@ -1,0 +1,22 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Domain\Core\Language\Base\Repository\Query\Search;
+
+final class SearchByName implements SearchLanguage
+{
+    public function __construct(
+        private string $name,
+    ) {}
+
+    public function get(): string
+    {
+        return $this->name;
+    }
+
+    public function __toString(): string
+    {
+        return $this->get();
+    }
+}
