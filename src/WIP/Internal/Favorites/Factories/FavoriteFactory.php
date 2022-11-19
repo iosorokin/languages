@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Internal\Favorites\Factories;
 
-use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
+use Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
 use WIP\Internal\Favorites\Contracts\Favoriteable;
 use WIP\Internal\Favorites\Model\Favorite;
 

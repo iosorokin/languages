@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App\Base\Model;
 
-use App\Contracts\Event;
-use App\Contracts\Eventable;
-use App\Model\Values\InvalidValueObject;
-use App\Model\Values\ValueObject;
+use App\Base\Event\Event;
+use App\Base\Event\Eventable;
+use App\Base\Model\Values\InvalidValueObject;
 use Illuminate\Support\Str;
 
 abstract class Entity implements Eventable

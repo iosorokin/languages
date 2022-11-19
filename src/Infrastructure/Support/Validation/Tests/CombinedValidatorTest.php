@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Infrastructure\Support\Validation\Tests;
 
-use App\Base\Tests\UnitCase;
+use App\Base\Test\UnitCase;
 use Illuminate\Validation\ValidationException;
 use Infrastructure\Support\Validation\Tests\Fakes\FakeCombinedValidator;
 use Infrastructure\Support\Validation\Tests\Fakes\FakeFouthSingleValidator;

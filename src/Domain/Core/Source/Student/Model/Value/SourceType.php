@@ -2,7 +2,7 @@
 
 namespace Domain\Core\Source\Student\Model\Value;
 
-use App\Model\Values\ValueObject;
+use App\Base\Model\Values\ValueObject;
 
 interface SourceType extends ValueObject
 {

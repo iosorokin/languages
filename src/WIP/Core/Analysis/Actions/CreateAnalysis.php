@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Core\Analysis\Actions;
 
-use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
+use Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
 use WIP\Core\Analysis\Factories\AnalysisFactory;
 use WIP\Core\Analysis\Model\Analysis;
 use WIP\Core\Analysis\Policies\AnalysisPolicy;

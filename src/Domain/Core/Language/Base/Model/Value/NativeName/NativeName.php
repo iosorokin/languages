@@ -2,7 +2,7 @@
 
 namespace Domain\Core\Language\Base\Model\Value\NativeName;
 
-use App\Model\Values\ValueObject;
+use App\Base\Model\Values\ValueObject;
 use Stringable;
 
 interface NativeName extends ValueObject, Stringable

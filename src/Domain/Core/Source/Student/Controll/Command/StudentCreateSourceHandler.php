@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Core\Source\Student\Controll\Command;
 
-use App\Model\Values\Identificatiors\Id\IntId;
+use App\Base\Model\Values\Identificatiors\Id\IntId;
 use Domain\Core\Source\Student\Model\Aggregate\StudentSourceFactory;
 use Domain\Core\Source\Student\Repository\StudentSourceRepository;
 

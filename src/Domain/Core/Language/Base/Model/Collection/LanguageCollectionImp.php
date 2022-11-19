@@ -6,11 +6,7 @@ namespace Domain\Core\Language\Base\Model\Collection;
 
 use App\Base\Collections\Collection;
 
-final class LanguageCollectionImp extends ReadonlyLanguageCollectionImp implements LanguageCollection
+final class LanguageCollectionImp extends Collection implements LanguageCollection
 {
-    public function __construct(
-        private Collection $collection
-    ) {
-        parent::__construct($this->collection);
-    }
+
 }

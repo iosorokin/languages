@@ -189,21 +189,21 @@ return [
         /*
          * Core Service Providers...
          */
-        \Core\Providers\CoreServiceProvider::class,
+        Framework\Providers\AppServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
-        Core\Providers\EventServiceProvider::class,
-        Core\Providers\RouteServiceProvider::class,
+        Framework\Providers\EventServiceProvider::class,
+        Framework\Providers\RouteServiceProvider::class,
 
         /*
          * Application Service Providers
          */
-        \Core\Providers\EloquentServiceProvider::class,
+        \Framework\Providers\EloquentServiceProvider::class,
 
         /*
          * Module Service Providers
          */
-        Core\Providers\Domain\PersonalServiceProvider::class,
-        \Core\Providers\Domain\LanguageServiceProvider::class,
+        Framework\Providers\Domain\PersonalServiceProvider::class,
+        \Framework\Providers\Domain\LanguageServiceProvider::class,
 //        \WIP\Notification\Mailer\MailerServiceProvider::class,
 //        \WIP\Internal\Container\ContainerServiceProvider::class,
 //        \WIP\Core\Sources\SourceServiceProvider::class,

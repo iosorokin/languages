@@ -9,7 +9,7 @@ final class SortLanguageFactory
     public static function new(string $sort): SortLanguage
     {
         return match (true) {
-            default => LanguageNullSort::new(),
+            default => new LanguageNullSort(),
         };
     }
 }

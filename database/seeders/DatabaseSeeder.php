@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Domain\Account\Model\Entities\Accesses\Access;
 use Domain\Core\Language\Base\Test\BaseLanguageModuleHelper;
 use Illuminate\Database\Seeder;
-use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
+use Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
 use WIP\Core\Analysis\Helpers\AnalysisSeedHelper;
 use WIP\Core\Chapters\Helpers\ChapterSeedHelper;
 use WIP\Core\Sentences\Model\Sentence;

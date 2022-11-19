@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Domain\Core\Language\Student\Tests\Module;
 
-use App\Base\Tests\ModuleCase;
-use App\Model\Roles\RoleHelper;
-use App\Model\Roles\Student;
+use App\Base\Model\Roles\RoleHelper;
+use App\Base\Model\Roles\Student;
+use App\Base\Test\ModuleCase;
 use Domain\Core\Language\Student\Control\Queries\StudentGetStudentLanguages;
 use Domain\Core\Language\Student\Repositories\StudentLanguageRepository;
 use Domain\Core\Language\Student\StudentLanguageModuleProd;

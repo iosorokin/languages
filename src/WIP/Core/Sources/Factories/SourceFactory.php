@@ -3,7 +3,7 @@
 namespace WIP\Core\Sources\Factories;
 
 use Infrastructure\Database\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
-use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
+use Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
 use WIP\Core\Sources\Enums\SourceType;
 use WIP\Core\Sources\Structures\Source;
 

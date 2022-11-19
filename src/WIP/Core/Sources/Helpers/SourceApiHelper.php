@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Core\Sources\Helpers;
 
-use App\Base\Helpers\ApiHelper;
+use App\Base\Test\Helpers\ApiHelper;
 use Illuminate\Testing\TestResponse;
 use WIP\Core\Sources\Structures\Source;
 

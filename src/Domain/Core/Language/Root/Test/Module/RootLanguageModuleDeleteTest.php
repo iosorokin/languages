@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Domain\Core\Language\Root\Test\Module;
 
-use App\Base\Tests\ModuleCase;
-use App\Model\Roles\RoleHelper;
-use App\Model\Roles\Root;
-use Domain\Core\Language\Root\Control\Commands\DeleteLanguage;
+use App\Base\Model\Roles\RoleHelper;
+use App\Base\Model\Roles\Root;
+use App\Base\Test\ModuleCase;
+use App\Controll\Language\Root\DeleteLanguageImp;
 use Domain\Core\Language\Root\Repository\RootLanguageRepository;
 use Domain\Core\Language\Root\RootLanguageModuleImp;
 use Domain\Core\Language\Root\Test\RootLanguageModuleHelper;
@@ -19,7 +19,7 @@ final class RootLanguageModuleDeleteTest extends ModuleCase
 
     private Root $root;
 
-    private DeleteLanguage $command;
+    private DeleteLanguageImp $command;
 
     /** @test */
     public function __invoke()

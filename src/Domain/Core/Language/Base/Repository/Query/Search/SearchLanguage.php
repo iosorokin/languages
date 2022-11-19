@@ -6,5 +6,5 @@ use Stringable;
 
 interface SearchLanguage extends Stringable
 {
-    public function get(): string;
+    public function value(): string;
 }

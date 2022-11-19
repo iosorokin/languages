@@ -2,26 +2,25 @@
 
 namespace Domain\Core\Language\Root;
 
-use App\Model\Roles\Root;
+use App\Controll\Language\Root\CreateLanguageImp;
+use App\Controll\Language\Root\DeleteLanguageImp;
+use App\Controll\Language\Root\UpdateLanguageCommand;
 use Domain\Core\Language\Base\Model\Aggregate\ReadonlyLanguage;
 use Domain\Core\Language\Base\Model\Collection\ReadonlyLanguageCollection;
-use Domain\Core\Language\Root\Control\Commands\CreateLanguage;
-use Domain\Core\Language\Root\Control\Commands\DeleteLanguage;
-use Domain\Core\Language\Root\Control\Commands\UpdateLanguage;
-use Domain\Core\Language\Root\Control\Queries\RootFindLanguageImp;
-use Domain\Core\Language\Root\Control\Queries\RootGetLanguagesImp;
+use Domain\Core\Language\Root\Control\Queries\RootFindLanguage;
+use Domain\Core\Language\Root\Control\Queries\RootGetLanguages;
 
 interface RootLanguageModule
 {
-    public function create(Root $root, CreateLanguage $command): int;
+    public function create(CreateLanguageImp $command): ReadonlyLanguage;
 
-    public function update(Root $root, UpdateLanguage $command): void;
+    public function update(UpdateLanguageCommand $command): ReadonlyLanguage;
 
-    public function delete(Root $root, DeleteLanguage $command): void;
+    public function delete(DeleteLanguageImp $command): void;
 
-    public function find(Root $root, RootFindLanguageImp $query): ?ReadonlyLanguage;
+    public function find(RootFindLanguage $query): ?ReadonlyLanguage;
 
-    public function findOrFail(Root $root, RootFindLanguageImp $query): ReadonlyLanguage;
+    public function findOrFail(RootFindLanguage $query): ReadonlyLanguage;
 
-    public function get(Root $root, RootGetLanguagesImp $query): ReadonlyLanguageCollection;
+    public function get(RootGetLanguages $query): ReadonlyLanguageCollection;
 }

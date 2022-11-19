@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Internal\Favorites\Presenters;
 
-use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
+use Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
 use WIP\Internal\Favorites\Authorization\FavoriteUserAuthorize;
 use WIP\Internal\Favorites\Presenters\Internal\GetFavorite;
 

@@ -3,7 +3,7 @@
 namespace Domain\Core\Language\Student\Control\Queries;
 
 
-use App\Model\Roles\Student;
+use App\Base\Model\Roles\Student;
 use Domain\Core\Language\Student\Model\Collection\StudentLanguages;
 use Domain\Core\Language\Student\Repositories\StudentLanguageRepository;
 

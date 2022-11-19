@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Personal\Account\Actions\Console;
 
-use App\Contracts\EventDispatcher;
+use App\Base\Event\EventDispatcher;
 use WIP\Personal\Account\Dto\NewAccountDto;
 use WIP\Personal\Account\Model\Aggregates\Account;
 use WIP\Personal\Account\Model\Aggregates\AccountFactory;

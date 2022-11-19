@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace WIP\Personal\Account\Model\Values\Password;
 
-use App\Model\Values\BaseInvalidValueObject;
-use App\Model\Values\InvalidValueObject;
-use App\Model\Values\Security\Password;
+use App\Base\Model\Values\BaseInvalidValueObject;
+use App\Base\Model\Values\InvalidValueObject;
+use App\Base\Model\Values\Security\Password;
 
 final class InvalidPasswordObject extends BaseInvalidValueObject implements Password, InvalidValueObject
 {

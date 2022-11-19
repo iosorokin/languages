@@ -2,7 +2,7 @@
 
 namespace Domain\Core\Language\Student\Model\Values\Learning;
 
-use App\Model\Values\ValueObject;
+use App\Base\Model\Values\ValueObject;
 
 interface IsLearning extends ValueObject
 {

@@ -8,7 +8,7 @@ use Domain\Core\Languages\Model\Manager\Aggregates\Student\Policies\StudentCanTa
 use Domain\Core\Languages\Model\Manager\Queries\Mixins\GetLanguage;
 use Domain\Sources\Repositories\SourceRepository;
 use Illuminate\Events\Dispatcher;
-use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
+use Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
 use WIP\Core\Sources\Authorization\SourceAuthorizeUser;
 use WIP\Core\Sources\Events\SourceCreated;
 use WIP\Core\Sources\Factories\SourceFactory;

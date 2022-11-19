@@ -4,7 +4,28 @@ declare(strict_types=1);
 
 namespace App\Base\Collections;
 
-final class Collection extends ReadonlyCollection
+class Collection implements CollectionInterface
 {
+    private array $wrappers;
 
+    private CollectionDriver $collection;
+
+    public function __construct(mixed $items = [])
+    {
+        $this->collection = app()->make(CollectionDriver::class, [
+            'items' => $items,
+        ]);
+    }
+
+    public function addWrapper(callable $callback): self
+    {
+        $this->wrappers[] = $callback;
+
+        return $this;
+    }
+
+    public function count(): int
+    {
+        return $this->collection->count();
+    }
 }

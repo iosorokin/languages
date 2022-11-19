@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Domain\Core\Language\Root\Test\Model\Aggregate\Language;
 
-use App\Base\Tests\TestCase;
-use App\Model\Values\Datetime\TimestampImp;
-use App\Model\Values\Identificatiors\Id\BigIntId;
+use App\Base\Model\Values\Datetime\TimestampImp;
+use App\Base\Model\Values\Identificatiors\Id\BigIntId;
+use App\Base\Test\TestCase;
 use Domain\Core\Language\Base\Model\Value\Code\CodeImp;
 use Domain\Core\Language\Base\Model\Value\Name\NameImp;
 use Domain\Core\Language\Base\Model\Value\NativeName\NativeNameImp;

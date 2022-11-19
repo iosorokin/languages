@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Personal\Account\Helpers\Test;
 
-use App\Base\Helpers\ModuleHelper;
+use App\Base\Test\Helpers\ModuleHelper;
 
 final class AccessesSeedHelper extends ModuleHelper
 {

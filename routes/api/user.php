@@ -1,15 +1,5 @@
 <?php
 
-use App\Controll\Controllers\Auth\LogoutController;
-use App\Controll\Controllers\Language\UserFavoriteLanguageController;
-use App\Controll\Controllers\Language\UserLanguageController;
-use Illuminate\Support\Facades\Route;
-use WIP\Core\Analysis\Controllers\UserStoreAnalysisController;
-use WIP\Core\Chapters\Controllers\UserChapterController;
-use WIP\Core\Sentences\Controllers\UserSentenceController;
-use WIP\Core\Sources\Controllers\Items\UserSourceItemsController;
-use WIP\Core\Sources\Controllers\UserSourceController;
-
 //Route::apiResource('languages', UserLanguageController::class)
 //    ->parameter('languages', 'language_id');
 //Route::apiResource('languages.favorites', UserFavoriteLanguageController::class)

@@ -6,12 +6,12 @@ namespace Domain\Core\Language\Base\Control\Query;
 
 use App\Exceptions\EntityNotFound;
 use Domain\Core\Language\Base\Model\Aggregate\ReadonlyLanguage;
-use Domain\Core\Language\Base\Support\GetLanguageOrFail;
+use Domain\Core\Language\Base\Support\GetReadOnlyLanguageOrFail;
 
 class FindLanguageHandler
 {
     public function __construct(
-        private GetLanguageOrFail $getLanguageOrFail,
+        private GetReadOnlyLanguageOrFail $getLanguageOrFail,
     ) {}
 
     /**

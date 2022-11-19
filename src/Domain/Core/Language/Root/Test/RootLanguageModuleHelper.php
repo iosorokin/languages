@@ -4,16 +4,12 @@ declare(strict_types=1);
 
 namespace Domain\Core\Language\Root\Test;
 
-use App\Base\Helpers\ModuleHelper;
-use App\Model\Roles\Root;
-use Domain\Core\Language\Root\Control\Commands\CreateLanguage;
+use App\Base\Model\Roles\Root;
+use App\Base\Test\Helpers\ModuleHelper;
+use App\Controll\Language\Root\CreateLanguageImp;
+use App\Controll\Language\Root\DeleteLanguageImp;
+use App\Controll\Language\Root\UpdateLanguageCommand;
 use Domain\Core\Language\Root\Control\Commands\CreateLanguageHandler;
-use Domain\Core\Language\Root\Control\Commands\DeleteLanguage;
-use Domain\Core\Language\Root\Control\Commands\UpdateLanguage;
-use Domain\Core\Language\Root\Control\Queries\RootFindLanguageImp;
-use Domain\Core\Language\Root\Control\Queries\RootGetLanguagesImp;
-use Domain\Core\Language\Root\Model\Aggregates\RootLanguageImp;
-use Domain\Core\Language\Root\Model\Collections\RootLanguages;
 use Domain\Core\Language\Root\RootLanguageModule;
 use Domain\Core\Language\Root\RootLanguageModuleImp;
 use Generator;
@@ -42,25 +38,25 @@ final class RootLanguageModuleHelper extends ModuleHelper
         return $attributes + $this->generateAttributes();
     }
 
-    public function getCreateLanguageCommand(array $overwrite = []): CreateLanguage
+    public function getCreateLanguageCommand(array $overwrite = []): CreateLanguageImp
     {
         $attributes = $overwrite + $this->generateAttributes();
-        $command = new CreateLanguage($attributes);
+        $command = new CreateLanguageImp($attributes);
 
         return $command;
     }
 
-    public function getUpdateLanguageCommand(array $overwrite = []): UpdateLanguage
+    public function getUpdateLanguageCommand(array $overwrite = []): UpdateLanguageCommand
     {
         $attributes = $overwrite + $this->generateAttributes();
-        $command = new UpdateLanguage($attributes);
+        $command = new UpdateLanguageCommand($attributes);
 
         return $command;
     }
 
-    public function getDeleteLanguageCommand(array $attributes): DeleteLanguage
+    public function getDeleteLanguageCommand(array $attributes): DeleteLanguageImp
     {
-        $command = new DeleteLanguage($attributes);
+        $command = new DeleteLanguageImp($attributes);
 
         return $command;
     }

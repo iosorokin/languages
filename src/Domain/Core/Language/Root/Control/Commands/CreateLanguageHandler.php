@@ -2,9 +2,10 @@
 
 namespace Domain\Core\Language\Root\Control\Commands;
 
-use App\Model\Roles\Root;
-use Domain\Core\Language\Root\Model\Aggregates\RootLanguageImp;
+use Domain\Core\Language\Base\Model\Aggregate\ReadonlyLanguage;
+use Domain\Core\Language\Root\Model\RootLanguageFactory;
 use Domain\Core\Language\Root\Repository\RootLanguageRepository;
+use Infrastructure\Database\Structures\Language\LanguageStructureImp;
 
 class CreateLanguageHandler
 {
@@ -12,11 +13,12 @@ class CreateLanguageHandler
         private RootLanguageRepository $repository,
     ) {}
 
-    public function __invoke(Root $root, CreateLanguage $dto): int
+    public function __invoke(CreateLanguage $command): ReadonlyLanguage
     {
-        $language = new RootLanguageImp::new($root, $dto);
-        $language->commit($this->repository);
+        $language = RootLanguageFactory::new($command);
+        $structure = LanguageStructureImp::newFromEntity($language);
+        $this->repository->add($structure);
 
-        return $language->id()->toInt();
+        return $language;
     }
 }

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace WIP\Core\Analysis\Controllers;
 
-use App\Base\Tests\EndpointCase;
-use App\Tests\Helpers\BaseAuthApiHelper;
+use App\Base\Test\EndpointCase;
+use App\Base\Test\Helpers\BaseAuthApiHelper;
 use WIP\Core\Analysis\Helpers\AnalysisApiHelper;
 
 final class UserStoreAnalysisTest extends EndpointCase

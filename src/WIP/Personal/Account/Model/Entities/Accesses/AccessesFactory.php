@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace WIP\Personal\Account\Model\Entities\Accesses;
 
-use App\Model\Values\Identificatiors\Id\BigIntId;
-use App\Model\Values\Identificatiors\Id\StrictNullId;
+use App\Base\Model\Values\Identificatiors\Id\BigIntId;
+use App\Base\Model\Values\Identificatiors\Id\StrictNullId;
 use WIP\Personal\Account\Dto\RestoreAccountDto;
 use WIP\Personal\Account\Model\Values\Access\DisableAccess;
 

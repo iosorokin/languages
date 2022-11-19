@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Core\Chapters\Helpers;
 
-use App\Base\Helpers\ModuleHelper;
+use App\Base\Test\Helpers\ModuleHelper;
 use Generator;
 use WIP\Core\Chapters\Presenters\SeedChapter;
 use WIP\Core\Sources\Structures\Source;

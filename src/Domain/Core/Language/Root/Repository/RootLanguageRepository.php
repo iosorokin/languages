@@ -2,14 +2,14 @@
 
 namespace Domain\Core\Language\Root\Repository;
 
-use Domain\Core\Language\Root\Repository\Dto\CreateLanguageDto;
-use Domain\Core\Language\Root\Repository\Dto\UpdateLanguageDto;
+
+use Domain\Core\Language\Base\Repository\Structure\LanguageStructure;
 
 interface RootLanguageRepository
 {
-    public function add(CreateLanguageDto $dto): int;
+    public function add(LanguageStructure $dto): int;
 
-    public function update(UpdateLanguageDto $dto): void;
+    public function update(LanguageStructure $dto): void;
 
     public function delete(string $code): void;
 }

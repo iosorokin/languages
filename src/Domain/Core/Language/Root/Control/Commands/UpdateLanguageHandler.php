@@ -2,14 +2,15 @@
 
 namespace Domain\Core\Language\Root\Control\Commands;
 
-use App\Model\Roles\Root;
-use Domain\Core\Language\Base\Support\GetLanguageOrFail;
+use App\Controll\Language\Root\UpdateLanguageCommand;
+use Domain\Core\Language\Base\Model\Aggregate\Language;
 use Domain\Core\Language\Base\Model\Value\Code\CodeImp;
 use Domain\Core\Language\Base\Model\Value\Name\NameImp;
 use Domain\Core\Language\Base\Model\Value\NativeName\NativeNameImp;
-use Domain\Core\Language\Root\Control\Queries\RootFindLanguageImp;
-use Domain\Core\Language\Root\Model\Aggregates\RootLanguageImp;
+use Domain\Core\Language\Base\Repository\Query\Find\FindByCode;
 use Domain\Core\Language\Root\Repository\RootLanguageRepository;
+use Domain\Core\Language\Root\Support\GetLanguageOrFail;
+use Infrastructure\Database\Structures\Language\LanguageStructureImp;
 
 class UpdateLanguageHandler
 {
@@ -18,15 +19,16 @@ class UpdateLanguageHandler
         private RootLanguageRepository $repository,
     ) {}
 
-    public function __invoke(Root $root, UpdateLanguage $command): void
+    public function __invoke(UpdateLanguageCommand $command): void
     {
-        $query = new RootFindLanguageImp($command->id());
+        $query = new FindByCode($command->code());
         $language = ($this->getLanguageOrFail)($query);
         $this->updateLanguage($language, $command);
-        $this->repository->update($language);
+        $structure = LanguageStructureImp::newFromEntity($language);
+        $this->repository->update($structure);
     }
 
-    private function updateLanguage(RootLanguageImp $language, UpdateLanguage $dto): void
+    private function updateLanguage(Language $language, UpdateLanguageCommand $dto): void
     {
         $language->changeName(NameImp::new($dto->name()));
         $language->changeNativeName(NativeNameImp::new($dto->nativeName()));

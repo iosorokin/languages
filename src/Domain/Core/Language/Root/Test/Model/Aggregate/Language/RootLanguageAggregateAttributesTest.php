@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Core\Language\Root\Test\Model\Aggregate\Language;
 
-use App\Base\Tests\UnitCase;
+use App\Base\Test\UnitCase;
 use Domain\Core\Language\Base\Model\Value\Code\CodeImp;
 use Domain\Core\Language\Base\Model\Value\Name\NameImp;
 use Domain\Core\Language\Base\Model\Value\NativeName\NativeNameImp;

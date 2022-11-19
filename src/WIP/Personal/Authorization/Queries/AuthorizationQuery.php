@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Personal\Authorization\Queries;
 
-use App\Model\Values\Identificatiors\Id\IntId;
+use App\Base\Model\Values\Identificatiors\Id\IntId;
 use WIP\Personal\Authorization\Repositories\AuthorizationRepository;
 
 final class AuthorizationQuery

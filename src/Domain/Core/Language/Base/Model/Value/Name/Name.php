@@ -2,7 +2,7 @@
 
 namespace Domain\Core\Language\Base\Model\Value\Name;
 
-use App\Model\Values\ValueObject;
+use App\Base\Model\Values\ValueObject;
 use Stringable;
 
 interface Name extends ValueObject, Stringable

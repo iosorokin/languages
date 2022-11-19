@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Domain\Core\Language\Student\Tests;
 
-use App\Base\Helpers\ModuleHelper;
-use App\Model\Roles\Student;
+use App\Base\Model\Roles\Student;
+use App\Base\Test\Helpers\ModuleHelper;
 use Domain\Core\Language\Student\Control\Queries\StudentFindLanguage;
 use Domain\Core\Language\Student\Control\Queries\StudentGetStudentLanguages;
 use Domain\Core\Language\Student\Model\Aggregates\StudentLanguageImp;

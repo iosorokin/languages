@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Domain\Core\Language\Student\Tests\Aggregate\Language;
 
-use App\Base\Tests\UnitCase;
-use App\Model\Roles\RoleHelper;
-use App\Model\Roles\Student;
+use App\Base\Model\Roles\RoleHelper;
+use App\Base\Model\Roles\Student;
+use App\Base\Test\UnitCase;
 use Domain\Core\Language\Student\Model\Aggregates\StudentLanguageImp;
 use Domain\Core\Language\Student\Tests\StudentLanguageModuleHelper;
 

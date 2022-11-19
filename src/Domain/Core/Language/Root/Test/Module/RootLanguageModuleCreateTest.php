@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Domain\Core\Language\Root\Test\Module;
 
-use App\Base\Tests\ModuleCase;
-use App\Model\Roles\RoleHelper;
-use App\Model\Roles\Root;
-use App\Model\Values\Identificatiors\Id\BigIntId;
-use Domain\Core\Language\Root\Control\Commands\CreateLanguage;
+use App\Base\Model\Roles\RoleHelper;
+use App\Base\Model\Roles\Root;
+use App\Base\Model\Values\Identificatiors\Id\BigIntId;
+use App\Base\Test\ModuleCase;
+use App\Controll\Language\Root\CreateLanguageImp;
 use Domain\Core\Language\Root\Repository\RootLanguageRepository;
 use Domain\Core\Language\Root\RootLanguageModuleImp;
 use Domain\Core\Language\Root\Test\RootLanguageModuleHelper;
@@ -18,19 +18,19 @@ use Domain\Core\Language\Root\Test\RootLanguageModuleHelper;
  */
 final class RootLanguageModuleCreateTest extends ModuleCase
 {
-    private const EXPECTING_LANGUAGE_ID = 1;
+    private const EXPECTING_LANGUAGE_CODE = 'code';
 
     private RootLanguageModuleImp $languageModule;
 
     private Root $root;
 
-    private CreateLanguage $command;
+    private CreateLanguageImp $command;
 
     /** @test */
     public function __invoke()
     {
-        $id = $this->languageModule->create($this->root, $this->command);
-        $this->assertSame(self::EXPECTING_LANGUAGE_ID, $id);
+        $language = $this->languageModule->create($this->root, $this->command);
+        $this->assertSame(self::EXPECTING_LANGUAGE_CODE, $language->code());
     }
 
     protected function setUp(): void
@@ -43,6 +43,6 @@ final class RootLanguageModuleCreateTest extends ModuleCase
 
         $this->mock(RootLanguageRepository::class)
             ->shouldReceive('add')
-            ->andReturn(BigIntId::new(self::EXPECTING_LANGUAGE_ID));
+            ->andReturn(BigIntId::new(self::EXPECTING_LANGUAGE_CODE));
     }
 }

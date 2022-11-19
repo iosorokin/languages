@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Core\Source\Student;
 
-use App\Model\Values\Identificatiors\Id\IntId;
+use App\Base\Model\Values\Identificatiors\Id\IntId;
 use Domain\Core\Source\Student\Controll\Command\StudentCreateSource;
 use Domain\Core\Source\Student\Controll\Command\StudentCreateSourceHandler;
 use Domain\Core\Source\Student\Controll\Command\StudentDeleteSource;

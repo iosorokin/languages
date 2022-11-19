@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Domain\Core\Source\Student\Test\Module;
 
-use App\Base\Tests\UnitCase;
-use App\Model\Values\Identificatiors\Id\BigIntId;
+use App\Base\Model\Values\Identificatiors\Id\BigIntId;
+use App\Base\Test\UnitCase;
 use Domain\Core\Source\Student\Controll\Command\StudentCreateSourceHandler;
 use Domain\Core\Source\Student\Repository\StudentSourceLanguageRepository;
 use Domain\Core\Source\Student\Repository\StudentSourceRepository;

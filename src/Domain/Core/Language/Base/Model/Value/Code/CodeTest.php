@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Core\Language\Base\Model\Value\Code;
 
-use App\Base\Tests\UnitCase;
+use App\Base\Test\UnitCase;
 use App\Exceptions\InvalidArgumentException;
 use Illuminate\Support\Str;
 

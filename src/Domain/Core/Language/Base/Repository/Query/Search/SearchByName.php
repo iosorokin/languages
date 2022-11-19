@@ -10,13 +10,13 @@ final class SearchByName implements SearchLanguage
         private string $name,
     ) {}
 
-    public function get(): string
+    public function value(): string
     {
         return $this->name;
     }
 
     public function __toString(): string
     {
-        return $this->get();
+        return $this->value();
     }
 }

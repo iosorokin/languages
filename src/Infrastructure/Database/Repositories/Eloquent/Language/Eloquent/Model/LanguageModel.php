@@ -6,7 +6,7 @@ namespace Infrastructure\Database\Repositories\Eloquent\Language\Eloquent\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
+use Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
 use WIP\Internal\Favorites\Contracts\Favoriteable;
 
 final class LanguageModel extends Model implements Favoriteable

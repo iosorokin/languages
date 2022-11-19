@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace WIP\Personal\Account\Model\Entities\Accesses;
 
 use App\Base\Model\Entity;
-use App\Model\Values\Identificatiors\Id\IntId;
+use App\Base\Model\Values\Identificatiors\Id\IntId;
 use WIP\Personal\Account\Model\Entities\Accesses\Policies\DisableAccessPolicy;
 use WIP\Personal\Account\Model\Entities\Accesses\Policies\EnableAccessPolicy;
 use WIP\Personal\Account\Model\Values\Access\Access;

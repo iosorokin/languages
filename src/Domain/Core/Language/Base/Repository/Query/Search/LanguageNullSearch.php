@@ -6,13 +6,13 @@ namespace Domain\Core\Language\Base\Repository\Query\Search;
 
 final class LanguageNullSearch implements SearchLanguage
 {
-    public function get(): string
+    public function value(): string
     {
         return '';
     }
 
     public function __toString()
     {
-        return $this->get();
+        return $this->value();
     }
 }

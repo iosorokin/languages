@@ -2,7 +2,9 @@
 
 namespace Domain\Core\Language\Base\Control\Query;
 
-use Domain\Core\Language\Base\Model\Collection\ReadonlyLanguageCollection;
+use Domain\Core\Language\Base\Model\Aggregate\LanguageFactory;
+use Domain\Core\Language\Base\Model\Collection\LanguageCollection;
+use Domain\Core\Language\Base\Model\Collection\LanguageCollectionImp;
 use Domain\Core\Language\Base\Repository\LanguageRepository;
 
 class GetLanguagesHandler
@@ -11,10 +13,15 @@ class GetLanguagesHandler
         private LanguageRepository $repository,
     ) {}
 
-    public function __invoke(GetLanguages $query): ReadonlyLanguageCollection
+    public function __invoke(GetLanguages $query): LanguageCollection
     {
-        $dtoList = $this->repository->get($query);
+        $structures = $this->repository->get($query);
+        $collection = new LanguageCollectionImp($structures);
+        $collection->addWrapper(function (array $item) {
+            $structure = $i
+            return LanguageFactory::restore()
+        });
 
-        return $languages;
+        return $collection;
     }
 }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Core\Analysis\Presenters;
 
-use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
+use Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
 use WIP\Core\Analysis\Actions\CreateAnalysis;
 use WIP\Core\Analysis\Model\Analysis;
 use WIP\Personal\Account\Queries\GetUser;

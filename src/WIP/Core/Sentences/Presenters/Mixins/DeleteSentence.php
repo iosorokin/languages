@@ -6,7 +6,7 @@ namespace WIP\Core\Sentences\Presenters\Mixins;
 
 use Domain\Sentences\Repositories\SentenceRepository;
 use Illuminate\Support\Facades\Validator;
-use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
+use Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
 use Infrastructure\Support\Validation\Rules\BigIntId;
 use WIP\Core\Sentences\Policies\SentencePolicy;
 use WIP\Core\Sentences\Presenters\Internal\GetSentence;

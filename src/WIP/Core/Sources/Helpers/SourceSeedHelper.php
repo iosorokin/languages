@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace WIP\Core\Sources\Helpers;
 
-use App\Base\Helpers\ModuleHelper;
+use App\Base\Test\Helpers\ModuleHelper;
 use Generator;
 use Illuminate\Support\Arr;
-use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
+use Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
 use WIP\Core\Sources\Presenters\SeedSource;
 
 final class SourceSeedHelper extends ModuleHelper

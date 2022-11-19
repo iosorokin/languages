@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Core\Language\Student\Control\Queries;
 
-use App\Model\Roles\Student;
+use App\Base\Model\Roles\Student;
 use Domain\Core\Language\Student\Model\Aggregates\StudentLanguageImp;
 use Domain\Core\Language\Student\Support\StudentGetLanguageOrFail;
 

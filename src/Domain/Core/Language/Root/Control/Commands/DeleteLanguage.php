@@ -1,17 +1,12 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Domain\Core\Language\Root\Control\Commands;
 
-final class DeleteLanguage
-{
-    public function __construct(
-        private string $code,
-    ) {}
+use App\Base\Model\Roles\Root;
 
-    public function code(): string
-    {
-        return $this->code;
-    }
+interface DeleteLanguage
+{
+    public function root(): Root;
+
+    public function code(): string;
 }

@@ -1,27 +1,10 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Domain\Core\Language\Root\Control\Commands;
 
-final class CreateLanguage
+use App\Base\Model\Roles\Root;
+
+interface CreateLanguage extends BaseLanguageCommand
 {
-    public function __construct(
-        private LanguageCommand $base,
-    ) {}
-
-    public function nativeName(): string
-    {
-        return $this->base->nativeName();
-    }
-
-    public function name(): string
-    {
-        return $this->base->name();
-    }
-
-    public function code(): string
-    {
-        return $this->base->code();
-    }
+    public function root(): Root;
 }

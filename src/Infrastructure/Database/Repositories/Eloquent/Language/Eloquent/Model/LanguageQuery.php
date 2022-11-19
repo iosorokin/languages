@@ -6,7 +6,7 @@ namespace Infrastructure\Database\Repositories\Eloquent\Language\Eloquent\Model;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Query\JoinClause;
-use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
+use Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
 use Infrastructure\Services\Morph\Morph;
 
 trait LanguageQuery

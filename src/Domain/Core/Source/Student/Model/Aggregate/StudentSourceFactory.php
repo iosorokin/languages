@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Domain\Core\Source\Student\Model\Aggregate;
 
-use App\Model\Values\Datetime\Now;
-use App\Model\Values\Description\DescriptionImp;
-use App\Model\Values\Identificatiors\Id\BigIntId;
-use App\Model\Values\Identificatiors\Id\StrictNullId;
-use App\Model\Values\Title\TitleImp;
+use App\Base\Model\Values\Datetime\Now;
+use App\Base\Model\Values\Description\DescriptionImp;
+use App\Base\Model\Values\Identificatiors\Id\BigIntId;
+use App\Base\Model\Values\Identificatiors\Id\StrictNullId;
+use App\Base\Model\Values\Title\TitleImp;
 use Domain\Core\Source\Student\Controll\Command\StudentCreateSource;
 use Domain\Core\Source\Student\Model\Value\SourceTypeImp;
 use Domain\Core\Source\Student\Repository\StudentSourceLanguageRepository;

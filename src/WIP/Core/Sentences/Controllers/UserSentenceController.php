@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Core\Sentences\Controllers;
 
-use Core\Http\Controller;
+use Framework\Http\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Infrastructure\Support\Responses\Json\IdResponse;

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Domain\Core\Source\Student\Test;
 
-use App\Base\Helpers\ModuleHelper;
-use App\Model\Values\Identificatiors\Id\BigIntId;
+use App\Base\Model\Values\Identificatiors\Id\BigIntId;
+use App\Base\Test\Helpers\ModuleHelper;
 use Domain\Core\Source\Student\Controll\Command\StudentCreateSource;
 use Domain\Core\Source\Student\Controll\Command\StudentCreateSourceHandler;
 use Domain\Core\Source\Student\Controll\Command\StudentUpdateSource;

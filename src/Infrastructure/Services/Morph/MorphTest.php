@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Infrastructure\Services\Morph;
 
-use App\Base\Tests\UnitCase;
-use Infrastructure\Database\Repositories\Personal\Eloquent\EloquentUserModel;
+use App\Base\Test\UnitCase;
+use Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
 use Infrastructure\Services\Morph\Exceptions\MorphNotFound;
 
 final class MorphTest extends UnitCase

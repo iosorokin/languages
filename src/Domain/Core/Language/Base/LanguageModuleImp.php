@@ -10,7 +10,7 @@ use Domain\Core\Language\Base\Control\Query\FindLanguageHandler;
 use Domain\Core\Language\Base\Control\Query\GetLanguages;
 use Domain\Core\Language\Base\Control\Query\GetLanguagesHandler;
 use Domain\Core\Language\Base\Model\Aggregate\ReadonlyLanguage;
-use Domain\Core\Language\Base\Model\Collection\ReadonlyLanguageCollection;
+use Domain\Core\Language\Base\Model\Collection\LanguageCollection;
 use Illuminate\Contracts\Container\BindingResolutionException;
 
 final class LanguageModuleImp implements LanguageModule
@@ -42,11 +42,19 @@ final class LanguageModuleImp implements LanguageModule
     /**
      * @throws BindingResolutionException
      */
-    public function get(GetLanguages $query): ReadonlyLanguageCollection
+    public function get(GetLanguages $query): LanguageCollection
     {
         /** @var GetLanguagesHandler $handler */
         $handler = app()->make(GetLanguagesHandler::class);
 
         return $handler($query);
+    }
+
+    /**
+     * @throws BindingResolutionException
+     */
+    public static function instance(): LanguageModule
+    {
+        return app()->make(self::class);
     }
 }
