@@ -14,7 +14,7 @@ use Domain\Core\Language\Base\Repository\Structure\LanguageStructure;
 
 final class LanguageFactory
 {
-    public static function restore(LanguageStructure $structure): ReadonlyLanguage
+    public static function restore(LanguageStructure $structure): Language
     {
         return new LanguageImp(
             code: CodeImp::new($structure->code()),

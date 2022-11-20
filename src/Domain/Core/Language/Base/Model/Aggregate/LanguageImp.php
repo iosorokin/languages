@@ -12,8 +12,9 @@ use Domain\Core\Language\Base\Model\Value\Name\Name;
 use Domain\Core\Language\Base\Model\Value\NativeName\NativeName;
 use Domain\Core\Language\Base\Model\Value\Status\Status;
 use Domain\Core\Language\Base\Model\Value\Status\StatusImp;
+use Domain\Core\Language\Root\Model\RootLanguage;
 
-class LanguageImp extends Entity implements Language
+class LanguageImp extends Entity implements RootLanguage
 {
     public function __construct(
         protected Code       $code,

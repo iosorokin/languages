@@ -6,8 +6,8 @@ namespace Domain\Core\Language\Base\Support;
 
 use App\Exceptions\EntityNotFound;
 use Domain\Core\Language\Base\Control\Query\FindLanguage;
+use Domain\Core\Language\Base\Model\Aggregate\Language;
 use Domain\Core\Language\Base\Model\Aggregate\LanguageFactory;
-use Domain\Core\Language\Base\Model\Aggregate\ReadonlyLanguage;
 use Domain\Core\Language\Base\Repository\LanguageRepository;
 
 final class GetReadOnlyLanguageOrFail
@@ -16,7 +16,7 @@ final class GetReadOnlyLanguageOrFail
         private LanguageRepository $repository,
     ){}
 
-    public function __invoke(FindLanguage $query): ReadonlyLanguage
+    public function __invoke(FindLanguage $query): Language
     {
         $dto = $this->repository->find($query);
         if (! $dto) {

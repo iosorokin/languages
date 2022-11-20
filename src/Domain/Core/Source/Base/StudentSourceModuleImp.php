@@ -5,17 +5,17 @@ declare(strict_types=1);
 namespace Domain\Core\Source\Base;
 
 use App\Base\Model\Values\Identificatiors\Id\IntId;
-use Domain\Core\Source\Base\Controll\Command\CreateSourceImp;
-use Domain\Core\Source\Base\Controll\Command\CreateSourceHandler;
-use Domain\Core\Source\Base\Controll\Command\DeleteSourceImp;
-use Domain\Core\Source\Base\Controll\Command\DeleteSourceHandler;
-use Domain\Core\Source\Base\Controll\Command\UpdateSourceImp;
-use Domain\Core\Source\Base\Controll\Command\UpdateSourceHandler;
-use Domain\Core\Source\Base\Controll\Query\StudentFindSource;
-use Domain\Core\Source\Base\Controll\Query\StudentFindSourceHandler;
-use Domain\Core\Source\Base\Controll\Query\StudentGetSources;
-use Domain\Core\Source\Base\Model\Aggregate\StudentSource;
+use App\Controll\Source\Student\CreateSourceImp;
+use App\Controll\Source\Student\DeleteSourceImp;
+use App\Controll\Source\Student\FindSourceImp;
+use App\Controll\Source\Student\GetSourcesImp;
+use App\Controll\Source\Student\UpdateSourceImp;
+use Domain\Core\Source\Base\Controll\Query\FindSourceHandler;
+use Domain\Core\Source\Base\Model\Aggregate\SourceImp;
 use Domain\Core\Source\Base\Model\Collection\StudentSources;
+use Domain\Core\Source\Student\Controll\Command\CreateSourceHandler;
+use Domain\Core\Source\Student\Controll\Command\DeleteSourceHandler;
+use Domain\Core\Source\Student\Controll\Command\UpdateSourceHandler;
 
 final class StudentSourceModuleImp implements StudentSourceModule
 {
@@ -42,17 +42,17 @@ final class StudentSourceModuleImp implements StudentSourceModule
         $handler($command);
     }
 
-    public function find(StudentFindSource $query): StudentSource
+    public function find(FindSourceImp $query): SourceImp
     {
-        /** @var StudentFindSourceHandler $handler */
-        $handler = app()->get(StudentFindSourceHandler::class);
+        /** @var FindSourceHandler $handler */
+        $handler = app()->get(FindSourceHandler::class);
 
         return $handler($query);
     }
 
-    public function get(StudentGetSources $query): StudentSources
+    public function get(GetSourcesImp $query): StudentSources
     {
-        $handler = app()->get(StudentGetSources::class);
+        $handler = app()->get(GetSourcesImp::class);
 
         return $handler($query);
     }

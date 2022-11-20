@@ -48,6 +48,16 @@ final class StatusImp implements Status
         return $this->get() === $status->get();
     }
 
+    public function isActive(): bool
+    {
+        return $this->status->value === LanguageStatusEnum::Active->value;
+    }
+
+    public function isDraft(): bool
+    {
+        return $this->status->value === LanguageStatusEnum::Draft->value;
+    }
+
     public function __toString(): string
     {
         return $this->get();

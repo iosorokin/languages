@@ -2,19 +2,24 @@
 
 namespace Domain\Core\Language\Base\Model\Aggregate;
 
+use App\Base\Model\Values\Datetime\Timestamp;
+use App\Base\Model\Values\Identificatiors\Id\IntId;
 use Domain\Core\Language\Base\Model\Value\Code\Code;
 use Domain\Core\Language\Base\Model\Value\Name\Name;
 use Domain\Core\Language\Base\Model\Value\NativeName\NativeName;
+use Domain\Core\Language\Base\Model\Value\Status\Status;
 
-interface Language extends ReadonlyLanguage
+interface Language
 {
-    public function changeName(Name $name): self;
+    public function owner(): IntId;
 
-    public function changeNativeName(NativeName $name): self;
+    public function status(): Status;
 
-    public function changeCode(Code $code): self;
+    public function name(): Name;
 
-    public function activate(): self;
+    public function nativeName(): NativeName;
 
-    public function draft(): self;
+    public function code(): Code;
+
+    public function createdAt(): Timestamp;
 }

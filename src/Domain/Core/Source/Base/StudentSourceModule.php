@@ -3,12 +3,12 @@
 namespace Domain\Core\Source\Base;
 
 use App\Base\Model\Values\Identificatiors\Id\IntId;
-use Domain\Core\Source\Base\Controll\Command\CreateSourceImp;
-use Domain\Core\Source\Base\Controll\Command\DeleteSourceImp;
-use Domain\Core\Source\Base\Controll\Command\UpdateSourceImp;
-use Domain\Core\Source\Base\Controll\Query\StudentFindSource;
-use Domain\Core\Source\Base\Controll\Query\StudentGetSources;
-use Domain\Core\Source\Base\Model\Aggregate\StudentSource;
+use App\Controll\Source\Student\CreateSourceImp;
+use App\Controll\Source\Student\DeleteSourceImp;
+use App\Controll\Source\Student\FindSourceImp;
+use App\Controll\Source\Student\GetSourcesImp;
+use App\Controll\Source\Student\UpdateSourceImp;
+use Domain\Core\Source\Base\Model\Aggregate\SourceImp;
 use Domain\Core\Source\Base\Model\Collection\StudentSources;
 
 interface StudentSourceModule
@@ -19,7 +19,7 @@ interface StudentSourceModule
 
     public function delete(DeleteSourceImp $command): void;
 
-    public function find(StudentFindSource $query): StudentSource;
+    public function find(FindSourceImp $query): SourceImp;
 
-    public function get(StudentGetSources $query): StudentSources;
+    public function get(GetSourcesImp $query): StudentSources;
 }

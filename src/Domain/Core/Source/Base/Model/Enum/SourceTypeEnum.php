@@ -9,4 +9,12 @@ enum SourceTypeEnum: string
     case Movie = 'movie';
 
     case Song = 'song';
+
+    public static function castCases(): array
+    {
+        return [
+            self::Movie->value,
+            self::Song->value,
+        ];
+    }
 }
