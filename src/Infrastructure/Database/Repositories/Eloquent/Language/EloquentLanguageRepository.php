@@ -17,17 +17,17 @@ use Infrastructure\Database\Repositories\Eloquent\Language\Eloquent\Model\Langua
 
 final class EloquentLanguageRepository implements LanguageRepository
 {
-    public function find(FindLanguage $query): LanguageStructure
+    public function find(FindLanguage $dto): LanguageStructure
     {
         // TODO: Implement find() method.
     }
 
-    public function get(GetLanguages $query): Collection
+    public function get(GetLanguages $dto): Collection
     {
         $collection = DB::table((new LanguageModel())->getTable())
             ->lazy()
-            ->when($query->search() instanceof SearchByName, function (Builder $builder) use ($query) {
-                $builder->where('name', '%' . $query->search()->value());
+            ->when($dto->search() instanceof SearchByName, function (Builder $builder) use ($dto) {
+                $builder->where('name', '%' . $dto->search()->value());
             })
             ->where('status', LanguageStatusEnum::Active->value)
             ->get(50);

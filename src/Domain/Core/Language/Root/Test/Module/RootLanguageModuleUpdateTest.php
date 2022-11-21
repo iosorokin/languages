@@ -7,8 +7,8 @@ namespace Domain\Core\Language\Root\Test\Module;
 use App\Base\Model\Roles\RoleHelper;
 use App\Base\Model\Roles\Root;
 use App\Base\Test\ModuleCase;
-use App\Controll\Language\Root\UpdateLanguageCommand;
-use Domain\Core\Language\Root\Repository\RootLanguageRepository;
+use Domain\Core\Language\Root\Control\Dto\UpdateLanguageDto;
+use Domain\Core\Language\Root\Repository\LanguageRepository;
 use Domain\Core\Language\Root\RootLanguageModuleImp;
 use Domain\Core\Language\Root\Test\RootLanguageModuleHelper;
 use Mockery\MockInterface;
@@ -19,7 +19,7 @@ final class RootLanguageModuleUpdateTest extends ModuleCase
 
     private Root $root;
 
-    private UpdateLanguageCommand $command;
+    private UpdateLanguageDto $command;
 
     /** @test */
     public function __invoke()
@@ -39,7 +39,7 @@ final class RootLanguageModuleUpdateTest extends ModuleCase
         $this->command = $helper->getUpdateLanguageCommand([
             'id' => $language->id()->toInt(),
         ]);
-        $this->mock(RootLanguageRepository::class, function (MockInterface $mock) use ($language) {
+        $this->mock(LanguageRepository::class, function (MockInterface $mock) use ($language) {
             $mock->shouldReceive('update')
                 ->andReturnNull();
             $mock->shouldReceive('find')

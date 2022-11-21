@@ -2,12 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Controll\Language\Root;
+namespace Domain\Core\Language\Root\Control\Dto;
 
 use App\Base\Model\Roles\Root;
-use Domain\Core\Language\Root\Control\Commands\DeleteLanguage;
 
-final class DeleteLanguageImp implements DeleteLanguage
+final class DeleteLanguageDto
 {
     public function __construct(
         private Root $root,

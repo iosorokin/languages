@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Domain\Core\Language\Base\Test\Module;
+namespace Domain\Core\Language\Root\Test\Module;
 
 use App\Base\Test\TestCase;
 use Domain\Core\Language\Base\Control\Query\FindLanguage;
@@ -15,7 +15,7 @@ use Domain\Core\Language\Base\Test\LanguageUserCaseTestHelper;
 use Infrastructure\Database\Structures\Language\LanguageStructureImp;
 use Mockery\MockInterface;
 
-final class LanguageModuleFindTest extends TestCase
+final class RootLanguageModuleFindTest extends TestCase
 {
     private const EXPECTING_CODE = 'code';
 
@@ -37,7 +37,7 @@ final class LanguageModuleFindTest extends TestCase
 
         $this->module = LanguageModuleImp::instance();
         $structure = LanguageStructureImp::newFromArray(LanguageAttributesTestHelper::full());
-        $this->query = LanguageUserCaseTestHelper::getFindQuery($structure->code());
+        $this->query = LanguageUserCaseTestHelper::getFindDto($structure->code());
         $this->mock(LanguageRepository::class, function (MockInterface $mock) use ($structure) {
             $mock->shouldReceive('find')
                 ->andReturn($structure);

@@ -6,10 +6,10 @@ namespace Domain\Core\Language\Root\Test;
 
 use App\Base\Model\Roles\Root;
 use App\Base\Test\Helpers\ModuleHelper;
-use App\Controll\Language\Root\CreateLanguageImp;
-use App\Controll\Language\Root\DeleteLanguageImp;
-use App\Controll\Language\Root\UpdateLanguageCommand;
-use Domain\Core\Language\Root\Control\Commands\CreateLanguageHandler;
+use Domain\Core\Language\Root\Control\CreateLanguage;
+use Domain\Core\Language\Root\Control\Dto\CreateLanguageDto;
+use Domain\Core\Language\Root\Control\Dto\DeleteLanguageDto;
+use Domain\Core\Language\Root\Control\Dto\UpdateLanguageDto;
 use Domain\Core\Language\Root\RootLanguageModule;
 use Domain\Core\Language\Root\RootLanguageModuleImp;
 use Generator;
@@ -38,25 +38,25 @@ final class RootLanguageModuleHelper extends ModuleHelper
         return $attributes + $this->generateAttributes();
     }
 
-    public function getCreateLanguageCommand(array $overwrite = []): CreateLanguageImp
+    public function getCreateLanguageCommand(array $overwrite = []): CreateLanguageDto
     {
         $attributes = $overwrite + $this->generateAttributes();
-        $command = new CreateLanguageImp($attributes);
+        $command = new CreateLanguageDto($attributes);
 
         return $command;
     }
 
-    public function getUpdateLanguageCommand(array $overwrite = []): UpdateLanguageCommand
+    public function getUpdateLanguageCommand(array $overwrite = []): UpdateLanguageDto
     {
         $attributes = $overwrite + $this->generateAttributes();
-        $command = new UpdateLanguageCommand($attributes);
+        $command = new UpdateLanguageDto($attributes);
 
         return $command;
     }
 
-    public function getDeleteLanguageCommand(array $attributes): DeleteLanguageImp
+    public function getDeleteLanguageCommand(array $attributes): DeleteLanguageDto
     {
-        $command = new DeleteLanguageImp($attributes);
+        $command = new DeleteLanguageDto($attributes);
 
         return $command;
     }
@@ -96,8 +96,8 @@ final class RootLanguageModuleHelper extends ModuleHelper
 
     public function createFromAction(Root $root, int $count = 1, array $overwrite = []): Generator
     {
-        /** @var CreateLanguageHandler $handler */
-        $handler = app()->make(CreateLanguageHandler::class);
+        /** @var CreateLanguage $handler */
+        $handler = app()->make(CreateLanguage::class);
 
         for ($i = 0; $i < $count; $i++) {
             $attributes = $overwrite + $this->generateAttributes();

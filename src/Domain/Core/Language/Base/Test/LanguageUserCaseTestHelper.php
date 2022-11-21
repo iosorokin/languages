@@ -4,20 +4,18 @@ declare(strict_types=1);
 
 namespace Domain\Core\Language\Base\Test;
 
-use App\Controll\Language\Base\FindLanguageImp;
-use App\Controll\Language\Base\GetLanguagesImp;
-use Domain\Core\Language\Base\Control\Query\FindLanguage;
-use Domain\Core\Language\Base\Control\Query\GetLanguages;
+use Domain\Core\Language\Root\Control\Dto\FindLanguageDto;
+use Domain\Core\Language\Root\Control\Dto\GetLanguagesDto;
 
 final class LanguageUserCaseTestHelper
 {
-    public static function getFindQuery(string $value): FindLanguage
+    public static function getFindDto(string $value): FindLanguageDto
     {
-        return new FindLanguageImp($value);
+        return new FindLanguageDto($value);
     }
 
-    public static function getQuery(string $search = '', string $sort = ''): GetLanguages
+    public static function getQueryDto(string $search = '', string $sort = ''): GetLanguagesDto
     {
-        return new GetLanguagesImp($search, $sort);
+        return new GetLanguagesDto($search, $sort);
     }
 }

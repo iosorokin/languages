@@ -2,22 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Domain\Core\Language\Base\Test\Module;
+namespace Domain\Core\Language\Root\Test\Module;
 
+use App\Base\Model\Roles\RoleHelper;
 use App\Base\Test\TestCase;
 use App\Exceptions\EntityNotFound;
-use Domain\Core\Language\Base\Control\Query\FindLanguage;
-use Domain\Core\Language\Base\LanguageModule;
-use Domain\Core\Language\Base\LanguageModuleImp;
 use Domain\Core\Language\Base\Repository\LanguageRepository;
 use Domain\Core\Language\Base\Test\LanguageUserCaseTestHelper;
+use Domain\Core\Language\Root\Control\Dto\FindLanguageDto;
+use Domain\Core\Language\Root\RootLanguageModule;
+use Domain\Core\Language\Root\RootLanguageModuleImp;
 use Mockery\MockInterface;
 
-final class LanguageModuleFindOrFailTest extends TestCase
+final class RootLanguageModuleFindOrFailTest extends TestCase
 {
-    private LanguageModule $module;
+    private RootLanguageModule $module;
 
-    private FindLanguage $query;
+    private FindLanguageDto $query;
 
     /** @test */
     public function __invoke()
@@ -30,8 +31,8 @@ final class LanguageModuleFindOrFailTest extends TestCase
     {
         parent::setUp();
 
-        $this->module = LanguageModuleImp::instance();
-        $this->query = LanguageUserCaseTestHelper::getFindQuery('code');
+        $this->module = new RootLanguageModuleImp(RoleHelper::createRoot());
+        $this->query = LanguageUserCaseTestHelper::getFindDto('code');
         $this->mock(LanguageRepository::class, function (MockInterface $mock) {
             $mock->shouldReceive('find')
                 ->andReturnNull();

@@ -5,61 +5,67 @@ declare(strict_types=1);
 namespace Domain\Core\Language\Root;
 
 use App\Base\Model\Roles\Root;
-use App\Controll\Language\Root\CreateLanguageImp;
-use App\Controll\Language\Root\DeleteLanguageImp;
-use App\Controll\Language\Root\UpdateLanguageCommand;
 use App\Exceptions\EntityNotFound;
-use Domain\Core\Language\Base\Model\Aggregate\ReadonlyLanguage;
-use Domain\Core\Language\Base\Model\Collection\ReadonlyLanguageCollection;
-use Domain\Core\Language\Root\Control\Commands\CreateLanguageHandler;
-use Domain\Core\Language\Root\Control\Commands\DeleteLanguageHandler;
-use Domain\Core\Language\Root\Control\Commands\UpdateLanguageHandler;
-use Domain\Core\Language\Root\Control\Queries\RootFindLanguageHandler;
-use Domain\Core\Language\Root\Control\Queries\RootFindLanguageImp;
-use Domain\Core\Language\Root\Control\Queries\RootGetLanguagesHandler;
-use Domain\Core\Language\Root\Control\Queries\RootGetLanguagesImp;
+use Domain\Core\Language\Root\Control\CreateLanguageHandler;
+use Domain\Core\Language\Root\Control\DeleteLanguageHandler;
+use Domain\Core\Language\Root\Control\Dto\CreateLanguageDto;
+use Domain\Core\Language\Root\Control\Dto\DeleteLanguageDto;
+use Domain\Core\Language\Root\Control\Dto\FindLanguageDto;
+use Domain\Core\Language\Root\Control\Dto\GetLanguagesDto;
+use Domain\Core\Language\Root\Control\Dto\UpdateLanguageDto;
+use Domain\Core\Language\Root\Control\FindLanguageHandler;
+use Domain\Core\Language\Root\Control\GetLanguagesHandler;
+use Domain\Core\Language\Root\Control\UpdateLanguageHandler;
+use Domain\Core\Language\Root\Model\Language;
+use Domain\Core\Language\Root\Model\LanguageCollection;
+use Domain\Core\Language\Root\Policy\CanAssignOwner;
 use Illuminate\Contracts\Container\BindingResolutionException;
 
 final class RootLanguageModuleImp implements RootLanguageModule
 {
+    public function __construct(
+        private Root $root,
+    ) {}
+
     /**
      * @throws BindingResolutionException
      */
-    public function create(CreateLanguageImp $command): ReadonlyLanguage
+    public function create(CreateLanguageDto $dto): Language
     {
+        (new CanAssignOwner())($this->root, $dto);
         /** @var CreateLanguageHandler $handler */
         $handler = app()->make(CreateLanguageHandler::class);
 
-        return $handler($root, $command);
+        return $handler($dto);
     }
 
     /**
      * @throws BindingResolutionException
      */
-    public function update(Root $root, UpdateLanguageCommand $command): void
+    public function update(UpdateLanguageDto $dto): void
     {
-        /** @var UpdateLanguageHandler $action */
-        $action = app()->make(UpdateLanguageHandler::class);
-        $action($root, $command);
+        /** @var UpdateLanguageHandler $handler */
+        $handler = app()->make(UpdateLanguageHandler::class);
+        $handler($dto);
     }
 
     /**
      * @throws BindingResolutionException
      */
-    public function delete(Root $root, DeleteLanguageImp $command): void
+    public function delete(DeleteLanguageDto $dto): void
     {
         /** @var DeleteLanguageHandler $action */
         $action = app()->make(DeleteLanguageHandler::class);
-        $action($root, $command);
+        $action($dto);
     }
 
     /**
      * @throws BindingResolutionException
      */
-    public function find(Root $root, RootFindLanguageImp $query): ?ReadonlyLanguage
+    public function find(FindLanguageDto $dto): ?Language
     {
         try {
-            return $this->findOrFail($root, $query);
+            return $this->findOrFail($dto);
         } catch (EntityNotFound) {
             return null;
         }
@@ -69,22 +75,22 @@ final class RootLanguageModuleImp implements RootLanguageModule
      * @throws EntityNotFound
      * @throws BindingResolutionException
      */
-    public function findOrFail(Root $root, RootFindLanguageImp $query): ReadonlyLanguage
+    public function findOrFail(FindLanguageDto $dto): Language
     {
-        /** @var RootFindLanguageHandler $action */
-        $action = app()->make(RootFindLanguageHandler::class);
+        /** @var FindLanguageHandler $handler */
+        $handler = app()->make(FindLanguageHandler::class);
 
-        return $action($root, $query);
+        return $handler($dto);
     }
 
     /**
      * @throws BindingResolutionException
      */
-    public function get(Root $root, RootGetLanguagesImp $query): ReadonlyLanguageCollection
+    public function get(GetLanguagesDto $dto): LanguageCollection
     {
-        /** @var RootGetLanguagesHandler $action */
-        $action = app()->make(RootGetLanguagesHandler::class);
+        /** @var GetLanguagesHandler $action */
+        $action = app()->make(GetLanguagesHandler::class);
 
-        return $action($root, $query);
+        return $action($dto);
     }
 }

@@ -6,11 +6,11 @@ namespace Domain\Core\Language\Base;
 
 use App\Exceptions\EntityNotFound;
 use Domain\Core\Language\Base\Control\Query\FindLanguage;
-use Domain\Core\Language\Base\Control\Query\FindLanguageHandler;
 use Domain\Core\Language\Base\Control\Query\GetLanguages;
-use Domain\Core\Language\Base\Control\Query\GetLanguagesHandler;
 use Domain\Core\Language\Base\Model\Aggregate\ReadonlyLanguage;
 use Domain\Core\Language\Base\Model\Collection\LanguageCollection;
+use Domain\Core\Language\Root\Control\FindLanguageHandler;
+use Domain\Core\Language\Root\Control\GetLanguagesHandler;
 use Illuminate\Contracts\Container\BindingResolutionException;
 
 final class LanguageModuleImp implements LanguageModule

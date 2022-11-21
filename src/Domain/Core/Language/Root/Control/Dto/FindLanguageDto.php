@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace App\Controll\Language\Base;
+namespace Domain\Core\Language\Root\Control\Dto;
 
-use Domain\Core\Language\Base\Control\Query\FindLanguage;
 use Domain\Core\Language\Base\Repository\Query\Find\FindByCode;
 use Domain\Core\Language\Base\Repository\Query\Find\FindLanguage as FindLanguageQuery;
 
-final class FindLanguageImp implements FindLanguage
+final class FindLanguageDto
 {
     private FindLanguageQuery $find;
 
-    public function __construct(string $value)
-    {
+    public function __construct(
+        string $value
+    ) {
         $this->find = new FindByCode($value);
     }
 

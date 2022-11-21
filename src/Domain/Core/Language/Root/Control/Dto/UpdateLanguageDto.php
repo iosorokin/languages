@@ -2,17 +2,23 @@
 
 declare(strict_types=1);
 
-namespace App\Controll\Language\Root;
+namespace Domain\Core\Language\Root\Control\Dto;
 
-use Domain\Core\Language\Root\Control\Commands\BaseLanguageCommand;
+use App\Base\Model\Roles\Root;
 
-final class BaseLanguageCommandImp implements BaseLanguageCommand
+final class UpdateLanguageDto
 {
     public function __construct(
-        private string $name,
+        private Root   $root,
         private string $nativeName,
+        private string $name,
         private string $code,
     ) {}
+
+    public function root(): Root
+    {
+        return $this->root;
+    }
 
     public function nativeName(): string
     {

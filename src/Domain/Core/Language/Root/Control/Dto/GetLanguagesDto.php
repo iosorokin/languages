@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controll\Language\Base;
+namespace Domain\Core\Language\Root\Control\Dto;
 
 use Domain\Core\Language\Base\Control\Query\GetLanguages;
 use Domain\Core\Language\Base\Repository\Query\Search\SearchLanguage;
@@ -10,7 +10,7 @@ use Domain\Core\Language\Base\Repository\Query\Search\SearchLanguageFactory;
 use Domain\Core\Language\Base\Repository\Query\Sort\SortLanguage;
 use Domain\Core\Language\Base\Repository\Query\Sort\SortLanguageFactory;
 
-final class GetLanguagesImp implements GetLanguages
+final class GetLanguagesDto implements GetLanguages
 {
     private SearchLanguage $search;
     private SortLanguage   $sort;

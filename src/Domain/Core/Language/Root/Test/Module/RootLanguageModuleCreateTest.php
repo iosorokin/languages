@@ -8,8 +8,9 @@ use App\Base\Model\Roles\RoleHelper;
 use App\Base\Model\Roles\Root;
 use App\Base\Model\Values\Identificatiors\Id\BigIntId;
 use App\Base\Test\ModuleCase;
-use App\Controll\Language\Root\CreateLanguageImp;
-use Domain\Core\Language\Root\Repository\RootLanguageRepository;
+use Domain\Core\Language\Base\Model\Value\Code\CodeImp;
+use Domain\Core\Language\Root\Control\Dto\CreateLanguageDto;
+use Domain\Core\Language\Root\Repository\LanguageRepository;
 use Domain\Core\Language\Root\RootLanguageModuleImp;
 use Domain\Core\Language\Root\Test\RootLanguageModuleHelper;
 
@@ -22,14 +23,12 @@ final class RootLanguageModuleCreateTest extends ModuleCase
 
     private RootLanguageModuleImp $languageModule;
 
-    private Root $root;
-
-    private CreateLanguageImp $command;
+    private CreateLanguageDto $command;
 
     /** @test */
     public function __invoke()
     {
-        $language = $this->languageModule->create($this->root, $this->command);
+        $language = $this->languageModule->create($this->command);
         $this->assertSame(self::EXPECTING_LANGUAGE_CODE, $language->code());
     }
 
@@ -37,12 +36,11 @@ final class RootLanguageModuleCreateTest extends ModuleCase
     {
         parent::setUp();
 
-        $this->languageModule = $this->app->make(RootLanguageModuleImp::class);
         $this->command = RootLanguageModuleHelper::new()->getCreateLanguageCommand();
-        $this->root = RoleHelper::createRoot();
+        $this->languageModule = new RootLanguageModuleImp(RoleHelper::createRoot());
 
-        $this->mock(RootLanguageRepository::class)
+        $this->mock(LanguageRepository::class)
             ->shouldReceive('add')
-            ->andReturn(BigIntId::new(self::EXPECTING_LANGUAGE_CODE));
+            ->andReturn(CodeImp::new(self::EXPECTING_LANGUAGE_CODE));
     }
 }

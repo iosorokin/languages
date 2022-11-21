@@ -2,20 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Domain\Core\Language\Base\Test\Module;
+namespace Domain\Core\Language\Root\Test\Module;
 
 use App\Base\Test\ModuleCase;
 use Domain\Core\Language\Base\Control\Query\GetLanguages;
 use Domain\Core\Language\Base\LanguageModule;
 use Domain\Core\Language\Base\LanguageModuleImp;
 use Domain\Core\Language\Base\Model\Collection\LanguageCollection;
-use Domain\Core\Language\Base\Repository\LanguageRepository;
 use Domain\Core\Language\Base\Test\LanguageFactoryTestHelper;
 use Domain\Core\Language\Base\Test\LanguageUserCaseTestHelper;
-use Domain\Core\Language\Root\Repository\RootLanguageRepository;
 use Mockery\MockInterface;
 
-final class LanguageModuleGetTest extends ModuleCase
+final class RootLanguageModuleGetTest extends ModuleCase
 {
     private const EXPECTING_COUNT_LANGUAGES = 50;
 
@@ -38,8 +36,8 @@ final class LanguageModuleGetTest extends ModuleCase
 
         $this->languageModule = LanguageModuleImp::instance();
         $languages = LanguageFactoryTestHelper::collection(self::EXPECTING_COUNT_LANGUAGES);
-        $this->query = LanguageUserCaseTestHelper::getQuery();
-        $this->mock(LanguageRepository::class, function (MockInterface $mock) use ($languages) {
+        $this->query = LanguageUserCaseTestHelper::getQueryDto();
+        $this->mock(\Domain\Core\Language\Base\Test\Module\LanguageRepository::class, function (MockInterface $mock) use ($languages) {
             $mock->shouldReceive('get')
                 ->andReturn($languages);
         });

@@ -4,20 +4,23 @@ declare(strict_types=1);
 
 namespace Domain\Core\Language\Root\Support;
 
-use Domain\Core\Language\Base\Model\Aggregate\Language;
-use Domain\Core\Language\Base\Repository\Query\Find\FindLanguage;
-use Domain\Core\Language\Base\Support\GetReadOnlyLanguageOrFail;
+use App\Exceptions\EntityNotFound;
+use Domain\Core\Language\Root\Control\Dto\FindLanguageDto;
+use Domain\Core\Language\Root\Model\Language;
+use Domain\Core\Language\Root\Repository\LanguageRepository;
 
 final class GetLanguageOrFail
 {
     public function __construct(
-        private GetReadOnlyLanguageOrFail $getLanguageOrFail,
-    ){}
+        private LanguageRepository $repository,
+    ) {}
 
-    public function __invoke(FindLanguage $query): Language
+    public function __invoke(FindLanguageDto $dto): Language
     {
-        /** @var Language $language */
-        $language = ($this->getLanguageOrFail)($query);
+        $language = $this->repository->find($dto);
+        if (! $language) {
+            throw new EntityNotFound('code', $dto->find()->get());
+        }
 
         return $language;
     }

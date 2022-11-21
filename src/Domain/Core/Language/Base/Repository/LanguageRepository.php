@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace Domain\Core\Language\Base\Repository;
 
 use App\Base\Collections\Collection;
-use Domain\Core\Language\Base\Control\Query\FindLanguage;
-use Domain\Core\Language\Base\Control\Query\GetLanguages;
 use Domain\Core\Language\Base\Repository\Structure\LanguageStructure;
+use Domain\Core\Language\Root\Control\Dto\FindLanguageDto;
+use Domain\Core\Language\Root\Control\Dto\GetLanguagesDto;
 
 interface LanguageRepository
 {
-    public function find(FindLanguage $query): LanguageStructure;
+    public function find(FindLanguageDto $dto): LanguageStructure;
 
-    public function get(GetLanguages $query): Collection;
+    public function get(GetLanguagesDto $dto): Collection;
 }
