@@ -3,9 +3,9 @@
 namespace WIP\Personal\Account\Services\Auth\Sanctum;
 
 use Illuminate\Auth\AuthManager;
-use Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
-use Infrastructure\Database\Repositories\Eloquent\Personal\Providers\UserModelDataProvider;
-use Infrastructure\Database\Repositories\Eloquent\Personal\UserDataMapper;
+use Core\Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
+use Core\Infrastructure\Database\Repositories\Eloquent\Personal\Providers\UserModelDataProvider;
+use Core\Infrastructure\Database\Repositories\Eloquent\Personal\UserDataMapper;
 use WIP\Personal\Account\Model\Aggregates\Account;
 use WIP\Personal\Account\Services\Auth\Auth;
 use WIP\Personal\Account\Services\Auth\AuthService;

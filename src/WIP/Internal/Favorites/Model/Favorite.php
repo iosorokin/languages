@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace WIP\Internal\Favorites\Model;
 
-use App\Base\Structure\Identify\IntId;
-use App\Base\Structure\Timestamps\Timestamps;
-use Domain\Account\User\Database\Eloquent\Model\HasUser;
+use Core\Base\Structure\Identify\IntId;
+use Core\Base\Structure\Timestamps\Timestamps;
+use App\Account\User\Database\Eloquent\Model\HasUser;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 

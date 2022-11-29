@@ -2,7 +2,7 @@
 
 namespace WIP\Personal\Account\Model\Values\Access;
 
-use App\Base\Model\Values\ValueObject;
+use Core\Base\Model\Values\ValueObject;
 
 interface Access extends ValueObject
 {

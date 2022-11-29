@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace WIP\Core\Chapters\Controllers;
 
-use Domain\Chapters\Controllers\ShowChapterResource;
+use App\Chapters\Controllers\ShowChapterResource;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Infrastructure\Support\Responses\Json\CreatedResponse;
+use Core\Infrastructure\Support\Responses\Json\CreatedResponse;
 use WIP\Core\Chapters\Presenters\User\UserShowChapter;
 use WIP\Core\Chapters\Presenters\User\UserStoreChapter;
 

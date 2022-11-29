@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace WIP\Core\Analysis\Validators;
 
-use Infrastructure\Support\Validation\BaseValidator;
-use Infrastructure\Support\Validation\Rules\Description;
+use Core\Infrastructure\Support\Validation\BaseValidator;
+use Core\Infrastructure\Support\Validation\Rules\Description;
 
 abstract class AnalysisValidator extends BaseValidator
 {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Personal\Account\Model\Aggregates;
 
-use App\Base\Model\Values\Identificatiors\Id\IntId;
+use Core\Base\Model\Values\Identificatiors\Id\IntId;
 use WIP\Personal\Account\Model\Entities\Accesses\Accesses;
 use WIP\Personal\Account\Model\Entities\Accesses\AccessValue;
 

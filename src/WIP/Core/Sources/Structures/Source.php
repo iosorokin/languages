@@ -2,12 +2,12 @@
 
 namespace WIP\Core\Sources\Structures;
 
-use App\Base\Structure\EloquentHasDescription;
-use App\Base\Structure\EloquentHasTitle;
-use App\Base\Structure\Identify\IntId;
-use App\Base\Structure\Timestamps\Timestamps;
-use Domain\Account\User\Database\Eloquent\Model\HasUser;
-use Domain\Languages\Infrastructure\Model\HasLanguage;
+use Core\Base\Structure\EloquentHasDescription;
+use Core\Base\Structure\EloquentHasTitle;
+use Core\Base\Structure\Identify\IntId;
+use Core\Base\Structure\Timestamps\Timestamps;
+use App\Account\User\Database\Eloquent\Model\HasUser;
+use App\Languages\Infrastructure\Model\HasLanguage;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Queue\SerializesModels;
 use WIP\Core\Sources\Enums\SourceType;

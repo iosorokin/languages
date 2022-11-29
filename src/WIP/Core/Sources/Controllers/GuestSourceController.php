@@ -6,7 +6,7 @@ namespace WIP\Core\Sources\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Infrastructure\Support\Responses\Json\OkResponse;
+use Core\Infrastructure\Support\Responses\Json\OkResponse;
 use WIP\Core\Sources\Presenters\Guest\GuestIndexSources;
 use WIP\Core\Sources\Presenters\Guest\GuestShowSource;
 use WIP\Core\Sources\Transformers\GuestSourceTransformer;

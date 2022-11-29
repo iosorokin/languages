@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace WIP\Core\Sentences\Tests;
 
-use App\Base\Test\Helpers\ModuleHelper;
+use Core\Base\Test\Helpers\ModuleHelper;
 use Generator;
-use Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
+use Core\Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
 use WIP\Core\Sentences\Presenters\SeedSentence;
 use WIP\Core\Sources\Structures\Source;
 

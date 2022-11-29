@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Personal\Account\Helpers\Test;
 
-use App\Base\Test\Helpers\ModuleHelper;
+use Core\Base\Test\Helpers\ModuleHelper;
 use WIP\Personal\Account\Dto\BaseLoginDto;
 
 final class BaseAuthSeedHelper extends ModuleHelper

@@ -6,7 +6,7 @@ namespace WIP\Core\Sentences\Presenters\Mixins;
 
 use Exception;
 use Illuminate\Support\Facades\DB;
-use Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
+use Core\Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
 use WIP\Core\Chapters\Presenters\Internal\GetChapter;
 use WIP\Core\Sentences\Factories\SentenceFactory;
 use WIP\Core\Sentences\Model\Sentence;

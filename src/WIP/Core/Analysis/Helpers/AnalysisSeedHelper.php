@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace WIP\Core\Analysis\Helpers;
 
-use App\Base\Test\Helpers\ModuleHelper;
-use Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
+use Core\Base\Test\Helpers\ModuleHelper;
+use Core\Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
 use WIP\Core\Analysis\Model\Analysis;
 use WIP\Core\Analysis\Presenters\SeedAnalysis;
 use WIP\Core\Sentences\Model\Sentence;

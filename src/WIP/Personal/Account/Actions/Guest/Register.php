@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Personal\Account\Actions\Guest;
 
-use App\Base\Event\EventDispatcher;
+use Core\Base\Event\EventDispatcher;
 use WIP\Personal\Account\Dto\NewAccountDto;
 use WIP\Personal\Account\Model\Aggregates\AccountFactory;
 use WIP\Personal\Account\Repositories\AccountRepository;

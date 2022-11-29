@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace WIP\Personal\Account\Model\Entities\Personality;
 
-use App\Base\Model\Entity;
-use App\Base\Model\Values\Identificatiors\Id\IntId;
-use App\Base\Model\Values\Personality\Name\Name;
+use Core\Base\Model\Entity;
+use Core\Base\Model\Values\Identificatiors\Id\IntId;
+use Core\Base\Model\Values\Personality\Name\Name;
 
 final class Personality extends Entity
 {

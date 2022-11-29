@@ -6,7 +6,7 @@ namespace WIP\Core\Analysis\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Infrastructure\Support\Responses\Json\CreatedResponse;
+use Core\Infrastructure\Support\Responses\Json\CreatedResponse;
 use WIP\Core\Analysis\Presenters\User\UserCreateAnalysis;
 
 final class UserStoreAnalysisController

@@ -6,9 +6,9 @@ namespace WIP\Core\Sources\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Infrastructure\Support\Responses\Json\IdResponse;
-use Infrastructure\Support\Responses\Json\NoContentResponse;
-use Infrastructure\Support\Responses\Json\OkResponse;
+use Core\Infrastructure\Support\Responses\Json\IdResponse;
+use Core\Infrastructure\Support\Responses\Json\NoContentResponse;
+use Core\Infrastructure\Support\Responses\Json\OkResponse;
 use WIP\Core\Sources\Presenters\User\UserCreateSource;
 use WIP\Core\Sources\Presenters\User\UserDeleteSource;
 use WIP\Core\Sources\Presenters\User\UserIndexSources;

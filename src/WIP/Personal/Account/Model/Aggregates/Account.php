@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace WIP\Personal\Account\Model\Aggregates;
 
-use App\Base\Event\EventDispatcher;
-use App\Base\Model\Entity;
-use App\Base\Model\Values\Contacts\Email\Email;
-use App\Base\Model\Values\Datetime\Timestamp;
-use App\Base\Model\Values\Identificatiors\Id\IntId;
-use App\Base\Model\Values\Security\Password;
+use Core\Base\Event\EventDispatcher;
+use Core\Base\Model\Entity;
+use Core\Base\Model\Values\Contacts\Email\Email;
+use Core\Base\Model\Values\Datetime\Timestamp;
+use Core\Base\Model\Values\Identificatiors\Id\IntId;
+use Core\Base\Model\Values\Security\Password;
 use WIP\Personal\Account\Model\Entities\Accesses\Accesses;
 use WIP\Personal\Account\Model\Entities\Accesses\AccessValue;
 use WIP\Personal\Account\Model\Entities\Accesses\Policies\EnableRootPolicy;
@@ -48,7 +48,7 @@ final class Account extends Entity
     public function commit(AccountRepository $repository, EventDispatcher $dispatcher): self
     {
         $id = $repository->add($this);
-        $this->id = \Domain\Account\Model\Aggregates\BigIntId::new($id);
+        $this->id = \App\Account\Model\Aggregates\BigIntId::new($id);
         $this->pushEvent(new AccountCreated($this->id));
         $dispatcher->dispatchAll($this->events());
 

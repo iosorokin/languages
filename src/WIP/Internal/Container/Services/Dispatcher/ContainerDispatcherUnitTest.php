@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Internal\Container\Services\Dispatcher;
 
-use App\Base\Test\ModuleCase;
+use Core\Base\Test\ModuleCase;
 use WIP\Core\Sentences\Model\Sentence;
 use WIP\Internal\Container\Model\Container;
 use WIP\Internal\Container\Presenters\Internal\InitWrapperContainer;

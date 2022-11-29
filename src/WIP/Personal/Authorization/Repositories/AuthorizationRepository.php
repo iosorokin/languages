@@ -2,7 +2,7 @@
 
 namespace WIP\Personal\Authorization\Repositories;
 
-use App\Base\Model\Values\Identificatiors\Id\IntId;
+use Core\Base\Model\Values\Identificatiors\Id\IntId;
 
 interface AuthorizationRepository
 {

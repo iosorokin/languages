@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace WIP\Core\Sources\Presenters\Mixins;
 
-use Domain\Core\Languages\Model\Manager\Aggregates\Student\Policies\StudentCanTakeToLearn;
-use Domain\Core\Languages\Model\Manager\Queries\Mixins\GetLanguage;
-use Domain\Sources\Repositories\SourceRepository;
+use App\Education\Languages\Model\Manager\Aggregates\Student\Policies\StudentCanTakeToLearn;
+use App\Education\Languages\Model\Manager\Queries\Mixins\GetLanguage;
+use App\Sources\Repositories\SourceRepository;
 use Illuminate\Events\Dispatcher;
-use Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
+use Core\Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
 use WIP\Core\Sources\Authorization\SourceAuthorizeUser;
 use WIP\Core\Sources\Events\SourceCreated;
 use WIP\Core\Sources\Factories\SourceFactory;

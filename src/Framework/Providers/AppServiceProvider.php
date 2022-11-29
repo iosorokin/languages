@@ -2,8 +2,8 @@
 
 namespace Framework\Providers;
 
-use App\Base\Collections\CollectionDriver;
-use App\Base\Collections\Laravel\LaravelCollectionDriver;
+use Core\Base\Collections\CollectionDriver;
+use Core\Base\Collections\Laravel\LaravelCollectionDriver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

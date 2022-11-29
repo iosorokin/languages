@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace WIP\Core\Chapters\Controllers;
 
-use App\Base\Test\EndpointCase;
-use App\Base\Test\Helpers\BaseAuthApiHelper;
+use Core\Base\Test\EndpointCase;
+use Core\Base\Test\Helpers\BaseAuthApiHelper;
 use WIP\Core\Chapters\Helpers\ChapterApiHelper;
 
 final class ChapterApiTest extends EndpointCase

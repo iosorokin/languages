@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace WIP\Internal\Container\Model;
 
-use App\Base\Structure\Identify\IntId;
-use App\Base\Structure\Timestamps\Timestamps;
+use Core\Base\Structure\Identify\IntId;
+use Core\Base\Structure\Timestamps\Timestamps;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;

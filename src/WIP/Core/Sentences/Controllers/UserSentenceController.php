@@ -7,8 +7,8 @@ namespace WIP\Core\Sentences\Controllers;
 use Framework\Http\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Infrastructure\Support\Responses\Json\IdResponse;
-use Infrastructure\Support\Responses\Json\NoContentResponse;
+use Core\Infrastructure\Support\Responses\Json\IdResponse;
+use Core\Infrastructure\Support\Responses\Json\NoContentResponse;
 use WIP\Core\Sentences\Presenters\User\UserStoreSentence;
 use WIP\Core\Sources\Presenters\User\UserDeleteSource;
 

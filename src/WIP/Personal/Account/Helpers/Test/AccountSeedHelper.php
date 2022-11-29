@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Personal\Account\Helpers\Test;
 
-use App\Base\Test\Helpers\ModuleHelper;
+use Core\Base\Test\Helpers\ModuleHelper;
 use Generator;
 use WIP\Personal\Account\Actions\Console\InitRootAccount;
 use WIP\Personal\Account\Actions\SeedUser;

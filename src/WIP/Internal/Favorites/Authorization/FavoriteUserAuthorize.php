@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Internal\Favorites\Authorization;
 
-use Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
+use Core\Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
 use WIP\Internal\Favorites\Model\Favorite;
 
 final class FavoriteUserAuthorize

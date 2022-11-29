@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Core\Analysis\Factories;
 
-use Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
+use Core\Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
 use WIP\Core\Analysis\Model\Analysis;
 use WIP\Core\Sentences\Model\Sentence;
 

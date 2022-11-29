@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 namespace WIP\Personal\Account\Model\Values\Password;
-use App\Base\Model\Values\InvalidValueObject;
-use App\Base\Model\Values\Security\Password;
-use Infrastructure\Packages\AssertStr;
+use Core\Base\Model\Values\InvalidValueObject;
+use Core\Base\Model\Values\Security\Password;
+use Core\Infrastructure\Packages\AssertStr;
 
 final class RawPassword implements Password
 {

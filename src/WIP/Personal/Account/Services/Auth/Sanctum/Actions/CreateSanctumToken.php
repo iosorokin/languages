@@ -2,7 +2,7 @@
 
 namespace WIP\Personal\Account\Services\Auth\Sanctum\Actions;
 
-use Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
+use Core\Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
 use Laravel\Sanctum\NewAccessToken;
 use WIP\Personal\Account\Model\Aggregates\Account;
 

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Personal\Account\Actions;
 
-use App\Base\Test\TestCase;
+use Core\Base\Test\TestCase;
 use WIP\Personal\Account\Helpers\Test\AccountSeedHelper;
 use WIP\Personal\Account\Model\Aggregates\Account;
 use WIP\Personal\Account\Repositories\AccountRepository;

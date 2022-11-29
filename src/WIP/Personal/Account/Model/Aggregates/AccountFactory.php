@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace WIP\Personal\Account\Model\Aggregates;
 
-use App\Base\Model\Values\Datetime\Now;
-use App\Base\Model\Values\Datetime\TimestampImp;
-use App\Base\Model\Values\Identificatiors\Id\BigIntId;
-use App\Base\Model\Values\Identificatiors\Id\StrictNullId;
+use Core\Base\Model\Values\Datetime\Now;
+use Core\Base\Model\Values\Datetime\TimestampImp;
+use Core\Base\Model\Values\Identificatiors\Id\BigIntId;
+use Core\Base\Model\Values\Identificatiors\Id\StrictNullId;
 use WIP\Personal\Account\Dto\NewAccountDto;
 use WIP\Personal\Account\Dto\RestoreAccountDto;
 use WIP\Personal\Account\Model\Entities\Accesses\AccessesFactory;

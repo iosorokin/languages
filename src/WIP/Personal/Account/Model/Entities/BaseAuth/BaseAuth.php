@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace WIP\Personal\Account\Model\Entities\BaseAuth;
 
-use App\Base\Model\Entity;
-use App\Base\Model\Values\Contacts\Email\Email;
-use App\Base\Model\Values\Identificatiors\Id\IntId;
-use App\Base\Model\Values\Security\Password;
+use Core\Base\Model\Entity;
+use Core\Base\Model\Values\Contacts\Email\Email;
+use Core\Base\Model\Values\Identificatiors\Id\IntId;
+use Core\Base\Model\Values\Security\Password;
 use WIP\Personal\Account\Model\Values\Password\BcryptHashedPassword;
 use WIP\Personal\Account\Model\Values\Password\RawPassword;
 

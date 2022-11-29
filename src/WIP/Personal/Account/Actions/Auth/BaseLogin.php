@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Personal\Account\Actions\Auth;
 
-use App\Base\Model\Values\Contacts\Email\UserEmail;
+use Core\Base\Model\Values\Contacts\Email\UserEmail;
 use Exception;
 use WIP\Personal\Account\Dto\BaseLoginDto;
 use WIP\Personal\Account\Model\Values\Password\RawPassword;

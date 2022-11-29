@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Personal\Account\Model\Aggregates;
 
-use App\Base\Test\UnitCase;
+use Core\Base\Test\UnitCase;
 use WIP\Personal\Account\Helpers\Test\AccountSeedHelper;
 use WIP\Personal\Account\Repositories\AccountRepository;
 

@@ -2,10 +2,10 @@
 
 namespace WIP\Core\Sources\Controllers;
 
-use App\Base\Test\EndpointCase;
-use App\Base\Test\Helpers\BaseAuthApiHelper;
-use Domain\Core\Language\Base\Test\BaseLanguageModuleHelper;
-use Infrastructure\Database\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
+use Core\Base\Test\EndpointCase;
+use Core\Base\Test\Helpers\BaseAuthApiHelper;
+use App\Education\Language\Base\Test\BaseLanguageModuleHelper;
+use Core\Infrastructure\Database\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
 use WIP\Core\Sources\Helpers\SourceApiHelper;
 
 class SourceApiTest extends EndpointCase

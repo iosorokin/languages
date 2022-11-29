@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace WIP\Personal\Account\Model\Values\Password;
 
-use App\Base\Model\Values\InvalidValueObject;
-use App\Base\Test\UnitCase;
+use Core\Base\Model\Values\InvalidValueObject;
+use Core\Base\Test\UnitCase;
 use Illuminate\Support\Str;
 
 final class BcryptHashedPasswordTest extends UnitCase

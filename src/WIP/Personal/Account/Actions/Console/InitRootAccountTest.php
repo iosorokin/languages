@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace WIP\Personal\Account\Actions\Console;
 
-use App\Base\Event\EventDispatcher;
-use App\Base\Test\UnitCase;
+use Core\Base\Event\EventDispatcher;
+use Core\Base\Test\UnitCase;
 use App\Exceptions\DomainException;
 use Mockery\MockInterface;
 use WIP\Personal\Account\Helpers\Test\AccountSeedHelper;

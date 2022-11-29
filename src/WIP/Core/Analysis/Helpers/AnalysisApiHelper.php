@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Core\Analysis\Helpers;
 
-use App\Base\Test\Helpers\ApiHelper;
+use Core\Base\Test\Helpers\ApiHelper;
 use Illuminate\Testing\TestResponse;
 use WIP\Core\Sentences\Model\Sentence;
 

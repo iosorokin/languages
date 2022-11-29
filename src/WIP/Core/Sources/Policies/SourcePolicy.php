@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Core\Sources\Policies;
 
-use Domain\Core\Languages\Model\Manager\Aggregates\Student\Policies\StudentCanTakeToLearn;
+use App\Education\Languages\Model\Manager\Aggregates\Student\Policies\StudentCanTakeToLearn;
 use WIP\Core\Sources\Structures\Source;
 
 final class SourcePolicy
