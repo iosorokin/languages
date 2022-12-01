@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Education\Source\Student\Domain\Model\Value;
+namespace App\Education\Source\Shared\Domain\Model\Value;
 
-use App\Education\Source\Student\Domain\Model\Enum\SourceTypeEnum;
+use App\Education\Source\Shared\Domain\Model\Enum\SourceTypeEnum;
 
 final class SourceTypeImp implements SourceType
 {

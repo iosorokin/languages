@@ -4,8 +4,13 @@ namespace Framework\Providers;
 
 use Core\Base\Collections\CollectionDriver;
 use Core\Base\Collections\Laravel\LaravelCollectionDriver;
+use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * @property Application $app
+ */
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -15,13 +20,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
+        $this->app->useAppPath('src/Framework');
     }
 
     public function boot()
     {
-        $this->app->useAppPath('src/Domain');
-
         $this->app->bind(CollectionDriver::class, LaravelCollectionDriver::class);
     }
 }

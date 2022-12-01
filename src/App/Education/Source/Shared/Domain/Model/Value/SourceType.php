@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Education\Source\Student\Domain\Model\Value;
+namespace App\Education\Source\Shared\Domain\Model\Value;
 
 use Core\Base\Model\Values\ValueObject;
 

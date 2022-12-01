@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Education\Source\Student\Test;
 
 use App\Education\Source\Base\Repository\StudentSourceLanguageRepository;
-use App\Education\Source\Student\Controll\Cases\CreateSourceHandler;
+use App\Education\Source\Student\Domain\Cases\CreateSourceHandler;
 use App\Education\Source\Student\Infrastructure\Database\SourceRepository;
 use App\Education\Source\Student\Test\Test\SourceSeedHelper;
 use Core\Base\Model\Values\Identificatiors\Id\BigIntId;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Education\Source\Student\Domain\Model\Enum;
+namespace App\Education\Source\Shared\Domain\Model\Enum;
 
 enum SourceTypeEnum: string
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Education\Source\Student\Controll\Cases\Dto;
+namespace App\Education\Source\Student\Domain\Cases\Dto;
 
 final class CreateSourceDto
 {
