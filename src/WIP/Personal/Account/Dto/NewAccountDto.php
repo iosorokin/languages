@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Personal\Account\Dto;
 
-use Core\Base\Dto;
+use Core\Base\Dto\Dto;
 
 final class NewAccountDto extends UserDto implements Dto
 {

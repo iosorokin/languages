@@ -6,6 +6,11 @@ namespace Core\Infrastructure\Packages;
 
 final class AssertInt
 {
+    public static function isInt(mixed $value): bool
+    {
+        return is_int($value);
+    }
+
     public static function positive(int $value): bool
     {
         return $value >= 0;

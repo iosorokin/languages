@@ -2,6 +2,8 @@
 
 namespace Core\Base;
 
+use Core\Base\Dto\Dto;
+
 interface Request extends Dto
 {
     /**

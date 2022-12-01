@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace App\Education\Source\Student\Domain\Cases;
 
-use App\Controll\Source\Student\UpdateSourceImp;
+use App\Education\Source\Student\Domain\Cases\Dto\UpdateSourceDto;
+use App\Education\Source\Student\Domain\Model\Aggregate\Source;
 
 final class UpdateSourceHandler
 {
-    public function __invoke(UpdateSourceImp $command): void
+    public function __invoke(UpdateSourceDto $dto): Source
     {
-        // TODO: Implement __invoke() method.
+
     }
 }

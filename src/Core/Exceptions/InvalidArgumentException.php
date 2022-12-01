@@ -2,22 +2,19 @@
 
 declare(strict_types=1);
 
-namespace App\Exceptions;
+namespace Core\Exceptions;
 
 use Exception;
 use Illuminate\Validation\ValidationException;
 
 final class InvalidArgumentException extends Exception
 {
-    private string $argument;
+    public function __construct(
+        private string $source,
+        private string $error
+    ) {
+        $message = sprintf("%s: %s", $this->source, $this->error);
 
-    private string $error;
-
-    public function __construct(string $argument, string $error)
-    {
-        $this->argument = $argument;
-        $this->error = $error;
-
-        parent::__construct($error);
+        parent::__construct($message);
     }
 }

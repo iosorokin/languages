@@ -11,7 +11,7 @@ use Core\Base\Model\Values\Description\Description;
 use Core\Base\Model\Values\Identificatiors\Id\IntId;
 use Core\Base\Model\Values\Title\Title;
 
-final class WriteSourceStructure extends Structure
+final class SourceStructure extends Structure
 {
     public function __construct(
         public readonly IntId $id,

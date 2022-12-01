@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Base;
+namespace Core\Base\Dto;
 
 use Illuminate\Contracts\Support\Arrayable;
 
