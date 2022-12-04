@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace WIP\Core\Sources\Presenters\Mixins;
 
-use App\Education\Languages\Model\Manager\Aggregates\Student\Policies\StudentCanTakeToLearn;
-use App\Education\Languages\Model\Manager\Queries\Mixins\GetLanguage;
-use App\Sources\Repositories\SourceRepository;
+use Domain\Education\Languages\Model\Manager\Aggregates\Student\Policies\StudentCanTakeToLearn;
+use Domain\Education\Languages\Model\Manager\Queries\Mixins\GetLanguage;
+use Domain\Sources\Repositories\SourceRepository;
 use Illuminate\Events\Dispatcher;
 use Core\Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
 use WIP\Core\Sources\Authorization\SourceAuthorizeUser;

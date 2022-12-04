@@ -6,7 +6,7 @@ namespace WIP\Personal\Account\Actions\Console;
 
 use Core\Base\Event\EventDispatcher;
 use Core\Base\Test\UnitCase;
-use App\Exceptions\DomainException;
+use Domain\Exceptions\DomainException;
 use Mockery\MockInterface;
 use WIP\Personal\Account\Helpers\Test\AccountSeedHelper;
 use WIP\Personal\Account\Repositories\AccountRepository;

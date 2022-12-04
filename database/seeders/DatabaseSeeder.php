@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Account\Model\Entities\Accesses\Access;
-use App\Education\Language\Base\Test\BaseLanguageModuleHelper;
+use Domain\Account\Model\Entities\Accesses\Access;
+use Domain\Education\Language\Base\Test\BaseLanguageModuleHelper;
 use Illuminate\Database\Seeder;
 use Core\Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
 use WIP\Core\Analysis\Helpers\AnalysisSeedHelper;

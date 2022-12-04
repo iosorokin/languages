@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Core\Base\Test\Helpers;
 
-use App\Education\Language\Base\Test\BaseLanguageModuleHelper;
+use Domain\Education\Language\Base\Test\BaseLanguageModuleHelper;
 use Illuminate\Testing\TestResponse;
 use Core\Infrastructure\Database\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
 

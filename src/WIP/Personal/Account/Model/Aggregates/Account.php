@@ -48,7 +48,7 @@ final class Account extends Entity
     public function commit(AccountRepository $repository, EventDispatcher $dispatcher): self
     {
         $id = $repository->add($this);
-        $this->id = \App\Account\Model\Aggregates\BigIntId::new($id);
+        $this->id = \Domain\Account\Model\Aggregates\BigIntId::new($id);
         $this->pushEvent(new AccountCreated($this->id));
         $dispatcher->dispatchAll($this->events());
 

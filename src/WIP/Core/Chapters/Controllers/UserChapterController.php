@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Core\Chapters\Controllers;
 
-use App\Chapters\Controllers\ShowChapterResource;
+use Domain\Chapters\Controllers\ShowChapterResource;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;

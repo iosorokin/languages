@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Core\Base\Model\Values;
 
-use App\Exceptions\InvalidArgumentException;
+use Domain\Exceptions\InvalidArgumentException;
 
 abstract class BaseInvalidValueObject implements InvalidValueObject
 {

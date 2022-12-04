@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Personal\Account\Model\Entities\BaseAuth\Policies;
 
-use App\Exceptions\InvalidArgumentException;
+use Domain\Exceptions\InvalidArgumentException;
 use WIP\Personal\Account\Repositories\AccountRepository;
 
 final class CheckEmailDoesNotExist

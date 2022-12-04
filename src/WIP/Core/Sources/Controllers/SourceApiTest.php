@@ -4,7 +4,7 @@ namespace WIP\Core\Sources\Controllers;
 
 use Core\Base\Test\EndpointCase;
 use Core\Base\Test\Helpers\BaseAuthApiHelper;
-use App\Education\Language\Base\Test\BaseLanguageModuleHelper;
+use Domain\Education\Language\Base\Test\BaseLanguageModuleHelper;
 use Core\Infrastructure\Database\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;
 use WIP\Core\Sources\Helpers\SourceApiHelper;
 

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Core\Sources\Presenters\User;
 
-use App\Controllers\Auth\Internal\GetAuthUser;
+use Domain\Controllers\Auth\Internal\GetAuthUser;
 use WIP\Core\Sources\Presenters\Mixins\CreateSource;
 use WIP\Core\Sources\Structures\Source;
 

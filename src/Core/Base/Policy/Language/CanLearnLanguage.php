@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Core\Base\Policy\Language;
 
-use App\Exceptions\DomainException;
-use App\Education\Language\Base\Model\Aggregate\Language;
+use Domain\Exceptions\DomainException;
+use Domain\Education\Language\Base\Model\Aggregate\Language;
 
 final class CanLearnLanguage
 {

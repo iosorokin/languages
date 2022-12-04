@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Personal\Account\Dto;
 
-use App\Contracts\BaseDto;
+use Domain\Contracts\BaseDto;
 
 abstract class UserDto extends BaseDto
 {

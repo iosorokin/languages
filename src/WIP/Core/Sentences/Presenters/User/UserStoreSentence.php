@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Core\Sentences\Presenters\User;
 
-use App\Controllers\Auth\Internal\GetAuthUser;
+use Domain\Controllers\Auth\Internal\GetAuthUser;
 use WIP\Core\Sentences\Model\Sentence;
 use WIP\Core\Sentences\Presenters\Mixins\CreateSentence;
 

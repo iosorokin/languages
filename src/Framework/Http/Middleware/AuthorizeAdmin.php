@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Framework\Http\Middleware;
 
-use App\Authorization\AdminAuthorization;
-use App\Controllers\Auth\Internal\GetAuthUser;
+use Domain\Authorization\AdminAuthorization;
+use Domain\Controllers\Auth\Internal\GetAuthUser;
 use Closure;
 use Illuminate\Http\Request;
 

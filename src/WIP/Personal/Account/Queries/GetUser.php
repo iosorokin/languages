@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Personal\Account\Queries;
 
-use App\Controllers\Auth\Internal\GetAuthUser;
+use Domain\Controllers\Auth\Internal\GetAuthUser;
 use Exception;
 use Illuminate\Validation\ValidationException;
 use Core\Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;

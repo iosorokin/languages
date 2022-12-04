@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Core\Sentences\Presenters\Mixins;
 
-use App\Sentences\Repositories\SentenceRepository;
+use Domain\Sentences\Repositories\SentenceRepository;
 use Illuminate\Support\Facades\Validator;
 use Core\Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent\EloquentUserModel;
 use Core\Infrastructure\Support\Validation\Rules\BigIntId;

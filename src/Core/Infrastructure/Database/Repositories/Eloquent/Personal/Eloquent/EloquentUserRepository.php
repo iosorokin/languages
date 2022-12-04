@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Core\Infrastructure\Database\Repositories\Eloquent\Personal\Eloquent;
 
 use Core\Base\Model\Values\Identificatiors\Id\BigIntId;
-use App\Account\Domain\UserRepository;
+use Domain\Account\Domain\UserRepository;
 use Illuminate\Support\Facades\DB;
 use Core\Infrastructure\Database\Repositories\Eloquent\Personal\Providers\UserRawDataProvider;
 use Core\Infrastructure\Database\Repositories\Eloquent\Personal\UserDataMapper;

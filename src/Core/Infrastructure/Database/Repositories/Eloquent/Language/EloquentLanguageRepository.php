@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Core\Infrastructure\Database\Repositories\Eloquent\Language;
 
 use Core\Base\Collections\Collection;
-use App\Education\Language\Base\Control\Query\FindLanguage;
-use App\Education\Language\Base\Control\Query\GetLanguages;
-use App\Education\Language\Base\Model\Enum\LanguageStatusEnum;
-use App\Education\Language\Base\Repository\LanguageRepository;
-use App\Education\Language\Base\Repository\Query\Search\SearchByName;
-use App\Education\Language\Base\Repository\Structure\LanguageStructure;
+use Domain\Education\Language\Base\Control\Query\FindLanguage;
+use Domain\Education\Language\Base\Control\Query\GetLanguages;
+use Domain\Education\Language\Base\Model\Enum\LanguageStatusEnum;
+use Domain\Education\Language\Base\Repository\LanguageRepository;
+use Domain\Education\Language\Base\Repository\Query\Search\SearchByName;
+use Domain\Education\Language\Base\Repository\Structure\LanguageStructure;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use Core\Infrastructure\Database\Repositories\Eloquent\Language\Eloquent\Model\LanguageModel;

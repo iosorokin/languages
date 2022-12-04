@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WIP\Personal\Account\Model\Entities\Accesses\Policies;
 
-use App\Exceptions\DomainException;
+use Domain\Exceptions\DomainException;
 use WIP\Personal\Account\Repositories\AccountRepository;
 
 final class EnableRootPolicy implements EnableAccessPolicy
